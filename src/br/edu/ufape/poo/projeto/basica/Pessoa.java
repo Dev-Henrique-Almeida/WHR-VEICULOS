@@ -20,9 +20,13 @@ public abstract class Pessoa {
 		this.endereco = endereco;
 	}
 	
-	
-	
 	public Long getId() {
-		return id;
+		return this.id;
+	}
+	public String getCpf() {
+		return this.cpf;
+	}
+	public String getNome() {
+		return this.nome;
 	}
 }

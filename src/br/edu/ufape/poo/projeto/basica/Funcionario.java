@@ -2,7 +2,7 @@ package br.edu.ufape.poo.projeto.basica;
 
 import java.util.Date;
 
-public abstract class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa {
 	private float salario;
 	
 	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, long id, Endereco endereco,
@@ -18,6 +18,21 @@ public abstract class Funcionario extends Pessoa {
 	}
 	
 	public void procurarVeiculoUsado(VeiculoNovo veiculo) {
+		
+	}
+	public void adicionarVeiculoNovo(VeiculoNovo v) {
+		
+	}
+	
+	public void adicionarVeiculoUsado(VeiculoUsado v) {
+		
+	}
+	
+	public void removerveiculoNovo(VeiculoNovo v) {
+		
+	}
+	
+	public void removerveiculoNovo(VeiculoUsado v) {
 		
 	}
 

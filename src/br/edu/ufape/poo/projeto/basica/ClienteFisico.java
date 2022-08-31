@@ -1,13 +1,17 @@
 package br.edu.ufape.poo.projeto.basica;
 
-public class ClienteFisico extends Cliente {
-	private PessoaFisica pf;
+import java.util.Date;
 
-	public ClienteFisico(String[] idCompras, long id, PessoaFisica pf) {
-		super(idCompras, id);
-		this.pf = pf;
+public class ClienteFisico extends Pessoa {
+	private String idCompras[];
+
+	public ClienteFisico(String cpf, String nome, Date dataNascimento, 
+			String telefone, long id, Endereco endereco) {
+		super(cpf, nome, dataNascimento, telefone, id, endereco);
+		//this.idCompras = new idCompras[];
+		
 	}
-
+	
 
 	
 	
