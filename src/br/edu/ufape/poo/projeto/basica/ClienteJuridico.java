@@ -1,6 +1,7 @@
 package br.edu.ufape.poo.projeto.basica;
 
 public  class ClienteJuridico {
+	private long id;
 	private String nomeEmpresarial;
 	private String nomeFantasia;
 	private String contato;
@@ -9,7 +10,7 @@ public  class ClienteJuridico {
 	private String descricao;
 	
 	public ClienteJuridico(String nomeEmpresarial, String nomeFantasia, String contato, String cnpj, Endereco endereco,
-			String descricao) {
+			String descricao, long id) {
 		super();
 		this.nomeEmpresarial = nomeEmpresarial;
 		this.nomeFantasia = nomeFantasia;
@@ -17,7 +18,11 @@ public  class ClienteJuridico {
 		this.cnpj = cnpj;
 		this.endereco = endereco;
 		this.descricao = descricao;
+		this.id = id;
 	}
 	
+	public Long getId() {
+		return id;
+	}
 	
 }

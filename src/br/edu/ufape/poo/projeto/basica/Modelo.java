@@ -14,13 +14,9 @@ public class Modelo extends Marca {
 	private boolean cambio;
 	private String combustivel;
 	
-	public Modelo(String nome) {
-		super(nome);
-	}
-
-	public Modelo(String nome, String nomeModelo, String motor, float km, String cor, int anoFabricacao, int potencia,
-			int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
-		super(nome);
+	public Modelo(String nome, long id, String nomeModelo, String motor, float km, String cor, int anoFabricacao,
+			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
+		super(nome, id);
 		this.nomeModelo = nomeModelo;
 		this.motor = motor;
 		this.km = km;
@@ -32,6 +28,8 @@ public class Modelo extends Marca {
 		this.cambio = cambio;
 		this.combustivel = combustivel;
 	}
+	
+	
 	
 	
 }

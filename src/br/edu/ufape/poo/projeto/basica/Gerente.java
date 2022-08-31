@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Gerente extends Funcionario {
 
-	public Gerente(String cpf, String nome, Date dataNascimento, String telefone, float salario) {
-		super(cpf, nome, dataNascimento, telefone, salario);
-		
+	public Gerente(String cpf, String nome, Date dataNascimento, String telefone, long id, Endereco endereco,
+			float salario) {
+		super(cpf, nome, dataNascimento, telefone, id, endereco, salario);
 	}
-	
+
 	public void adicionarVeiculoNovo(VeiculoNovo v) {
 		
 	}

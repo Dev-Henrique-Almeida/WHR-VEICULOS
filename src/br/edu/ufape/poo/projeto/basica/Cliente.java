@@ -4,10 +4,12 @@ import java.util.Date;
 
 public abstract class Cliente {
 	private String idCompras[];
+	private long id;
 	
-	public Cliente(String[] idCompras) {
+	public Cliente(String[] idCompras, long id) {
 		super();
 		this.idCompras = idCompras;
+		this.id = id;
 	}
 
 	public Veiculo[] consultarVeiculos(Veiculo[] veiculos) {
@@ -18,6 +20,9 @@ public abstract class Cliente {
 		return false;
 	}
 	
+	public Long getId() {
+		return id;
+	}
 
 	
 }

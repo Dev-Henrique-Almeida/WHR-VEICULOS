@@ -5,16 +5,22 @@ import java.util.Date;
 public abstract class Pessoa {
 	private String cpf;
 	private String nome;
-	//private Endereco endereco;
+	private long id;
+	private Endereco endereco;
 	private Date dataNascimento;
 	private String telefone;
 	
 	public Pessoa(String cpf, String nome, Date dataNascimento,
-			String telefone){
+			String telefone, long id, Endereco endereco){
 		this.cpf = cpf;
 		this.nome = nome;
-		//this.endereco = endereco;
 		this.dataNascimento = dataNascimento;
 		this.telefone = telefone;
+		this.id = id;
+		this.endereco = endereco;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 }
