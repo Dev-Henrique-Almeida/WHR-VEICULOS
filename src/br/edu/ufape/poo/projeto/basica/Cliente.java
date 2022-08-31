@@ -23,6 +23,8 @@ public abstract class Cliente {
 	public Long getId() {
 		return id;
 	}
+	
+	
 
 	
 }

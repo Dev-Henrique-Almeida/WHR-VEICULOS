@@ -20,6 +20,8 @@ public abstract class Pessoa {
 		this.endereco = endereco;
 	}
 	
+	
+	
 	public Long getId() {
 		return id;
 	}
