@@ -19,7 +19,7 @@ public class RepositorioClienteArrayList implements RepositorioCliente {
 	@Override
 	public Cliente procurarClienteNome(String nome) {
 		for(Cliente c: this.clientes) 
-			if(c.getNome().equals(nome))
+			//if(c.getNome().equals(nome))
 				return c;
 		return null;
 	}
