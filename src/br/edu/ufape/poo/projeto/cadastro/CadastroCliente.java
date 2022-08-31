@@ -1,4 +1,5 @@
 package br.edu.ufape.poo.projeto.cadastro;
+import br.edu.ufape.poo.projeto.repositorio.RepositorioCliente;
 
 import java.util.List;
 
