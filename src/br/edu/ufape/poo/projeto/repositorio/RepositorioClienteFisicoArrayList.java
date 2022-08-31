@@ -18,7 +18,7 @@ public class RepositorioClienteFisicoArrayList implements RepositorioClienteFisi
 	@Override
 	public ClienteFisico procurarClienteFisicoNome(String nome) {
 		for(ClienteFisico c: this.clientes) 
-			//if(c.getNome().equals(nome))
+			if(c.getNome().equals(nome))
 				return c;
 		return null;
 	}
