@@ -31,5 +31,11 @@ public class RepositorioOrdemVendaArrayList implements RepositorioOrdemVenda {
 		return null;
 	}
 
+	@Override
+	public float procurarOrdemVEndaEntre(float a, float b) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

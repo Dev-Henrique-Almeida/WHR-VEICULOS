@@ -1,5 +1,6 @@
 package br.edu.ufape.poo.projeto.repositorio;
 
+import java.util.Date;
 import java.util.List;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
@@ -47,6 +48,23 @@ public class RepositorioVeiculoArrayList implements RepositorioVeiculo {
 	public List<Veiculo> findByModelo(Modelo modelo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void removerVeiculo(Veiculo v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Veiculo consultarVeiuclo(Veiculo[] veiculos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void agendarVisita(Veiculo v, Date d) {
+		// TODO Auto-generated method stub
 	}
 
 }
