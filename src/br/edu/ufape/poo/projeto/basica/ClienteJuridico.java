@@ -1,6 +1,6 @@
 package br.edu.ufape.poo.projeto.basica;
 
-public  class ClienteJuridico {
+public class ClienteJuridico {
 	private long id;
 	private String nomeEmpresarial;
 	private String nomeFantasia;
@@ -23,6 +23,14 @@ public  class ClienteJuridico {
 	
 	public Long getId() {
 		return id;
+	}
+	
+	public String getCnpj () {
+		return cnpj;
+	}
+	
+	public String getNomeEmpresarial() {
+		return nomeEmpresarial;
 	}
 	
 }
