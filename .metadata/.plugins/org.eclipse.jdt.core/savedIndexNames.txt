@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\BCC\2º Periodo\Estudos\POO\WHR-VEICULOS\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-2238037620.index
-1519549194.index
