@@ -1,4 +1,6 @@
 package br.edu.ufape.poo.projeto.repositorio;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
@@ -11,13 +13,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long> {
 
-	Funcionario findbyNome(String nome);
+	List<Funcionario> findbyNome(String nome);
 
-	Funcionario findByCargo(String cargo);
+	List<Funcionario> findByCargo(String cargo);
 
 	void deleteByCpf(String cpf);
 
-	Veiculo findbyVeiculo(Veiculo v);
+	List<Veiculo> findbyVeiculo(Veiculo v);
 
 	ClienteFisico save(ClienteFisico entity);
 
