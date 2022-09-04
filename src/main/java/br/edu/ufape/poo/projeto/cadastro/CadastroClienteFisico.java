@@ -3,12 +3,19 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import java.util.List;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+>>>>>>> 81d867d41c547bc36a74a9634882a7e516545523
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 
+<<<<<<< HEAD
 @Service
+=======
+
+>>>>>>> 81d867d41c547bc36a74a9634882a7e516545523
 public class CadastroClienteFisico {
 	
 	@Autowired
