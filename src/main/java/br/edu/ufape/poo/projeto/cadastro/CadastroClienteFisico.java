@@ -2,7 +2,6 @@ package br.edu.ufape.poo.projeto.cadastro;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +15,6 @@ public class CadastroClienteFisico {
 
 	public ClienteFisico save(ClienteFisico entity) {
 		return repositorioClienteFisico.save(entity);
-	}
-
-	public List<ClienteFisico> findAll() {
-		return repositorioClienteFisico.findAll();
 	}
 
 	public void delete(ClienteFisico entity) {
@@ -38,7 +33,9 @@ public class CadastroClienteFisico {
 		return repositorioClienteFisico.findByNomePF(nome);
 	}
 	
-
+	public List<ClienteFisico> findAll() {
+		return repositorioClienteFisico.findAll();
+	}
 		
 
 }

@@ -1,4 +1,6 @@
 package br.edu.ufape.poo.projeto.repositorio;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
@@ -15,6 +17,15 @@ public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long>
 
 	Funcionario findByCargo(String cargo);
 
-	void deleteByCpf(String cpf);	
-	
+	void deleteByCpf(String cpf);
+
+	Veiculo findbyVeiculo(Veiculo v);
+
+	ClienteFisico save(ClienteFisico entity);
+
+	ClienteJuridico save(ClienteJuridico entity);
+
+	List<Funcionario> findAllFuncionario();
+
+	List<Veiculo> findAllVeiculo();
 }

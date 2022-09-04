@@ -15,17 +15,24 @@ public class CadastroVeiculo {
 
 	@Autowired
 	private RepositorioVeiculo repositorioveiculo;
-
 	
-	public List<Veiculo> findByVeiculo(Veiculo veiculo) {
+	public Veiculo save(Veiculo entity) {
+		return repositorioveiculo.save(entity);
+	}
+
+	public void delete(Veiculo entity) {
+			repositorioveiculo.delete(entity);
+	}
+	
+	public Veiculo findByVeiculo(Veiculo veiculo) {
 		return repositorioveiculo.findByVeiculo(veiculo);
 	}
 	
-	public List<Modelo> findByModelo(Modelo modelo) {
+	public Modelo findByModelo(Modelo modelo) {
 		return repositorioveiculo.findByModelo(modelo);
 	}
 	
-	public List<Veiculo> findByVeiculoEntre(float a, float b) {
+	public Veiculo findByVeiculoEntre(float a, float b) {
 		return repositorioveiculo.findByVeiculoEntre(a,b);
 	}
 	
@@ -41,9 +48,7 @@ public class CadastroVeiculo {
 		return repositorioveiculo.findAllModelo();
 	}
 
-	public void delete(Veiculo entity) {
-		repositorioveiculo.delete(entity);
-	}
+	
 	
 	
 	

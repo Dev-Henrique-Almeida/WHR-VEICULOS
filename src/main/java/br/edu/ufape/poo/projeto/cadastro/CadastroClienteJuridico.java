@@ -11,24 +11,25 @@ public class CadastroClienteJuridico {
 	
 	@Autowired
 	private RepositorioClienteJuridico repositorioClienteJuridico;
-
-	public ClienteJuridico findBycnpj(String cnpj) {
-		return repositorioClienteJuridico.findBycnpj(cnpj);
-	}
+	
+	public ClienteJuridico save(ClienteJuridico entity) {
+			return repositorioClienteJuridico.save(entity);
+		}
+	
+	public void delete(ClienteJuridico entity) {
+		repositorioClienteJuridico.delete(entity);
+		}
 
 	public void deleteByCnpj(String cnpj) {
 		repositorioClienteJuridico.deleteByCnpj(cnpj);
 	}
-	public void delete(ClienteJuridico entity) {
-		repositorioClienteJuridico.delete(entity);
+	
+	public ClienteJuridico findBycnpj(String cnpj) {
+		return repositorioClienteJuridico.findBycnpj(cnpj);
 	}
 
 	public ClienteJuridico findByNomeFantasia(String nomeFantasia) {
-		return repositorioClienteJuridico.findByNomeCnpj(nomeFantasia);
-	}
-
-	public ClienteJuridico save(ClienteJuridico entity) {
-		return repositorioClienteJuridico.save(entity);
+		return repositorioClienteJuridico.findByNomeFantasia(nomeFantasia);
 	}
 
 	public List<ClienteJuridico> findAll() {

@@ -4,7 +4,6 @@ import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 @Repository
 public interface RepositorioClienteJuridico extends JpaRepository<ClienteJuridico, Long>{
@@ -14,5 +13,7 @@ public interface RepositorioClienteJuridico extends JpaRepository<ClienteJuridic
 	void deleteByCnpj(String cnpj);
 	
 	ClienteJuridico findByNomeCnpj(String cnpj);
+
+	ClienteJuridico findByNomeFantasia(String nomeFantasia);
 
 }
