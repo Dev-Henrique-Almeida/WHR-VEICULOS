@@ -12,5 +12,17 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface RepositorioVeiculo extends JpaRepository<Veiculo, Long>{
+
+	List<Veiculo> findByVeiculo(Veiculo veiculo);
+
+	List<Modelo> findByModelo(Modelo modelo);
+
+	List<Veiculo> findByVeiculoEntre(float a, float b);
+
+	List<Veiculo> findAllVeiculoUsado();
+
+	List<Veiculo> findAllVeiculoNovo();
+
+	List<Modelo> findAllModelo();
 		
 }
