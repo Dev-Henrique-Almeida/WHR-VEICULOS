@@ -1,19 +1,12 @@
 package br.edu.ufape.poo.projeto.repositorio;
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
+@Repository
+public interface RepositorioClienteJuridico extends JpaRepository<ClienteJuridico, Long>{
 
-
-
-public interface RepositorioClienteJuridico {
-
-	void adicionarClienteJuridico(ClienteJuridico c);
-
-	ClienteJuridico procurarClienteJuridicoNome(String nome);
-
-	ClienteJuridico procurarClienteJuridicoCnpj(String cpf);
-
-	List<ClienteJuridico> listarClientesJuridico();
-
-	void atualizarClienteJuridico(ClienteJuridico c);
+	
 
 }

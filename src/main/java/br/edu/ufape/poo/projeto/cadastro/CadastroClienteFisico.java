@@ -3,7 +3,10 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
+
 
 public class CadastroClienteFisico {
 	private RepositorioClienteFisico repositorioClienteFisico;
