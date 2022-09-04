@@ -6,10 +6,14 @@ import br.edu.ufape.poo.projeto.basica.OrdemVenda;
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CadastroOrdemVenda {
-	
-private RepositorioOrdemVenda repositorioOrdemVenda;
+
+	@Autowired
+	private RepositorioOrdemVenda repositorioOrdemVenda;
 	
 	public CadastroOrdemVenda(RepositorioOrdemVenda repositorioOrdemVenda) {
 		this.repositorioOrdemVenda = repositorioOrdemVenda;
