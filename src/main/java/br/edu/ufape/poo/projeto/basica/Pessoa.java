@@ -2,11 +2,23 @@ package br.edu.ufape.poo.projeto.basica;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 public abstract class Pessoa {
 	private String cpf;
 	private String nome;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
+	
 	private Date dataNascimento;
 	private String telefone;
 	
