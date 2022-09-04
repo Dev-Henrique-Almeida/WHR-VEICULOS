@@ -14,33 +14,5 @@ public class CadastroOrdemVenda {
 
 	@Autowired
 	private RepositorioOrdemVenda repositorioOrdemVenda;
-	
-	public CadastroOrdemVenda(RepositorioOrdemVenda repositorioOrdemVenda) {
-		this.repositorioOrdemVenda = repositorioOrdemVenda;
-	}
-	
-	public RepositorioOrdemVenda getRepositorioOrdemVenda() {
-		return repositorioOrdemVenda;
-	}
-	
-	public void setRepositorioOrdemVenda(RepositorioOrdemVenda repositorioOrdemVenda) {
-		this.repositorioOrdemVenda = repositorioOrdemVenda;
-	}
-	
-	public OrdemVenda procurarOrdemVenda(String codigoVenda) {
-		return repositorioOrdemVenda.procurarOrdemVenda(codigoVenda);
-	}
-
-	public OrdemVenda procurarProcurarVendedor(Funcionario f) {
-		return repositorioOrdemVenda.procurarVendedor(f);
-	}
-
-	public List<OrdemVenda> listarOrdemVendaPessoaJuridica() {
-		return repositorioOrdemVenda.listarOrdemVendaPessoaJuridica();
-	}
-	
-	public List<OrdemVenda> listarOrdemVendaPessoaFisica() {
-		return repositorioOrdemVenda.listarOrdemVendaPessoaFisica();
-	}
 
 }
