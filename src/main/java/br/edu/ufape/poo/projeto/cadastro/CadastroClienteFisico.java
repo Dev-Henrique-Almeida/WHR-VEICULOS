@@ -2,6 +2,7 @@ package br.edu.ufape.poo.projeto.cadastro;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,11 +30,11 @@ public class CadastroClienteFisico {
 		repositorioClienteFisico.deleteByCpf(cpf);
 	}
 
-	public List<ClienteFisico> findByCpf(String cpf) {
+	public ClienteFisico findByCpf(String cpf) {
 		return repositorioClienteFisico.findByCpf(cpf);
 	}
 	
-	public List<ClienteFisico>  findByNomePF(String nome) {
+	public ClienteFisico findByNomePF(String nome) {
 		return repositorioClienteFisico.findByNomePF(nome);
 	}
 	

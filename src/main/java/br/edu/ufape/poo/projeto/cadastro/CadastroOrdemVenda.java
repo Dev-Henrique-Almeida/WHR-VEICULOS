@@ -15,4 +15,24 @@ public class CadastroOrdemVenda {
 	@Autowired
 	private RepositorioOrdemVenda repositorioOrdemVenda;
 
+	public OrdemVenda findbyCodigoVenda(String codigoVenda) {
+		return repositorioOrdemVenda.findbyCodigoVenda(codigoVenda);
+	}
+
+	public void deleteBycodigoVenda(String codigoVenda) {
+		repositorioOrdemVenda.deleteBycodigoVenda(codigoVenda);
+	}
+
+	public OrdemVenda save(OrdemVenda entity) {
+		return repositorioOrdemVenda.save(entity);
+	}
+
+	public List<OrdemVenda> findAll() {
+		return repositorioOrdemVenda.findAll();
+	}
+
+	public void deleteById(Long id) {
+		repositorioOrdemVenda.deleteById(id);
+	}
+	
 }

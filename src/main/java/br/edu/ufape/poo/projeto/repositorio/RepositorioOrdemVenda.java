@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface RepositorioOrdemVenda extends JpaRepository<OrdemVenda, Long>{
-	
+	OrdemVenda findbyCodigoVenda(String codigoVenda);
+
+	void deleteBycodigoVenda(String codigoVenda);	
 
 }
