@@ -1,5 +1,8 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Modelo extends Marca {
 	
 	

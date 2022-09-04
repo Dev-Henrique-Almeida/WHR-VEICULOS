@@ -1,11 +1,28 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClienteJuridico {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String nomeEmpresarial;
 	private String nomeFantasia;
 	private String contato;
 	private String cnpj;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	private String descricao;
 	

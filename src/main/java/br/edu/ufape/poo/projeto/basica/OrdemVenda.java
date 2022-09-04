@@ -2,6 +2,17 @@ package br.edu.ufape.poo.projeto.basica;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class OrdemVenda {
 	private float valor;
 	private Veiculo veiculo;
@@ -11,7 +22,13 @@ public abstract class OrdemVenda {
 	private boolean pago;
 	private boolean vendaConcluida;
 	private String codVenda;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Funcionario vendedor;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	public OrdemVenda(float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String formaPagamento,

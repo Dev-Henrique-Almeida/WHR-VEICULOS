@@ -3,11 +3,16 @@ package br.edu.ufape.poo.projeto.basica;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {
 	private String cpf;
 	private String nome;

@@ -1,6 +1,10 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Endereco {
+	
 	private String cep;
 	private String rua;
 	private String cidade;

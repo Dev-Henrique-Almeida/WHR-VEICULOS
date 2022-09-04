@@ -2,6 +2,9 @@ package br.edu.ufape.poo.projeto.basica;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Funcionario extends Pessoa {
 	private float salario;
 	

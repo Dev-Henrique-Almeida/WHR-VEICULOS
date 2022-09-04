@@ -1,5 +1,8 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import javax.persistence.Entity;
+
+@Entity
 public class VeiculoUsado extends Veiculo {
 	private String km;
 	private boolean revisado;
