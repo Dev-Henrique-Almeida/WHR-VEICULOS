@@ -1,4 +1,4 @@
-package com.example.WHRVEICULOS;
+package br.edu.ufape.poo.WHRVEICULOS;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
