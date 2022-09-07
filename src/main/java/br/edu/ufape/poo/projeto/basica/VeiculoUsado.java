@@ -2,6 +2,8 @@ package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
 
+import br.edu.ufape.poo.projeto.basica.Veiculo;
+
 @Entity
 public class VeiculoUsado extends Veiculo {
 	private String km;

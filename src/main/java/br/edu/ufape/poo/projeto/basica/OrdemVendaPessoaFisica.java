@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import br.edu.ufape.poo.projeto.basica.Veiculo;
+
 @Entity
 public class OrdemVendaPessoaFisica extends OrdemVenda {
 

@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
-import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
+import br.edu.ufape.poo.projeto.fachada.Concessionaria;
+
 
 @CrossOrigin (origins = "http://localhost:8080/" )
 @RestController
 @RequestMapping( "/whr/api/v1/")
 public class ClienteFisicoController {
 	@Autowired
-	private RepositorioClienteFisico repositorioClienteFisico;
+	private Concessionaria concessionaria;
 	
 	@PostMapping("clienteFisico")
 	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cf) {
-		return repositorioClienteFisico.save(cf);
+		return concessionaria.save(cf);
 	}
 
 }

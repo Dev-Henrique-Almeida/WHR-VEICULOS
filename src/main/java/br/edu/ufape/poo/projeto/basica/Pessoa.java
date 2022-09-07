@@ -24,8 +24,58 @@ public abstract class Pessoa {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	private Date dataNascimento;
 	private String telefone;
+	
+	
+	public Long getId() {
+		return this.id;
+	}
+	public String getCpf() {
+		return this.cpf;
+	}
+	public String getNome() {
+		return this.nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+	private Pessoa () {
+		
+	}
 	
 	public Pessoa(String cpf, String nome, Date dataNascimento,
 			String telefone, long id, Endereco endereco){
@@ -37,13 +87,4 @@ public abstract class Pessoa {
 		this.endereco = endereco;
 	}
 	
-	public Long getId() {
-		return this.id;
-	}
-	public String getCpf() {
-		return this.cpf;
-	}
-	public String getNome() {
-		return this.nome;
-	}
 }

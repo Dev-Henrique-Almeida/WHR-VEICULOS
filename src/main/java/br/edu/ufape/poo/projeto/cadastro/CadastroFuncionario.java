@@ -2,9 +2,8 @@ package br.edu.ufape.poo.projeto.cadastro;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.basica.Veiculo;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioFuncionario;
-
+import br.edu.ufape.poo.projeto.basica.Veiculo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,39 +19,45 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.save(entity);
 	}
 	
-	public ClienteFisico save(ClienteFisico entity) {
-		return repositorioFuncionario.save(entity);
-	}
+	//public ClienteFisico save(ClienteFisico entity) {
+	//	return repositorioFuncionario.save(entity);
+	//}
 	
-	public ClienteJuridico save(ClienteJuridico entity) {
-		return repositorioFuncionario.save(entity);
-	}
+	//public ClienteJuridico save(ClienteJuridico entity) {
+	//	return repositorioFuncionario.save(entity);
+	//}
 
-	public Funcionario findByNome(String nome) {
-		return repositorioFuncionario.findbyNome(nome);
-	}
+	//public Funcionario findByNome(String nome) {
+	//	return repositorioFuncionario.findbyNome(nome);
+	//}
 	
-	public Funcionario findByCargo(String cargo) {
-		return repositorioFuncionario.findByCargo(cargo);
-	}
+	//public Funcionario findByCargo(String cargo) {
+	//	return repositorioFuncionario.findByCargo(cargo);
+	//}
 	
-	public Veiculo findbyVeiculo(Veiculo v) {
-		return repositorioFuncionario.findbyVeiculo(v);
-	}
+	//public Veiculo findbyVeiculo(Veiculo v) {
+	//	return repositorioFuncionario.findbyVeiculo(v);
+	//}
 	
 	public void delete(Funcionario entity) {
 			repositorioFuncionario.delete(entity);
 	}
-	
-	public void deleteByCpf(String cpf) {
-		repositorioFuncionario.deleteByCpf(cpf);
+
+	public List<Funcionario> findAll() {
+		return repositorioFuncionario.findAll();
 	}
+	
+	//public void deleteByCpf(String cpf) {
+	//	repositorioFuncionario.deleteByCpf(cpf);
+	//}
 		
-	public List<Funcionario> findAllFuncionario() {
-		return repositorioFuncionario.findAllFuncionario();
-	}
+	//public List<Funcionario> findAllFuncionario() {
+	//	return repositorioFuncionario.findAllFuncionario();
+	//}
 	
-	public List<Veiculo> findAllVeiculo(){
-		return repositorioFuncionario.findAllVeiculo();
-	}
+	//public List<Veiculo> findAllVeiculo(){
+	//	return repositorioFuncionario.findAllVeiculo();
+	//}
+	
+	
 }

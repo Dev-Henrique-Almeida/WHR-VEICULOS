@@ -10,7 +10,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Veiculo {
 	private float valorCompraVeiculo;
 	private float valorVenda;

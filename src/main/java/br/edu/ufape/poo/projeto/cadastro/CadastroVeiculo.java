@@ -1,8 +1,8 @@
 package br.edu.ufape.poo.projeto.cadastro;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
-import br.edu.ufape.poo.projeto.basica.Veiculo;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculo;
+import br.edu.ufape.poo.projeto.basica.Veiculo;
 
 import java.util.List;
 
@@ -23,30 +23,35 @@ public class CadastroVeiculo {
 	public void delete(Veiculo entity) {
 			repositorioveiculo.delete(entity);
 	}
-	
-	public Veiculo findByVeiculo(Veiculo veiculo) {
-		return repositorioveiculo.findByVeiculo(veiculo);
+
+	public List<Veiculo> findAll() {
+		return repositorioveiculo.findAll();
 	}
 	
-	public Modelo findByModelo(Modelo modelo) {
-		return repositorioveiculo.findByModelo(modelo);
-	}
+		
+	//public Veiculo findByVeiculo(Veiculo veiculo) {
+	//	return repositorioveiculo.findByVeiculo(veiculo);
+	//}
 	
-	public Veiculo findByVeiculoEntre(float a, float b) {
-		return repositorioveiculo.findByVeiculoEntre(a,b);
-	}
+	//public Modelo findByModelo(Modelo modelo) {
+	//	return repositorioveiculo.findByModelo(modelo);
+	//}
 	
-	public List<Veiculo> findAllVeiculoUsado() {
-		return repositorioveiculo.findAllVeiculoUsado();
-	}
+	//public Veiculo findByVeiculoEntre(float a, float b) {
+	//	return repositorioveiculo.findByVeiculoEntre(a,b);
+	//}
 	
-	public List<Veiculo> findAllVeiculoNovo() {
-		return repositorioveiculo.findAllVeiculoNovo();
-	}
+	//public List<Veiculo> findAllVeiculoUsado() {
+	//	return repositorioveiculo.findAllVeiculoUsado();
+	//}
 	
-	public List<Modelo> findAllModelo() {
-		return repositorioveiculo.findAllModelo();
-	}
+	//public List<Veiculo> findAllVeiculoNovo() {
+	//	return repositorioveiculo.findAllVeiculoNovo();
+	//}
+	
+	//public List<Modelo> findAllModelo() {
+	//	return repositorioveiculo.findAllModelo();
+	//}
 
 	
 	

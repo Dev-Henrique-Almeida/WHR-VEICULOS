@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositorioClienteJuridico extends JpaRepository<ClienteJuridico, Long>{
 
-	ClienteJuridico findBycnpj(String cnpj);
+	//ClienteJuridico findBycnpj(String cnpj);
 
-	void deleteByCnpj(String cnpj);
+	//void deleteByCnpj(String cnpj);
 	
-	ClienteJuridico findByNomeCnpj(String cnpj);
+	//ClienteJuridico findByNomeCnpj(String cnpj);
 
-	ClienteJuridico findByNomeFantasia(String nomeFantasia);
+	//ClienteJuridico findByNomeFantasia(String nomeFantasia);
 
 }

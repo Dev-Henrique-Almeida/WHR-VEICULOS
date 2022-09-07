@@ -1,9 +1,16 @@
 package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Endereco {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	
 	private String cep;
 	private String rua;
@@ -20,6 +27,41 @@ public class Endereco {
 		this.estado = estado;
 		this.numero = numero;
 	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+	public String getRua() {
+		return rua;
+	}
+
+
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public int getNumero() {
+		return numero;
+	}
+	
+	public Endereco() {
+	}
+
+	
 	
 	
 }

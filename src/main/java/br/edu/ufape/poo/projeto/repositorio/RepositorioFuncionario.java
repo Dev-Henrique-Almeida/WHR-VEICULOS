@@ -7,25 +7,24 @@ import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.basica.Veiculo;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long> {
 
-	Funcionario findbyNome(String nome);
+	//Funcionario findbyNome(String nome);
 
-	Funcionario findByCargo(String cargo);
+	//Funcionario findByCargo(String cargo);
 
-	void deleteByCpf(String cpf);
+	//void deleteByCpf(String cpf);
 
-	Veiculo findbyVeiculo(Veiculo v);
+	//Veiculo findbyVeiculo(Veiculo v);
 
-	ClienteFisico save(ClienteFisico entity);
+	//ClienteFisico save(ClienteFisico entity);
 
-	ClienteJuridico save(ClienteJuridico entity);
+	//ClienteJuridico save(ClienteJuridico entity);
 
-	List<Funcionario> findAllFuncionario();
+	//List<Funcionario> findAllFuncionario();
 
-	List<Veiculo> findAllVeiculo();
+	//List<Veiculo> findAllVeiculo();
 }

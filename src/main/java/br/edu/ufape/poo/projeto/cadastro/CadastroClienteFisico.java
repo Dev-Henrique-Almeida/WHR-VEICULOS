@@ -21,17 +21,17 @@ public class CadastroClienteFisico {
 		repositorioClienteFisico.delete(entity);
 	}
 
-	public void deleteByCpf(String cpf) {
-		repositorioClienteFisico.deleteByCpf(cpf);
-	}
+	//public void deleteByCpf(String cpf) {
+	//	repositorioClienteFisico.deleteByCpf(cpf);
+	//}
 
-	public ClienteFisico findByCpf(String cpf) {
-		return repositorioClienteFisico.findByCpf(cpf);
-	}
+	//public ClienteFisico findByCpf(String cpf) {
+	//	return repositorioClienteFisico.findByCpf(cpf);
+	//}
 	
-	public ClienteFisico findByNomePF(String nome) {
-		return repositorioClienteFisico.findByNomePF(nome);
-	}
+	//public ClienteFisico findByNomePF(String nome) {
+	//	return repositorioClienteFisico.findByNomePF(nome);
+	//}
 	
 	public List<ClienteFisico> findAll() {
 		return repositorioClienteFisico.findAll();
