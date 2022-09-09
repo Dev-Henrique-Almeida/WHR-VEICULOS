@@ -21,15 +21,11 @@ public class Modelo extends Marca {
 		super();
 	}
 	
-<<<<<<< HEAD
+
 	public Modelo(String nomeMarca, String nomeModelo, String motor, float km, String cor, int anoFabricado,
 			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
 		super(nomeMarca);
-=======
-	public Modelo(String nome, String nomeModelo, String motor, float km, String cor, int anoFabricacao,
-			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
-		super(nome);
->>>>>>> 05adb9d885c5c4a4453611cbc0a3ca63f1d15da9
+
 		this.nomeModelo = nomeModelo;
 		this.motor = motor;
 		this.km = km;
