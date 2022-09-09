@@ -35,7 +35,7 @@ class WhrApplicationTests {
 	void cadastroPessoaFisica() {
 		ClienteFisico cf = new ClienteFisico("123454", "Will", new Date(), null, 0, new Endereco(null, null, "Garanhuns", null, 0));
 		ccf.save(cf);
-	}
+	}/*
 	@Test
 	void merda() {
 		
@@ -45,13 +45,13 @@ class WhrApplicationTests {
 		cvn.save(vn);
 		cvn.save(vn2);
 		cvn.save(vn3);
-	}
-
+	}/*
+/*
 	@Test
 	void findVeiculosByModelo() {
 		List<Veiculo> veiculos = cvn.findByModelo(new Modelo("Celta", 13, "Confusão de jovens desocupados", null, 0, null, 0,0,0,0, true,null));
 		for(Veiculo v: veiculos) {
 			System.out.println(v.toString());
 		}
-	}
+	}*/
 }

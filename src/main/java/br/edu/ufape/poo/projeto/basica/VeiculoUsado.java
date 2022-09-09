@@ -10,9 +10,9 @@ public class VeiculoUsado extends Veiculo {
 	private boolean revisado;
 	private boolean unicoDono;
 
-	public VeiculoUsado(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, long id, String km,
+	public VeiculoUsado(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, String km,
 			boolean revisado, boolean unicoDono) {
-		super(valorCompraVeiculo, valorVenda, vendido, modelo, id);
+		super(valorCompraVeiculo, valorVenda, vendido, modelo);
 		this.km = km;
 		this.revisado = revisado;
 		this.unicoDono = unicoDono;

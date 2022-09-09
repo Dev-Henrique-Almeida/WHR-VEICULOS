@@ -26,13 +26,12 @@ public abstract class Veiculo {
 	public Veiculo() {}
 	
 	public Veiculo(float valorCompraVeiculo,float valorVenda, boolean vendido,
-			Modelo modelo, long id) {
+			Modelo modelo) {
 		this.valorCompraVeiculo = valorCompraVeiculo;
 		this.valorVenda = valorVenda;
 		this.vendido = vendido;
 		this.vendido = vendido;
 		this.modelo = modelo;
-		this.id = id;
 
 	}
 	

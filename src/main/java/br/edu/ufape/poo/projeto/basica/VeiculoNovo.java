@@ -13,7 +13,7 @@ public class VeiculoNovo extends Veiculo {
 	}
 	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, long id,
 			boolean garantiaFabrica) {
-		super(valorCompraVeiculo, valorVenda, vendido, modelo, id);
+		super(valorCompraVeiculo, valorVenda, vendido, modelo);
 		this.garantiaFabrica = garantiaFabrica;
 	}
 

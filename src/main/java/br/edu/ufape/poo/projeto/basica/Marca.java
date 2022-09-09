@@ -17,10 +17,9 @@ public abstract class Marca {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	public Marca(String nome, long id) {
+	public Marca(String nome) {
 		super();
 		this.nome = nome;
-		this.id = id;
 	}
 	
 	public Marca() {
