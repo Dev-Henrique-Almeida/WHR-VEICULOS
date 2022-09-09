@@ -15,24 +15,24 @@ public class CadastroOrdemVenda {
 	public OrdemVenda save(OrdemVenda entity) {
 		return repositorioOrdemVenda.save(entity);
 	}
-	
-	//public OrdemVenda findbyCodigoVenda(String codigoVenda) {
-	//	return repositorioOrdemVenda.findbyCodigoVenda(codigoVenda);
-	//}
+	/*
+	public OrdemVenda findbyCodigoVenda(String codigoVenda) {
+		return repositorioOrdemVenda.findbyCodigoVenda(codigoVenda);
+	}
 	
 	public void deleteById(Long id) {
 		repositorioOrdemVenda.deleteById(id);
 	}
 
 
-	//public void deleteBycodigoVenda(String codigoVenda) {
-	//	repositorioOrdemVenda.deleteBycodigoVenda(codigoVenda);
-	//}
+	public void deleteBycodigoVenda(String codigoVenda) {
+		repositorioOrdemVenda.deleteBycodigoVenda(codigoVenda);
+	}
 	
 	public List<OrdemVenda> findAll() {
 		return repositorioOrdemVenda.findAll();
 	}
-
+*/
 	
 	
 }

@@ -23,6 +23,10 @@ public abstract class Marca {
 		this.id = id;
 	}
 	
+	public Marca() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}

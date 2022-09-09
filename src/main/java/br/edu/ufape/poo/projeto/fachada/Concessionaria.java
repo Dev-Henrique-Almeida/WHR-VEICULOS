@@ -32,10 +32,10 @@ public class Concessionaria {
 	//public ClienteFisico findByNomePF(String nome) {
 	//	return cadastroClienteFisico.findByNomePF(nome);
 	//}
-	
+	/*
 	public List<ClienteFisico> findAll() {
 		return cadastroClienteFisico.findAll();
-	}
+	}*/
 	
 	
 }

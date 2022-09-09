@@ -10,6 +10,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Veiculo {
 	private float valorCompraVeiculo;
 	private float valorVenda;
@@ -22,6 +23,7 @@ public abstract class Veiculo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	public Veiculo() {}
 	
 	public Veiculo(float valorCompraVeiculo,float valorVenda, boolean vendido,
 			Modelo modelo, long id) {
@@ -37,4 +39,15 @@ public abstract class Veiculo {
 	public Long getId() {
 		return id;
 	}
+	
+	public float getValorVenda() {
+		return valorVenda;
+	}
+
+	@Override
+	public String toString() {
+		return "Veiculo [valorCompraVeiculo=" + valorCompraVeiculo + ", valorVenda=" + valorVenda + ", vendido="
+				+ vendido + ", modelo=" + modelo + ", id=" + id + "]";
+	}
+	
 }

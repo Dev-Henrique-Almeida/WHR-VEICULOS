@@ -21,7 +21,7 @@ public abstract class Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Endereco endereco;
 	
 	public void setCpf(String cpf) {
@@ -73,9 +73,7 @@ public abstract class Pessoa {
 	public String getTelefone() {
 		return telefone;
 	}
-	private Pessoa () {
-		
-	}
+	
 	
 	public Pessoa(String cpf, String nome, Date dataNascimento,
 			String telefone, long id, Endereco endereco){
@@ -87,4 +85,7 @@ public abstract class Pessoa {
 		this.endereco = endereco;
 	}
 	
+	protected Pessoa() {
+		
+	}
 }

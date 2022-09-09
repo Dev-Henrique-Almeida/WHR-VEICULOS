@@ -16,10 +16,15 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculo;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class OrdemVenda {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
 	private float valor;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Veiculo veiculo;
+	
 	private boolean novo;
 	private Date dataOperacao;
 	private String formaPagamento;
@@ -30,11 +35,7 @@ public abstract class OrdemVenda {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Funcionario vendedor;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
+		
 	public OrdemVenda(float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String formaPagamento,
 			boolean pago, boolean vendaConcluida, String codVenda, Funcionario vendedor, long id) {
 		super();
@@ -135,6 +136,9 @@ public abstract class OrdemVenda {
 		return "OrdemVenda [valor=" + valor + ", veiculo=" + veiculo + ", novo=" + novo + ", dataOperacao="
 				+ dataOperacao + ", formaPagamento=" + formaPagamento + ", pago=" + pago + ", vendaConcluida="
 				+ vendaConcluida + ", codVenda=" + codVenda + ", vendedor=" + vendedor + ", id=" + id + "]";
+	}
+	
+	public OrdemVenda() {
 	}
 	
 	

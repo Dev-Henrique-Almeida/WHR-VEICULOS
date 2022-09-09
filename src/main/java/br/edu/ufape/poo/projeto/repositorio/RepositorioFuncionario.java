@@ -12,19 +12,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long> {
 
-	//Funcionario findbyNome(String nome);
+	public Funcionario findByNome(String nome);
 
-	//Funcionario findByCargo(String cargo);
+	public Funcionario findByCargo(String cargo);
 
-	//void deleteByCpf(String cpf);
+	public void deleteByCpf(String cpf);
 
-	//Veiculo findbyVeiculo(Veiculo v);
+	//public Veiculo findByVeiculo(Veiculo v);
 
-	//ClienteFisico save(ClienteFisico entity);
+	public ClienteFisico save(ClienteFisico entity);
 
-	//ClienteJuridico save(ClienteJuridico entity);
+	public ClienteJuridico save(ClienteJuridico entity);
 
-	//List<Funcionario> findAllFuncionario();
-
-	//List<Veiculo> findAllVeiculo();
 }

@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepositorioOrdemVenda extends JpaRepository<OrdemVenda, Long>{
-	//OrdemVenda findbyCodigoVenda(String codigoVenda);
+	/*
+	public OrdemVenda findbyCodigoVenda(String codigoVenda);
 
-	//void deleteBycodigoVenda(String codigoVenda);	
+	public void deleteBycodigoVenda(String codigoVenda);*/
 
 }

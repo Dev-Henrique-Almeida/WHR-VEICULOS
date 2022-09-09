@@ -19,26 +19,26 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.save(entity);
 	}
 	
-	//public ClienteFisico save(ClienteFisico entity) {
-	//	return repositorioFuncionario.save(entity);
-	//}
+	public ClienteFisico save(ClienteFisico entity) {
+		return repositorioFuncionario.save(entity);
+	}
 	
-	//public ClienteJuridico save(ClienteJuridico entity) {
-	//	return repositorioFuncionario.save(entity);
-	//}
+	public ClienteJuridico save(ClienteJuridico entity) {
+		return repositorioFuncionario.save(entity);
+	}
 
-	//public Funcionario findByNome(String nome) {
-	//	return repositorioFuncionario.findbyNome(nome);
-	//}
+	public Funcionario findByNome(String nome) {
+		return repositorioFuncionario.findByNome(nome);
+	}
 	
-	//public Funcionario findByCargo(String cargo) {
-	//	return repositorioFuncionario.findByCargo(cargo);
-	//}
+	public Funcionario findByCargo(String cargo) {
+		return repositorioFuncionario.findByCargo(cargo);
+	}
 	
-	//public Veiculo findbyVeiculo(Veiculo v) {
-	//	return repositorioFuncionario.findbyVeiculo(v);
-	//}
-	
+	/*public Veiculo findByVeiculo(Veiculo v) {
+		return repositorioFuncionario.findByVeiculo(v);
+	}
+	*/
 	public void delete(Funcionario entity) {
 			repositorioFuncionario.delete(entity);
 	}
@@ -47,17 +47,17 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.findAll();
 	}
 	
-	//public void deleteByCpf(String cpf) {
-	//	repositorioFuncionario.deleteByCpf(cpf);
-	//}
+	public void deleteByCpf(String cpf) {
+		repositorioFuncionario.deleteByCpf(cpf);
+	}
 		
-	//public List<Funcionario> findAllFuncionario() {
-	//	return repositorioFuncionario.findAllFuncionario();
-	//}
-	
-	//public List<Veiculo> findAllVeiculo(){
-	//	return repositorioFuncionario.findAllVeiculo();
-	//}
+	public List<Funcionario> findAllFuncionario() {
+		return repositorioFuncionario.findAll();
+	}
+	/*
+	public List<Veiculo> findAllVeiculo(){
+		return repositorioFuncionario.findAllVeiculo();
+	}*/
 	
 	
 }

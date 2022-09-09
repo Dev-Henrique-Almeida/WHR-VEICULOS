@@ -28,32 +28,34 @@ public class CadastroVeiculo {
 		return repositorioveiculo.findAll();
 	}
 	
+	public List<Veiculo> findByModelo(Modelo modelo) {
+		return repositorioveiculo.findByModelo(modelo);
+	}
+	/*
 		
-	//public Veiculo findByVeiculo(Veiculo veiculo) {
-	//	return repositorioveiculo.findByVeiculo(veiculo);
-	//}
+	public Veiculo findByVeiculo(Veiculo veiculo) {
+		return repositorioveiculo.findByVeiculo(veiculo);
+	}
 	
-	//public Modelo findByModelo(Modelo modelo) {
-	//	return repositorioveiculo.findByModelo(modelo);
-	//}
 	
-	//public Veiculo findByVeiculoEntre(float a, float b) {
-	//	return repositorioveiculo.findByVeiculoEntre(a,b);
-	//}
 	
-	//public List<Veiculo> findAllVeiculoUsado() {
-	//	return repositorioveiculo.findAllVeiculoUsado();
-	//}
+	public Veiculo findByVeiculoEntre(float a, float b) {
+		return repositorioveiculo.findByVeiculoEntre(a,b);
+	}
 	
-	//public List<Veiculo> findAllVeiculoNovo() {
-	//	return repositorioveiculo.findAllVeiculoNovo();
-	//}
+	public List<Veiculo> findAllVeiculoUsado() {
+		return repositorioveiculo.findAllVeiculoUsado();
+	}
 	
-	//public List<Modelo> findAllModelo() {
-	//	return repositorioveiculo.findAllModelo();
-	//}
+	public List<Veiculo> findAllVeiculoNovo() {
+		return repositorioveiculo.findAllVeiculoNovo();
+	}
+	
+	public List<Modelo> findAllModelo() {
+		return repositorioveiculo.findAllModelo();
+	}
 
-	
+	*/
 	
 	
 	

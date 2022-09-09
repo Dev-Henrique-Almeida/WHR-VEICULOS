@@ -4,27 +4,24 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 
 @Entity
 public class ClienteFisico extends Pessoa {
 	
 	//private String idCompras[];
+	
 
-	public ClienteFisico(String cpf, String nome, Date dataNascimento, 
-			String telefone, long id, Endereco endereco) {
+	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, long id, Endereco endereco) {
 		super(cpf, nome, dataNascimento, telefone, id, endereco);
-		//this.idCompras = new idCompras[];
-		
+
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(getId());
 	}
-	
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

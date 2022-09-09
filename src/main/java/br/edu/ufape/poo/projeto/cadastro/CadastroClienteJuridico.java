@@ -20,17 +20,17 @@ public class CadastroClienteJuridico {
 		repositorioClienteJuridico.delete(entity);
 		}
 
-	//public void deleteByCnpj(String cnpj) {
-	//	repositorioClienteJuridico.deleteByCnpj(cnpj);
-	//}
+	public void deleteByCnpj(String cnpj) {
+		repositorioClienteJuridico.deleteByCnpj(cnpj);
+	}
 	
-	//public ClienteJuridico findBycnpj(String cnpj) {
-	//	return repositorioClienteJuridico.findBycnpj(cnpj);
-	//}
+	public ClienteJuridico findByCnpj(String cnpj) {
+		return repositorioClienteJuridico.findByCnpj(cnpj);
+	}
 
-	//public ClienteJuridico findByNomeFantasia(String nomeFantasia) {
-	//	return repositorioClienteJuridico.findByNomeFantasia(nomeFantasia);
-	//}
+	public ClienteJuridico findByNomeFantasia(String nomeFantasia) {
+		return repositorioClienteJuridico.findByNomeFantasia(nomeFantasia);
+	}
 
 	public List<ClienteJuridico> findAll() {
 		return repositorioClienteJuridico.findAll();

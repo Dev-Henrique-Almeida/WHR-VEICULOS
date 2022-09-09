@@ -7,36 +7,29 @@ import javax.persistence.Entity;
 @Entity
 public class Funcionario extends Pessoa {
 	private float salario;
+	private String cargo;
 	
 	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, long id, Endereco endereco,
 			float salario) {
 		super(cpf, nome, dataNascimento, telefone, id, endereco);
 		this.salario = salario;
 	}
-	public void venderVeiculo(OrdemVenda venda) {
-		
+
+	public float getSalario() {
+		return salario;
 	}
-	public void procurarVeiculoNovo(VeiculoNovo veiculo) {
-		
+
+	public void setSalario(float salario) {
+		this.salario = salario;
 	}
-	
-	public void procurarVeiculoUsado(VeiculoNovo veiculo) {
-		
+
+	public String getCargo() {
+		return cargo;
 	}
-	public void adicionarVeiculoNovo(VeiculoNovo v) {
-		
-	}
-	
-	public void adicionarVeiculoUsado(VeiculoUsado v) {
-		
-	}
-	
-	public void removerveiculoNovo(VeiculoNovo v) {
-		
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 	
-	public void removerveiculoNovo(VeiculoUsado v) {
-		
-	}
 
 }
