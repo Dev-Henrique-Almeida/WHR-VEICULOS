@@ -1,14 +1,11 @@
 package br.edu.ufape.poo.projeto.repositorio;
-import br.edu.ufape.poo.projeto.basica.Modelo;
-import br.edu.ufape.poo.projeto.basica.Veiculo;
-
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.edu.ufape.poo.projeto.basica.Veiculo;
+
 @Repository
 public interface RepositorioVeiculo extends JpaRepository<Veiculo, Long>{
-	public List<Veiculo> findByModelo(Modelo modelo);
 /*
 	public Veiculo findByVeiculo(Veiculo veiculo);
 

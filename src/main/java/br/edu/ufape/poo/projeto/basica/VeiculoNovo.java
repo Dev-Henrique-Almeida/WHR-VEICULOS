@@ -2,8 +2,6 @@ package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
 
-import br.edu.ufape.poo.projeto.basica.Veiculo;
-
 @Entity
 public class VeiculoNovo extends Veiculo {
 	private boolean garantiaFabrica;
@@ -11,11 +9,16 @@ public class VeiculoNovo extends Veiculo {
 	public VeiculoNovo() {
 		super();
 	}
-	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, long id,
+	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo,
 			boolean garantiaFabrica) {
-		super(valorCompraVeiculo, valorVenda, vendido, modelo, id);
+		super(valorCompraVeiculo, valorVenda, vendido, modelo);
 		this.garantiaFabrica = garantiaFabrica;
 	}
+	
+	public boolean isGarantiaFabrica() {
+		return garantiaFabrica;
+	}
+
 
 
 }

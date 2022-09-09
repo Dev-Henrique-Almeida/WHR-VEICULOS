@@ -17,18 +17,22 @@ public abstract class Marca {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	public Marca(String nome, long id) {
+	public Marca(String nome) {
 		super();
 		this.nome = nome;
-		this.id = id;
 	}
 	
 	public Marca() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Long getId() {
 		return id;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
 }
 

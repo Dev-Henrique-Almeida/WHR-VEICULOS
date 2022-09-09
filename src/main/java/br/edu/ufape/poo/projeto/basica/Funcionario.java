@@ -9,27 +9,30 @@ public class Funcionario extends Pessoa {
 	private float salario;
 	private String cargo;
 	
-	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, long id, Endereco endereco,
-			float salario) {
-		super(cpf, nome, dataNascimento, telefone, id, endereco);
+	public Funcionario() {
+		super();
+	}
+	
+	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco,
+			float salario, String cargo) {
+		super(cpf, nome, dataNascimento, telefone, endereco);
 		this.salario = salario;
+		this.cargo = cargo;
 	}
 
 	public float getSalario() {
 		return salario;
 	}
 
-	public void setSalario(float salario) {
-		this.salario = salario;
-	}
-
 	public String getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
+	@Override
+	public String toString() {
+		return "Funcionario [salario=" + salario + ", cargo=" + cargo + ", nome=" + getNome() + "]";
 	}
+	
 	
 
 }

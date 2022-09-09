@@ -1,13 +1,12 @@
 package br.edu.ufape.poo.projeto.cadastro;
 
-import br.edu.ufape.poo.projeto.basica.Modelo;
-import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculo;
-import br.edu.ufape.poo.projeto.basica.Veiculo;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import br.edu.ufape.poo.projeto.basica.Veiculo;
+import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculo;
 
 
 @Service
@@ -28,10 +27,11 @@ public class CadastroVeiculo {
 		return repositorioveiculo.findAll();
 	}
 	
+	/*
 	public List<Veiculo> findByModelo(Modelo modelo) {
 		return repositorioveiculo.findByModelo(modelo);
 	}
-	/*
+	
 		
 	public Veiculo findByVeiculo(Veiculo veiculo) {
 		return repositorioveiculo.findByVeiculo(veiculo);

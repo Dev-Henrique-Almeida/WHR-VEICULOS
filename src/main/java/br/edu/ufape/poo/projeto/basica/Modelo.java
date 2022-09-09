@@ -10,7 +10,7 @@ public class Modelo extends Marca {
 	private String motor;
 	private float km;
 	private String cor;
-	private int anoFabricacao;
+	private int anoFabricado;
 	private int potencia;
 	private int quantidadePassageiros;
 	private float cilindradas;
@@ -21,14 +21,14 @@ public class Modelo extends Marca {
 		super();
 	}
 	
-	public Modelo(String nome, long id, String nomeModelo, String motor, float km, String cor, int anoFabricacao,
+	public Modelo(String nomeMarca, String nomeModelo, String motor, float km, String cor, int anoFabricado,
 			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
-		super(nome, id);
+		super(nomeMarca);
 		this.nomeModelo = nomeModelo;
 		this.motor = motor;
 		this.km = km;
 		this.cor = cor;
-		this.anoFabricacao = anoFabricacao;
+		this.anoFabricado = anoFabricado;
 		this.potencia = potencia;
 		this.quantidadePassageiros = quantidadePassageiros;
 		this.cilindradas = cilindradas;
@@ -40,82 +40,55 @@ public class Modelo extends Marca {
 		return nomeModelo;
 	}
 
-	public void setNomeModelo(String nomeModelo) {
-		this.nomeModelo = nomeModelo;
-	}
-
 	public String getMotor() {
 		return motor;
-	}
-
-	public void setMotor(String motor) {
-		this.motor = motor;
 	}
 
 	public float getKm() {
 		return km;
 	}
 
-	public void setKm(float km) {
-		this.km = km;
-	}
-
 	public String getCor() {
 		return cor;
 	}
 
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
-
-	public int getAnoFabricacao() {
-		return anoFabricacao;
-	}
-
-	public void setAnoFabricacao(int anoFabricacao) {
-		this.anoFabricacao = anoFabricacao;
+	public int getanoFabricado() {
+		return anoFabricado;
 	}
 
 	public int getPotencia() {
 		return potencia;
 	}
 
-	public void setPotencia(int potencia) {
-		this.potencia = potencia;
-	}
-
 	public int getQuantidadePassageiros() {
 		return quantidadePassageiros;
 	}
 
-	public void setQuantidadePassageiros(int quantidadePassageiros) {
-		this.quantidadePassageiros = quantidadePassageiros;
-	}
 
 	public float getCilindradas() {
 		return cilindradas;
 	}
 
-	public void setCilindradas(float cilindradas) {
-		this.cilindradas = cilindradas;
-	}
 
 	public boolean isCambio() {
 		return cambio;
 	}
 
-	public void setCambio(boolean cambio) {
-		this.cambio = cambio;
-	}
 
 	public String getCombustivel() {
 		return combustivel;
 	}
 
-	public void setCombustivel(String combustivel) {
-		this.combustivel = combustivel;
+
+	@Override
+	public String toString() {
+		return "Modelo [nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km + ", cor=" + cor
+				+ ", anoFabricado=" + anoFabricado + ", potencia=" + potencia + ", quantidadePassageiros="
+				+ quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio=" + cambio + ", combustivel="
+				+ combustivel + "]";
 	}
 
+	
 	
 	
 }

@@ -49,5 +49,23 @@ public class ClienteJuridico {
 	public String getNomeEmpresarial() {
 		return nomeEmpresarial;
 	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public String getContato() {
+		return contato;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	
 	
 }

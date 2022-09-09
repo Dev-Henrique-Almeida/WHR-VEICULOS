@@ -24,22 +24,6 @@ public abstract class Pessoa {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Endereco endereco;
 	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
@@ -76,12 +60,11 @@ public abstract class Pessoa {
 	
 	
 	public Pessoa(String cpf, String nome, Date dataNascimento,
-			String telefone, long id, Endereco endereco){
+			String telefone, Endereco endereco){
 		this.cpf = cpf;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.telefone = telefone;
-		this.id = id;
 		this.endereco = endereco;
 	}
 	
