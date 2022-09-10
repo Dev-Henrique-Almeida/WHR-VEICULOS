@@ -41,13 +41,12 @@ public class TestClienteJuridico {
 		}
 	}
 	
-	/*@Test
+	@Test
 	void deleteCnpjByPessoaJuridica() {
 		List<ClienteJuridico> clientes1 = ccj.findAll();
-		ccj.deleteByCnpj("120");
 		for(ClienteJuridico j: clientes1) {
 			System.out.println("EXISTE = " + j.toString());
 		}
+		ccj.deleteByCnpj("120");
 	}
-	*/
 }

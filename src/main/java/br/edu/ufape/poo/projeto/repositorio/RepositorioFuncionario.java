@@ -12,7 +12,7 @@ public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long>
 
 	public List<Funcionario> deleteByCpf(String cpf);
 	
-	//public void deleteByCnpj(String cnpj);
+	public void deleteByCnpj(String cnpj);
 	
 	public List<Funcionario> findByNome(String nome);
 

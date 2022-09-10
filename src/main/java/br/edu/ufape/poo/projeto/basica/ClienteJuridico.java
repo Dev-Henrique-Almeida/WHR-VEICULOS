@@ -67,7 +67,7 @@ public class ClienteJuridico {
 
 	@Override
 	public String toString() {
-		return "ClienteJuridico [id=" + id + ", nomeEmpresarial=" + nomeEmpresarial + ", nomeFantasia=" + nomeFantasia
+		return "ClienteJuridico [nomeEmpresarial=" + nomeEmpresarial + ", nomeFantasia=" + nomeFantasia
 				+ ", contato=" + contato + ", cnpj=" + cnpj + ", endereco=" + endereco + ", descricao=" + descricao
 				+ "]";
 	}

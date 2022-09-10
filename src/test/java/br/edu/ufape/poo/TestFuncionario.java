@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
@@ -52,11 +53,13 @@ public class TestFuncionario {
 	}
 	
 	@Test
-	void deleteFuncionario() {
-		Funcionario f2 = new Funcionario("123", "Henrique", null, "4002", new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 3000, "Gerente");
-		cf.save(f2);
-		System.out.println("DELETE = " + f2.toString());
-		cf.delete(f2);
+	void deleteCpfByFuncionario() {
+		
+		List<Funcionario> funcionarios = cf.findAll();
+		for(Funcionario f: funcionarios) {
+			System.out.println("EXISTE = " + f.toString());
+		}
+		cf.deleteByCpf("123");
 
 	}
 }

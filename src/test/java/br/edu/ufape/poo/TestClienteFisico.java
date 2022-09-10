@@ -55,16 +55,15 @@ public class TestClienteFisico {
 		}
 	}
 	
-	/*
+	
 	@Test
 	void deleteCpfByClienteFisico() {
 		
-		List<ClienteFisico> clientes = ccf.findByNome("Henrique");
+		List<ClienteFisico> clientes = ccf.findAll();
 		for(ClienteFisico v: clientes) {
-			System.out.println("NOME = " + v.toString());
+			System.out.println("EXISTE = " + v.toString());
 		}
 		ccf.deleteByCpf("123");
 
 	}
-	*/
 }

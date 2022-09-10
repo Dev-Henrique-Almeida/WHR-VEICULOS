@@ -3,12 +3,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 
 
 @Service
+@Transactional
 public class CadastroClienteFisico {
 	
 	@Autowired
