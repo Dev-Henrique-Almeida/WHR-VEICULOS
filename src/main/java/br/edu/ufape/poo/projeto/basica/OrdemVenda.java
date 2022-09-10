@@ -35,7 +35,7 @@ public abstract class OrdemVenda {
 	private Funcionario vendedor;
 		
 	public OrdemVenda(float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String formaPagamento,
-			boolean pago, boolean vendaConcluida, String codVenda, Funcionario vendedor, long id) {
+			boolean pago, boolean vendaConcluida, String codVenda, Funcionario vendedor) {
 		super();
 		this.valor = valor;
 		this.veiculo = veiculo;
@@ -46,7 +46,6 @@ public abstract class OrdemVenda {
 		this.vendaConcluida = vendaConcluida;
 		this.codVenda = codVenda;
 		this.vendedor = vendedor;
-		this.id = id;
 	}
 
 	public float getValor() {
@@ -57,7 +56,7 @@ public abstract class OrdemVenda {
 		return veiculo;
 	}
 
-	public boolean isNovo() {
+	public boolean getNovo() {
 		return novo;
 	}
 
@@ -70,11 +69,11 @@ public abstract class OrdemVenda {
 	}
 
 
-	public boolean isPago() {
+	public boolean getPago() {
 		return pago;
 	}
 
-	public boolean isVendaConcluida() {
+	public boolean getVendaConcluida() {
 		return vendaConcluida;
 	}
 
