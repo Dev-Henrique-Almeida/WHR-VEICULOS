@@ -1,4 +1,6 @@
 package br.edu.ufape.poo.projeto.cadastro;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,24 +21,24 @@ public class CadastroClienteFisico {
 	public void delete(ClienteFisico entity) {
 		repositorioClienteFisico.delete(entity);
 	}
-/*
-	public void deleteByCpf(String cpf) {
-		repositorioClienteFisico.deleteByCpf(cpf);
-	}
-
-
-
-	public ClienteFisico findByCpf(String cpf) {
-		return repositorioClienteFisico.findByCpf(cpf);
-	}
 	
-	public ClienteFisico findByNomePF(String nome) {
-		return repositorioClienteFisico.findByNomePF(nome);
+	public List<ClienteFisico> findByCpf(String cpf) {
+		return repositorioClienteFisico.findByCpf(cpf);
 	}
 	
 	public List<ClienteFisico> findAll() {
 		return repositorioClienteFisico.findAll();
 	}
-		*/
+	
+	public List<ClienteFisico> findByNome(String nome){
+		return repositorioClienteFisico.findByNome(nome);
+	}
+
+	public void deleteByCpf(String cpf) {
+		repositorioClienteFisico.deleteByCpf(cpf);
+	}
+
+	
+	
 
 }

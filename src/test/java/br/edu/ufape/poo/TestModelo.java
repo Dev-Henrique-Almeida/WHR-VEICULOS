@@ -53,7 +53,7 @@ public class TestModelo {
 		
 		List<Modelo> modelos = cm.findByNomeModelo("Camaro");
 		for(Modelo v: modelos) {
-			System.out.println(v.toString());
+			System.out.println("MODELO = " + v.toString());
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class TestModelo {
 	void findAnobyModelo() {
 		List<Modelo> modelos = cm.findByAnoFabricado(2012);
 		for(Modelo v: modelos) {
-			System.out.println(v.toString());
+			System.out.println("ANO = " + v.toString());
 		}
 	}
 }

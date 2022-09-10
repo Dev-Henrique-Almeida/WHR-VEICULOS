@@ -28,10 +28,10 @@ public class TestFuncionario {
 	@Test
 	void saveFuncionario() {
 		Funcionario f = new Funcionario("123-456", "Robert", null, "4002-8922", new Endereco("55380-000", "Rua", "ArcoVerde", "PE", 69), 1000, "Vendedor");
-		cf.save(f);
 		Funcionario f1 = new Funcionario("654-321", "William", null, "4002-8922", new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 69), 4000, "Gerente");
-		cf.save(f1);
 		Funcionario f3 = new Funcionario("123", "Henrique", null, "4002", new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 1000, "Gerente");
+		cf.save(f);
+		cf.save(f1);
 		cf.save(f3);
 	}
 	
@@ -39,7 +39,7 @@ public class TestFuncionario {
 	void findNomeByFuncionario() {
 		List<Funcionario> funcionarios = cf.findByNome("William");
 		for(Funcionario f: funcionarios) {
-			System.out.println(f.toString());
+			System.out.println("NOME = " + f.toString());
 		}
 	}
 	
@@ -47,15 +47,15 @@ public class TestFuncionario {
 	void findCargoByFuncionario() {
 		List<Funcionario> funcionarios = cf.findByCargo("Vendedor");
 		for(Funcionario f: funcionarios) {
-			System.out.println(f.toString());
+			System.out.println("CARGO = " + f.toString());
 		}
 	}
 	
 	@Test
-	void delete() {
+	void deleteFuncionario() {
 		Funcionario f2 = new Funcionario("123", "Henrique", null, "4002", new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 3000, "Gerente");
 		cf.save(f2);
-		System.out.println(f2.toString());
+		System.out.println("DELETE = " + f2.toString());
 		cf.delete(f2);
 
 	}

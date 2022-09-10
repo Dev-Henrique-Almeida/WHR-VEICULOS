@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 @Entity
 public class ClienteFisico extends Pessoa {
 	
+	public ClienteFisico() {
+		super();
+	}
+	
 	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco) {
 		super(cpf, nome, dataNascimento, telefone, endereco);
 
@@ -33,8 +37,8 @@ public class ClienteFisico extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return "ClienteFisico [getId()=" + getId() + ", getCpf()=" + getCpf()+ ", getNome()=" + getNome() + ", getEndereco()=" + getEndereco() + ", getDataNascimento()="
-				+ getDataNascimento() + ", getTelefone()=" + getTelefone()+ "]";
+		return "ClienteFisico [cpf=" + getCpf()+ ", nome=" + getNome() + ", endereco=" + getEndereco() + ", dataNascimento="
+				+ getDataNascimento() + ", telefone=" + getTelefone()+ "]";
 	}
 	
 }

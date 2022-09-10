@@ -18,6 +18,8 @@ public class Endereco {
 	private String estado;
 	private int numero;
 	
+	public Endereco() {
+	}
 	
 	public Endereco(String cep, String rua, String cidade, String estado, int numero) {
 		super();
@@ -58,8 +60,7 @@ public class Endereco {
 		return numero;
 	}
 	
-	public Endereco() {
-	}
+
 
 	
 	

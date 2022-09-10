@@ -17,6 +17,19 @@ public abstract class Pessoa {
 	private String cpf;
 	private String nome;
 	
+	public Pessoa() {
+		
+	}
+	
+	public Pessoa(String cpf, String nome, Date dataNascimento,
+			String telefone, Endereco endereco){
+		this.cpf = cpf;
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.telefone = telefone;
+		this.endereco = endereco;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -59,16 +72,6 @@ public abstract class Pessoa {
 	}
 	
 	
-	public Pessoa(String cpf, String nome, Date dataNascimento,
-			String telefone, Endereco endereco){
-		this.cpf = cpf;
-		this.nome = nome;
-		this.dataNascimento = dataNascimento;
-		this.telefone = telefone;
-		this.endereco = endereco;
-	}
 	
-	protected Pessoa() {
-		
-	}
+	
 }
