@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
-import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculo;
+import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 
 @SpringBootTest
 public class TestModelo {
@@ -30,7 +30,7 @@ public class TestModelo {
 */
 	
 	@Autowired
-	private CadastroVeiculo cvn;
+	private CadastroVeiculoNovo cvn;
 	
 	@Autowired
 	private CadastroModelo cm;
