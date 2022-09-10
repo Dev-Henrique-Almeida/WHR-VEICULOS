@@ -27,7 +27,7 @@ public class ClienteJuridico {
 	private String descricao;
 	
 	public ClienteJuridico(String nomeEmpresarial, String nomeFantasia, String contato, String cnpj, Endereco endereco,
-			String descricao, long id) {
+			String descricao) {
 		super();
 		this.nomeEmpresarial = nomeEmpresarial;
 		this.nomeFantasia = nomeFantasia;
@@ -35,11 +35,6 @@ public class ClienteJuridico {
 		this.cnpj = cnpj;
 		this.endereco = endereco;
 		this.descricao = descricao;
-		this.id = id;
-	}
-	
-	public Long getId() {
-		return id;
 	}
 	
 	public String getCnpj () {
@@ -64,6 +59,17 @@ public class ClienteJuridico {
 
 	public String getDescricao() {
 		return descricao;
+	}
+	
+	public ClienteJuridico() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "ClienteJuridico [id=" + id + ", nomeEmpresarial=" + nomeEmpresarial + ", nomeFantasia=" + nomeFantasia
+				+ ", contato=" + contato + ", cnpj=" + cnpj + ", endereco=" + endereco + ", descricao=" + descricao
+				+ "]";
 	}
 	
 	
