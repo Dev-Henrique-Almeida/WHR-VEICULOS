@@ -2,6 +2,8 @@ package br.edu.ufape.poo.projeto.cadastro;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioOrdemPessoaFisica;
 
 @Service
+@Transactional
 public class CadastroOrdemPessoaFisica {
 	
 	@Autowired
@@ -32,6 +35,10 @@ public class CadastroOrdemPessoaFisica {
 	
 	public List<OrdemVendaPessoaFisica> findByPago(boolean pago) {
 		return repositorioOrdemPessoaFisica.findByPago(pago);
+	}
+
+	public void deleteByCodVenda(String codVenda) {
+		repositorioOrdemPessoaFisica.deleteByCodVenda(codVenda);
 	}
 	
 	

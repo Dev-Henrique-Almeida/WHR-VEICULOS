@@ -14,5 +14,4 @@ public interface RepositorioModelo extends JpaRepository<Modelo, Long>{
 
 	public List<Modelo> findByNomeModelo(String nomeModelo);
 
-		
 }

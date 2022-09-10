@@ -16,7 +16,7 @@ public class TestClienteJuridico {
 	private CadastroClienteJuridico ccj;
 	
 	@Test
-	void cadastroPessoaJuridico() {
+	void savePessoaJuridico() {
 		ClienteJuridico cj = new ClienteJuridico("WHR", "WHR Veiculos", "8002-8922", "15749680", null, "Loja de Veiculos");
 		ClienteJuridico cj2 = new ClienteJuridico("AMBEV", "AMBEV Bebidas", "1524-8790", "7891535", null, "Distribuidora de Bebidas");
 		ClienteJuridico cj3 = new ClienteJuridico("Robert", "Robert", "1524-8790", "120", null, "uma pessoa juridica ai");

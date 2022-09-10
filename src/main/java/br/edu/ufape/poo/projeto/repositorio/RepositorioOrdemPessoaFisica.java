@@ -11,6 +11,8 @@ public interface RepositorioOrdemPessoaFisica extends JpaRepository<OrdemVendaPe
 	List<OrdemVendaPessoaFisica> findByCodVenda(String codVenda);
 
 	List<OrdemVendaPessoaFisica> findByPago(boolean pago);
+
+	void deleteByCodVenda(String codVenda);
 	
 	
 }

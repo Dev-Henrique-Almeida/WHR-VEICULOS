@@ -18,10 +18,6 @@ public class CadastroModelo {
 		return repositorioModelo.save(entity);
 	}
 
-	public void deleteById(Long id) {
-		repositorioModelo.deleteById(id);
-	}
-
 	public void delete(Modelo entity) {
 		repositorioModelo.delete(entity);
 	}

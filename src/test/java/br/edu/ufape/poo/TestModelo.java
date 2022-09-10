@@ -50,7 +50,7 @@ public class TestModelo {
 
 	@Test
 	void findNomeModeloByModelo() {
-		
+			
 		List<Modelo> modelos = cm.findByNomeModelo("Camaro");
 		for(Modelo v: modelos) {
 			System.out.println("MODELO = " + v.toString());
@@ -64,5 +64,6 @@ public class TestModelo {
 			System.out.println("ANO = " + v.toString());
 		}
 	}
+	
 }
 	

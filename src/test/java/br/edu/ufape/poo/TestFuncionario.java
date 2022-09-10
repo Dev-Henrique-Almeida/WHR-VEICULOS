@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;

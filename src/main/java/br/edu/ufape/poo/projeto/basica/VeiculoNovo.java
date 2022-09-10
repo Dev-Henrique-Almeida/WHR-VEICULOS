@@ -9,6 +9,7 @@ public class VeiculoNovo extends Veiculo {
 	public VeiculoNovo() {
 		super();
 	}
+	
 	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo,
 			boolean garantiaFabrica) {
 		super(valorCompraVeiculo, valorVenda, vendido, modelo);

@@ -40,4 +40,15 @@ public class TestOrdemVendaPessoaJuridica {
 			System.out.println("PAGO = " + v.toString());
 		}
 	}
+	
+	@Test
+	void deleteCodVendaByOrdemJuridica() {
+		
+		List<OrdemVendaPessoaJuridica> ordens = coj.findAll();
+		for(OrdemVendaPessoaJuridica v: ordens) {
+			System.out.println("EXISTE = " + v.toString());
+		}
+		coj.deleteByCodVenda("1");
+
+	}
 }

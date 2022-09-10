@@ -21,6 +21,10 @@ public class CadastroOrdemPessoaJuridica {
 	public void delete(OrdemVendaPessoaJuridica entity) {
 		repositorioOrdemPessoaJuridica.delete(entity);
 	}
+	
+	public void deleteByCodVenda(String codVenda) {
+		repositorioOrdemPessoaJuridica.deleteByCodVenda(codVenda);
+	}
 
 	public List<OrdemVendaPessoaJuridica> findAll() {
 		return repositorioOrdemPessoaJuridica.findAll();

@@ -35,8 +35,8 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.findAll();
 	}
 	
-	public List<Funcionario> deleteByCpf(String cpf) {
-		return repositorioFuncionario.deleteByCpf(cpf);
+	public void deleteByCpf(String cpf) {
+		repositorioFuncionario.deleteByCpf(cpf);
 	}
 	 
 	
