@@ -30,7 +30,7 @@ public abstract class Marca {
 		return id;
 	}
 
-	public String getNome() {
+	public String getNomeMarca() {
 		return nome;
 	}
 

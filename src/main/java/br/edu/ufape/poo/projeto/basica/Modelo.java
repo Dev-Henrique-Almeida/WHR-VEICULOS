@@ -84,7 +84,7 @@ public class Modelo extends Marca {
 
 	@Override
 	public String toString() {
-		return "Modelo [nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km + ", cor=" + cor
+		return "Modelo [marca=" + getNomeMarca() + ", nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km + ", cor=" + cor
 				+ ", anoFabricado=" + anoFabricado + ", potencia=" + potencia + ", quantidadePassageiros="
 				+ quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio=" + cambio + ", combustivel="
 				+ combustivel + "]";

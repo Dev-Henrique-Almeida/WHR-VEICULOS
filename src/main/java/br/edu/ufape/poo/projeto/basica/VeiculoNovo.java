@@ -15,10 +15,17 @@ public class VeiculoNovo extends Veiculo {
 		this.garantiaFabrica = garantiaFabrica;
 	}
 	
-	public boolean isGarantiaFabrica() {
+	public boolean getGarantiaFabrica() {
 		return garantiaFabrica;
 	}
-
+	@Override
+	public String toString() {
+		return "VeiculoNovo [garantiaFabrica=" + garantiaFabrica + ", valorCompraVeiculo=" + getValorVenda()
+				+ ", vendido=" + getVendido() + ", modelo=" + getModelo() + "]";
+	}
+	
+	
+	
 
 
 }

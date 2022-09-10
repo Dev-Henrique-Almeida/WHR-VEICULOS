@@ -43,10 +43,22 @@ public abstract class Veiculo {
 		return valorVenda;
 	}
 
+	public float getValorCompraVeiculo() {
+		return valorCompraVeiculo;
+	}
+
+	public boolean getVendido() {
+		return vendido;
+	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
 	@Override
 	public String toString() {
 		return "Veiculo [valorCompraVeiculo=" + valorCompraVeiculo + ", valorVenda=" + valorVenda + ", vendido="
-				+ vendido + ", modelo=" + modelo + ", id=" + id + "]";
+				+ vendido + ", modelo=" + modelo + "]";
 	}
 	
 }
