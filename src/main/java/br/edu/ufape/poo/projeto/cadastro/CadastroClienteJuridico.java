@@ -26,11 +26,11 @@ public class CadastroClienteJuridico {
 		 repositorioClienteJuridico.deleteByCnpj(cnpj);
 	}
 	
-	public List<ClienteJuridico> findByCnpj(String cnpj) {
+	public ClienteJuridico findByCnpj(String cnpj) {
 		return repositorioClienteJuridico.findByCnpj(cnpj);
 	}
 
-	public List<ClienteJuridico> findByNomeFantasia(String nomeFantasia) {
+	public ClienteJuridico findByNomeFantasia(String nomeFantasia) {
 		return repositorioClienteJuridico.findByNomeFantasia(nomeFantasia);
 	}
 

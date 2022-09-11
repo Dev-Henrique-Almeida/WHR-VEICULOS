@@ -3,6 +3,7 @@ package br.edu.ufape.poo.projeto.basica;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,10 @@ import javax.persistence.OneToOne;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {
+	
+	@Column(unique = true)
 	private String cpf;
+	
 	private String nome;
 	
 	public Pessoa() {

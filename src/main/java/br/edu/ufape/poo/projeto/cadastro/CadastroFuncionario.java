@@ -23,11 +23,11 @@ public class CadastroFuncionario {
 		repositorioFuncionario.delete(entity);
 	}
 	
-	public List<Funcionario> findByNome(String nome) {
+	public Funcionario findByNome(String nome) {
 		return repositorioFuncionario.findByNome(nome);
 	}
 	
-	public List<Funcionario> findByCargo(String cargo) {
+	public Funcionario findByCargo(String cargo) {
 		return repositorioFuncionario.findByCargo(cargo);
 	}
 	

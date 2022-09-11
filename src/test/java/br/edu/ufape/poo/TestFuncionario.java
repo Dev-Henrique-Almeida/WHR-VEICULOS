@@ -37,18 +37,16 @@ public class TestFuncionario {
 	
 	@Test
 	void findNomeByFuncionario() {
-		List<Funcionario> funcionarios = cf.findByNome("William");
-		for(Funcionario f: funcionarios) {
-			System.out.println("NOME = " + f.toString());
-		}
+		Funcionario funcionarios = cf.findByNome("William");
+		System.out.println("NOME = " + funcionarios.toString());
+		
 	}
 	
 	@Test
 	void findCargoByFuncionario() {
-		List<Funcionario> funcionarios = cf.findByCargo("Vendedor");
-		for(Funcionario f: funcionarios) {
-			System.out.println("CARGO = " + f.toString());
-		}
+		Funcionario funcionarios = cf.findByCargo("Vendedor");
+		System.out.println("CARGO = " + funcionarios.toString());
+
 	}
 	
 	@Test

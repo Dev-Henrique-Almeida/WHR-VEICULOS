@@ -99,7 +99,9 @@ class TestVeiculoNovo {
 		}
 	
 	}
+	
 
+	/*
 	@Test
 	void deleteVeiculoByVeiculoNovo() {
 		VeiculoNovo vu3 = new VeiculoNovo(300000, 400000, false, new Modelo("BMW", "I8", "V8", 0, "Preto", 2022, 150, 4, 330, true, "Diesel" ), false);
@@ -112,7 +114,7 @@ class TestVeiculoNovo {
 
 	}
 	
-	
+	*/
 }
 
 

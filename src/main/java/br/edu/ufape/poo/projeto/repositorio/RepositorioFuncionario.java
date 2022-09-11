@@ -1,6 +1,4 @@
 package br.edu.ufape.poo.projeto.repositorio;
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,9 +10,9 @@ public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long>
 
 	public void deleteByCpf(String cpf);
 	
-	public List<Funcionario> findByNome(String nome);
+	public Funcionario findByNome(String nome);
 
-	public List<Funcionario> findByCargo(String cargo);
+	public Funcionario findByCargo(String cargo);
 
 	
 

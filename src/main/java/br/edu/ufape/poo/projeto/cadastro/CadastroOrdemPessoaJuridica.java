@@ -30,7 +30,7 @@ public class CadastroOrdemPessoaJuridica {
 		return repositorioOrdemPessoaJuridica.findAll();
 	}
 	
-	public List<OrdemVendaPessoaJuridica> findByCodVenda(String codVenda) {
+	public OrdemVendaPessoaJuridica findByCodVenda(String codVenda) {
 		return repositorioOrdemPessoaJuridica.findByCodVenda(codVenda);
 	}
 	

@@ -11,9 +11,9 @@ import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 @Repository
 public interface RepositorioClienteFisico extends JpaRepository<ClienteFisico, Long>{
 
-	public List<ClienteFisico> findByCpf(String cpf);
+	public ClienteFisico findByCpf(String cpf);
 	
-	public List<ClienteFisico> findByNome(String nome);
+	public ClienteFisico findByNome(String nome);
 	
 	public void deleteByCpf(String cpf);
 	

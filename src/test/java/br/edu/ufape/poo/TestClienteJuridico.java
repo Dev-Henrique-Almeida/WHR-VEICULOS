@@ -27,18 +27,15 @@ public class TestClienteJuridico {
 	
 	@Test
 	void findCnpjByPessoaJuridica() {
-		List<ClienteJuridico> clientes = ccj.findByCnpj("7891535");
-		for(ClienteJuridico j: clientes) {
-			System.out.println("CPNJ = " + j.toString());
-		}
+		ClienteJuridico clientes = ccj.findByCnpj("7891535");
+		System.out.println("CPNJ = " + clientes.toString());
+		
 	}
 	
 	@Test
 	void findNomeFantasiaByPessoaJuridica() {
-		List<ClienteJuridico> clientes = ccj.findByNomeFantasia("WHR Veiculos");
-		for(ClienteJuridico j: clientes) {
-			System.out.println("NOME FANTASIA = " + j.toString());
-		}
+		ClienteJuridico clientes = ccj.findByNomeFantasia("WHR Veiculos");
+		System.out.println("NOME FANTASIA = " + clientes.toString());
 	}
 	
 	@Test

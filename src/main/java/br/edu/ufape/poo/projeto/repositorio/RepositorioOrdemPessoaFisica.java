@@ -8,7 +8,7 @@ import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 
 public interface RepositorioOrdemPessoaFisica extends JpaRepository<OrdemVendaPessoaFisica, Long> {
 
-	List<OrdemVendaPessoaFisica> findByCodVenda(String codVenda);
+	OrdemVendaPessoaFisica findByCodVenda(String codVenda);
 
 	List<OrdemVendaPessoaFisica> findByPago(boolean pago);
 

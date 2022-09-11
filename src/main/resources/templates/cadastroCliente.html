@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro Cliente</title>
+</head>
+<body>
+	<h1>Pagina de Cadastro de Clientes</h1>
+	<a href="http://localhost:8080">Home</a>.
+	<br />
+
+	<form id="form" action="">
+	<div>
+		<label><br />Nome:<br /> </label> <input type="text" name="nome">
+	</div>
+	<div>
+		<label><br /> CPF: <br /></label> <input type="text" name="cpf">
+	</div>
+	<div>
+		<label><br /> Data de Nascimento: <br /></label> <input type="date" name="dataNascimento">
+	</div>
+	<div>
+		<label><br /> Telefone: <br /></label> <input type="tel" name="telefone">
+	</div>
+	<div>
+		<label><br /> Cidade: <br /></label> <input name="cidade">
+	</div>
+	<div>
+		<label><br /> Cep: <br /></label> <input name="cep">
+	</div>
+	<div>
+		<label><br /> Rua: <br /></label> <input name="rua">
+	</div>
+	<div>
+		<label><br /> Estado: <br /></label> <input name="estado">
+	</div>
+	<div>
+		<label><br /> Numero: <br /></label> <input name="numero">
+	</div>
+	<div>
+		<br />
+		<button type="submit">Salvar</button>
+		<button type="reset">Limpar</button>
+	</div>
+	</form>
+	<script type="text/javascript">
+    let form = document.getElementById("form");
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        let cliente = {};
+        let endereco = {};
+        cliente["nome"] = form.elements.namedItem("nome").value;
+        cliente["telefone"] = form.elements.namedItem("telefone").value;
+        cliente["cpf"] = form.elements.namedItem("cpf").value;
+        cliente["dataNascimento"] = form.elements.namedItem("dataNascimento").value;
+        
+        endereco["cidade"] = form.elements.namedItem("cidade").value;
+        endereco["cep"] = form.elements.namedItem("cep").value;
+        endereco["rua"] = form.elements.namedItem("rua").value;
+        endereco["estado"] = form.elements.namedItem("estado").value;
+        endereco["numero"] = form.elements.namedItem("numero").value;
+        
+        cliente["endereco"]=endereco;
+        
+        let url = "http://localhost:8080/cliente";
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        xhr.send(JSON.stringify(cliente));
+        xhr.onloadend = function() {
+            if (this.readyState == 4 && this.status == 201) {
+                alert("Deu Certo");
+                window.location.replace("../");
+            } 
+        }
+    }
+    </script>
+</body>
+</html>

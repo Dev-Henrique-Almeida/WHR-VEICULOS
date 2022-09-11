@@ -26,10 +26,8 @@ public class TestOrdemVendaPessoaFisica {
 	@Test
 	void findCodigoVendaByOrdemFisica() {
 		
-		List<OrdemVendaPessoaFisica> pessoas = cof.findByCodVenda("1");
-		for(OrdemVendaPessoaFisica v: pessoas) {
-			System.out.println("CODIGO VENDA = " + v.toString());
-		}
+		OrdemVendaPessoaFisica pessoas = cof.findByCodVenda("1");
+		System.out.println("CODIGO VENDA = " + pessoas.toString());
 	}
 	
 	@Test

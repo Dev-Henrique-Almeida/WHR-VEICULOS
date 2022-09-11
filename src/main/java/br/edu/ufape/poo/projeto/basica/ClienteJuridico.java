@@ -1,6 +1,7 @@
 package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,8 @@ public class ClienteJuridico {
 	private String nomeEmpresarial;
 	private String nomeFantasia;
 	private String contato;
+	
+	@Column(unique = true)
 	private String cnpj;
 	
 	@OneToOne(cascade = CascadeType.ALL)

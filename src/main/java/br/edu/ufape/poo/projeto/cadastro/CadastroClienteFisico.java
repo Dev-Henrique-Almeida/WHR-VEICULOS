@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 
 
@@ -16,15 +17,21 @@ public class CadastroClienteFisico {
 	@Autowired
 	private RepositorioClienteFisico repositorioClienteFisico;
 
-	public ClienteFisico save(ClienteFisico entity) {
-		return repositorioClienteFisico.save(entity);
+	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException {
+		if(findByCpf(entity.getCpf()) == null) {
+			return repositorioClienteFisico.save(entity);
+		}
+		else {
+			throw new ClienteFisicoExistenteException();
+			
+		}
 	}
 
 	public void delete(ClienteFisico entity) {
 		repositorioClienteFisico.delete(entity);
 	}
 	
-	public List<ClienteFisico> findByCpf(String cpf) {
+	public ClienteFisico findByCpf(String cpf) {   // mudar o find em outras classes
 		return repositorioClienteFisico.findByCpf(cpf);
 	}
 	
@@ -32,7 +39,7 @@ public class CadastroClienteFisico {
 		return repositorioClienteFisico.findAll();
 	}
 	
-	public List<ClienteFisico> findByNome(String nome){
+	public ClienteFisico findByNome(String nome){
 		return repositorioClienteFisico.findByNome(nome);
 	}
 
