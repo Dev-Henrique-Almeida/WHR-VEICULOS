@@ -1,4 +1,5 @@
 package br.edu.ufape.poo.projeto.cadastro;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,7 +13,7 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculoNovo;
 @Service
 @Transactional
 public class CadastroVeiculoNovo {
-	
+
 	@Autowired
 	private RepositorioVeiculoNovo repositorioVeiculoNovo;
 
@@ -24,19 +25,19 @@ public class CadastroVeiculoNovo {
 		repositorioVeiculoNovo.delete(entity);
 	}
 
-	//public void deleteByVeiculoNovo(VeiculoNovo veiculoNovo) {
-	//	repositorioVeiculoNovo.deleteByVeiculoNovo(veiculoNovo);
-	//}
-	
-	public List<VeiculoNovo> findByValorVenda(float valorVenda){
+	// public void deleteByVeiculoNovo(VeiculoNovo veiculoNovo) {
+	// repositorioVeiculoNovo.deleteByVeiculoNovo(veiculoNovo);
+	// }
+
+	public List<VeiculoNovo> findByValorVenda(float valorVenda) {
 		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
 	}
-	
-	public List<VeiculoNovo> findByVendido(boolean vendido){
+
+	public List<VeiculoNovo> findByVendido(boolean vendido) {
 		return repositorioVeiculoNovo.findByVendido(vendido);
 	}
-	
-	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica){
+
+	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica) {
 		return repositorioVeiculoNovo.findByGarantiaFabrica(garantiaFabrica);
 	}
 
@@ -44,5 +45,3 @@ public class CadastroVeiculoNovo {
 		return repositorioVeiculoNovo.findAll();
 	}
 }
-	
-	

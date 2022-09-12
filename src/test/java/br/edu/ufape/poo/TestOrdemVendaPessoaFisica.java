@@ -11,42 +11,44 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
 
 @SpringBootTest
 public class TestOrdemVendaPessoaFisica {
-	
+
 	@Autowired
 	private CadastroOrdemPessoaFisica cof;
-	
+
 	@Test
 	void cadastroOrdemPessoaFisica() { //
-		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, null, true, null, "Debito", false, false, "1", null, null);
-		OrdemVendaPessoaFisica of2 = new OrdemVendaPessoaFisica(12000, null, true, null, "Credito", true, false, "2", null, null);
+		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, null, true, null, "Debito", false, false, null,
+				null);
+		OrdemVendaPessoaFisica of2 = new OrdemVendaPessoaFisica(12000, null, true, null, "Credito", true, false, null,
+				null);
 		cof.save(of);
 		cof.save(of2);
 	}
-	
-	@Test
-	void findCodigoVendaByOrdemFisica() {
-		
-		OrdemVendaPessoaFisica pessoas = cof.findByCodVenda("1");
-		System.out.println("CODIGO VENDA = " + pessoas.toString());
-	}
-	
+
 	@Test
 	void findPagoByOrdemFisica() {
-		
+
 		List<OrdemVendaPessoaFisica> pessoas = cof.findByPago(true);
-		for(OrdemVendaPessoaFisica v: pessoas) {
+		for (OrdemVendaPessoaFisica v : pessoas) {
 			System.out.println("PAGO = " + v.toString());
 		}
 	}
-	
+
+	@Test
+	void findCodigoVendaByOrdemFisica() {
+
+		OrdemVendaPessoaFisica pessoas = cof.findById(2);
+		System.out.println("CODIGO VENDA = " + pessoas.toString());
+	}
+
 	@Test
 	void deleteCodVendaByOrdemFisica() {
-		
+
 		List<OrdemVendaPessoaFisica> ordens = cof.findAll();
-		for(OrdemVendaPessoaFisica v: ordens) {
+		for (OrdemVendaPessoaFisica v : ordens) {
 			System.out.println("EXISTE = " + v.toString());
 		}
-		cof.deleteByCodVenda("1");
+		cof.deleteById(1);
 
 	}
 }

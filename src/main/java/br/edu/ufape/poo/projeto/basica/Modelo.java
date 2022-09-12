@@ -2,10 +2,9 @@ package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
 
-
 @Entity
 public class Modelo extends Marca {
-	
+
 	private String nomeModelo;
 	private String motor;
 	private float km;
@@ -16,11 +15,10 @@ public class Modelo extends Marca {
 	private float cilindradas;
 	private boolean cambio;
 	private String combustivel;
-	
+
 	public Modelo() {
 		super();
 	}
-	
 
 	public Modelo(String nomeMarca, String nomeModelo, String motor, float km, String cor, int anoFabricado,
 			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
@@ -66,31 +64,24 @@ public class Modelo extends Marca {
 		return quantidadePassageiros;
 	}
 
-
 	public float getCilindradas() {
 		return cilindradas;
 	}
-
 
 	public boolean isCambio() {
 		return cambio;
 	}
 
-
 	public String getCombustivel() {
 		return combustivel;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Modelo [marca=" + getNomeMarca() + ", nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km + ", cor=" + cor
-				+ ", anoFabricado=" + anoFabricado + ", potencia=" + potencia + ", quantidadePassageiros="
-				+ quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio=" + cambio + ", combustivel="
-				+ combustivel + "]";
+		return "Modelo [marca=" + getNomeMarca() + ", nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km
+				+ ", cor=" + cor + ", anoFabricado=" + anoFabricado + ", potencia=" + potencia
+				+ ", quantidadePassageiros=" + quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio="
+				+ cambio + ", combustivel=" + combustivel + "]";
 	}
 
-	
-	
-	
 }

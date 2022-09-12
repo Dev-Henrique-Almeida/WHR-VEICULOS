@@ -15,18 +15,18 @@ public abstract class Veiculo {
 	private float valorCompraVeiculo;
 	private float valorVenda;
 	private boolean vendido;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Modelo modelo;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	public Veiculo() {}
-	
-	public Veiculo(float valorCompraVeiculo,float valorVenda, boolean vendido,
-			Modelo modelo) {
+	public Veiculo() {
+	}
+
+	public Veiculo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo) {
 		this.valorCompraVeiculo = valorCompraVeiculo;
 		this.valorVenda = valorVenda;
 		this.vendido = vendido;
@@ -34,11 +34,11 @@ public abstract class Veiculo {
 		this.modelo = modelo;
 
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public float getValorVenda() {
 		return valorVenda;
 	}
@@ -60,5 +60,5 @@ public abstract class Veiculo {
 		return "Veiculo [valorCompraVeiculo=" + valorCompraVeiculo + ", valorVenda=" + valorVenda + ", vendido="
 				+ vendido + ", modelo=" + modelo + "]";
 	}
-	
+
 }

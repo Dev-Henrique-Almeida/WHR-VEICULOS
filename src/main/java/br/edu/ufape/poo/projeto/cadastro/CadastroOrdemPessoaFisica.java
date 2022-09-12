@@ -13,34 +13,32 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioOrdemPessoaFisica;
 @Service
 @Transactional
 public class CadastroOrdemPessoaFisica {
-	
+
 	@Autowired
 	private RepositorioOrdemPessoaFisica repositorioOrdemPessoaFisica;
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) {
 		return repositorioOrdemPessoaFisica.save(entity);
 	}
-	
+
 	public void delete(OrdemVendaPessoaFisica entity) {
 		repositorioOrdemPessoaFisica.delete(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioOrdemPessoaFisica.deleteById(id);
+	}
+
+	public OrdemVendaPessoaFisica findById(long id) {
+		return repositorioOrdemPessoaFisica.findById(id);
 	}
 
 	public List<OrdemVendaPessoaFisica> findAll() {
 		return repositorioOrdemPessoaFisica.findAll();
 	}
-	
-	public OrdemVendaPessoaFisica findByCodVenda(String codVenda) {
-		return repositorioOrdemPessoaFisica.findByCodVenda(codVenda);
-	}
-	
+
 	public List<OrdemVendaPessoaFisica> findByPago(boolean pago) {
 		return repositorioOrdemPessoaFisica.findByPago(pago);
 	}
 
-	public void deleteByCodVenda(String codVenda) {
-		repositorioOrdemPessoaFisica.deleteByCodVenda(codVenda);
-	}
-	
-	
-	
 }

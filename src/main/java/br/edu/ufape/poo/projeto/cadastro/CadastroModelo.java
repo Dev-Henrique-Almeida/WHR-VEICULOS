@@ -10,7 +10,7 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioModelo;
 
 @Service
 public class CadastroModelo {
-	
+
 	@Autowired
 	private RepositorioModelo repositorioModelo;
 
@@ -21,18 +21,17 @@ public class CadastroModelo {
 	public void delete(Modelo entity) {
 		repositorioModelo.delete(entity);
 	}
-	
+
 	public List<Modelo> findAll() {
 		return repositorioModelo.findAll();
 	}
 
-	public List<Modelo> findByNomeModelo(String nomeModelo) {	
+	public List<Modelo> findByNomeModelo(String nomeModelo) {
 		return repositorioModelo.findByNomeModelo(nomeModelo);
 	}
-	
+
 	public List<Modelo> findByAnoFabricado(int anoFabricado) {
 		return repositorioModelo.findByAnoFabricado(anoFabricado);
 	}
-		
 
 }

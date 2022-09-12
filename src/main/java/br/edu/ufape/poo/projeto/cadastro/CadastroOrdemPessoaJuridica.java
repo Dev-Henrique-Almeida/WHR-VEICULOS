@@ -10,34 +10,32 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioOrdemPessoaJuridica;
 
 @Service
 public class CadastroOrdemPessoaJuridica {
-	
+
 	@Autowired
 	private RepositorioOrdemPessoaJuridica repositorioOrdemPessoaJuridica;
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) {
 		return repositorioOrdemPessoaJuridica.save(entity);
 	}
-	
+
 	public void delete(OrdemVendaPessoaJuridica entity) {
 		repositorioOrdemPessoaJuridica.delete(entity);
-	}
-	
-	public void deleteByCodVenda(String codVenda) {
-		repositorioOrdemPessoaJuridica.deleteByCodVenda(codVenda);
 	}
 
 	public List<OrdemVendaPessoaJuridica> findAll() {
 		return repositorioOrdemPessoaJuridica.findAll();
 	}
-	
-	public OrdemVendaPessoaJuridica findByCodVenda(String codVenda) {
-		return repositorioOrdemPessoaJuridica.findByCodVenda(codVenda);
+
+	public void deleteById(long id) {
+		repositorioOrdemPessoaJuridica.deleteById(id);
 	}
-	
+
+	public OrdemVendaPessoaJuridica findById(long id) {
+		return repositorioOrdemPessoaJuridica.findById(id);
+	}
+
 	public List<OrdemVendaPessoaJuridica> findByPago(boolean pago) {
 		return repositorioOrdemPessoaJuridica.findByPago(pago);
 	}
-	
-	
-	
+
 }

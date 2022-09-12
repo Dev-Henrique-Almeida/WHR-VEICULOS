@@ -17,25 +17,23 @@ public abstract class OrdemVenda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private float valor;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Veiculo veiculo;
-	
+
 	private boolean novo;
 	private Date dataOperacao;
 	private String formaPagamento;
 	private boolean pago;
 	private boolean vendaConcluida;
-	private String codVenda;
-	
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Funcionario vendedor;
-		
+
 	public OrdemVenda(float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String formaPagamento,
-			boolean pago, boolean vendaConcluida, String codVenda, Funcionario vendedor) {
+			boolean pago, boolean vendaConcluida, Funcionario vendedor) {
 		super();
 		this.valor = valor;
 		this.veiculo = veiculo;
@@ -44,7 +42,6 @@ public abstract class OrdemVenda {
 		this.formaPagamento = formaPagamento;
 		this.pago = pago;
 		this.vendaConcluida = vendaConcluida;
-		this.codVenda = codVenda;
 		this.vendedor = vendedor;
 	}
 
@@ -68,17 +65,12 @@ public abstract class OrdemVenda {
 		return formaPagamento;
 	}
 
-
 	public boolean getPago() {
 		return pago;
 	}
 
 	public boolean getVendaConcluida() {
 		return vendaConcluida;
-	}
-
-	public String getCodVenda() {
-		return codVenda;
 	}
 
 	public Funcionario getVendedor() {
@@ -93,16 +85,10 @@ public abstract class OrdemVenda {
 	public String toString() {
 		return "OrdemVenda [valor=" + valor + ", veiculo=" + veiculo + ", novo=" + novo + ", dataOperacao="
 				+ dataOperacao + ", formaPagamento=" + formaPagamento + ", pago=" + pago + ", vendaConcluida="
-				+ vendaConcluida + ", codVenda=" + codVenda + ", vendedor=" + vendedor + ", id=" + id + "]";
+				+ vendaConcluida + ", vendedor=" + vendedor + ", codVenda=" + id + "]";
 	}
-	
+
 	public OrdemVenda() {
 	}
-	
-	
-	
 
 }
-	
-
-

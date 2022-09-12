@@ -10,9 +10,9 @@ import javax.persistence.InheritanceType;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Marca {
-	
+
 	private String nome;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -21,9 +21,9 @@ public abstract class Marca {
 		super();
 		this.nome = nome;
 	}
-	
+
 	public Marca() {
-		
+
 	}
 
 	public Long getId() {
@@ -35,4 +35,3 @@ public abstract class Marca {
 	}
 
 }
-

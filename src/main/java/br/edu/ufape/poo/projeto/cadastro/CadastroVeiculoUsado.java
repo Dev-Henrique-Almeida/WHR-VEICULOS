@@ -1,4 +1,5 @@
 package br.edu.ufape.poo.projeto.cadastro;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculoUsado;
 
 @Service
 public class CadastroVeiculoUsado {
-	
+
 	@Autowired
 	private RepositorioVeiculoUsado repositorioVeiculoUsado;
 
@@ -20,18 +21,17 @@ public class CadastroVeiculoUsado {
 	public void delete(VeiculoUsado entity) {
 		repositorioVeiculoUsado.delete(entity);
 	}
-	
-	public List<VeiculoUsado> findByValorVenda(float valorVenda){
+
+	public List<VeiculoUsado> findByValorVenda(float valorVenda) {
 		return repositorioVeiculoUsado.findByValorVenda(valorVenda);
 	}
-	
-	public List<VeiculoUsado> findByVendido(boolean vendido){
+
+	public List<VeiculoUsado> findByVendido(boolean vendido) {
 		return repositorioVeiculoUsado.findByVendido(vendido);
 	}
 
 	public List<VeiculoUsado> findAll() {
 		return repositorioVeiculoUsado.findAll();
 	}
-	
-	
+
 }

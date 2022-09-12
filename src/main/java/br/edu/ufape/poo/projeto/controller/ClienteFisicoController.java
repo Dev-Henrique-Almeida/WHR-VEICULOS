@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 
-
 //@CrossOrigin (origins = "http://localhost:8080/")
 
 //@RestController
@@ -19,11 +18,11 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteFisico;
 public class ClienteFisicoController {
 	@Autowired
 	private RepositorioClienteFisico cf;
-	
+
 	@PostMapping("clienteFisico")
 	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico clienteFisico) {
 		System.out.println(clienteFisico);
 		return cf.save(clienteFisico);
 	}
-	
+
 }

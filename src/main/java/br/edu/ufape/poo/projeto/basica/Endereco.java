@@ -7,20 +7,20 @@ import javax.persistence.Id;
 
 @Entity
 public class Endereco {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String cep;
 	private String rua;
 	private String cidade;
 	private String estado;
 	private int numero;
-	
+
 	public Endereco() {
 	}
-	
+
 	public Endereco(String cep, String rua, String cidade, String estado, int numero) {
 		super();
 		this.cep = cep;
@@ -30,39 +30,28 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-
 	public long getId() {
 		return id;
 	}
-
 
 	public String getCep() {
 		return cep;
 	}
 
-
 	public String getRua() {
 		return rua;
 	}
-
 
 	public String getCidade() {
 		return cidade;
 	}
 
-
 	public String getEstado() {
 		return estado;
 	}
 
-
 	public int getNumero() {
 		return numero;
 	}
-	
 
-
-	
-	
-	
 }

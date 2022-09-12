@@ -8,13 +8,13 @@ import javax.persistence.Entity;
 public class Funcionario extends Pessoa {
 	private float salario;
 	private String cargo;
-	
+
 	public Funcionario() {
 		super();
 	}
-	
-	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco,
-			float salario, String cargo) {
+
+	public Funcionario(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco, float salario,
+			String cargo) {
 		super(cpf, nome, dataNascimento, telefone, endereco);
 		this.salario = salario;
 		this.cargo = cargo;
@@ -32,7 +32,5 @@ public class Funcionario extends Pessoa {
 	public String toString() {
 		return "Funcionario [salario=" + salario + ", cargo=" + cargo + ", nome=" + getNome() + ", cpf=" + getCpf() + "]";
 	}
-	
-	
 
 }
