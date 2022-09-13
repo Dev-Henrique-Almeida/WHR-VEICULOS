@@ -25,10 +25,6 @@ public class CadastroVeiculoNovo {
 		repositorioVeiculoNovo.delete(entity);
 	}
 
-	// public void deleteByVeiculoNovo(VeiculoNovo veiculoNovo) {
-	// repositorioVeiculoNovo.deleteByVeiculoNovo(veiculoNovo);
-	// }
-
 	public List<VeiculoNovo> findByValorVenda(float valorVenda) {
 		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
 	}
