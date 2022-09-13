@@ -2,10 +2,10 @@ import http from "@/common/http";
 
 class CadastroClienteService {
     getAll() {
-        return http.get('/pegaCliente');
+        return http.get('/allClienteFisico');
     }
     create(data) {
-        return http.post("/CadastroCliente", data);
+        return http.post("/clienteFisico", data);
     }
 }
 export default new CadastroClienteService();
