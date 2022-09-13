@@ -5,19 +5,6 @@
                 <h1 class="text-h4 font-weight-thin mb-4">
                     WHR Veiculos
                 </h1>
-
-                <v-form red v-model="valid">
-                    <v-container>
-                        <v-row>
-                            <v-col cols="12" md="4">
-                            </v-col>
-                            <v-col cols="12" md="4">
-                                <v-text-field v-model="cpf" :rules="nameRules" :counter="11" label="CPF" required>
-                                </v-text-field>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </v-form>
                 <h4 class="subheading">
                     Informe seu CPF para continuar com o cadastro!
                 </h4>

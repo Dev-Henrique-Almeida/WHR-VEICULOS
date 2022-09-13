@@ -67,8 +67,8 @@ export default {
       v => v.length >= 9 || 'Telefone Invalido',
     ],
     pessoa: reactive({
-      nome: '',
       cpf: '',
+      nome: '',
       dataNascimento: '',
       telefone: '',
       endereco: {

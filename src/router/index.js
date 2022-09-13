@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import cadastroClienteFisico from '../views/cadastroClienteFisico.vue'
 import cadastroCliente from '../views/cadastroCliente.vue'
+import cadastroFuncionario from '../views/cadastroFuncionario.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/cadastroInicio',
     name: 'cadastroInicio',
     component: cadastroCliente
+  },
+  {
+    path: '/cadastroFuncionario',
+    name: 'cadastroFuncionario',
+    component: cadastroFuncionario
   },
   {
     path: '/clientes',
