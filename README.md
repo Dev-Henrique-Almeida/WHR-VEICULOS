@@ -1,4 +1,4 @@
-# whr-web
+# front
 
 ## Project setup
 ```
