@@ -4,7 +4,7 @@
   <v-form v-model="valid">
     <v-container>
       <div>
-        <h1> Cadastro de Funcionario</h1>
+        <h1> Cadastro de Funcionarios</h1>
       </div>
       <div>
         <h3> Informações pessoais</h3>
@@ -48,7 +48,7 @@
       </div>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="funcionario.cargo" :counter="20" label="Cargo" required></v-text-field>
+           <v-select  :items="items" l v-model="funcionario.cargo" label="Cargo" required></v-select>
           <v-text-field v-model="funcionario.salario" :counter="11" label="Salario" required></v-text-field>
         </v-col>
       </v-row>
@@ -89,6 +89,7 @@ export default {
       salario: '',
       cargo: '',
       telefone: '',
+      items: ['Gerente', 'Vendedor'],
       endereco: {
         numero: '',
         cidade: '',

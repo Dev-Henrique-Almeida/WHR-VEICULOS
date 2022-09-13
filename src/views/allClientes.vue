@@ -27,6 +27,27 @@
           </template>
         </v-data-table>
       </v-card>
+
+       <v-card>
+        <v-card-title>
+          Lista de Clientes Juridico
+          <v-spacer></v-spacer>
+          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
+          </v-text-field>
+        </v-card-title>
+        <v-data-table :headers="headers2" :items="empresas" :search="search">
+          <template slot="items" slot-scope="clientPJ">
+            <td>{{clientPJ.nomeEmpresarial}}</td>
+            <td>{{clientPJ.cnpj}}</td>
+            <td>{{clientPJ.telefone}}</td>
+            <td>{{clientPJ.id}}</td>
+            <td>{{clientPJ.endereco.cidade}}</td>
+            <td>{{clientPJ.endereco.estado}}</td>
+
+          </template>
+        </v-data-table>
+      </v-card>
+
     </template>
     <template>
 
@@ -64,6 +85,7 @@
 </template>
 
 <script>
+import CadastroClienteJuridicoService from '@/service/CadastroClienteJuridicoService';
 import CadastroClienteService from '@/service/CadastroClienteService'
 
 export default {
@@ -72,13 +94,22 @@ export default {
     return {
       search: '',
       usuarios: [],
+      empresas: [],
       headers: [
         { text: 'ID', value: 'id' },
         { text: 'Nome', value: 'nome' },
         { text: 'CPF', value: 'cpf' },
         { text: 'Telefone', value: 'telefone' },
         { text: 'Cidade', value: 'endereco.cidade' },
-        { text: 'Cidade', value: 'endereco.estado' },
+        { text: 'Estado', value: 'endereco.estado' },
+      ],
+       headers2: [
+        { text: 'ID', value: 'id' },
+        { text: 'Nome', value: 'nomeEmpresarial' },
+        { text: 'CNPJ', value: 'cnpj' },
+        { text: 'Telefone', value: 'contato' },
+        { text: 'Cidade', value: 'endereco.cidade' },
+        { text: 'Estado', value: 'endereco.estado' },
       ],
       carros: [
         {
@@ -103,15 +134,19 @@ export default {
           this.usuarios = response.data;
         }
       );
+    },
+     loadAllPJ() {
+        CadastroClienteJuridicoService.getAll().then(
+        response => {
+          this.empresas = response.data;
+        }
+      );
     }
   },
   mounted() {
     this.loadAll();
+    this.loadAllPJ();
   }
-
-
-
-
 
 }
 

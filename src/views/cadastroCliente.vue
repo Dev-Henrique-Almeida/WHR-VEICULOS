@@ -41,8 +41,11 @@
         </v-col>
       </v-row>
       <div>
-        <button @click="cadastrar">Cadastrar</button>
-        <br/>        
+        <button>
+          <v-btn color="black" dark @click="cadastrar"> Cadastrar
+          <v-icon right dark >mdi-checkbox-marked-circle</v-icon>
+        </v-btn>
+    </button>
       </div>
     </v-container>
   </v-form>
@@ -67,8 +70,8 @@ export default {
       v => v.length >= 9 || 'Telefone Invalido',
     ],
     pessoa: reactive({
-      cpf: '',
       nome: '',
+      cpf: '',
       dataNascimento: '',
       telefone: '',
       endereco: {
