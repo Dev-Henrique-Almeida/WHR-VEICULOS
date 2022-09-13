@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
-@CrossOrigin(origins = "http://localhost:8081/")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/whr/api/v1")
 public class CadastroModeloController {

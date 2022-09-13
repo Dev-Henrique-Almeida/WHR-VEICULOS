@@ -16,7 +16,7 @@ import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
-@CrossOrigin(origins = "http://localhost:8081/")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/whr/api/v1")
 public class CadastroClienteFisicoController {
@@ -25,8 +25,7 @@ public class CadastroClienteFisicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteFisico")
-	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente)
-			throws ClienteFisicoExistenteException {
+	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException {
 		return c.save(cliente);
 	}
 

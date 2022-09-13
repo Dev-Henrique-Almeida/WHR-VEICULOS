@@ -23,6 +23,7 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 
 @Service
 public class Concessionaria {
@@ -109,7 +110,7 @@ public class Concessionaria {
 	
 	
 	
-	public Funcionario save(Funcionario entity) {
+	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException {
 		return cadastroFuncionario.save(entity);
 	}
 	
