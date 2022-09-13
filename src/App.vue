@@ -1,14 +1,18 @@
 <template>
-  <v-app>
-    <v-app-bar app color="black" dark> 
+  <v-app >
+    <v-app-bar app color="black" dark>
       <div class="d-flex align-center">
-        <v-img alt="Vuetify Logo" class="shrink mr-2" contain src="https://www.mouraautomoveis.com.br/images/carro.png"
-          transition="scale-transition" width="40" />
-
         <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="100"
-          src="https://www.mouraautomoveis.com.br/images/carro.png" width="100" />
-          <v-spacer></v-spacer>
-          
+          src="./assets/logoWHR.png" width="100" />
+        <v-spacer></v-spacer>
+        <v-card>
+
+          <v-tabs background-color="black" left dark>
+            <v-tab>Clientes</v-tab>
+            <v-tab>Veiculos</v-tab>
+            <v-tab>Cadastro</v-tab>
+          </v-tabs>
+        </v-card>
       </div>
       <div>
 
@@ -37,3 +41,6 @@ export default {
   }),
 };
 </script>
+<style>
+  body {background-color: rgb(201, 76, 76);}
+</style>
