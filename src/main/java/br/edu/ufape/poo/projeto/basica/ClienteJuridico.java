@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class ClienteJuridico {
 
 	@Id
@@ -35,12 +38,6 @@ public class ClienteJuridico {
 		this.cnpj = cnpj;
 		this.endereco = endereco;
 		this.descricao = descricao;
-	}
-	
-	
-
-	public long getId() {
-		return id;
 	}
 
 	public String getCnpj() {

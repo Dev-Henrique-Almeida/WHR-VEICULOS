@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -25,12 +24,12 @@ public class CadastroFuncionarioController {
 	private Concessionaria c;
 
 	@PostMapping("funcionario")
-	public Funcionario createFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException{
+	public Funcionario createFuncionario(@RequestBody Funcionario cliente){
 		return c.save(cliente);
 	}
 
 	@PutMapping("funcionario")
-	public Funcionario updateFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException{
+	public Funcionario updateFuncionario(@RequestBody Funcionario cliente){
 		return c.save(cliente);
 	}
 		
@@ -39,17 +38,17 @@ public class CadastroFuncionarioController {
 		c.deleteByCpf(cpf);
 	}
 	
-	@GetMapping("cpfFuncionario")
+	@GetMapping("cpfClienteFuncionario")
 	public Funcionario findByCpf(@RequestBody String cpf) {
-		return c.findByNomeFuncionario(cpf);
+		return c.findByCpfFuncionario(cpf);
 	}
 	
-	@GetMapping("nomeFuncionario")
+	@GetMapping("nomeClienteFuncionario")
 	public Funcionario findByNome(@RequestBody String nome) {
 		return c.findByNomeFuncionario(nome);
 	}
 	
-	@GetMapping("allFuncionario")
+	@GetMapping("allClienteFuncionario")
 	public List<Funcionario> findAllFuncionario() {
 		return c.findAllFuncionario();
 	}

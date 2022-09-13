@@ -23,7 +23,6 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 
 @Service
 public class Concessionaria {
@@ -110,7 +109,7 @@ public class Concessionaria {
 	
 	
 	
-	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException {
+	public Funcionario save(Funcionario entity) {
 		return cadastroFuncionario.save(entity);
 	}
 	
@@ -120,6 +119,9 @@ public class Concessionaria {
 
 	public Funcionario findByNomeFuncionario(String nome) {
 		return cadastroFuncionario.findByNome(nome);
+	}
+	public Funcionario findByCpfFuncionario(String cpf) {
+		return cadastroFuncionario.findByCpf(cpf);
 	}
 
 	public Funcionario findByCargo(String cargo) {
@@ -262,6 +264,9 @@ public class Concessionaria {
 	public List<VeiculoUsado> findAllVeiculoUsado() {
 		return cadastroVeiculoUsado.findAll();
 	}
+
+	
+	
 	
 	
 	

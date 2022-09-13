@@ -24,32 +24,32 @@ public class CadastroOrdemPessoaJuridicaController {
 	@Autowired
 	private Concessionaria c;
 
-	@PostMapping("ordemJuridica")
+	@PostMapping("ordemJuridico")
 	public OrdemVendaPessoaFisica createOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica entity) {
 		return c.save(entity);
 	}
 
-	@PutMapping("ordemJuridica")
+	@PutMapping("ordemJuridico")
 	public OrdemVendaPessoaFisica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica cliente){
 		return c.save(cliente);
 	}
 		
-	@DeleteMapping("deleteOrdemJuridica")
+	@DeleteMapping("deleteOrdemJuridico")
 	public void deleteOrdemPessoaJuridica(@RequestBody long id) {  // @PathVariable poder ser usado para remover diretamente na URL
 		c.deleteByIdOrdemJuridico(id);
 	}
 	
-	@GetMapping("idOrdemJuridica")
+	@GetMapping("idOrdemJuridico")
 	public OrdemVendaPessoaJuridica findByIdOrdemFisica(@RequestBody long id) {
 		return c.findByIdOrdemJuridico(id);
 	}
 	
-	@GetMapping("pagoOrdemJuridica")
+	@GetMapping("pagoOrdemJuridico")
 	public List<OrdemVendaPessoaJuridica> findByPagoOrdemFisica(@RequestBody boolean pago) {
 		return c.findByPagoOrdemJuridico(pago);
 	}
 	
-	@GetMapping("allOrdemJuridica")
+	@GetMapping("allOrdemJuridico")
 	public List<OrdemVendaPessoaJuridica> findAllOrdemFisica() {
 		return c.findAllOrdemJuridico();
 	}

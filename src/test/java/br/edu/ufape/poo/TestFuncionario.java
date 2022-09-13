@@ -1,5 +1,7 @@
 package br.edu.ufape.poo;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 
 @SpringBootTest
 public class TestFuncionario {
@@ -23,31 +24,15 @@ public class TestFuncionario {
 
 	@Test
 	void saveFuncionario() {
-		
-		try {
-			Funcionario f = new Funcionario("123-456", "Robert", null, "4002-8922",
-					new Endereco("55380-000", "Rua", "ArcoVerde", "PE", 69), 1000, "Vendedor");
-			cf.save(f);
-		} catch (FuncionarioExistenteException e) {
-			System.out.println(e.getMessage());
-		}
-
-		try {
-			Funcionario f1 = new Funcionario("654-321", "William", null, "4002-8922",
-					new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 69), 4000, "Gerente");
-			cf.save(f1);
-		} catch (FuncionarioExistenteException e) {
-			System.out.println(e.getMessage());
-		}
-
-		try {
-			Funcionario f3 = new Funcionario("666", "Henrique", null, "4002",
-					new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 1000, "Gerente");
-			cf.save(f3);
-		} catch (FuncionarioExistenteException e) {
-			System.out.println(e.getMessage());
-		}		
-		
+		Funcionario f = new Funcionario("123-456", "Robert", null, "4002-8922",
+				new Endereco("55380-000", "Rua", "ArcoVerde", "PE", 69), 1000, "Vendedor");
+		Funcionario f1 = new Funcionario("654-321", "William", null, "4002-8922",
+				new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 69), 4000, "Gerente");
+		Funcionario f3 = new Funcionario("123", "Henrique", null, "4002",
+				new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 1000, "Gerente");
+		cf.save(f);
+		cf.save(f1);
+		cf.save(f3);
 	}
 
 	@Test
@@ -63,7 +48,7 @@ public class TestFuncionario {
 		System.out.println("CARGO = " + funcionarios.toString());
 
 	}
-/*
+
 	@Test
 	void deleteCpfByFuncionario() {
 
@@ -74,5 +59,4 @@ public class TestFuncionario {
 		cf.deleteByCpf("123");
 
 	}
-	*/
 }

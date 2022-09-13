@@ -25,7 +25,8 @@ public class CadastroClienteFisicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteFisico")
-	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException {
+	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente)
+			throws ClienteFisicoExistenteException {
 		return c.save(cliente);
 	}
 

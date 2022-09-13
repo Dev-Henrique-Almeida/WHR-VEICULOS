@@ -1,5 +1,7 @@
 package br.edu.ufape.poo;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,10 +33,10 @@ public class TestClienteJuridico {
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		try {
-			ClienteJuridico cj3 = new ClienteJuridico("Robert", "Corno", "telefone", "1111", null,
-					"juridico igual");
+			ClienteJuridico cj3 = new ClienteJuridico("Robert", "Robert", "1524-8790", "120", null,
+					"uma pessoa juridica ai");
 			ccj.save(cj3);
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
@@ -47,14 +49,12 @@ public class TestClienteJuridico {
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
 	}
 
 	@Test
 	void findCnpjByPessoaJuridica() {
-		ClienteJuridico clientes = ccj.findByCnpj("1111");
-		System.out.println("CNPJ = " + clientes.toString());
+		ClienteJuridico clientes = ccj.findByCnpj("55555555");
+		System.out.println("CPNJ = " + clientes.toString());
 
 	}
 
@@ -64,14 +64,12 @@ public class TestClienteJuridico {
 		System.out.println("NOME FANTASIA = " + clientes.toString());
 	}
 
-	/*
 	@Test
 	void deleteCnpjByPessoaJuridica() {
-		List<ClienteJuridico> clientes = ccj.findAll();
-		for (ClienteJuridico j : clientes) {
+		List<ClienteJuridico> clientes1 = ccj.findAll();
+		for (ClienteJuridico j : clientes1) {
 			System.out.println("EXISTE = " + j.toString());
 		}
 		ccj.deleteByCnpj("120");
 	}
-	*/
 }
