@@ -7,12 +7,15 @@
       </v-col>
     </v-row>
     <template>
-      <h1>WHR Veiculos</h1>
+      <v-card dark>
+      <h1>
+        WHR Veiculos</h1>
+      </v-card>
       <v-card>
         <v-card-title>
           Lista de Clientes Fisicos
           <v-spacer></v-spacer>
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
+          <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title>
         <v-data-table :headers="headers" :items="usuarios" :search="search">
@@ -27,15 +30,15 @@
           </template>
         </v-data-table>
       </v-card>
-
-       <v-card>
+      <p></p>
+       <v-card dark>
         <v-card-title>
           Lista de Clientes Juridico
           <v-spacer></v-spacer>
           <v-text-field v-model="searchPJ" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title>
-        <v-data-table :headers="headers2" :items="empresas" :search="search">
+        <v-data-table dark :headers="headers2" :items="empresas" :search="search">
           <template slot="items" slot-scope="clientPJ">
             <td>{{clientPJ.nomeEmpresarial}}</td>
             <td>{{clientPJ.cnpj}}</td>
@@ -47,10 +50,9 @@
           </template>
         </v-data-table>
       </v-card>
-
     </template>
     <template>
-
+      <p></p>
       <v-carousel>
         <v-carousel-item v-for="(item,i) in carros" :key="i" :src="item.src" reverse-transition="fade-transition"
           transition="fade-transition"></v-carousel-item>

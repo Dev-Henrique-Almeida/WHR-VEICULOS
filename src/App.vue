@@ -43,7 +43,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="white" >
+    <v-main class="grey darken-4" >
     
         <router-view />
     
