@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
+import br.edu.ufape.poo.projeto.basica.FichaVisitaFisica;
+import br.edu.ufape.poo.projeto.basica.FichaVisitaJuridica;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
@@ -15,6 +17,8 @@ import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteFisico;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteJuridico;
+import br.edu.ufape.poo.projeto.cadastro.CadastroFichaVisitaFisica;
+import br.edu.ufape.poo.projeto.cadastro.CadastroFichaVisitaJuridica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
@@ -23,9 +27,11 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 
 @Service
 public class Concessionaria {
+	
 	@Autowired
 	private CadastroClienteFisico cadastroClienteFisico;
 
@@ -49,6 +55,12 @@ public class Concessionaria {
 	
 	@Autowired
 	private CadastroVeiculoUsado cadastroVeiculoUsado;
+	
+	@Autowired
+	private CadastroFichaVisitaFisica cadastroFichaVisitaFisica;
+	
+	@Autowired
+	private CadastroFichaVisitaJuridica cadastroFichaVisitaJuridica;
 	
 	
 	
@@ -109,7 +121,7 @@ public class Concessionaria {
 	
 	
 	
-	public Funcionario save(Funcionario entity) {
+	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException {
 		return cadastroFuncionario.save(entity);
 	}
 	
@@ -119,9 +131,6 @@ public class Concessionaria {
 
 	public Funcionario findByNomeFuncionario(String nome) {
 		return cadastroFuncionario.findByNome(nome);
-	}
-	public Funcionario findByCpfFuncionario(String cpf) {
-		return cadastroFuncionario.findByCpf(cpf);
 	}
 
 	public Funcionario findByCargo(String cargo) {
@@ -264,11 +273,37 @@ public class Concessionaria {
 	public List<VeiculoUsado> findAllVeiculoUsado() {
 		return cadastroVeiculoUsado.findAll();
 	}
+	
+	
+	/////////////// FICHA VISITA FISICA //////////////////
+	
+	public FichaVisitaFisica save(FichaVisitaFisica entity) {
+		return cadastroFichaVisitaFisica.save(entity);
+	}
+	
+	public void delete(FichaVisitaFisica entity) {
+		cadastroFichaVisitaFisica.delete(entity);
+	}
 
+	public List<FichaVisitaFisica> findAllFichaVisitaFisica() {
+		return cadastroFichaVisitaFisica.findAll();
+	}
 	
 	
+	//////////////////// FICHA VISITA JURIDICA /////////////////
 	
 	
+	public FichaVisitaJuridica save(FichaVisitaJuridica entity) {
+		return cadastroFichaVisitaJuridica.save(entity);
+	}
+	
+	public void delete(FichaVisitaJuridica entity) {
+		cadastroFichaVisitaJuridica.delete(entity);
+	}
+
+	public List<FichaVisitaJuridica> findAllFichaVisitaJuridica() {
+		return cadastroFichaVisitaJuridica.findAll();
+	}
 	
 	
 }

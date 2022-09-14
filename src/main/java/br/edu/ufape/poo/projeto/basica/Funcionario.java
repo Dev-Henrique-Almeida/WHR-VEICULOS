@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Funcionario extends Pessoa {
+	
 	private float salario;
 	private String cargo;
 
