@@ -89,7 +89,6 @@ export default {
       salario: '',
       cargo: '',
       telefone: '',
-      items: ['Gerente', 'Vendedor'],
       endereco: {
         numero: '',
         cidade: '',
@@ -98,6 +97,7 @@ export default {
         cep: '',
       }
     }),
+    items: ['Gerente', 'Vendedor'],
   }),
   methods: {
     cadastrar() {

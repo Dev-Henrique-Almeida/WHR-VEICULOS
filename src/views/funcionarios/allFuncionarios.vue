@@ -6,17 +6,16 @@
         <v-img :src="require('@/assets/3carros.png')" class="my-3" contain height="200" />
       </v-col>
     </v-row>
-    <template >
+    <template>
       <h1>WHR Veiculos</h1>
       <v-card>
-        <v-card-title >
+        <v-card-title>
           Lista de Funcionarios
           <v-spacer></v-spacer>
           <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
-        </v-card-title >
+        </v-card-title>
         <v-data-table :headers="headers" :items="funcionarios" :search="search">
-          
           <template slot="items" slot-scope="funcionario">
             <td>{{funcionario.nome}}</td>
             <td>{{funcionario.cpf}}</td>

@@ -7,15 +7,12 @@
       </v-col>
     </v-row>
     <template>
-      <v-card dark>
-      <h1>
-        WHR Veiculos</h1>
-      </v-card>
+      <h1>WHR Veiculos</h1>
       <v-card>
         <v-card-title>
           Lista de Clientes Fisicos
           <v-spacer></v-spacer>
-          <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
+          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title>
         <v-data-table :headers="headers" :items="usuarios" :search="search">
@@ -26,19 +23,21 @@
             <td>{{clientPF.id}}</td>
             <td>{{clientPF.endereco.cidade}}</td>
             <td>{{clientPF.endereco.estado}}</td>
-
           </template>
         </v-data-table>
       </v-card>
-      <p></p>
-       <v-card dark>
+      <br/>
+      <br/>
+      <br/>
+       <v-card>
         <v-card-title>
-          Lista de Clientes Juridico
+          
+          Lista de Clientes Juridicos
           <v-spacer></v-spacer>
           <v-text-field v-model="searchPJ" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title>
-        <v-data-table dark :headers="headers2" :items="empresas" :search="search">
+        <v-data-table :headers="headers2" :items="empresas" :search="searchPJ">
           <template slot="items" slot-scope="clientPJ">
             <td>{{clientPJ.nomeEmpresarial}}</td>
             <td>{{clientPJ.cnpj}}</td>
@@ -50,39 +49,12 @@
           </template>
         </v-data-table>
       </v-card>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </template>
-    <template>
-      <p></p>
-      <v-carousel>
-        <v-carousel-item v-for="(item,i) in carros" :key="i" :src="item.src" reverse-transition="fade-transition"
-          transition="fade-transition"></v-carousel-item>
-      </v-carousel>
-    </template>
-    <template>
-      <v-form ref="form" v-model="valid" lazy-validation>
-        <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-
-        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-
-        <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="Item" required>
-        </v-select>
-
-        <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="Do you agree?"
-          required></v-checkbox>
-
-        <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-          Validate
-        </v-btn>
-
-        <v-btn color="error" class="mr-4" @click="reset">
-          Reset Form
-        </v-btn>
-
-        <v-btn color="warning" @click="resetValidation">
-          Reset Validation
-        </v-btn>
-      </v-form>
-    </template>
+    
   </v-container>
 </template>
 

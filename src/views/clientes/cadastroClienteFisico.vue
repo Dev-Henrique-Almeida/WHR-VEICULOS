@@ -1,12 +1,12 @@
 <template>
     <v-parallax dark src="https://images4.alphacoders.com/839/83944.jpg">
-        <v-row align="center" justify="center">
+        <v-row align="center" justify="center" dark>
             <v-col class="text-center" cols="12">
                 <h1 class="text-h4 font-weight-thin mb-4">
                     WHR Veiculos
                 </h1>
 
-                <v-form red v-model="valid">
+                <v-form v-model="valid">
                     <v-container>
                         <v-row>
                             <v-col cols="12" md="4">

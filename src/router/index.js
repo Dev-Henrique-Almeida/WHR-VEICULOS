@@ -5,6 +5,7 @@ import cadastroClienteFisico from '../views/clientes/cadastroClienteFisico.vue'
 import cadastroCliente from '../views/clientes/cadastroCliente.vue'
 import cadastroClienteJuridico from '../views/clientes/cadastroClienteJuridico.vue'
 import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
+import cadastroVeiculo from '../views/veiculos/cadastroVeiculo.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/cadastroFuncionario',
     name: 'cadastroFuncionario',
     component: cadastroFuncionario
+  },
+  {
+    path: '/cadastroVeiculo',
+    name: 'cadastroVeiculo',
+    component: cadastroVeiculo
   },
   {
     path: '/clientes',
