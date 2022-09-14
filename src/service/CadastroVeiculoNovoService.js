@@ -1,3 +1,5 @@
+import http from "@/common/http";
+
 class CadastroVeiculoNovoService {
     getAll() {
         return http.get('/allVeiculoNovo');

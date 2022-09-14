@@ -1,3 +1,5 @@
+import http from "@/common/http";
+
 class CadastroOrdemVendaPessoaJuridicaService{
     getAll() {
         return http.get('/allOrdemJuridico');

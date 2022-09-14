@@ -25,7 +25,7 @@
             WHR Veiculos
           </v-list-item-title>
           <v-list-item-subtitle>
-            Eu sou a velocidade
+            Mais que um carro, uma paixão.
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -57,9 +57,13 @@ export default {
       { title: 'Cadastrar cliente', icon: 'mdi-view-dashboard', to: '/cadastroCliente' },
       { title: 'Cadastrar Juridico', icon: 'mdi-view-dashboard', to: '/cadastroClienteJuridico' },
       { title: 'Cadastrar Funcionarios', icon: 'mdi-view-dashboard', to: '/cadastroFuncionario' },
-      { title: 'Todos Os Clientes', icon: 'mdi-view-dashboard', to: '/clientes' },
+      { title: 'Cadastrar Veiculo Novo ', icon: 'mdi-view-dashboard', to: '/cadastroVeiculoNovo' },
+      { title: 'Cadastrar Modelo', icon: 'mdi-view-dashboard', to: '/cadastroModelo' },
+      { title: 'Todos os Clientes', icon: 'mdi-view-dashboard', to: '/clientes' },
       { title: 'Todos os Funcionarios', icon: 'mdi-view-dashboard', to: '/funcionarios' },
-      { title: 'Cadastro Veiculo', icon: 'mdi-view-dashboard', to: '/cadastroVeiculo' },
+      { title: 'Todos os Veiculos Novos', icon: 'mdi-view-dashboard', to: '/veiculosNovos' },
+      { title: 'Todos os Modelos', icon: 'mdi-view-dashboard', to: '/modelos' },
+      
 
 
       { title: 'Sobre', icon: 'mdi-help-box' },

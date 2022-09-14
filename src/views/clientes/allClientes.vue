@@ -7,7 +7,9 @@
       </v-col>
     </v-row>
     <template>
-      <h1>WHR Veiculos</h1>
+      <center>
+        <h1>WHR Veiculos</h1>
+      </center>
       <v-card>
         <v-card-title>
           Lista de Clientes Fisicos

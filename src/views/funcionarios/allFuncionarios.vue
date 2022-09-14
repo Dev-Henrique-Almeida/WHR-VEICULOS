@@ -7,7 +7,11 @@
       </v-col>
     </v-row>
     <template>
-      <h1>WHR Veiculos</h1>
+      <br>
+      <center>
+        <h1>WHR Veiculos</h1>
+      </center>
+      <br>
       <v-card>
         <v-card-title>
           Lista de Funcionarios

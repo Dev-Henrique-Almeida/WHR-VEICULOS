@@ -1,4 +1,6 @@
-class CadastroVeiculoUsadoNovoService {
+import http from "@/common/http";
+
+class CadastroVeiculoUsadoService {
     getAll() {
         return http.get('/allVeiculoUsado');
     }
@@ -10,4 +12,4 @@ class CadastroVeiculoUsadoNovoService {
     }
 }
 
-export default new CadastroVeiculoUsadoNovoService();
+export default new CadastroVeiculoUsadoService();

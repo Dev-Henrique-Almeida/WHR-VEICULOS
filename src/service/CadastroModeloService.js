@@ -1,3 +1,5 @@
+import http from "@/common/http";
+
 class CadastroModeloService {
     getAll() {
         return http.get('/allModelo');

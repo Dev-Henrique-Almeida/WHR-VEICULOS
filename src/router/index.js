@@ -5,7 +5,8 @@ import cadastroClienteFisico from '../views/clientes/cadastroClienteFisico.vue'
 import cadastroCliente from '../views/clientes/cadastroCliente.vue'
 import cadastroClienteJuridico from '../views/clientes/cadastroClienteJuridico.vue'
 import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
-import cadastroVeiculo from '../views/veiculos/cadastroVeiculo.vue'
+import cadastroVeiculoNovo from '../views/veiculos/cadastroVeiculoNovo.vue'
+import cadastroModelo from '../views/veiculos/cadastroModelo.vue'
 
 Vue.use(VueRouter)
 
@@ -36,9 +37,14 @@ const routes = [
     component: cadastroFuncionario
   },
   {
-    path: '/cadastroVeiculo',
-    name: 'cadastroVeiculo',
-    component: cadastroVeiculo
+    path: '/cadastroVeiculoNovo',
+    name: 'cadastroVeiculoNovo',
+    component: cadastroVeiculoNovo
+  },
+  {
+    path: '/cadastroModelo',
+    name: 'cadastroModelo',
+    component: cadastroModelo
   },
   {
     path: '/clientes',
@@ -49,6 +55,16 @@ const routes = [
     path: '/funcionarios',
     name: 'funcionarios',
     component: () => import(/* webpackChunkName: "about" */ '../views/funcionarios/allFuncionarios.vue')
+  },
+  {
+    path: '/veiculosNovos',
+    name: 'veiculosNovos',
+    component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/allVeiculoNovo.vue')
+  },
+  {
+    path: '/modelos',
+    name: 'modelos',
+    component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/allModelo.vue')
   }
 ]
 
