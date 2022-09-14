@@ -3,7 +3,7 @@
     
     <v-row class="text-center">
       <v-col dark>
-        <v-img :src="require('../assets/3carros.png')" class="my-3" contain height="200" />
+        <v-img :src="require('@/assets/3carros.png')" class="my-3" contain height="200" />
       </v-col>
     </v-row>
     <template>
@@ -67,13 +67,7 @@ export default {
   },
   mounted() {
     this.loadAll();
-
   }
-
-
-
-
-
 }
 
 </script>

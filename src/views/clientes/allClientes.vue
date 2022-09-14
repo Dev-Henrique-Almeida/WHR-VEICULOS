@@ -3,7 +3,7 @@
     
     <v-row class="text-center">
       <v-col dark>
-        <v-img :src="require('../assets/3carros.png')" class="my-3" contain height="200" />
+        <v-img :src="require('@/assets/3carros.png')" class="my-3" contain height="200" />
       </v-col>
     </v-row>
     <template>
@@ -32,7 +32,7 @@
         <v-card-title>
           Lista de Clientes Juridico
           <v-spacer></v-spacer>
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
+          <v-text-field v-model="searchPJ" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title>
         <v-data-table :headers="headers2" :items="empresas" :search="search">
@@ -86,13 +86,14 @@
 
 <script>
 import CadastroClienteJuridicoService from '@/service/CadastroClienteJuridicoService';
-import CadastroClienteService from '@/service/CadastroClienteService'
+import CadastroClienteFisicoService from '@/service/CadastroClienteFisicoService'
 
 export default {
   name: 'HomePage',
   data() {
     return {
       search: '',
+      searchPJ: '',
       usuarios: [],
       empresas: [],
       headers: [
@@ -129,7 +130,7 @@ export default {
   },
   methods: {
     loadAll() {
-      CadastroClienteService.getAll().then(
+      CadastroClienteFisicoService.getAll().then(
         response => {
           this.usuarios = response.data;
         }

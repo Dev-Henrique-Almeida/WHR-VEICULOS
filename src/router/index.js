@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import cadastroClienteFisico from '../views/cadastroClienteFisico.vue'
-import cadastroCliente from '../views/cadastroCliente.vue'
-import cadastroClienteJuridico from '../views/cadastroClienteJuridico.vue'
-import cadastroFuncionario from '../views/cadastroFuncionario.vue'
+import cadastroClienteFisico from '../views/clientes/cadastroClienteFisico.vue'
+import cadastroCliente from '../views/clientes/cadastroCliente.vue'
+import cadastroClienteJuridico from '../views/clientes/cadastroClienteJuridico.vue'
+import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
 
 Vue.use(VueRouter)
 
@@ -37,12 +37,12 @@ const routes = [
   {
     path: '/clientes',
     name: 'clientes',
-    component: () => import(/* webpackChunkName: "about" */ '../views/allClientes.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/clientes/allClientes.vue')
   },
   {
     path: '/funcionarios',
     name: 'funcionarios',
-    component: () => import(/* webpackChunkName: "about" */ '../views/allFuncionarios.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/funcionarios/allFuncionarios.vue')
   }
 ]
 

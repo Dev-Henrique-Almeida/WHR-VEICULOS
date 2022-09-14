@@ -53,7 +53,7 @@
 </template>
   
 <script>
-import CadastroClienteService from '@/service/CadastroClienteService';
+import CadastroClienteFisicoService from '@/service/CadastroClienteFisicoService';
 import { reactive } from 'vue'
 export default {
   data: () => ({
@@ -86,7 +86,7 @@ export default {
   methods: {
     cadastrar() {
       console.log(this.pessoa)
-      CadastroClienteService.create(this.pessoa).then(
+      CadastroClienteFisicoService.create(this.pessoa).then(
         response => { console.log(response.status); });
     }
   },
