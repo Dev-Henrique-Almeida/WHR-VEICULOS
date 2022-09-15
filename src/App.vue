@@ -48,26 +48,29 @@
   </v-app>
 </template>
 <script>
+//import { mdiHome } from '@mdi/js'
 export default {
   data: () => ({
     drawer: false,
 
     items: [
-      { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
-      { title: 'Cadastrar Cliente Físico', icon: 'mdi-view-dashboard', to: '/cadastroInicio' },
-      { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-view-dashboard', to: '/cadastroClienteJuridico' },
-      { title: 'Cadastrar Funcionarios', icon: 'mdi-view-dashboard', to: '/cadastroFuncionario' },
-      { title: 'Cadastrar Veiculo Novo ', icon: 'mdi-view-dashboard', to: '/cadastroVeiculoNovo' },
-      { title: 'Cadastrar Modelo', icon: 'mdi-view-dashboard', to: '/cadastroModelo' },
-      { title: 'Todos os Clientes', icon: 'mdi-view-dashboard', to: '/clientes' },
-      { title: 'Todos os Funcionarios', icon: 'mdi-view-dashboard', to: '/funcionarios' },
-      { title: 'Todos os Veiculos Novos', icon: 'mdi-view-dashboard', to: '/veiculosNovos' },
-      { title: 'Todos os Modelos', icon: 'mdi-view-dashboard', to: '/modelos' },
-      { title: 'Tcpf', icon: 'mdi-view-dashboard', to: '/cpfCliente' },
+      { title: 'Home', icon: 'mdi-home', to: '/' },
+      { title: 'Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
+      { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
+      { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
+      { title: 'Cadastrar Veiculo Novo ', icon: 'mdi-car', to: '/cadastroVeiculoNovo' },
+      { title: 'Cadastrar Veiculo Usado ', icon: 'mdi-car', to: '/cadastroVeiculoUsado' },
+      { title: 'Cadastrar Modelo', icon: 'mdi-car-outline', to: '/cadastroModelo' },
+      { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
+      { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
+      { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
+      { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
+      { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
+      
       
 
 
-      { title: 'Sobre', icon: 'mdi-help-box' },
+      { title: 'Sobre', icon: 'mdi-information' },
     ],
     right: null,
   }),

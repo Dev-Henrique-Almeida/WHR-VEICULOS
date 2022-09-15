@@ -11,9 +11,9 @@
       </div>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="funcionario.nome" label="Nome" required>
+          <v-text-field v-model="funcionario.nome" :rules="nameRules" label="Nome" required>
           </v-text-field>
-          <v-text-field v-model="funcionario.dataNascimento" type="date" label="Data de nascimento" required>
+          <v-text-field v-model="funcionario.dataNascimento" :rules="dataRules" type="date" label="Data de nascimento" required>
           </v-text-field>
         </v-col>
 
@@ -30,7 +30,7 @@
       <v-row>
         <v-col cols="12" md="4">
           <v-text-field v-model="funcionario.endereco.cidade" :rules="cidadeRules" label="Cidade" required></v-text-field>
-          <v-select :items="estados" v-model="funcionario.endereco.estado" label="Estado" required></v-select>
+          <v-select :items="estados" v-model="funcionario.endereco.estado" :rules="ruaRules" label="Estado" required></v-select>
         </v-col>
 
         <v-col cols="12" md="4">
@@ -48,7 +48,7 @@
       </div>
       <v-row>
         <v-col cols="12" md="4">
-           <v-select  :items="items" l v-model="funcionario.cargo" label="Cargo" required></v-select>
+           <v-select  :items="items" l v-model="funcionario.cargo" :rules="ruaRules"  label="Cargo" required></v-select>
           <v-text-field v-model="funcionario.salario" :rules="salarioRules" type="number" label="Salario" required></v-text-field>
         </v-col>
       </v-row>
@@ -71,33 +71,38 @@ import { reactive } from 'vue'
 export default {
   data: () => ({
     valid: false,
-    nameRules: [
-      v => !!v || 'Nome Obrigatorio',
-      v => v.length >= 10 || 'Informe seu nome completo',
+     nameRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => !!v.length || 'Campo Obrigatório',
+      v => v.length >= 4  && v != null || 'Informe o nome completo',
     ],
     cpfRules: [
-      v => !!v || 'CPF Obrigatorio',
-      v => v.length >= 11 && v.length <= 11 || 'CPF Invalido',
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 11 && v.length && v != null  <= 11 || 'CPF Invalido',
     ],
     telefoneRules: [
-      v => v.length >= 11 && v.length <= 11 || 'Telefone Invalido',
-    ],
-    cepRules: [
-      v => v.length >= 8 && v.length <= 8 || 'CEP Invalido',
-    ],
-    salarioRules: [
-      v => v >= 0  || 'Salário Invalido',
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 11 && v.length <= 11 && v != null || 'Telefone Invalido',
     ],
     numeroRules: [
-      v => v >= 0 || 'Número Invalido',
+      v => !!v || 'Campo Obrigatório',
+      v => v >= 0 && v != null || 'Número Invalido',
+    ],
+    cepRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 8 && v.length <= 8 && v != null || 'CEP Invalido',
     ],
     cidadeRules: [
-      v => !!v || 'Nome Obrigatorio',
-      v => v.length > 0 || 'Informe o nome completo',
+      v => !!v || 'Campo Obrigatório',
+      v => v.length > 0 && v != null || 'Informe o nome completo',
     ],
     ruaRules: [
-      v => !!v || 'Nome Obrigatorio',
-      v => v.length > 0 || 'Informe o nome completo',
+      v => !!v || 'Campo Obrigatório',
+      v => v.length > 0 && v != null || 'Informe o nome completo',
+    ],
+    salarioRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v >= 0  || 'Salário Invalido',
     ],
     funcionario: reactive({
       nome: '',

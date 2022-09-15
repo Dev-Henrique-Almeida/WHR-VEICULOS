@@ -14,8 +14,8 @@
           </v-col>
   
           <v-col cols="12" md="4">
-            <v-select :items="garantia" v-model="veiculo.garantiaFabrica" label="Garantia de Fabrica" required></v-select>
-            <v-select :items="items" v-model="items" label="Modelo" required></v-select>
+            <v-select :items="garantia" v-model="veiculo.garantiaFabrica" :rules="ruaRules" label="Garantia de Fabrica" required></v-select>
+            <v-select :items="items" v-model="veiculo.items"  label="Modelo" required></v-select>
           </v-col>
      
         </v-row>
@@ -42,22 +42,30 @@ import CadastroModeloService from '@/service/CadastroModeloService';
     data: () => ({
       valid: false,
       nameRules: [
-        v => !!v || 'Nome Obrigatorio',
+        v => !!v || 'Campo Obrigatório',
+        v => !!v.length || 'Campo Obrigatório',
         v => v.length >= 10 || 'Informe seu nome completo',
       ],
-      cpfRules: [
-        v => !!v || 'CPF Obrigatorio',
-        v => v.length >= 11 || 'CPF Invalido',
-      ],
+       campoRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => !!v.length || 'Campo Obrigatório',
+      v => v.length >= 4  && v != null || 'Garantia inválida',
+    ],
       valorRules: [
-        v => v >= 0 || 'Valor Invalido',
+        v => !!v || 'Campo Obrigatório',
+        v => !!v.length || 'Campo Obrigatório',
+        v => v >= 0 || 'Valor inválido',
       ],
+      ruaRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 0  || 'Informe o nome completo',
+    ],
       veiculo: reactive({
         valorCompraVeiculo: '',
         valorVenda: '',
         vendido: false,
+        garantiaFabrica: '',
       }),
-      
       garantia: ['Sim', 'Não'],
       items: [ ],
      

@@ -13,12 +13,16 @@
         <v-col cols="12" md="4">
           <v-text-field v-model="clienteJuridico.nomeEmpresarial" :rules="nameEmpresarialRules" label="Nome Empresarial" required></v-text-field>
           <v-text-field v-model="clienteJuridico.nomeFantasia" :rules="nameEmpresarialRules" label="Nome Fantasia" required></v-text-field>
-          <v-text-field v-model="clienteJuridico.descricao" :rules="nameEmpresarialRules" label="Descrição" required></v-text-field>
+          
         </v-col>
 
         <v-col cols="12" md="4">
           <v-text-field v-model="clienteJuridico.cnpj" :rules="cnpjRules" :counter="14" type="number" label="CNPJ" required></v-text-field>
           <v-text-field v-model="clienteJuridico.contato" :rules="telefoneRules" :counter="11" type="number" label="Contato" required></v-text-field>
+        </v-col>
+
+        <v-col>
+          <v-text-field v-model="clienteJuridico.descricao" :rules="nameEmpresarialRules" label="Descrição" required></v-text-field>
         </v-col>
 
       </v-row>
@@ -59,35 +63,35 @@ export default {
   data: () => ({
     valid: false,
     nameEmpresarialRules: [
-      v => !!v || 'Nome Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length > 0 || 'Informe o nome completo',
     ],
     cnpjRules: [
-      v => !!v || 'CNPJ Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length >= 14 && v.length <= 14 || 'CNPJ Invalido',
     ],
     telefoneRules: [
-      v => !!v || 'Telefone Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length >= 11 && v.length <= 11 || 'Telefone Invalido',
     ],
     numeroRules: [
-      v => !!v || 'Número Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v >= 0 || 'Número Invalido',
     ],
     cepRules: [
-      v => !!v || 'CEP Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length >= 8 && v.length <= 8 || 'CEP Invalido',
     ],
     estadoRules: [
-      v => !!v || 'Estado Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length > 0 || 'Estado Invalido',
     ],
     cidadeRules: [
-      v => !!v || 'Nome Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length > 0 || 'Informe o nome completo',
     ],
     ruaRules: [
-      v => !!v || 'Nome Obrigatorio',
+      v => !!v || 'Campo Obrigatório',
       v => v.length > 0 || 'Informe o nome completo',
     ],
     clienteJuridico: reactive({
