@@ -11,9 +11,9 @@ public class ClienteFisico extends Pessoa {
 		super();
 	}
 
-	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco) {
+	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco){
 		super(cpf, nome, dataNascimento, telefone, endereco);
-
+		
 	}
 
 	/*

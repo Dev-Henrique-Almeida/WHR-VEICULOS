@@ -13,7 +13,7 @@ public class Modelo extends Marca {
 	private int potencia;
 	private int quantidadePassageiros;
 	private float cilindradas;
-	private boolean cambio;
+	private String cambio;
 	private String combustivel;
 
 	public Modelo() {
@@ -21,7 +21,7 @@ public class Modelo extends Marca {
 	}
 
 	public Modelo(String nomeMarca, String nomeModelo, String motor, float km, String cor, int anoFabricado,
-			int potencia, int quantidadePassageiros, float cilindradas, boolean cambio, String combustivel) {
+			int potencia, int quantidadePassageiros, float cilindradas, String cambio, String combustivel) {
 		super(nomeMarca);
 
 		this.nomeModelo = nomeModelo;
@@ -68,7 +68,7 @@ public class Modelo extends Marca {
 		return cilindradas;
 	}
 
-	public boolean isCambio() {
+	public String getCambio() {
 		return cambio;
 	}
 

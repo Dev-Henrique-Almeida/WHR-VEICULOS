@@ -48,6 +48,11 @@ public class CadastroModeloController {
 		return c.findByNomeModelo(nomeModelo);
 	}
 	
+	@GetMapping("idModelo")
+	public List<Modelo> findById(@RequestBody long id) {
+		return c.findById(id);
+	}
+	
 	@GetMapping("allModelo")
 	public List<Modelo> findAllModelo() {
 		return c.findAllModelo();

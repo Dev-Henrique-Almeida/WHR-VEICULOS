@@ -11,27 +11,27 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Marca {
 
-	private String nome;
+	private String nomeMarca;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	public Marca(String nome) {
+	public Marca(String nomeMarca) {
 		super();
-		this.nome = nome;
+		this.nomeMarca = nomeMarca;
 	}
 
 	public Marca() {
 
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 	public String getNomeMarca() {
-		return nome;
+		return nomeMarca;
 	}
 
 }

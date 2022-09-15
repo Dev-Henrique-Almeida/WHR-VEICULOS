@@ -37,13 +37,13 @@ public class TestModelo {
 	@Test
 	void saveVeiculos() {
 		VeiculoNovo vn = new VeiculoNovo(15000, 20000, false,
-				new Modelo("Fiat", "Uno", null, 0, null, 0, 0, 0, 0, true, null), true);
+				new Modelo("Fiat", "Uno", null, 0, null, 0, 0, 0, 0, "automatico", null), "sim");
 		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false,
-				new Modelo("Chevrolet", "Camaro", "V8", 0, "Amarelo", 2012, 0, 0, 0, true, null), true);
+				new Modelo("Chevrolet", "Camaro", "V8", 0, "Amarelo", 2012, 0, 0, 0, "automatico", null), "Não");
 		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false,
-				new Modelo("BMW", "M3", null, 0, null, 0, 0, 0, 0, true, null), true);
+				new Modelo("BMW", "M3", null, 0, null, 0, 0, 0, 0, "automatico", null), "não");
 		VeiculoNovo vn4 = new VeiculoNovo(200000, 250000, true,
-				new Modelo("Ford", "Mustang", null, 0, null, 0, 0, 0, 0, true, null), true);
+				new Modelo("Ford", "Mustang", null, 0, null, 0, 0, 0, 0, "automatico", "gasolina"), "sim");
 		cvn.save(vn);
 		cvn.save(vn2);
 		cvn.save(vn3);

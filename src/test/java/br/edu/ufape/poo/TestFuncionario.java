@@ -49,7 +49,7 @@ public class TestFuncionario {
 		}		
 		
 	}
-
+	/*
 	@Test
 	void findNomeByFuncionario() {
 		Funcionario funcionarios = cf.findByNome("William");
@@ -63,7 +63,7 @@ public class TestFuncionario {
 		System.out.println("CARGO = " + funcionarios.toString());
 
 	}
-/*
+
 	@Test
 	void deleteCpfByFuncionario() {
 

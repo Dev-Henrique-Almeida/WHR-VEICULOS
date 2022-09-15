@@ -21,11 +21,10 @@ class TestVeiculoUsado {
 
 	void setUp() throws Exception {
 		VeiculoUsado vu = new VeiculoUsado(10000, 20000, true,
-				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, true, "Gasolina"), "100km",
-				true, true);
+				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, "automatico", "Gasolina"), "100km",
+				"sim", "sim");
 		VeiculoUsado vu2 = new VeiculoUsado(150000, 250000, false,
-				new Modelo("Chevrolet", "Camaro", "V6", 0, "Amarelo", 2022, 100, 2, 300, true, "Alcool"), "100km", true,
-				true);
+				new Modelo("Chevrolet", "Camaro", "V6", 0, "Amarelo", 2022, 100, 2, 300, "automatico", "Alcool"), "100km", "sim", "não");
 		// VeiculoUsado vu3 = new VeiculoUsado(1234201, 32, false, new Modelo("Gol",
 		// "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
 		// ),"100km", true, true);
@@ -38,14 +37,14 @@ class TestVeiculoUsado {
 	void saveVeiculoUsado() {
 
 		VeiculoUsado vu = new VeiculoUsado(101, 500, false,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"), "100km",
-				true, true);
+				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
+				"sim", "sim");
 		VeiculoUsado vu2 = new VeiculoUsado(3243, 342, true,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"), "100km",
-				true, true);
+				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
+				"não", "sim");
 		VeiculoUsado vu3 = new VeiculoUsado(123, 32, false,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"), "100km",
-				true, true);
+				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
+				"sim", "sim");
 
 		cvu.save(vu);
 		cvu.save(vu2);

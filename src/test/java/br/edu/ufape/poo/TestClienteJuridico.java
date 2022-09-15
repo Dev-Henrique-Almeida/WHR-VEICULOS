@@ -50,7 +50,7 @@ public class TestClienteJuridico {
 		
 		
 	}
-
+	/*
 	@Test
 	void findCnpjByPessoaJuridica() {
 		ClienteJuridico clientes = ccj.findByCnpj("1111");
@@ -64,7 +64,7 @@ public class TestClienteJuridico {
 		System.out.println("NOME FANTASIA = " + clientes.toString());
 	}
 
-	/*
+	
 	@Test
 	void deleteCnpjByPessoaJuridica() {
 		List<ClienteJuridico> clientes = ccj.findAll();

@@ -4,19 +4,19 @@ import javax.persistence.Entity;
 
 @Entity
 public class VeiculoNovo extends Veiculo {
-	private boolean garantiaFabrica;
+	private String garantiaFabrica;
 
 	public VeiculoNovo() {
 		super();
 	}
 
 	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo,
-			boolean garantiaFabrica) {
+			String garantiaFabrica) {
 		super(valorCompraVeiculo, valorVenda, vendido, modelo);
 		this.garantiaFabrica = garantiaFabrica;
 	}
 
-	public boolean getGarantiaFabrica() {
+	public String getGarantiaFabrica() {
 		return garantiaFabrica;
 	}
 

@@ -30,7 +30,6 @@ public abstract class Veiculo {
 		this.valorCompraVeiculo = valorCompraVeiculo;
 		this.valorVenda = valorVenda;
 		this.vendido = vendido;
-		this.vendido = vendido;
 		this.modelo = modelo;
 
 	}

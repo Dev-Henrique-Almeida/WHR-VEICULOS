@@ -22,8 +22,13 @@ public class CadastroModelo {
 		repositorioModelo.delete(entity);
 	}
 
+
 	public List<Modelo> findAll() {
 		return repositorioModelo.findAll();
+	}
+
+	public List<Modelo> findById(long id) {
+		return repositorioModelo.findById(id);
 	}
 
 	public List<Modelo> findByNomeModelo(String nomeModelo) {

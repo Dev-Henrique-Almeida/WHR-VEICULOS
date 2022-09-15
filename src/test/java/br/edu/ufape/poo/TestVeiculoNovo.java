@@ -32,11 +32,11 @@ class TestVeiculoNovo {
 	void saveVeiculoNovo() {
 
 		VeiculoNovo vu = new VeiculoNovo(10000, 20000, true,
-				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, true, "Gasolina"), true);
+				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, "automatico", "Gasolina"), "sim");
 		VeiculoNovo vu2 = new VeiculoNovo(150000, 250000, false,
-				new Modelo("Chevrolet", "Camaro", "V6", 10, "Amarelo", 2022, 100, 2, 300, true, "Alcool"), true);
+				new Modelo("Chevrolet", "Camaro", "V6", 10, "Amarelo", 2022, 100, 2, 300, "automatico", "Alcool"), "sim");
 		VeiculoNovo vu3 = new VeiculoNovo(300000, 400000, false,
-				new Modelo("BMW", "I8", "V8", 0, "Preto", 2022, 150, 4, 330, true, "Diesel"), false);
+				new Modelo("BMW", "I8", "V8", 0, "Preto", 2022, 150, 4, 330, "automatico", "Diesel"), "não");
 
 		cvn.save(vu);
 		cvn.save(vu2);

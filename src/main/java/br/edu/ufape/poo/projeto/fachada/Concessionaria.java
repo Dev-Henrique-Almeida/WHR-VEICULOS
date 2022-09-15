@@ -158,6 +158,10 @@ public class Concessionaria {
 		return cadastroModelo.findByNomeModelo(nomeModelo);
 	}
 
+	public List<Modelo> findById(long id) {
+		return cadastroModelo.findById(id);
+	}
+
 	public List<Modelo> findByAnoFabricado(int anoFabricado) {
 		return cadastroModelo.findByAnoFabricado(anoFabricado);
 	}

@@ -51,7 +51,7 @@ public abstract class Pessoa {
 	private Date dataNascimento;
 	private String telefone;
 
-	public Long getId() {
+	public long getId() {
 		return this.id;
 	}
 

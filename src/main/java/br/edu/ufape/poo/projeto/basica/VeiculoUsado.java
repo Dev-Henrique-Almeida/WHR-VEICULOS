@@ -5,15 +5,15 @@ import javax.persistence.Entity;
 @Entity
 public class VeiculoUsado extends Veiculo {
 	private String km;
-	private boolean revisado;
-	private boolean unicoDono;
+	private String revisado;
+	private String unicoDono;
 
 	public VeiculoUsado() {
 		super();
 	}
 
 	public VeiculoUsado(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, String km,
-			boolean revisado, boolean unicoDono) {
+			String revisado, String unicoDono) {
 		super(valorCompraVeiculo, valorVenda, vendido, modelo);
 		this.km = km;
 		this.revisado = revisado;
@@ -24,11 +24,11 @@ public class VeiculoUsado extends Veiculo {
 		return km;
 	}
 
-	public boolean isRevisado() {
+	public String isRevisado() {
 		return revisado;
 	}
 
-	public boolean isUnicoDono() {
+	public String getUnicoDono() {
 		return unicoDono;
 	}
 
