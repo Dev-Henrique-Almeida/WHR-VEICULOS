@@ -15,7 +15,7 @@
   
           <v-col cols="12" md="4">
             <v-select :items="garantia" v-model="veiculo.garantiaFabrica" label="Garantia de Fabrica" required></v-select>
-            <v-select :items="items" v-model="veiculo.modelo" label="Modelo" required></v-select>
+            <v-select :items="items" v-model="items" label="Modelo" required></v-select>
           </v-col>
      
         </v-row>
@@ -56,7 +56,9 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         valorCompraVeiculo: '',
         valorVenda: '',
         vendido: false,
-      }),garantia: ['Sim', 'Não'],
+      }),
+      
+      garantia: ['Sim', 'Não'],
       items: [ ],
      
     }),

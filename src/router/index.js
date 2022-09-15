@@ -7,6 +7,7 @@ import cadastroClienteJuridico from '../views/clientes/cadastroClienteJuridico.v
 import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
 import cadastroVeiculoNovo from '../views/veiculos/cadastroVeiculoNovo.vue'
 import cadastroModelo from '../views/veiculos/cadastroModelo.vue'
+import findCpfCliente from '../views/clientes/findCliente.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes = [
     component: cadastroModelo
   },
   {
+    path: '/findCpfCliente',
+    name: 'findCpfCliente',
+    component: findCpfCliente
+  },
+  {
     path: '/clientes',
     name: 'clientes',
     component: () => import(/* webpackChunkName: "about" */ '../views/clientes/allClientes.vue')
@@ -65,6 +71,11 @@ const routes = [
     path: '/modelos',
     name: 'modelos',
     component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/allModelo.vue')
+  },
+  {
+    path: '/cpfCliente',
+    name: 'cpfCliente',
+    component: () => import(/* webpackChunkName: "about" */ '../views/clientes/findCliente.vue')
   }
 ]
 

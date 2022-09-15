@@ -13,6 +13,9 @@ class CadastroModeloService {
     findByNomeModelo(data) {
         return http.get("/nomeModelo", data);
     }
+    findById(data) {
+        return http.get("/idModelo", data);
+    }
     findByAnoFabricado(data) {
         return http.get("/anoModelo", data);
     }

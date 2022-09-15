@@ -15,21 +15,21 @@
   
           <v-col cols="12" md="4">
             <v-text-field v-model="modelo.motor" label="Motor" required></v-text-field>
-            <v-text-field v-model="modelo.km" counter="6" :rules="kmRules"  type="number" label="Quilometragem" required></v-text-field>
+            <v-text-field v-model="modelo.km" :rules="kmRules"  type="number" label="Quilometragem" required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
-            <v-text-field v-model="modelo.cor" label="Cor" required></v-text-field>
+            <v-select :items="cores" v-model="modelo.cor" label="Cor" required></v-select>
             <v-text-field v-model="modelo.anoFabricado" counter="4" :rules="anoRules" type="number" label="Ano de Fabricação" required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
-            <v-text-field v-model="modelo.potencia" type="number" label="Potencia" required></v-text-field>
-            <v-text-field v-model="modelo.quantidadePassageiros" counter="2" :rules="passageirosRules" type="number" label="Quantidade de Passageiros" required></v-text-field>
+            <v-text-field v-model="modelo.potencia" :rules="potenciaRules" type="number" label="Potencia" required></v-text-field>
+            <v-text-field v-model="modelo.quantidadePassageiros" :rules="passageirosRules" type="number" label="Quantidade de Passageiros" required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
-            <v-select :items="cambios" v-model="modelo.cambio" counter="40" label="Câmbio" required></v-select>
+            <v-select :items="cambios" v-model="modelo.cambio" label="Câmbio" required></v-select>
             <v-select :items="combustiveis" v-model="modelo.combustivel" label="Combustível" required></v-select>
           </v-col>
      
@@ -60,13 +60,16 @@ import CadastroModeloService from '@/service/CadastroModeloService';
       ],
       kmRules: [
   
-        v => v >= 0 || 'Quilometragem Invalida',
+        v => v >= 0 || 'Quilometragem Inválida',
       ],
       anoRules: [
-        v => v >= 1900 && v <= 2023 || 'Ano Invalido',
+        v => v >= 1900 && v <= 2023 || 'Ano Inválido',
       ],
       passageirosRules: [
-        v => v > 0 || 'Quantidade de Passageiros Invalida',
+        v => v > 0 && v <= 25 || 'Quantidade de Passageiros Inválida',
+      ],
+      potenciaRules: [
+         v => v > 0 && v <= 1000 || 'Potência Inválida',
       ],
 
       modelo: reactive({
@@ -85,6 +88,7 @@ import CadastroModeloService from '@/service/CadastroModeloService';
       }),
       combustiveis: ['Gasolina', 'Álcool', 'Diesel', 'Flex(Gasolina/Álcool)'],
       cambios: ['Automático', 'Manual', 'Semi-Automático'],
+      cores: ['Azul',	'Verde',	'Amarelo', 'Roxo',	'Rosa',	'Vermelho', 'Laranja',	'Marrom',	'Cinza', 'Branco',	'Preto']
       
     }),
     methods: {

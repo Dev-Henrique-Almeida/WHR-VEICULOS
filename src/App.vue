@@ -54,8 +54,8 @@ export default {
 
     items: [
       { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
-      { title: 'Cadastrar cliente', icon: 'mdi-view-dashboard', to: '/cadastroCliente' },
-      { title: 'Cadastrar Juridico', icon: 'mdi-view-dashboard', to: '/cadastroClienteJuridico' },
+      { title: 'Cadastrar Cliente Físico', icon: 'mdi-view-dashboard', to: '/cadastroInicio' },
+      { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-view-dashboard', to: '/cadastroClienteJuridico' },
       { title: 'Cadastrar Funcionarios', icon: 'mdi-view-dashboard', to: '/cadastroFuncionario' },
       { title: 'Cadastrar Veiculo Novo ', icon: 'mdi-view-dashboard', to: '/cadastroVeiculoNovo' },
       { title: 'Cadastrar Modelo', icon: 'mdi-view-dashboard', to: '/cadastroModelo' },
@@ -63,6 +63,7 @@ export default {
       { title: 'Todos os Funcionarios', icon: 'mdi-view-dashboard', to: '/funcionarios' },
       { title: 'Todos os Veiculos Novos', icon: 'mdi-view-dashboard', to: '/veiculosNovos' },
       { title: 'Todos os Modelos', icon: 'mdi-view-dashboard', to: '/modelos' },
+      { title: 'Tcpf', icon: 'mdi-view-dashboard', to: '/cpfCliente' },
       
 
 
