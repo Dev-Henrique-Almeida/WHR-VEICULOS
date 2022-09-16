@@ -60,6 +60,15 @@
         </v-btn>
     </button>
       </div>
+
+      <div>
+        <button>
+          <v-btn color="black" dark @click="cpf"> Buscar CPF
+          <v-icon right dark >mdi-checkbox-marked-circle</v-icon>
+        </v-btn>
+    </button>
+      </div>
+
     </v-container>
   </v-form>
 
@@ -129,6 +138,11 @@ export default {
     cadastrar() {
       console.log(this.funcionario)
       CadastroFuncionarioService.create(this.funcionario).then(
+        response => { console.log(response.status); });
+    },
+    cpf() {
+      console.log(this.funcionario)
+      CadastroFuncionarioService.findByCpfFuncionario(this.funcionario).then(
         response => { console.log(response.status); });
     }
   },

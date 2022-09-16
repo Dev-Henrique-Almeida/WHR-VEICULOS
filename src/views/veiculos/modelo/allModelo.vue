@@ -6,9 +6,11 @@
           <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
           </v-text-field>
         </v-card-title >
+        <div>{{selected}}</div>
   <v-data-table 
   
     v-model="selected"
+    
     :headers="headers"
     :items="desserts"
     :search="search"

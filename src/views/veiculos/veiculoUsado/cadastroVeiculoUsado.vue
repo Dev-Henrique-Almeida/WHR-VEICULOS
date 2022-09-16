@@ -14,17 +14,13 @@
           </v-col>
   
           <v-col cols="12" md="4">
-            <v-select :items="garantia" v-model="veiculo.garantiaFabrica" :rules="ruaRules" label="Garantia de Fabrica" required></v-select>
-            <v-select :items="items" v-model="items" :rules="campoRules" label="Modelo" required></v-select>
+            <v-select :items="revisado" v-model="veiculo.unicoDono" :rules="campoRules" label="Único Dono" required></v-select>
+            <v-select :items="items" v-model="items" label="Modelo" required></v-select>
           </v-col>
 
           <v-col cols="12" md="4">
             <v-text-field v-model="veiculo.km" :rules="ruaRules" type="number" label="Quilometragem" required></v-text-field>
-            <v-select :items="revisado" v-model="veiculo.revisado" :rules="campoRules" label="Modelo" required></v-select>
-          </v-col>
-
-          <v-col cols="12" md="4">
-            <v-select :items="revisado" v-model="veiculo.unicoDono" :rules="campoRules" label="Modelo" required></v-select>
+            <v-select :items="revisado" v-model="veiculo.revisado" :rules="campoRules" label="Revisado" required></v-select>
           </v-col>
      
         </v-row>

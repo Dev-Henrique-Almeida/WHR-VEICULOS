@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     loadAll() {
-      CadastroClienteFisicoService.findByCpf().then(
+      CadastroClienteFisicoService.findByCpf(this.usuarios).then(
         response => {
           this.usuarios = response.data;
         }

@@ -78,7 +78,7 @@ export default {
         { text: 'CPF', value: 'cpf' },
         { text: 'Telefone', value: 'telefone' },
         { text: 'Cidade', value: 'endereco.cidade' },
-        { text: 'Estado', value: 'endereco.estado' },
+        { text: 'UF', value: 'endereco.estado' },
       ],
        headers2: [
         { text: 'ID', value: 'id' },
@@ -86,7 +86,7 @@ export default {
         { text: 'CNPJ', value: 'cnpj' },
         { text: 'Telefone', value: 'contato' },
         { text: 'Cidade', value: 'endereco.cidade' },
-        { text: 'Estado', value: 'endereco.estado' },
+        { text: 'UF', value: 'endereco.estado' },
       ],
       carros: [
         {

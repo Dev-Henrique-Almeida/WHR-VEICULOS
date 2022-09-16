@@ -17,8 +17,8 @@
         </v-col>
 
         <v-col cols="12" md="4">
-          <v-text-field v-model="clienteJuridico.cnpj" :rules="cnpjRules" :counter="14" type="number" label="CNPJ" required></v-text-field>
-          <v-text-field v-model="clienteJuridico.contato" :rules="telefoneRules" :counter="11" type="number" label="Contato" required></v-text-field>
+          <v-text-field v-model="clienteJuridico.cnpj" :rules="cnpjRules" v-mask="'##.###.###/####-##'" type="text" label="CNPJ" required></v-text-field>
+          <v-text-field v-model="clienteJuridico.contato" :rules="telefoneRules" v-mask="'(##)#####-####'" type="text" label="Contato" required></v-text-field>
         </v-col>
 
         <v-col>
@@ -41,7 +41,7 @@
         </v-col>
 
         <v-col cols="12" md="4">
-          <v-text-field v-model="clienteJuridico.endereco.cep" :rules="cepRules" counter="8" type="number" label="CEP" required></v-text-field>
+          <v-text-field v-model="clienteJuridico.endereco.cep" :rules="cepRules" v-mask="'#####-###'" type="text" label="CEP" required></v-text-field>
         </v-col>
       </v-row>
       <div>
@@ -80,7 +80,7 @@ export default {
     ],
     cepRules: [
       v => !!v || 'Campo Obrigatório',
-      v => v.length >= 8 && v.length <= 8 || 'CEP Invalido',
+      v => v.length >= 9 && v.length <= 9 || 'CEP Invalido',
     ],
     estadoRules: [
       v => !!v || 'Campo Obrigatório',

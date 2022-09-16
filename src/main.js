@@ -4,6 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import VMask from "v-mask"
+
+Vue.use(VMask);
 
 Vue.config.productionTip = false
 
