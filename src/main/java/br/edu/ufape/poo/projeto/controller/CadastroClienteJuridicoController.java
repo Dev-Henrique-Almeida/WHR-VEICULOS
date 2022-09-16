@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -25,34 +27,36 @@ public class CadastroClienteJuridicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteJuridico")
-	public ClienteJuridico createClienteJuridico(@RequestBody ClienteJuridico cliente) throws ClienteJuridicoExistenteException {
+	public ClienteJuridico createClienteJuridico(@RequestBody ClienteJuridico cliente)
+			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 
 	@PutMapping("clienteJuridico")
-	public ClienteJuridico updateClienteJuridico(@RequestBody ClienteJuridico cliente) throws ClienteJuridicoExistenteException {
+	public ClienteJuridico updateClienteJuridico(@RequestBody ClienteJuridico cliente)
+			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
-		
+
 	@DeleteMapping("deleteClienteJuridico")
-	public void deleteClienteJuridico(@RequestBody String cnpj) {  // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteClienteJuridico(@RequestBody String cnpj) { // @PathVariable poder ser usado para remover
+																	// diretamente na URL
 		c.deleteByCnpj(cnpj);
 	}
-	
+
 	@GetMapping("cnpjClienteJuridico")
 	public ClienteJuridico findByCnpj(@RequestBody String cnpj) {
 		return c.findByCnpj(cnpj);
 	}
-	
+
 	@GetMapping("nomeClienteJuridico")
 	public ClienteJuridico findByNomeFantasia(@RequestBody String nomeFantasia) {
 		return c.findByNomeFantasia(nomeFantasia);
 	}
-	
+
 	@GetMapping("allClienteJuridico")
 	public List<ClienteJuridico> findAllClienteJuridico() {
 		return c.findAllClienteJuridico();
 	}
 
-	
 }

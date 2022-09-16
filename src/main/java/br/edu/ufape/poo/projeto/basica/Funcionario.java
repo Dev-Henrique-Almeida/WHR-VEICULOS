@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Funcionario extends Pessoa {
-	
+
 	private float salario;
 	private String cargo;
 
@@ -31,7 +31,8 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Funcionario [salario=" + salario + ", cargo=" + cargo + ", nome=" + getNome() + ", cpf=" + getCpf() + "]";
+		return "Funcionario [salario=" + salario + ", cargo=" + cargo + ", nome=" + getNome() + ", cpf=" + getCpf()
+				+ "]";
 	}
 
 }

@@ -52,7 +52,7 @@ public class Modelo extends Marca {
 		return cor;
 	}
 
-	public int getanoFabricado() {
+	public int getAnoFabricado() {
 		return anoFabricado;
 	}
 

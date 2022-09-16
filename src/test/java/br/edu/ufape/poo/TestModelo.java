@@ -10,6 +10,8 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @SpringBootTest
 public class TestModelo {
@@ -35,7 +37,7 @@ public class TestModelo {
 	private CadastroModelo cm;
 
 	@Test
-	void saveVeiculos() {
+	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException {
 		VeiculoNovo vn = new VeiculoNovo(15000, 20000, false,
 				new Modelo("Fiat", "Uno", null, 0, null, 0, 0, 0, 0, "automatico", null), "sim");
 		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false,

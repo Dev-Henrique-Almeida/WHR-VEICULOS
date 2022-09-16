@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.ufape.poo.projeto.basica.FichaVisitaJuridica;
 
-@Repository	
+@Repository
 public interface RepositorioFichaVisitaJuridica extends JpaRepository<FichaVisitaJuridica, Long> {
 
 }

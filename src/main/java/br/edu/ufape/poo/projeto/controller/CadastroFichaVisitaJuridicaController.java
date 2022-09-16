@@ -24,24 +24,24 @@ public class CadastroFichaVisitaJuridicaController {
 	private Concessionaria c;
 
 	@PostMapping("fichaVisitaJuridica")
-	public FichaVisitaJuridica createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica fichaVisitaJuridica){
+	public FichaVisitaJuridica createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica fichaVisitaJuridica) {
 		return c.save(fichaVisitaJuridica);
 	}
 
 	@PutMapping("fichaVisitaJuridica")
-	public FichaVisitaJuridica updateFichaVisitaJuridica(@RequestBody FichaVisitaJuridica fichaVisitaJuridica){
+	public FichaVisitaJuridica updateFichaVisitaJuridica(@RequestBody FichaVisitaJuridica fichaVisitaJuridica) {
 		return c.save(fichaVisitaJuridica);
 	}
-		
+
 	@DeleteMapping("deleteFichaVisitaJuridica")
-	public void deleteFichaVisitaJuridica(@RequestBody String cpf) {  // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteFichaVisitaJuridica(@RequestBody String cpf) { // @PathVariable poder ser usado para remover
+																		// diretamente na URL
 		c.deleteByCpf(cpf);
 	}
-		
+
 	@GetMapping("allFichaVisitaJuridica")
 	public List<FichaVisitaJuridica> findAllFichaVisitaJuridica() {
 		return c.findAllFichaVisitaJuridica();
 	}
 
-	
 }

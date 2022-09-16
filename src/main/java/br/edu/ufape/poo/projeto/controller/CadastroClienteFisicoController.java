@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -25,34 +28,34 @@ public class CadastroClienteFisicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteFisico")
-	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException {
+	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 
 	@PutMapping("clienteFisico")
-	public ClienteFisico updateClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException {
+	public ClienteFisico updateClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
-		
+
 	@DeleteMapping("deleteClienteFisico")
-	public void deleteClienteFisico(@RequestBody String cpf) {  // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteClienteFisico(@RequestBody String cpf) { // @PathVariable poder ser usado para remover diretamente
+																// na URL
 		c.deleteByCpf(cpf);
 	}
-	
+
 	@GetMapping("cpfClienteFisico")
 	public ClienteFisico findByCpf(@RequestBody String cpf) {
 		return c.findByCpf(cpf);
 	}
-	
+
 	@GetMapping("nomeClienteFisico")
 	public ClienteFisico findByNome(@RequestBody String nome) {
 		return c.findByNome(nome);
 	}
-	
+
 	@GetMapping("allClienteFisico")
 	public List<ClienteFisico> findAllClienteFisico() {
 		return c.findAllClienteFisico();
 	}
 
-	
 }

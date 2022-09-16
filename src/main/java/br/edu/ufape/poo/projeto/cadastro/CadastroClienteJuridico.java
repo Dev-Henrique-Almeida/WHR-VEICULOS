@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteJuridico;
 
 @Service
@@ -18,13 +20,29 @@ public class CadastroClienteJuridico {
 	@Autowired
 	private RepositorioClienteJuridico repositorioClienteJuridico;
 
-	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException {
-		if (Objects.isNull(findByCnpj(entity.getCnpj()))) {
-			return repositorioClienteJuridico.save(entity);
-		} else {
-			throw new ClienteJuridicoExistenteException("Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
-		}
+	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 
+		if (entity.getEndereco().getNumero() < 0 || entity.getCnpj().length() < 18 || entity.getCnpj().length() > 18
+				|| entity.getContato().length() < 14 || entity.getContato().length() > 14
+				|| entity.getEndereco().getCep().length() < 9 || entity.getEndereco().getCep().length() > 9) {
+			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+		} else {
+			if (entity.getNomeEmpresarial().isEmpty() || entity.getNomeFantasia().isEmpty()
+					|| entity.getCnpj().isEmpty() || entity.getContato().isEmpty() || entity.getDescricao().isEmpty()
+					|| entity.getEndereco().getCidade().isEmpty() || entity.getEndereco().getEstado().isEmpty()
+					|| entity.getEndereco().getRua().isEmpty() || entity.getEndereco().getCep().isEmpty()) {
+				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
+			} else {
+
+				if (Objects.isNull(findByCnpj(entity.getCnpj()))) {
+					return repositorioClienteJuridico.save(entity);
+				} else {
+					throw new ClienteJuridicoExistenteException(
+							"Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
+				}
+
+			}
+		}
 	}
 
 	public void delete(ClienteJuridico entity) {

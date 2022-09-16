@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @SpringBootTest
 class TestVeiculoNovo {
@@ -29,7 +31,7 @@ class TestVeiculoNovo {
 	 */
 
 	@Test
-	void saveVeiculoNovo() {
+	void saveVeiculoNovo() throws ValorVazioExpection, ValorForaRangeException {
 
 		VeiculoNovo vu = new VeiculoNovo(10000, 20000, true,
 				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, "automatico", "Gasolina"), "sim");

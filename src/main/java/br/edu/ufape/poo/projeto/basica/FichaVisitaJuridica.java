@@ -8,19 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-
 @Entity
 public class FichaVisitaJuridica {
-	
+
 	private Date data;
-	
+
 	@OneToOne
 	private ClienteJuridico clientePJ;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
 
 	public FichaVisitaJuridica(ClienteJuridico clientePJ, Date data) {
 		super();
@@ -45,11 +43,4 @@ public class FichaVisitaJuridica {
 		return "FichaVisitaJuridica [data=" + data + ", clientePJ=" + clientePJ + ", id=" + id + "]";
 	}
 
-	
-
-	
-	
-	
-
-	
 }

@@ -1,6 +1,5 @@
 package br.edu.ufape.poo;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,7 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @SpringBootTest
 public class TestFuncionario {
@@ -16,37 +18,38 @@ public class TestFuncionario {
 	@Autowired
 	private CadastroFuncionario cf;
 
-	@BeforeEach
-	void setUp() throws Exception {
-
-	}
+	//@BeforeEach
+	//void setUp() throws Exception {
+//
+	//}
 
 	@Test
-	void saveFuncionario() {
+	void saveFuncionario() throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		
-		try {
-			Funcionario f = new Funcionario("123-456", "Robert", null, "4002-8922",
-					new Endereco("55380-000", "Rua", "ArcoVerde", "PE", 69), 1000, "Vendedor");
-			cf.save(f);
-		} catch (FuncionarioExistenteException e) {
-			System.out.println(e.getMessage());
-		}
 
 		try {
-			Funcionario f1 = new Funcionario("654-321", "William", null, "4002-8922",
-					new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 69), 4000, "Gerente");
+			Funcionario f1 = new Funcionario("12345678901", "William Batista Couto dos Santos", null, "4002-8922",
+					new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 23), 4000, "Gerente");
 			cf.save(f1);
 		} catch (FuncionarioExistenteException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			Funcionario f3 = new Funcionario("666", "Henrique", null, "4002",
-					new Endereco("55380-000", "Rua", "Caruaru", "PE", 69), 1000, "Gerente");
+			Funcionario f3 = new Funcionario("10987654321", "Henrique De Almeida Silva", null, "4002-8922",
+					new Endereco("55380-000", "Rua", "Cachoeirinha", "PE", 65), 4000, "Gerente");
 			cf.save(f3);
 		} catch (FuncionarioExistenteException e) {
 			System.out.println(e.getMessage());
-		}		
+		}
+		
+		try {
+			Funcionario f = new Funcionario("13344678701", "Robert Freire de Melo", null, "4002-8922",
+					new Endereco("55380-000", "Rua", "Arcoverde", "PE", 61), 4000, "Gerente");
+			cf.save(f);
+		} catch (FuncionarioExistenteException e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 	/*

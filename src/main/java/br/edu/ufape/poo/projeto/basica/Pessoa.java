@@ -40,14 +40,6 @@ public abstract class Pessoa {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Endereco endereco;
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	private Date dataNascimento;
 	private String telefone;
 
@@ -72,7 +64,7 @@ public abstract class Pessoa {
 	}
 
 	public String getTelefone() {
-		return telefone;
+		return this.telefone;
 	}
 
 }

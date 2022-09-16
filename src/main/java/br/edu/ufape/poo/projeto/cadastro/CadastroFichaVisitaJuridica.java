@@ -12,15 +12,14 @@ import br.edu.ufape.poo.projeto.repositorio.RepositorioFichaVisitaJuridica;
 @Service
 @Transactional
 public class CadastroFichaVisitaJuridica {
-	
+
 	@Autowired
 	private RepositorioFichaVisitaJuridica repositorioFichaVisitaJuridica;
 
-	
 	public FichaVisitaJuridica save(FichaVisitaJuridica entity) {
 		return repositorioFichaVisitaJuridica.save(entity);
 	}
-	
+
 	public void delete(FichaVisitaJuridica entity) {
 		repositorioFichaVisitaJuridica.delete(entity);
 	}
@@ -29,8 +28,4 @@ public class CadastroFichaVisitaJuridica {
 		return repositorioFichaVisitaJuridica.findAll();
 	}
 
-	
-
-	
-	
 }

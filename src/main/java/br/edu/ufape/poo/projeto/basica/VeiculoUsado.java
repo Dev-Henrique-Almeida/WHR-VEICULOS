@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 
 @Entity
 public class VeiculoUsado extends Veiculo {
-	private String km;
 	private String revisado;
 	private String unicoDono;
 
@@ -12,19 +11,14 @@ public class VeiculoUsado extends Veiculo {
 		super();
 	}
 
-	public VeiculoUsado(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, String km,
-			String revisado, String unicoDono) {
+	public VeiculoUsado(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo, String revisado,
+			String unicoDono) {
 		super(valorCompraVeiculo, valorVenda, vendido, modelo);
-		this.km = km;
 		this.revisado = revisado;
 		this.unicoDono = unicoDono;
 	}
 
-	public String getKm() {
-		return km;
-	}
-
-	public String isRevisado() {
+	public String getRevisado() {
 		return revisado;
 	}
 
@@ -35,8 +29,8 @@ public class VeiculoUsado extends Veiculo {
 	@Override
 	public String toString() {
 		return "VeiculoUsado [modelo=" + getModelo() + ", valorCompraVeiculo=" + getValorCompraVeiculo()
-				+ ", valorVenda=" + getValorVenda() + ", vendido=" + getVendido() + ", km=" + km + ", revisado="
-				+ revisado + ", unicoDono=" + unicoDono + "]";
+				+ ", valorVenda=" + getValorVenda() + ", vendido=" + getVendido() + ", revisado=" + revisado
+				+ ", unicoDono=" + unicoDono + "]";
 	}
 
 }

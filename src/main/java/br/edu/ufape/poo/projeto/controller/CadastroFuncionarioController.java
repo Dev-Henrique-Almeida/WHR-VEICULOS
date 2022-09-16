@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -25,34 +28,34 @@ public class CadastroFuncionarioController {
 	private Concessionaria c;
 
 	@PostMapping("funcionario")
-	public Funcionario createFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException{
+	public Funcionario createFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return c.save(cliente);
 	}
 
 	@PutMapping("funcionario")
-	public Funcionario updateFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException{
+	public Funcionario updateFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return c.save(cliente);
 	}
-		
+
 	@DeleteMapping("deleteFuncionario")
-	public void deleteFuncionario(@RequestBody String cpf) {  // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteFuncionario(@RequestBody String cpf) { // @PathVariable poder ser usado para remover diretamente
+																// na URL
 		c.deleteByCpf(cpf);
 	}
-	
+
 	@GetMapping("cpfFuncionario")
 	public Funcionario findByCpf(@RequestBody String cpf) {
 		return c.findByNomeFuncionario(cpf);
 	}
-	
+
 	@GetMapping("nomeFuncionario")
 	public Funcionario findByNome(@RequestBody String nome) {
 		return c.findByNomeFuncionario(nome);
 	}
-	
+
 	@GetMapping("allFuncionario")
 	public List<Funcionario> findAllFuncionario() {
 		return c.findAllFuncionario();
 	}
 
-	
 }

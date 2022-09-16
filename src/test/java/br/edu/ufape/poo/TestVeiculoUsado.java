@@ -2,7 +2,6 @@ package br.edu.ufape.poo;
 
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,21 +9,25 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @SpringBootTest
 class TestVeiculoUsado {
 
 	@Autowired
 	private CadastroVeiculoUsado cvu;
-
+/*
 	@BeforeEach
 
 	void setUp() throws Exception {
-		VeiculoUsado vu = new VeiculoUsado(10000, 20000, true,
-				new Modelo("Fiat", "Uno", "Motor d'agua", 10000, "Branco", 2012, 10, 4, 120, "automatico", "Gasolina"), "100km",
-				"sim", "sim");
-		VeiculoUsado vu2 = new VeiculoUsado(150000, 250000, false,
-				new Modelo("Chevrolet", "Camaro", "V6", 0, "Amarelo", 2022, 100, 2, 300, "automatico", "Alcool"), "100km", "sim", "não");
+		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false,
+			new Modelo("Fiat", "Uno", "1.0", 10000, "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não");
+			cvu.save(vu);
+	
+			VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true,
+			new Modelo("Chevrolet", "Celta", "1.0", 12000, "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"), "Não", "Sim");
+			cvu.save(vu2);
 		// VeiculoUsado vu3 = new VeiculoUsado(1234201, 32, false, new Modelo("Gol",
 		// "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
 		// ),"100km", true, true);
@@ -32,23 +35,17 @@ class TestVeiculoUsado {
 		cvu.save(vu2);
 		// cvu.save(vu3);
 	}
-
+*/
 	@Test
-	void saveVeiculoUsado() {
+	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException {
 
-		VeiculoUsado vu = new VeiculoUsado(101, 500, false,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
-				"sim", "sim");
-		VeiculoUsado vu2 = new VeiculoUsado(3243, 342, true,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
-				"não", "sim");
-		VeiculoUsado vu3 = new VeiculoUsado(123, 32, false,
-				new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, "automatico", "Disel"), "100km",
-				"sim", "sim");
-
-		cvu.save(vu);
-		cvu.save(vu2);
-		cvu.save(vu3);
+		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false,
+				new Modelo("Fiat", "Uno", "1.0", 10000, "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não");
+				cvu.save(vu);
+		
+				VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true,
+				new Modelo("Chevrolet", "Celta", "1.0", 12000, "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"), "Não", "Sim");
+				cvu.save(vu2);
 
 		VeiculoUsado veiculo = cvu.save(vu);
 		System.out.println("---------------------------------------");

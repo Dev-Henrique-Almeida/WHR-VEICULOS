@@ -28,7 +28,6 @@ public class ClienteJuridico {
 
 	public ClienteJuridico(String nomeEmpresarial, String nomeFantasia, String contato, String cnpj, Endereco endereco,
 			String descricao) {
-		super();
 		this.nomeEmpresarial = nomeEmpresarial;
 		this.nomeFantasia = nomeFantasia;
 		this.contato = contato;
@@ -36,8 +35,6 @@ public class ClienteJuridico {
 		this.endereco = endereco;
 		this.descricao = descricao;
 	}
-	
-	
 
 	public long getId() {
 		return id;

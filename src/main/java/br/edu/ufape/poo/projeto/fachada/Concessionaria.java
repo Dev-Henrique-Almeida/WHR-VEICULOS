@@ -27,11 +27,14 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @Service
 public class Concessionaria {
-	
+
 	@Autowired
 	private CadastroClienteFisico cadastroClienteFisico;
 
@@ -40,65 +43,57 @@ public class Concessionaria {
 
 	@Autowired
 	private CadastroClienteJuridico cadastroClienteJuridico;
-	
+
 	@Autowired
 	private CadastroModelo cadastroModelo;
-	
+
 	@Autowired
 	private CadastroOrdemPessoaFisica cadastroOrdemPessoaFisica;
-	
+
 	@Autowired
 	private CadastroOrdemPessoaJuridica cadastroOrdemPessoaJuridica;
-	
+
 	@Autowired
 	private CadastroVeiculoNovo cadastroVeiculoNovo;
-	
+
 	@Autowired
 	private CadastroVeiculoUsado cadastroVeiculoUsado;
-	
+
 	@Autowired
 	private CadastroFichaVisitaFisica cadastroFichaVisitaFisica;
-	
+
 	@Autowired
 	private CadastroFichaVisitaJuridica cadastroFichaVisitaJuridica;
-	
-	
-	
-	
-	
+
 	////////////////////// CLIENTE FISICO //////////////////////////////
-	
-	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException {
+
+	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException{
 		return cadastroClienteFisico.save(entity);
 	}
-	
+
 	public void deleteByCpf(String cpf) {
 		cadastroClienteFisico.deleteByCpf(cpf);
-		
+
 	}
-	
+
 	public ClienteFisico findByCpf(String cpf) {
 		return cadastroClienteFisico.findByCpf(cpf);
 	}
-	
+
 	public ClienteFisico findByNome(String nome) {
 		return cadastroClienteFisico.findByNome(nome);
 	}
-	
+
 	public List<ClienteFisico> findAllClienteFisico() {
 		return cadastroClienteFisico.findAll();
 	}
-	
-	
-	
-	
-	//////////////////////// CLIENTE JURIDICO ///////////////////////////////////
-	
 
-	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException {
+	//////////////////////// CLIENTE JURIDICO ///////////////////////////////////
+
+	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 		return cadastroClienteJuridico.save(entity);
 	}
-	
+
 	public void deleteByCnpj(String cnpj) {
 		cadastroClienteJuridico.deleteByCnpj(cnpj);
 	}
@@ -114,17 +109,13 @@ public class Concessionaria {
 	public List<ClienteJuridico> findAllClienteJuridico() {
 		return cadastroClienteJuridico.findAll();
 	}
-	
-	
-	
+
 	//////////////// FUNCIONARIO ///////////////////
-	
-	
-	
-	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException {
+
+	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return cadastroFuncionario.save(entity);
 	}
-	
+
 	public void deleteByCpfFuncionario(String cpf) {
 		cadastroFuncionario.deleteByCpf(cpf);
 	}
@@ -141,19 +132,16 @@ public class Concessionaria {
 		return cadastroFuncionario.findAll();
 	}
 
-	
-	
 	/////////////////// MODELO /////////////////////
-	
-	
-	public Modelo save(Modelo entity) {
+
+	public Modelo save(Modelo entity) throws ValorVazioExpection, ValorForaRangeException {
 		return cadastroModelo.save(entity);
 	}
 
 	public void delete(Modelo entity) {
 		cadastroModelo.delete(entity);
 	}
-	
+
 	public List<Modelo> findByNomeModelo(String nomeModelo) {
 		return cadastroModelo.findByNomeModelo(nomeModelo);
 	}
@@ -165,17 +153,14 @@ public class Concessionaria {
 	public List<Modelo> findByAnoFabricado(int anoFabricado) {
 		return cadastroModelo.findByAnoFabricado(anoFabricado);
 	}
-	
+
 	public List<Modelo> findAllModelo() {
 		return cadastroModelo.findAll();
 	}
 
-	
-	
-	
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
-	
-	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) {
+
+	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -198,13 +183,10 @@ public class Concessionaria {
 	public List<OrdemVendaPessoaFisica> findByPagoOrdemFisica(boolean pago) {
 		return cadastroOrdemPessoaFisica.findByPago(pago);
 	}
-	
-	
-	
+
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
-	
-	
-	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) {
+
+	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return cadastroOrdemPessoaJuridica.save(entity);
 	}
 
@@ -223,15 +205,14 @@ public class Concessionaria {
 	public List<OrdemVendaPessoaJuridica> findByPagoOrdemJuridico(boolean pago) {
 		return cadastroOrdemPessoaJuridica.findByPago(pago);
 	}
-	
+
 	public List<OrdemVendaPessoaJuridica> findAllOrdemJuridico() {
 		return cadastroOrdemPessoaJuridica.findAll();
 	}
-	
-	
+
 	///////////////// VEICULO NOVO //////////////////
-	
-	public VeiculoNovo save(VeiculoNovo vn) {
+
+	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException {
 		return cadastroVeiculoNovo.save(vn);
 	}
 
@@ -254,11 +235,10 @@ public class Concessionaria {
 	public List<VeiculoNovo> findAllVeiculoNovo() {
 		return cadastroVeiculoNovo.findAll();
 	}
-	
-	
+
 	/////////////////// VEICULO USADO /////////////////////
-	
-	public VeiculoUsado save(VeiculoUsado vn) {
+
+	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException {
 		return cadastroVeiculoUsado.save(vn);
 	}
 
@@ -273,18 +253,17 @@ public class Concessionaria {
 	public List<VeiculoUsado> findByVendidoVeiculoUsado(boolean vendido) {
 		return cadastroVeiculoUsado.findByVendido(vendido);
 	}
-	
+
 	public List<VeiculoUsado> findAllVeiculoUsado() {
 		return cadastroVeiculoUsado.findAll();
 	}
-	
-	
+
 	/////////////// FICHA VISITA FISICA //////////////////
-	
+
 	public FichaVisitaFisica save(FichaVisitaFisica entity) {
 		return cadastroFichaVisitaFisica.save(entity);
 	}
-	
+
 	public void delete(FichaVisitaFisica entity) {
 		cadastroFichaVisitaFisica.delete(entity);
 	}
@@ -292,15 +271,13 @@ public class Concessionaria {
 	public List<FichaVisitaFisica> findAllFichaVisitaFisica() {
 		return cadastroFichaVisitaFisica.findAll();
 	}
-	
-	
+
 	//////////////////// FICHA VISITA JURIDICA /////////////////
-	
-	
+
 	public FichaVisitaJuridica save(FichaVisitaJuridica entity) {
 		return cadastroFichaVisitaJuridica.save(entity);
 	}
-	
+
 	public void delete(FichaVisitaJuridica entity) {
 		cadastroFichaVisitaJuridica.delete(entity);
 	}
@@ -308,6 +285,5 @@ public class Concessionaria {
 	public List<FichaVisitaJuridica> findAllFichaVisitaJuridica() {
 		return cadastroFichaVisitaJuridica.findAll();
 	}
-	
-	
+
 }

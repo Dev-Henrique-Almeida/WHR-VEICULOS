@@ -8,6 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
 @SpringBootTest
 public class TestOrdemVendaPessoaFisica {
@@ -16,7 +19,7 @@ public class TestOrdemVendaPessoaFisica {
 	private CadastroOrdemPessoaFisica cof;
 
 	@Test
-	void cadastroOrdemPessoaFisica() { //
+	void cadastroOrdemPessoaFisica() throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException { //
 		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, null, true, null, "Debito", false, false, null,
 				null);
 		OrdemVendaPessoaFisica of2 = new OrdemVendaPessoaFisica(12000, null, true, null, "Credito", true, false, null,

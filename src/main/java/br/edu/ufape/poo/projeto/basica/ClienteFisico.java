@@ -11,9 +11,9 @@ public class ClienteFisico extends Pessoa {
 		super();
 	}
 
-	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco){
+	public ClienteFisico(String cpf, String nome, Date dataNascimento, String telefone, Endereco endereco) {
 		super(cpf, nome, dataNascimento, telefone, endereco);
-		
+
 	}
 
 	/*
@@ -24,7 +24,7 @@ public class ClienteFisico extends Pessoa {
 	 * false; ClienteFisico other = (ClienteFisico) obj; return getId() ==
 	 * other.getId(); }
 	 */
-	
+
 	@Override
 	public String toString() {
 		return "ClienteFisico [cpf=" + getCpf() + ", nome=" + getNome() + ", endereco=" + getEndereco()
