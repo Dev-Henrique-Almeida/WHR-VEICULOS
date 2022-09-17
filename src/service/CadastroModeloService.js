@@ -13,12 +13,15 @@ class CadastroModeloService {
     findByNomeModelo(data) {
         return http.get("/nomeModelo", data);
     }
-    findById(data) {
-        return http.get("/idModelo", data);
+    findById(id) {
+        return http.get(`/idModelo/${id}`);
     }
     findByAnoFabricado(data) {
         return http.get("/anoModelo", data);
     }
+
+
+   
     
    
 }

@@ -41,10 +41,11 @@ import CadastroVeiculoUsadoService from '@/service/CadastroVeiculoUsadoService';
         { text: 'Combustível', value: 'modelo.combustivel' },
         { text: 'Valor', value: 'valorVenda' },
         { text: 'Cor', value: 'modelo.cor' },
-        { text: 'Quantidade Passageiros', value: 'modelo.quantidadePassageiros' },
+        { text: 'Quant. Passageiros', value: 'modelo.quantidadePassageiros' },
         { text: 'Revisado', value: 'revisado' },
         { text: 'Único Dono', value: 'unicoDono' },
-        { text: 'Quilometragem', value: 'km' },
+        { text: 'Km`s', value: 'km' },
+        { text: 'Chassi', value: 'chassi' },
       ], 
         desserts: [
          ],

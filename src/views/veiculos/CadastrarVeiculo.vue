@@ -1,11 +1,11 @@
 <template >
   <div>
     <v-col dark>
-        <v-img :src="require('@/assets/3carros.png')" class="my-3" contain height="200" />
-      </v-col>   
-      <center>
-        <h1>WHR Veiculos</h1>
-      </center>
+      <v-img :src="require('@/assets/3carros.png')" class="my-3" contain height="200" />
+    </v-col>
+    <center>
+      <h1>WHR Veiculos</h1>
+    </center>
     <v-card>
       <br />
       <h2> Cadastro de Veiculos</h2>
@@ -91,7 +91,7 @@ export default {
         { text: 'Cilindradas', value: 'cilindradas' },
         { text: 'Potencia', value: 'potencia' },
         { text: 'Câmbio', value: 'cambio' },
-        { text: 'Quilometragem', value: 'km' },
+        
       ],
       desserts: [
       ],
@@ -106,7 +106,7 @@ export default {
         cilindradas: '',
         cambio: '',
         combustivel: '',
-        
+
       }),
     }
   },
@@ -127,11 +127,11 @@ export default {
 
     continuarPara() {
       this.modelo = this.selected
-      if(this.condicaoVeiculo === 'Veiculo Novo'){
-        this.$router.push({ name: 'cadastroVeiculoNovo', params: { modelo: this.modelo  }});
-        }else{
-          this.$router.push({ name: 'cadastrarVeiculoUsado', params: { modelo: this.modelo  }});
-        }     
+      if (this.condicaoVeiculo === 'Veiculo Novo') {
+        this.$router.push({ name: 'cadastroVeiculoNovo', params: { modelo: this.modelo } });
+      } else {
+        this.$router.push({ name: 'cadastrarVeiculoUsado', params: { modelo: this.modelo } });
+      }
     },
 
     verificacao() {
