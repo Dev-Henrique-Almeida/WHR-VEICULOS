@@ -58,8 +58,6 @@ export default {
       { title: 'Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
       { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
       { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
-      { title: 'Cadastrar Veiculo Novo ', icon: 'mdi-car', to: '/cadastroVeiculoNovo' },
-      { title: 'Cadastrar Veiculo Usado ', icon: 'mdi-car', to: '/cadastroVeiculoUsado' },
       { title: 'Cadastrar Modelo', icon: 'mdi-car-outline', to: '/cadastroModelo' },
       { title: 'Buscar CPF', icon: 'mdi-car-outline', to: '/findCliente' },
       { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
@@ -68,6 +66,8 @@ export default {
       { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
       { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
       { title: 'Resultado da busca do CPF', icon: 'mdi-magnify', to: '/findCpfCliente' },
+      { title: ' Cadastro Veiculo geral', icon: 'mdi-car', to: '/CadastrarVeiculo' },
+      
       
       
 

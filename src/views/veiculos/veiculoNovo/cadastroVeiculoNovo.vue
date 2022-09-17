@@ -4,6 +4,7 @@
     <v-form v-model="valid">
       <v-container>
         <div>
+          {{this.$route.params.modelo}}
           <h1> Cadastro de Veiculos Novos</h1>
         </div>
           <h3> Informações do Veiculo</h3>

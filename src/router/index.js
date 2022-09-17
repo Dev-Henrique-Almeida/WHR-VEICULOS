@@ -9,6 +9,7 @@ import cadastroVeiculoNovo from '../views/veiculos/veiculoNovo/cadastroVeiculoNo
 import cadastroVeiculoUsado from '../views/veiculos/veiculoUsado/cadastroVeiculoUsado.vue'
 import cadastroModelo from '../views/veiculos/modelo/cadastroModelo.vue'
 import findCpfCliente from '../views/clientes/findCliente.vue'
+import CadastrarVeiculo from '../views/veiculos/CadastrarVeiculo.vue'
 
 Vue.use(VueRouter)
 
@@ -39,14 +40,19 @@ const routes = [
     component: cadastroFuncionario
   },
   {
-    path: '/cadastroVeiculoNovo',
-    name: 'cadastroVeiculoNovo',
-    component: cadastroVeiculoNovo
+    path: '/cadastrarVeiculo',
+    name: 'CadastrarVeiculo',
+    component: CadastrarVeiculo
   },
    {
-    path: '/cadastroVeiculoUsado',
-    name: 'cadastroVeiculoUsado',
+    path: '/cadastrarVeiculo/usado/:modelo',
+    name: 'cadastrarVeiculoUsado',
     component: cadastroVeiculoUsado
+  },
+  {
+    path: '/cadastrarVeiculo/novo/:modelo',
+    name: 'cadastroVeiculoNovo',
+    component: cadastroVeiculoNovo
   },
   {
     path: '/cadastroModelo',
