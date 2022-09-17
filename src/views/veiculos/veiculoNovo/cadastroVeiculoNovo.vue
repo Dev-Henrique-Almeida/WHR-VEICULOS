@@ -17,7 +17,10 @@
             <v-select :items="garantia" v-model="veiculo.garantiaFabrica" :rules="ruaRules" label="Garantia de Fabrica" required></v-select>
             <v-select :items="items" v-model="veiculo.items"  label="Modelo" required></v-select>
           </v-col>
-     
+
+          <v-col cols="12" md="4">
+            <v-text-field v-model="veiculo.chassi" :rules="chassiRules" :maxLength="17" label="Chassi" required></v-text-field>
+          </v-col>
         </v-row>
         <div>
           <button>
@@ -46,6 +49,10 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         v => !!v.length || 'Campo Obrigatório',
         v => v.length >= 10 || 'Informe seu nome completo',
       ],
+      chassiRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 17 && v.length <= 17 && v != null || 'Chassi Inválido',
+    ],
        campoRules: [
       v => !!v || 'Campo Obrigatório',
       v => !!v.length || 'Campo Obrigatório',
@@ -65,6 +72,7 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         valorVenda: '',
         vendido: false,
         garantiaFabrica: '',
+        chassi: '',
       }),
       garantia: ['Sim', 'Não'],
       items: [ ],

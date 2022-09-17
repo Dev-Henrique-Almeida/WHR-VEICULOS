@@ -45,7 +45,7 @@
           <v-btn color="black" dark @click="cadastrar"> Cadastrar
           <v-icon right dark >mdi-checkbox-marked-circle</v-icon>
         </v-btn>
-    </button>
+        </button>
       </div>
     </v-container>
   </v-form>

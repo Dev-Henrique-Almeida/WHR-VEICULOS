@@ -15,7 +15,7 @@
   
           <v-col cols="12" md="4">
             <v-text-field v-model="modelo.motor" :rules="motorRules" label="Motor" required></v-text-field>
-            <v-text-field v-model="modelo.km" :rules="kmRules"  type="number" label="Quilometragem" required></v-text-field>
+            <v-text-field v-model="modelo.cilindradas" :rules="potenciaRules" type="number" label="Cilindradas" required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
@@ -33,9 +33,6 @@
             <v-select :items="combustiveis" v-model="modelo.combustivel" :rules="campoRules" label="Combustível" required></v-select>
           </v-col>
 
-          <v-col cols="12" md="4">
-            <v-text-field v-model="modelo.cilindradas" :rules="potenciaRules" type="number" label="Cilindradas" required></v-text-field>
-          </v-col>
      
         </v-row>
         <div>
@@ -99,7 +96,6 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         nomeMarca: '',
         nomeModelo: '',
         motor: '',
-        km: '',
         cor: '',
         anoFabricado: '',
         potencia: '',

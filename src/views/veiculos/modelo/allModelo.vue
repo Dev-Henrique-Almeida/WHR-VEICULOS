@@ -47,7 +47,6 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         { text: 'Cilindradas', value: 'cilindradas' },
         { text: 'Potencia', value: 'potencia' },
         { text: 'Câmbio', value: 'cambio' },
-        { text: 'Quilometragem', value: 'km' },
       ], 
         desserts: [
          ],

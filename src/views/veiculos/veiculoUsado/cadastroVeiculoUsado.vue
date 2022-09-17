@@ -4,7 +4,7 @@
     <v-form v-model="valid">
       <v-container>
         <div>
-          <h1> Cadastro de Veiculos Novos</h1>
+          <h1> Cadastro de Veiculos Usados</h1>
         </div>
           <h3> Informações do Veiculo</h3>
         <v-row>
@@ -22,7 +22,11 @@
             <v-text-field v-model="veiculo.km" :rules="ruaRules" type="number" label="Quilometragem" required></v-text-field>
             <v-select :items="revisado" v-model="veiculo.revisado" :rules="campoRules" label="Revisado" required></v-select>
           </v-col>
-     
+
+          <v-col cols="12" md="4">
+          <v-text-field v-model="veiculo.chassi" :rules="chassiRules" :maxLength="17" label="Chassi" required></v-text-field>
+          <v-text-field v-model="veiculo.placa" :rules="placaRules" :maxLength="7" label="Placa" required></v-text-field>
+         </v-col>
         </v-row>
         <div>
           <button>
@@ -55,6 +59,13 @@ import CadastroModeloService from '@/service/CadastroModeloService';
       v => !!v || 'Campo Obrigatório',
       v => !!v.length || 'Campo Obrigatório',
       v => v.length >= 2  && v != null || 'Garantia inválida',
+    ],chassiRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 17 && v.length <= 17 && v != null || 'Chassi Inválido',
+    ],
+    placaRules: [
+      v => !!v || 'Campo Obrigatório',
+      v => v.length >= 7 && v.length <= 7 && v != null || 'Placa Inválida',
     ],
       valorRules: [
         v => !!v || 'Campo Obrigatório',
@@ -70,6 +81,8 @@ import CadastroModeloService from '@/service/CadastroModeloService';
         valorVenda: '',
         vendido: false,
         km: '',
+        chassi: '',
+        placa: '',
         revisado: '',
         unicoDono: '',
            }),

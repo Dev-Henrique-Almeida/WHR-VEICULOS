@@ -10,13 +10,13 @@
       </div>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="cliente.cpf" :rules="cpfRules" :counter="40" label="cpf" required></v-text-field>
+          <v-text-field v-model="cliente.cpf" :rules="cpfRules" v-mask="'###.###.###-##'" type="text" label="CPF" required></v-text-field>
         </v-col>
 
       </v-row>
       <div>
         <button>
-          <v-btn color="black" dark @click="buscar"> Buscar
+          <v-btn color="black" dark @click="buscaCpf"> Buscar CPF
           <v-icon right dark >mdi-checkbox-marked-circle</v-icon>
         </v-btn>
     </button>
@@ -33,15 +33,16 @@ export default {
   data: () => ({
     valid: false,
     nameRules: [
-      v => !!v || 'Nome Obrigatorio',
+      v => !!v || 'Nome Obrigatório',
       v => v.length >= 10 || 'Informe seu nome completo',
     ],
     cpfRules: [
-      v => !!v || 'CPF Obrigatorio',
-      v => v.length >= 11 || 'CPF Invalido',
+      v => !!v || 'CPF Obrigatório',
+      v => v.length >= 14 && v.length && v != null  <= 14 || 'CPF Inválido',
     ],
     telefoneRules: [
-      v => v.length >= 9 || 'Telefone Invalido',
+      v => !!v || 'Telefone Obrigatorio',
+      v => v.length >= 14 && v.length <= 14 && v != null || 'Telefone Invalido',
     ],
     cliente: reactive({
       cpf: '',
@@ -49,9 +50,9 @@ export default {
          }),
   }),
   methods: {
-    buscar() {
-      console.log(this.cliente)
-      CadastroClienteFisicoService.findByCpf("123").then(
+    buscaCpf() {
+      console.log(this.cpf)
+      CadastroClienteFisicoService.findByCpf(this.cpf).then(
         response => { console.log(response.status); });
     }
   },

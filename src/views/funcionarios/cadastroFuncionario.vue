@@ -18,9 +18,8 @@
         </v-col>
 
         <v-col cols="12" md="4">
-          <v-text-field v-model="funcionario.cpf" :rules="cpfRules" :counter="11" label="CPF" required></v-text-field>
-          <v-text-field v-model="funcionario.telefone" :rules="telefoneRules" :counter="11" type="number" label="Telefone" required>
-          </v-text-field>
+          <v-text-field v-model="funcionario.cpf" :rules="cpfRules" v-mask="'###.###.###-##'" type="text" label="CPF" required></v-text-field>
+          <v-text-field v-model="funcionario.telefone" :rules="telefoneRules" v-mask="'(##)#####-####'" type="text" label="Telefone" required></v-text-field>
         </v-col>
       </v-row>
 
@@ -39,7 +38,7 @@
         </v-col>
 
         <v-col cols="12" md="4">
-          <v-text-field v-model="funcionario.endereco.cep" :rules="cepRules" counter="8" type="number" label="CEP" required></v-text-field>
+          <v-text-field v-model="funcionario.endereco.cep" :rules="cepRules" v-mask="'#####-###'" type="text" label="CEP" required></v-text-field>
         </v-col>
       </v-row>
 
@@ -86,20 +85,20 @@ export default {
       v => v.length >= 4  && v != null || 'Informe o nome completo',
     ],
     cpfRules: [
-      v => !!v || 'Campo Obrigatório',
-      v => v.length >= 11 && v.length && v != null  <= 11 || 'CPF Invalido',
+      v => !!v || 'CPF Obrigatorio',
+      v => v.length >= 14 && v.length && v != null  <= 14 || 'CPF Invalido',
     ],
     telefoneRules: [
-      v => !!v || 'Campo Obrigatório',
-      v => v.length >= 11 && v.length <= 11 && v != null || 'Telefone Invalido',
+      v => !!v || 'Telefone Obrigatorio',
+      v => v.length >= 14 && v.length <= 14 && v != null || 'Telefone Invalido',
     ],
     numeroRules: [
       v => !!v || 'Campo Obrigatório',
       v => v >= 0 && v != null || 'Número Invalido',
     ],
     cepRules: [
-      v => !!v || 'Campo Obrigatório',
-      v => v.length >= 8 && v.length <= 8 && v != null || 'CEP Invalido',
+      v => !!v || 'CEP Obrigatorio',
+      v => v.length >= 9 && v.length <= 9 && v != null || 'CEP Invalido',
     ],
     cidadeRules: [
       v => !!v || 'Campo Obrigatório',
@@ -140,11 +139,7 @@ export default {
       CadastroFuncionarioService.create(this.funcionario).then(
         response => { console.log(response.status); });
     },
-    cpf() {
-      console.log(this.funcionario)
-      CadastroFuncionarioService.findByCpfFuncionario(this.funcionario).then(
-        response => { console.log(response.status); });
-    }
+    
   },
 
 }

@@ -43,7 +43,8 @@ import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService';
         { text: 'Cor', value: 'modelo.cor' },
         { text: 'Quantidade Passageiros', value: 'modelo.quantidadePassageiros' },
         { text: 'Garantia', value: 'garantiaFabrica' },
-        { text: 'Quilometragem', value: 'modelo.km' },
+        { text: 'Chassi', value: 'chassi' },
+        { text: 'Quilometragem', value: 'km' },
       ], 
         desserts: [
          ],
