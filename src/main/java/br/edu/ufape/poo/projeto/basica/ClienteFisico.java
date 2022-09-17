@@ -16,15 +16,6 @@ public class ClienteFisico extends Pessoa {
 
 	}
 
-	/*
-	 * @Override public int hashCode() { return Objects.hash(getId()); }
-	 * 
-	 * @Override public boolean equals(Object obj) { if (this == obj) return true;
-	 * if (obj == null) return false; if (getClass() != obj.getClass()) return
-	 * false; ClienteFisico other = (ClienteFisico) obj; return getId() ==
-	 * other.getId(); }
-	 */
-
 	@Override
 	public String toString() {
 		return "ClienteFisico [cpf=" + getCpf() + ", nome=" + getNome() + ", endereco=" + getEndereco()

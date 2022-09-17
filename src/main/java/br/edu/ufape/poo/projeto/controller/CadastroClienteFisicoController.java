@@ -28,12 +28,14 @@ public class CadastroClienteFisicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteFisico")
-	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	public ClienteFisico createClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException,
+			DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 
 	@PutMapping("clienteFisico")
-	public ClienteFisico updateClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	public ClienteFisico updateClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException,
+			DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 

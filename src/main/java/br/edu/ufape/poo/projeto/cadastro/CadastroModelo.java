@@ -19,14 +19,14 @@ public class CadastroModelo {
 
 	public Modelo save(Modelo entity) throws ValorVazioExpection, ValorForaRangeException {
 		if (entity.getQuantidadePassageiros() < 0 || entity.getAnoFabricado() < 1900 || entity.getAnoFabricado() > 2023
-				|| entity.getCilindradas() < 0 || entity.getKm() < 0 || entity.getPotencia() < 0) {
+				|| entity.getCilindradas() < 0 || entity.getPotencia() < 0) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (entity.getNomeMarca().isEmpty() || entity.getNomeModelo().isEmpty()
 					|| Objects.isNull(entity.getQuantidadePassageiros()) || entity.getCambio().isEmpty()
 					|| entity.getCombustivel().isEmpty() || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
 					|| Objects.isNull(entity.getAnoFabricado()) || Objects.isNull(entity.getCilindradas())
-					|| Objects.isNull(entity.getKm()) || Objects.isNull(entity.getPotencia())) {
+					|| Objects.isNull(entity.getPotencia())) {
 				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
 			} else {
 				return repositorioModelo.save(entity);

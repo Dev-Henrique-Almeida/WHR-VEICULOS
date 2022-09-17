@@ -17,13 +17,13 @@ public abstract class Marca {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	public Marca() {
+
+	}
+
 	public Marca(String nomeMarca) {
 		super();
 		this.nomeMarca = nomeMarca;
-	}
-
-	public Marca() {
-
 	}
 
 	public long getId() {

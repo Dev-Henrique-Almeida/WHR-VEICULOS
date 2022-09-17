@@ -26,12 +26,14 @@ public class CadastroVeiculoUsadoController {
 	private Concessionaria c;
 
 	@PostMapping("VeiculoUsado")
-	public VeiculoUsado createVeiculoUsado(@RequestBody VeiculoUsado veiculo) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoUsado createVeiculoUsado(@RequestBody VeiculoUsado veiculo)
+			throws ValorVazioExpection, ValorForaRangeException {
 		return c.save(veiculo);
 	}
 
 	@PutMapping("VeiculoUsado")
-	public VeiculoUsado updateVeiculoUsado(@RequestBody VeiculoUsado veiculo) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoUsado updateVeiculoUsado(@RequestBody VeiculoUsado veiculo)
+			throws ValorVazioExpection, ValorForaRangeException {
 		return c.save(veiculo);
 	}
 

@@ -7,7 +7,7 @@ public class Modelo extends Marca {
 
 	private String nomeModelo;
 	private String motor;
-	private float km;
+
 	private String cor;
 	private int anoFabricado;
 	private int potencia;
@@ -20,13 +20,12 @@ public class Modelo extends Marca {
 		super();
 	}
 
-	public Modelo(String nomeMarca, String nomeModelo, String motor, float km, String cor, int anoFabricado,
-			int potencia, int quantidadePassageiros, float cilindradas, String cambio, String combustivel) {
+	public Modelo(String nomeMarca, String nomeModelo, String motor, String cor, int anoFabricado, int potencia,
+			int quantidadePassageiros, float cilindradas, String cambio, String combustivel) {
 		super(nomeMarca);
 
 		this.nomeModelo = nomeModelo;
 		this.motor = motor;
-		this.km = km;
 		this.cor = cor;
 		this.anoFabricado = anoFabricado;
 		this.potencia = potencia;
@@ -42,10 +41,6 @@ public class Modelo extends Marca {
 
 	public String getMotor() {
 		return motor;
-	}
-
-	public float getKm() {
-		return km;
 	}
 
 	public String getCor() {
@@ -78,10 +73,10 @@ public class Modelo extends Marca {
 
 	@Override
 	public String toString() {
-		return "Modelo [marca=" + getNomeMarca() + ", nomeModelo=" + nomeModelo + ", motor=" + motor + ", km=" + km
-				+ ", cor=" + cor + ", anoFabricado=" + anoFabricado + ", potencia=" + potencia
-				+ ", quantidadePassageiros=" + quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio="
-				+ cambio + ", combustivel=" + combustivel + "]";
+		return "Modelo [marca=" + getNomeMarca() + ", nomeModelo=" + nomeModelo + ", motor=" + motor + ", cor=" + cor
+				+ ", anoFabricado=" + anoFabricado + ", potencia=" + potencia + ", quantidadePassageiros="
+				+ quantidadePassageiros + ", cilindradas=" + cilindradas + ", cambio=" + cambio + ", combustivel="
+				+ combustivel + "]";
 	}
 
 }

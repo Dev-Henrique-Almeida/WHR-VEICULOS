@@ -20,14 +20,14 @@ public class FichaVisitaFisica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	public FichaVisitaFisica() {
+		super();
+	}
+
 	public FichaVisitaFisica(ClienteFisico clientePF, Date data) {
 		super();
 		this.data = data;
 		this.clientePF = clientePF;
-	}
-
-	public FichaVisitaFisica() {
-		super();
 	}
 
 	public Date getData() {

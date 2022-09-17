@@ -28,12 +28,14 @@ public class CadastroOrdemPessoaJuridicaController {
 	private Concessionaria c;
 
 	@PostMapping("ordemJuridica")
-	public OrdemVendaPessoaFisica createOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica entity) throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+	public OrdemVendaPessoaFisica createOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica entity)
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return c.save(entity);
 	}
 
 	@PutMapping("ordemJuridica")
-	public OrdemVendaPessoaFisica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica cliente) throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+	public OrdemVendaPessoaFisica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica cliente)
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return c.save(cliente);
 	}
 

@@ -26,6 +26,10 @@ public class ClienteJuridico {
 	private Endereco endereco;
 	private String descricao;
 
+	public ClienteJuridico() {
+
+	}
+
 	public ClienteJuridico(String nomeEmpresarial, String nomeFantasia, String contato, String cnpj, Endereco endereco,
 			String descricao) {
 		this.nomeEmpresarial = nomeEmpresarial;
@@ -62,10 +66,6 @@ public class ClienteJuridico {
 
 	public String getDescricao() {
 		return descricao;
-	}
-
-	public ClienteJuridico() {
-
 	}
 
 	@Override

@@ -22,7 +22,8 @@ public class CadastroFuncionario {
 	@Autowired
 	private RepositorioFuncionario repositorioFuncionario;
 
-	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public Funcionario save(Funcionario entity)
+			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		if (entity.getDataNascimento().after(new Date())) {
 			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 		} else {

@@ -19,7 +19,8 @@ public class CadastroOrdemPessoaJuridica {
 	@Autowired
 	private RepositorioOrdemPessoaJuridica repositorioOrdemPessoaJuridica;
 
-	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
+			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		if (entity.getDataOperacao().before(new Date())) {
 			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 		} else {

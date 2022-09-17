@@ -10,9 +10,9 @@ public class VeiculoNovo extends Veiculo {
 		super();
 	}
 
-	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo,
-			String garantiaFabrica) {
-		super(valorCompraVeiculo, valorVenda, vendido, modelo);
+	public VeiculoNovo(float valorCompraVeiculo, float valorVenda, boolean vendido, String chassi,
+			String garantiaFabrica, Modelo modelo) {
+		super(valorCompraVeiculo, valorVenda, vendido, 0, chassi, modelo);
 		this.garantiaFabrica = garantiaFabrica;
 	}
 
@@ -22,8 +22,8 @@ public class VeiculoNovo extends Veiculo {
 
 	@Override
 	public String toString() {
-		return "VeiculoNovo [garantiaFabrica=" + garantiaFabrica + ", valorCompraVeiculo=" + getValorVenda()
-				+ ", vendido=" + getVendido() + ", modelo=" + getModelo() + "]";
+		return "VeiculoNovo [garantiaFabrica=" + garantiaFabrica + ", valorVenda=" + getValorVenda() + ", vendido="
+				+ getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
 	}
 
 }

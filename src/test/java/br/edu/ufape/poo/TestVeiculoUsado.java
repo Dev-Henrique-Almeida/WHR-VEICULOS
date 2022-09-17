@@ -39,12 +39,12 @@ class TestVeiculoUsado {
 	@Test
 	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException {
 
-		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false,
-				new Modelo("Fiat", "Uno", "1.0", 10000, "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não");
+		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253",
+				new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não", "MTT-7197");
 				cvu.save(vu);
 		
-				VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true,
-				new Modelo("Chevrolet", "Celta", "1.0", 12000, "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"), "Não", "Sim");
+				VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true, 12000, "39j F3arae xA VR1406",
+				new Modelo("Chevrolet", "Celta", "1.0",  "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"), "Não", "Sim", "HPJ-6477");
 				cvu.save(vu2);
 
 		VeiculoUsado veiculo = cvu.save(vu);
@@ -60,14 +60,13 @@ class TestVeiculoUsado {
 	void findValorByVeiculoUsado() {
 
 		/*
-		 * VeiculoUsado vu = new VeiculoUsado(101, 500, false, new Modelo("Gol",
-		 * "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
-		 * ),"100km", true, true); VeiculoUsado vu2 = new VeiculoUsado(3243, 342, true,
-		 * new Modelo("Gol", "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4,
-		 * 10, true, "Disel" ),"100km", true, true); VeiculoUsado vu3 = new
-		 * VeiculoUsado(1234201, 32, false, new Modelo("Irinel", "carrinhooo",
-		 * "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel" ),"100km", true,
-		 * true);
+		 VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253", "Sim", "Não", "MTT-7197",
+			new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"));
+			cvu.save(vu);
+	
+			VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true, 12000, "39j F3arae xA VR1406", "Não", "Sim", "HPJ-6477",
+			new Modelo("Chevrolet", "Celta", "1.0",  "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"));
+			cvu.save(vu2);
 		 */
 		List<VeiculoUsado> veiculos = cvu.findByValorVenda(20000);
 		for (VeiculoUsado v : veiculos) {
@@ -78,16 +77,15 @@ class TestVeiculoUsado {
 
 	@Test
 	void findVendidoByVeiculoUsado() {
-
-		// VeiculoUsado vu = new VeiculoUsado(101, 500, false, new Modelo("Gol",
-		// "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
-		// ),"100km", true, true);
-		// VeiculoUsado vu2 = new VeiculoUsado(3243, 342, true, new Modelo("Gol",
-		// "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
-		// ),"100km", true, true);
-		// VeiculoUsado vu3 = new VeiculoUsado(1234201, 32, false, new Modelo("Irinel",
-		// "carrinhooo", "motoe foda", 100, "rosinha", 2022, 10, 4, 10, true, "Disel"
-		// ),"100km", true, true);
+/*
+		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253", "Sim", "Não", "MTT-7197",
+				new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"));
+				cvu.save(vu);
+		
+				VeiculoUsado vu2 = new VeiculoUsado(15000, 25000, true, 12000, "39j F3arae xA VR1406", "Não", "Sim", "HPJ-6477",
+				new Modelo("Chevrolet", "Celta", "1.0",  "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"));
+				cvu.save(vu2);
+				*/
 		List<VeiculoUsado> veiculos = cvu.findByVendido(false);
 		for (VeiculoUsado v : veiculos) {
 			System.out.println("VENDIDO = " + v.toString());

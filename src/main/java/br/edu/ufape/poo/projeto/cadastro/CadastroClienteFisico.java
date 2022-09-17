@@ -22,7 +22,8 @@ public class CadastroClienteFisico {
 	@Autowired
 	private RepositorioClienteFisico repositorioClienteFisico;
 
-	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException  {
+	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException,
+			ValorVazioExpection, ValorForaRangeException {
 
 		if (entity.getDataNascimento().after(new Date())) {
 			throw new DateForaRangeException("Erro ao cadastrar, data inválida");

@@ -20,14 +20,14 @@ public class FichaVisitaJuridica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	public FichaVisitaJuridica() {
+		super();
+	}
+
 	public FichaVisitaJuridica(ClienteJuridico clientePJ, Date data) {
 		super();
 		this.data = data;
 		this.clientePJ = clientePJ;
-	}
-
-	public FichaVisitaJuridica() {
-		super();
 	}
 
 	public Date getData() {

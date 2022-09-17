@@ -20,7 +20,8 @@ public class CadastroClienteJuridico {
 	@Autowired
 	private RepositorioClienteJuridico repositorioClienteJuridico;
 
-	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
+	public ClienteJuridico save(ClienteJuridico entity)
+			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 
 		if (entity.getEndereco().getNumero() < 0 || entity.getCnpj().length() < 18 || entity.getCnpj().length() > 18
 				|| entity.getContato().length() < 14 || entity.getContato().length() > 14

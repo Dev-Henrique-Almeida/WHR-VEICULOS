@@ -7,5 +7,5 @@ public class ValorVazioExpection extends Exception {
 	public ValorVazioExpection(String message) {
 		super(message);
 	}
-	
+
 }

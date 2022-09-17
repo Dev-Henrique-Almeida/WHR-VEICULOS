@@ -15,6 +15,8 @@ public abstract class Veiculo {
 	private float valorCompraVeiculo;
 	private float valorVenda;
 	private boolean vendido;
+	private float km;
+	private String chassi;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Modelo modelo;
@@ -26,15 +28,18 @@ public abstract class Veiculo {
 	public Veiculo() {
 	}
 
-	public Veiculo(float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo) {
+	public Veiculo(float valorCompraVeiculo, float valorVenda, boolean vendido, float km, String chassi,
+			Modelo modelo) {
 		this.valorCompraVeiculo = valorCompraVeiculo;
 		this.valorVenda = valorVenda;
 		this.vendido = vendido;
 		this.modelo = modelo;
+		this.km = km;
+		this.chassi = chassi;
 
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -54,10 +59,18 @@ public abstract class Veiculo {
 		return modelo;
 	}
 
+	public float getKm() {
+		return km;
+	}
+
+	public String getChassi() {
+		return chassi;
+	}
+
 	@Override
 	public String toString() {
 		return "Veiculo [valorCompraVeiculo=" + valorCompraVeiculo + ", valorVenda=" + valorVenda + ", vendido="
-				+ vendido + ", modelo=" + modelo + "]";
+				+ vendido + ", km=" + km + ", chassi=" + chassi + ", modelo=" + modelo + ", id=" + id + "]";
 	}
 
 }

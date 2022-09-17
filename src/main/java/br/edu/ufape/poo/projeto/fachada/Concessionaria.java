@@ -67,7 +67,8 @@ public class Concessionaria {
 
 	////////////////////// CLIENTE FISICO //////////////////////////////
 
-	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException{
+	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException,
+			ValorVazioExpection, ValorForaRangeException {
 		return cadastroClienteFisico.save(entity);
 	}
 
@@ -90,7 +91,8 @@ public class Concessionaria {
 
 	//////////////////////// CLIENTE JURIDICO ///////////////////////////////////
 
-	public ClienteJuridico save(ClienteJuridico entity) throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
+	public ClienteJuridico save(ClienteJuridico entity)
+			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 		return cadastroClienteJuridico.save(entity);
 	}
 
@@ -112,7 +114,8 @@ public class Concessionaria {
 
 	//////////////// FUNCIONARIO ///////////////////
 
-	public Funcionario save(Funcionario entity) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public Funcionario save(Funcionario entity)
+			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return cadastroFuncionario.save(entity);
 	}
 
@@ -160,7 +163,8 @@ public class Concessionaria {
 
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
-	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -186,7 +190,8 @@ public class Concessionaria {
 
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
-	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
+			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return cadastroOrdemPessoaJuridica.save(entity);
 	}
 

@@ -32,6 +32,10 @@ public abstract class OrdemVenda {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Funcionario vendedor;
 
+	public OrdemVenda() {
+
+	}
+
 	public OrdemVenda(float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String formaPagamento,
 			boolean pago, boolean vendaConcluida, Funcionario vendedor) {
 		super();
@@ -86,9 +90,6 @@ public abstract class OrdemVenda {
 		return "OrdemVenda [valor=" + valor + ", veiculo=" + veiculo + ", novo=" + novo + ", dataOperacao="
 				+ dataOperacao + ", formaPagamento=" + formaPagamento + ", pago=" + pago + ", vendaConcluida="
 				+ vendaConcluida + ", vendedor=" + vendedor + ", codVenda=" + id + "]";
-	}
-
-	public OrdemVenda() {
 	}
 
 }

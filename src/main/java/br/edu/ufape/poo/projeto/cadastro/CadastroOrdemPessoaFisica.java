@@ -22,11 +22,12 @@ public class CadastroOrdemPessoaFisica {
 	@Autowired
 	private RepositorioOrdemPessoaFisica repositorioOrdemPessoaFisica;
 
-	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		if (entity.getDataOperacao().before(new Date())) {
 			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 		} else {
-			if (entity.getValor() < 0) {
+			if (entity.getValor() < 0 ) {
 				throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 			} else {
 				if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())

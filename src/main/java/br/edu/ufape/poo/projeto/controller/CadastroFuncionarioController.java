@@ -28,12 +28,14 @@ public class CadastroFuncionarioController {
 	private Concessionaria c;
 
 	@PostMapping("funcionario")
-	public Funcionario createFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public Funcionario createFuncionario(@RequestBody Funcionario cliente)
+			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return c.save(cliente);
 	}
 
 	@PutMapping("funcionario")
-	public Funcionario updateFuncionario(@RequestBody Funcionario cliente) throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	public Funcionario updateFuncionario(@RequestBody Funcionario cliente)
+			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 		return c.save(cliente);
 	}
 

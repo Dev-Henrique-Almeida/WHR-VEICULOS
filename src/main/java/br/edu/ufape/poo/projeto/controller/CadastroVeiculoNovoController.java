@@ -26,12 +26,14 @@ public class CadastroVeiculoNovoController {
 	private Concessionaria c;
 
 	@PostMapping("veiculoNovo")
-	public VeiculoNovo createVeiculoNovo(@RequestBody VeiculoNovo veiculo) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoNovo createVeiculoNovo(@RequestBody VeiculoNovo veiculo)
+			throws ValorVazioExpection, ValorForaRangeException {
 		return c.save(veiculo);
 	}
 
 	@PutMapping("veiculoNovo")
-	public VeiculoNovo updateVeiculoNovo(@RequestBody VeiculoNovo veiculo) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoNovo updateVeiculoNovo(@RequestBody VeiculoNovo veiculo)
+			throws ValorVazioExpection, ValorForaRangeException {
 		return c.save(veiculo);
 	}
 

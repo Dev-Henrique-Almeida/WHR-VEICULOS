@@ -18,12 +18,15 @@ public class CadastroVeiculoUsado {
 	private RepositorioVeiculoUsado repositorioVeiculoUsado;
 
 	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException {
-		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0) {
-			throw new ValorForaRangeException("Erro ao cadastrar, informações invaálidas");
+		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getPlaca().length() > 7
+				|| vn.getPlaca().length() < 7 || vn.getKm() < 0 || vn.getChassi().length() < 17
+				|| vn.getChassi().length() > 17) {
+			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.isNull(vn.getModelo()) || Objects.isNull(vn.getValorCompraVeiculo())
 					|| Objects.isNull(vn.getVendido()) || Objects.isNull(vn.getValorVenda())
-					|| vn.getUnicoDono().isEmpty() || vn.getRevisado().isEmpty()) {
+					|| vn.getUnicoDono().isEmpty() || vn.getRevisado().isEmpty() || vn.getChassi().isEmpty()
+					|| Objects.isNull(vn.getKm()) || vn.getPlaca().isEmpty()) {
 				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
 			} else {
 				return repositorioVeiculoUsado.save(vn);
