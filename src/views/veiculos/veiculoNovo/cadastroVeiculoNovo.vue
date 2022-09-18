@@ -1,31 +1,19 @@
 
 <template>
-
   <v-form v-model="valid">
     <v-container>
       <div>
-        
-        aaaaaaaa{{this.$route.params.modelo}} bbbb
-        modelo {{this.veiculoNovo.modelo}}
-        <br />
-        completo{{veiculoNovo}}
         <h1> Cadastro de Veiculos Novos</h1>
       </div>
       <h3> Informações do Veiculo</h3>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="veiculoNovo.valorCompraVeiculo" :rules="valorRules" type="number"
-            label="Valor de Compra" required></v-text-field>
-          <v-text-field v-model="veiculoNovo.valorVenda" :rules="valorRules" type="number" label="Valor de Venda"
-            required></v-text-field>
+          <v-text-field v-model="veiculoNovo.valorCompraVeiculo" :rules="valorRules" type="number" label="Valor de Compra" required></v-text-field>
+          <v-text-field v-model="veiculoNovo.valorVenda" :rules="valorRules" type="number" label="Valor de Venda" required></v-text-field>
         </v-col>
-
         <v-col cols="12" md="4">
-          <v-select :items="garantia" v-model="veiculoNovo.garantiaFabrica" :rules="ruaRules"
-            label="Garantia de Fabrica" required></v-select>
-
+          <v-select :items="garantia" v-model="veiculoNovo.garantiaFabrica" :rules="ruaRules" label="Garantia de Fabrica" required></v-select>
         </v-col>
-
         <v-col cols="12" md="4">
           <v-text-field v-model="veiculoNovo.chassi" :rules="chassiRules" :maxLength="17" label="Chassi" required>
           </v-text-field>
@@ -46,9 +34,6 @@
 <script>
 
 import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService';
-import CadastroModeloService from '@/service/CadastroModeloService';
-
-
 
 import { reactive } from 'vue'
 export default {
@@ -85,50 +70,24 @@ export default {
       km: '',
       chassi: '',
       garantiaFabrica: '',
-      modelo: reactive({
-        nomeMarca: '',
-        id: '',
-        nomeModelo: '',
-        motor: '',
-        cor: '',
-        anoFabricado: '',
-        potencia: '',
-        quantidadePassageiros: '',
-        cilindradas: '',
-        cambio: '',
-        combustivel: '',
-      }),
+      modelo: {},
     }),
-    
-    modeloUser: {},
     garantia: ['Sim', 'Não'],
     items: [],
-
   }),
   methods: {
     cadastrar() {
-      
       console.log(this.veiculoNovo)
       CadastroVeiculoNovoService.create(this.veiculoNovo).then(
         response => { console.log(response.status); });
     },
-    
     loadAll() {
-      CadastroModeloService.findById('14').then(
-        response => {
-          
-          this.veiculoNovo.modelo = response.data;
-        }
-      );
+      this.veiculoNovo.modelo = this.$route.params.modelo[0];
     },
-    
-
   },
-
   mounted() {
     this.loadAll();
-
-  }
+  },
 }
 </script>
   

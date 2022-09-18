@@ -31,10 +31,8 @@
         </v-row>
       </v-container>
     </v-form>
-
     <template>
       <div class="text-right">
-
         <template v-if="verificacao()">
           <v-btn class="ma-2" :loading="loading2" :disabled="loading2" color="success" @click="continuarPara">
             Continuar
@@ -61,14 +59,11 @@
         </v-btn>
       </div>
     </template>
-    veiculo
-    {{this.selected}}
-    {{condicaoVeiculo}}
   </div>
 </template>
   
 <script>
-import { reactive } from 'vue'
+
 import CadastroModeloService from '@/service/CadastroModeloService';
 
 export default {
@@ -76,8 +71,8 @@ export default {
     return {
       singleSelect: true,
       search: '',
-      selected: [],
-      modelo: [],
+      selected: {},
+      modelo: {},
       condicaoVeiculo: '',
       headers: [
         { text: 'ID', value: 'id' },
@@ -91,30 +86,19 @@ export default {
         { text: 'Cilindradas', value: 'cilindradas' },
         { text: 'Potencia', value: 'potencia' },
         { text: 'Câmbio', value: 'cambio' },
-        
       ],
       desserts: [
       ],
-      modeloVeiculo: reactive({
-        nomeMarca: '',
-        nomeModelo: '',
-        motor: '',
-        cor: '',
-        anoFabricado: '',
-        potencia: '',
-        quantidadePassageiros: '',
-        cilindradas: '',
-        cambio: '',
-        combustivel: '',
-
-      }),
+    
     }
   },
   methods: {
     loadAll() {
+      
       CadastroModeloService.getAll().then(
         response => {
           this.desserts = response.data;
+          
         }
       );
     },
