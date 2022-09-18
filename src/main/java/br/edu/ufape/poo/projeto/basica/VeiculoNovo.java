@@ -22,8 +22,10 @@ public class VeiculoNovo extends Veiculo {
 
 	@Override
 	public String toString() {
-		return "VeiculoNovo [garantiaFabrica=" + garantiaFabrica + ", valorVenda=" + getValorVenda() + ", vendido="
-				+ getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
+		return "VeiculoNovo [garantiaFabrica=" + garantiaFabrica + ", valorVenda=" + getValorVenda()
+				+ ", valorCompraVeiculo=" + getValorCompraVeiculo() + ", modelo=" + getModelo() + ", km="
+				+ getKm() + ", chassi=" + getChassi() + "]";
 	}
+
 
 }

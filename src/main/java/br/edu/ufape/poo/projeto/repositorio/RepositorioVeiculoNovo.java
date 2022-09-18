@@ -16,6 +16,8 @@ public interface RepositorioVeiculoNovo extends JpaRepository<VeiculoNovo, Long>
 
 	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica);
 
+	public VeiculoNovo findByChassi(String chassi);
+
 	// public void deleteByVeiculoNovo(VeiculoNovo veiculoNovo);
 
 }

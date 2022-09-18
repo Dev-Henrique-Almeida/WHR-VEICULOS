@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
@@ -37,7 +38,7 @@ class TestVeiculoUsado {
 	}
 */
 	@Test
-	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException {
+	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 
 		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253",
 				new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não", "MTT-7197");

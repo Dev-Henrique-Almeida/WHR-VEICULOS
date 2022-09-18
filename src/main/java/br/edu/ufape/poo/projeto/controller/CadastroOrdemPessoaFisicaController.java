@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,25 +33,24 @@ public class CadastroOrdemPessoaFisicaController {
 		return c.save(entity);
 	}
 
-	@PutMapping("ordemPessoaFisica")
-	public OrdemVendaPessoaFisica updateOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
+	@PutMapping("ordemPessoaFisica/{entity}")
+	public OrdemVendaPessoaFisica updateOrdemPessoaFisica(@PathVariable("entity") OrdemVendaPessoaFisica entity)
 			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return c.save(entity);
 	}
 
-	@DeleteMapping("deleteOrdemPessoaFisica")
-	public void deleteOrdemVendaPessoaFisica(@RequestBody long id) { // @PathVariable poder ser usado para remover
-																		// diretamente na URL
+	@DeleteMapping("deleteOrdemPessoaFisica/{id}")
+	public void deleteOrdemVendaPessoaFisica(@PathVariable("id") long id) { // @PathVariable poder ser usado para remover diretamente na URL
 		c.deleteByIdOrdemFisica(id);
 	}
 
-	@GetMapping("idOrdemPessoaFisica")
-	public OrdemVendaPessoaFisica findById(@RequestBody long id) {
+	@GetMapping("idOrdemPessoaFisica/{id}")
+	public OrdemVendaPessoaFisica findById(@PathVariable("id") long id) {
 		return c.findByIdOrdemFisica(id);
 	}
 
-	@GetMapping("pagoOrdemPessoaFisica")
-	public List<OrdemVendaPessoaFisica> findByPago(@RequestBody boolean pago) {
+	@GetMapping("pagoOrdemPessoaFisica/{pago}")
+	public List<OrdemVendaPessoaFisica> findByPago(@PathVariable("pago") boolean pago) {
 		return c.findByPagoOrdemFisica(pago);
 	}
 

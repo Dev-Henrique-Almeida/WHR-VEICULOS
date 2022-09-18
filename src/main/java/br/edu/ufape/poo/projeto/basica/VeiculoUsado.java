@@ -35,8 +35,7 @@ public class VeiculoUsado extends Veiculo {
 	@Override
 	public String toString() {
 		return "VeiculoUsado [revisado=" + revisado + ", unicoDono=" + unicoDono + ", placa=" + placa + ", valorVenda="
-				+ getValorVenda() + ", vendido()=" + getVendido() + ", km=" + getKm() + ", chassi=" + getChassi()
-				+ "]";
+				+ getValorVenda() + ", vendido()=" + getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
 	}
 
 }

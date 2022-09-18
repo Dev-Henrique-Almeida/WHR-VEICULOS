@@ -27,7 +27,7 @@ public class CadastroOrdemPessoaFisica {
 		if (entity.getDataOperacao().before(new Date())) {
 			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 		} else {
-			if (entity.getValor() < 0 ) {
+			if (entity.getValor() < 0) {
 				throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 			} else {
 				if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())

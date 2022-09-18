@@ -25,6 +25,7 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaJuridica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
@@ -149,7 +150,7 @@ public class Concessionaria {
 		return cadastroModelo.findByNomeModelo(nomeModelo);
 	}
 
-	public List<Modelo> findById(long id) {
+	public Modelo findById(long id) {
 		return cadastroModelo.findById(id);
 	}
 
@@ -217,7 +218,7 @@ public class Concessionaria {
 
 	///////////////// VEICULO NOVO //////////////////
 
-	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return cadastroVeiculoNovo.save(vn);
 	}
 
@@ -243,7 +244,7 @@ public class Concessionaria {
 
 	/////////////////// VEICULO USADO /////////////////////
 
-	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException {
+	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return cadastroVeiculoUsado.save(vn);
 	}
 

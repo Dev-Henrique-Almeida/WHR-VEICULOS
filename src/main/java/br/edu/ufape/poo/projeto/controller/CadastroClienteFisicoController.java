@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,25 +34,24 @@ public class CadastroClienteFisicoController {
 		return c.save(cliente);
 	}
 
-	@PutMapping("clienteFisico")
-	public ClienteFisico updateClienteFisico(@RequestBody ClienteFisico cliente) throws ClienteFisicoExistenteException,
+	@PutMapping("clienteFisico/{cliente}")
+	public ClienteFisico updateClienteFisico(@PathVariable("cliente") ClienteFisico cliente) throws ClienteFisicoExistenteException,
 			DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 
-	@DeleteMapping("deleteClienteFisico")
-	public void deleteClienteFisico(@RequestBody String cpf) { // @PathVariable poder ser usado para remover diretamente
-																// na URL
+	@DeleteMapping("deleteClienteFisico/{cpf}")
+	public void deleteClienteFisico(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover diretamente// na URL
 		c.deleteByCpf(cpf);
 	}
 
-	@GetMapping("cpfClienteFisico")
-	public ClienteFisico findByCpf(@RequestBody String cpf) {
-		return c.findByCpf(cpf);
-	}
+	@GetMapping("cpfClienteFisico/{cpf}") 
+    public ClienteFisico findByCpf(@PathVariable("cpf") String cpf) {
+        return c.findByCpf(cpf);
+    }
 
-	@GetMapping("nomeClienteFisico")
-	public ClienteFisico findByNome(@RequestBody String nome) {
+	@GetMapping("nomeClienteFisico/{nome}")
+	public ClienteFisico findByNome(@PathVariable("nome") String nome) {
 		return c.findByNome(nome);
 	}
 

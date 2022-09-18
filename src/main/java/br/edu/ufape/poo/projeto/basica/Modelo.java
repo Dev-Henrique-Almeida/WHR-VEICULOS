@@ -1,6 +1,9 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Modelo extends Marca {
@@ -16,6 +19,9 @@ public class Modelo extends Marca {
 	private String cambio;
 	private String combustivel;
 
+	@OneToMany(mappedBy="modelo")
+	private List<Veiculo> veiculos;
+	
 	public Modelo() {
 		super();
 	}
@@ -34,7 +40,7 @@ public class Modelo extends Marca {
 		this.cambio = cambio;
 		this.combustivel = combustivel;
 	}
-
+	
 	public String getNomeModelo() {
 		return nomeModelo;
 	}

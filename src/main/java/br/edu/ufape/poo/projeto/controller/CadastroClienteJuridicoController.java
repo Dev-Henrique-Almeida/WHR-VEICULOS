@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,25 +33,25 @@ public class CadastroClienteJuridicoController {
 		return c.save(cliente);
 	}
 
-	@PutMapping("clienteJuridico")
-	public ClienteJuridico updateClienteJuridico(@RequestBody ClienteJuridico cliente)
+	@PutMapping("clienteJuridico/{cliente}")
+	public ClienteJuridico updateClienteJuridico(@PathVariable("cliente") ClienteJuridico cliente)
 			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 
-	@DeleteMapping("deleteClienteJuridico")
-	public void deleteClienteJuridico(@RequestBody String cnpj) { // @PathVariable poder ser usado para remover
+	@DeleteMapping("deleteClienteJuridico/{cnpj}")
+	public void deleteClienteJuridico(@PathVariable("cnpj") String cnpj) { // @PathVariable poder ser usado para remover
 																	// diretamente na URL
 		c.deleteByCnpj(cnpj);
 	}
 
-	@GetMapping("cnpjClienteJuridico")
-	public ClienteJuridico findByCnpj(@RequestBody String cnpj) {
+	@GetMapping("cnpjClienteJuridico/{cnpj}")
+	public ClienteJuridico findByCnpj(@PathVariable("cnpj") String cnpj) {
 		return c.findByCnpj(cnpj);
 	}
 
-	@GetMapping("nomeClienteJuridico")
-	public ClienteJuridico findByNomeFantasia(@RequestBody String nomeFantasia) {
+	@GetMapping("nomeClienteJuridico/{nomeFantasia}")
+	public ClienteJuridico findByNomeFantasia(@PathVariable("nomeFantasia") String nomeFantasia) {
 		return c.findByNomeFantasia(nomeFantasia);
 	}
 

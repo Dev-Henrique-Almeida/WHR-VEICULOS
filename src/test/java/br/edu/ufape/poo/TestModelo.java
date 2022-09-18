@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
-import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
-import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
@@ -31,19 +30,18 @@ public class TestModelo {
 	 */
 
 	@Autowired
-	private CadastroVeiculoNovo cvn;
-
-	@Autowired
 	private CadastroModelo cm;
 
 	@Test
-	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException {
-		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
-				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim",
-				new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel"));
-		cvn.save(vn2);
-		cvn.save(vn3);
+	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+		Modelo vn2 = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
+		Modelo vn3 = new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel");
+		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
+		Modelo mo1 = new Modelo("Ford", "Mustang", "V6", "Vermelho", 2015, 400, 2, 300, "Automático", "Gasolina");
+		cm.save(vn2);
+		cm.save(vn3);
+		cm.save(mo);
+		cm.save(mo1);
 		
 
 	}

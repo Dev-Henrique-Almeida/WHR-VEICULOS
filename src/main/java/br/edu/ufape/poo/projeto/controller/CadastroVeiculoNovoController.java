@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -27,13 +29,13 @@ public class CadastroVeiculoNovoController {
 
 	@PostMapping("veiculoNovo")
 	public VeiculoNovo createVeiculoNovo(@RequestBody VeiculoNovo veiculo)
-			throws ValorVazioExpection, ValorForaRangeException {
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return c.save(veiculo);
 	}
 
-	@PutMapping("veiculoNovo")
-	public VeiculoNovo updateVeiculoNovo(@RequestBody VeiculoNovo veiculo)
-			throws ValorVazioExpection, ValorForaRangeException {
+	@PutMapping("veiculoNovo/{veiculo}")
+	public VeiculoNovo updateVeiculoNovo(@PathVariable("veiculo") VeiculoNovo veiculo)
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return c.save(veiculo);
 	}
 
@@ -43,18 +45,18 @@ public class CadastroVeiculoNovoController {
 		c.delete(veiculo);
 	}
 
-	@GetMapping("valorVeiculoNovo")
-	public List<VeiculoNovo> findByValorVendaVeiculoNovo(@RequestBody float valorVenda) {
+	@GetMapping("valorVeiculoNovo/{valorVenda}")
+	public List<VeiculoNovo> findByValorVendaVeiculoNovo(@PathVariable("valorVenda") float valorVenda) {
 		return c.findByValorVendaVeiculoNovo(valorVenda);
 	}
 
-	@GetMapping("vendidoVeiculoNovo")
-	public List<VeiculoNovo> findByVendidoVeiculoNovo(@RequestBody boolean vendido) {
+	@GetMapping("vendidoVeiculoNovo/{vendido}")
+	public List<VeiculoNovo> findByVendidoVeiculoNovo(@PathVariable("vendido") boolean vendido) {
 		return c.findByVendidoVeiculoNovo(vendido);
 	}
 
-	@GetMapping("garantiaVeiculoNovo")
-	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(@RequestBody boolean garantiaFabrica) {
+	@GetMapping("garantiaVeiculoNovo/{garantiaFabrica}")
+	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(@PathVariable("garantiaFabrica") boolean garantiaFabrica) {
 		return c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica);
 	}
 

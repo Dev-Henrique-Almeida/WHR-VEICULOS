@@ -42,7 +42,7 @@ public class CadastroModelo {
 		return repositorioModelo.findAll();
 	}
 
-	public List<Modelo> findById(long id) {
+	public Modelo findById(long id) {
 		return repositorioModelo.findById(id);
 	}
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,19 +40,18 @@ public class CadastroOrdemPessoaJuridicaController {
 		return c.save(cliente);
 	}
 
-	@DeleteMapping("deleteOrdemJuridica")
-	public void deleteOrdemPessoaJuridica(@RequestBody long id) { // @PathVariable poder ser usado para remover
-																	// diretamente na URL
+	@DeleteMapping("deleteOrdemJuridica/{id}")
+	public void deleteOrdemPessoaJuridica(@PathVariable("id") long id) { // @PathVariable poder ser usado para remover diretamente na URL
 		c.deleteByIdOrdemJuridico(id);
 	}
 
-	@GetMapping("idOrdemJuridica")
-	public OrdemVendaPessoaJuridica findByIdOrdemFisica(@RequestBody long id) {
+	@GetMapping("idOrdemJuridica/{id}")
+	public OrdemVendaPessoaJuridica findByIdOrdemFisica(@PathVariable("id") long id) {
 		return c.findByIdOrdemJuridico(id);
 	}
 
-	@GetMapping("pagoOrdemJuridica")
-	public List<OrdemVendaPessoaJuridica> findByPagoOrdemFisica(@RequestBody boolean pago) {
+	@GetMapping("pagoOrdemJuridica/{pago}")
+	public List<OrdemVendaPessoaJuridica> findByPagoOrdemFisica(@PathVariable("pago") boolean pago) {
 		return c.findByPagoOrdemJuridico(pago);
 	}
 

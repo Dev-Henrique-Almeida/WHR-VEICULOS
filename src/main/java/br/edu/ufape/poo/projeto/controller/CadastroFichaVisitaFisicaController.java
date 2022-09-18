@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,14 +29,13 @@ public class CadastroFichaVisitaFisicaController {
 		return c.save(fichaVisitaFisica);
 	}
 
-	@PutMapping("fichaVisitaFisica")
-	public FichaVisitaFisica updateFichaVisitaFisica(@RequestBody FichaVisitaFisica fichaVisitaFisica) {
+	@PutMapping("fichaVisitaFisica/{fichaVisitaFisica}")
+	public FichaVisitaFisica updateFichaVisitaFisica(@PathVariable("fichaVisitaFisica") FichaVisitaFisica fichaVisitaFisica) {
 		return c.save(fichaVisitaFisica);
 	}
 
-	@DeleteMapping("deleteFichaVisitaFisica")
-	public void deleteFichaVisitaFisica(@RequestBody String cpf) { // @PathVariable poder ser usado para remover
-																	// diretamente na URL
+	@DeleteMapping("deleteFichaVisitaFisica/{cpf}")
+	public void deleteFichaVisitaFisica(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover diretamente na URL
 		c.deleteByCpf(cpf);
 	}
 
