@@ -47,9 +47,7 @@
           </v-btn>
         </template>
 
-        <v-btn class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="home">
-          Cancelar
-        </v-btn>
+        <v-btn class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="home"> Cancelar</v-btn>
         <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text"
           @click="cadastrarNovoModelo">
           Cadastrar Novo modelo
@@ -89,16 +87,16 @@ export default {
       ],
       desserts: [
       ],
-    
+
     }
   },
   methods: {
     loadAll() {
-      
+
       CadastroModeloService.getAll().then(
         response => {
           this.desserts = response.data;
-          
+
         }
       );
     },
