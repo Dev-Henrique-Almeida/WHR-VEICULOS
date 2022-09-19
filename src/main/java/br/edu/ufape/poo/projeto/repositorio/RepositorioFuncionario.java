@@ -16,4 +16,6 @@ public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long>
 
 	public Funcionario findByCpf(String cpf);
 
+	public Funcionario findByCpf(long id);
+
 }

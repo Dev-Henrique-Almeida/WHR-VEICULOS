@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Veiculo {
+
 	private float valorCompraVeiculo;
 	private float valorVenda;
 	private boolean vendido;
@@ -34,9 +35,9 @@ public abstract class Veiculo {
 		this.valorCompraVeiculo = valorCompraVeiculo;
 		this.valorVenda = valorVenda;
 		this.vendido = vendido;
-		this.modelo = modelo;
 		this.km = km;
 		this.chassi = chassi;
+		this.modelo = modelo;
 
 	}
 

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -20,17 +21,17 @@ public abstract class OrdemVenda {
 
 	private float valor;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Veiculo veiculo;
+
+	@ManyToOne(cascade = CascadeType.MERGE)
+	private Funcionario vendedor;
 
 	private boolean novo;
 	private Date dataOperacao;
 	private String formaPagamento;
 	private boolean pago;
 	private boolean vendaConcluida;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	private Funcionario vendedor;
 
 	public OrdemVenda() {
 

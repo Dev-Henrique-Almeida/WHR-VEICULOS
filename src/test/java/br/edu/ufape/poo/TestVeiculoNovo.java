@@ -41,20 +41,21 @@ class TestVeiculoNovo {
 
 		cvn.save(vn2);
 		cvn.save(vn3);
-		
+
 	}
 
 	@Test
 	void findValorByVeiculoNovo() {
-/*
-		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
-				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim",
-				new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel"));
-
-		cvn.save(vn2);
-		cvn.save(vn3);
-*/
+		/*
+		 * VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false,
+		 * "8AH S3cyA3 3F 5N6170", "Sim", new Modelo("Chevrolet", "Camaro", "V8",
+		 * "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel")); VeiculoNovo vn3 = new
+		 * VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim", new
+		 * Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático",
+		 * "Diesel"));
+		 * 
+		 * cvn.save(vn2); cvn.save(vn3);
+		 */
 		List<VeiculoNovo> veiculos = cvn.findByValorVenda(20000);
 		for (VeiculoNovo v : veiculos) {
 			System.out.println("VALOR VENDA = " + v.toString());
@@ -66,14 +67,15 @@ class TestVeiculoNovo {
 	void findVendidoByVeiculoNovo() {
 
 		/*
-		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
-				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim",
-				new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel"));
-
-		cvn.save(vn2);
-		cvn.save(vn3);
-*/
+		 * VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false,
+		 * "8AH S3cyA3 3F 5N6170", "Sim", new Modelo("Chevrolet", "Camaro", "V8",
+		 * "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel")); VeiculoNovo vn3 = new
+		 * VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim", new
+		 * Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático",
+		 * "Diesel"));
+		 * 
+		 * cvn.save(vn2); cvn.save(vn3);
+		 */
 		List<VeiculoNovo> veiculos = cvn.findByVendido(false);
 		for (VeiculoNovo v : veiculos) {
 			System.out.println("VENDIDO = " + v.toString());
@@ -85,14 +87,15 @@ class TestVeiculoNovo {
 	void findGarantiaByVeiculoNovo() {
 
 		/*
-		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
-				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim",
-				new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel"));
-
-		cvn.save(vn2);
-		cvn.save(vn3);
-*/
+		 * VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false,
+		 * "8AH S3cyA3 3F 5N6170", "Sim", new Modelo("Chevrolet", "Camaro", "V8",
+		 * "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel")); VeiculoNovo vn3 = new
+		 * VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim", new
+		 * Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático",
+		 * "Diesel"));
+		 * 
+		 * cvn.save(vn2); cvn.save(vn3);
+		 */
 		List<VeiculoNovo> veiculos = cvn.findByGarantiaFabrica(false);
 		for (VeiculoNovo v : veiculos) {
 			System.out.println("GARANTIA = " + v.toString());
@@ -101,12 +104,12 @@ class TestVeiculoNovo {
 	}
 
 	/*
-	 * @Test void deleteVeiculoByVeiculoNovo() { VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
-				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm 780Vtl BL sE9853", "Sim",
-				new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel"));
-		cvn.save(vn2);
-		cvn.save(vn3); {
+	 * @Test void deleteVeiculoByVeiculoNovo() { VeiculoNovo vn2 = new
+	 * VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim", new
+	 * Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400,
+	 * "Automático", "Diesel")); VeiculoNovo vn3 = new VeiculoNovo(300000, 400000,
+	 * false, "7bm 780Vtl BL sE9853", "Sim", new Modelo("BMW", "M3", "V8", "Branco",
+	 * 2022, 600, 2, 500, "Automático", "Diesel")); cvn.save(vn2); cvn.save(vn3); {
 	 * System.out.println("EXISTE = " + f.toString()); } cvn.delete(vu3);
 	 * 
 	 * }

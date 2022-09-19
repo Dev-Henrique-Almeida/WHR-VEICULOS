@@ -78,6 +78,10 @@ public class Concessionaria {
 
 	}
 
+	public ClienteFisico findByIdClienteFisico(long id) {
+		return cadastroClienteFisico.findById(id);
+	}
+
 	public ClienteFisico findByCpf(String cpf) {
 		return cadastroClienteFisico.findByCpf(cpf);
 	}
@@ -101,6 +105,10 @@ public class Concessionaria {
 		cadastroClienteJuridico.deleteByCnpj(cnpj);
 	}
 
+	public ClienteJuridico findByIdClienteJuridico(long id) {
+		return cadastroClienteJuridico.findById(id);
+	}
+
 	public ClienteJuridico findByCnpj(String cnpj) {
 		return cadastroClienteJuridico.findByCnpj(cnpj);
 	}
@@ -122,6 +130,10 @@ public class Concessionaria {
 
 	public void deleteByCpfFuncionario(String cpf) {
 		cadastroFuncionario.deleteByCpf(cpf);
+	}
+
+	public Funcionario findByIdFuncionario(long id) {
+		return cadastroFuncionario.findById(id);
 	}
 
 	public Funcionario findByNomeFuncionario(String nome) {
@@ -218,12 +230,17 @@ public class Concessionaria {
 
 	///////////////// VEICULO NOVO //////////////////
 
-	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoNovo save(VeiculoNovo vn)
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return cadastroVeiculoNovo.save(vn);
 	}
 
 	public void delete(VeiculoNovo entity) {
 		cadastroVeiculoNovo.delete(entity);
+	}
+
+	public VeiculoNovo findByIdVeiculoNovo(long id) {
+		return cadastroVeiculoNovo.findById(id);
 	}
 
 	public List<VeiculoNovo> findByValorVendaVeiculoNovo(float valorVenda) {
@@ -244,12 +261,17 @@ public class Concessionaria {
 
 	/////////////////// VEICULO USADO /////////////////////
 
-	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoUsado save(VeiculoUsado vn)
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		return cadastroVeiculoUsado.save(vn);
 	}
 
 	public void delete(VeiculoUsado entity) {
 		cadastroVeiculoUsado.delete(entity);
+	}
+
+	public VeiculoUsado findByIdVeiculoUsado(long id) {
+		return cadastroVeiculoUsado.findById(id);
 	}
 
 	public List<VeiculoUsado> findByValorVendaVeiculoUsado(float valorVenda) {

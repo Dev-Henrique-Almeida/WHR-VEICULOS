@@ -24,16 +24,18 @@ public class CadastroOrdemPessoaFisica {
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
 			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
-		if (entity.getDataOperacao().before(new Date())) {
-			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+
+		if (entity.getValor() < 0 || entity.getDataOperacao().before(new Date())) {
+			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
-			if (entity.getValor() < 0) {
-				throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+			if (Objects.isNull(entity.getDataOperacao())) {
+				throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 			} else {
 				if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
 						|| Objects.isNull(entity.getVendaConcluida()) || Objects.isNull(entity.getDataOperacao())
 						|| entity.getFormaPagamento().isEmpty() || Objects.isNull(entity.getValor())
-						|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())) {
+						|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())
+						|| Objects.isNull(entity.getVeiculo().getModelo())) {
 					throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
 				} else {
 					return repositorioOrdemPessoaFisica.save(entity);

@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class OrdemVendaPessoaJuridica extends OrdemVenda {
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private ClienteJuridico cliente;
 
 	public OrdemVendaPessoaJuridica() {

@@ -30,7 +30,8 @@ public class TestClienteFisico {
 	 */
 
 	@Test
-	void saveClienteFisico() throws ClienteFisicoNuloException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	void saveClienteFisico()
+			throws ClienteFisicoNuloException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		try {
 			ClienteFisico cf = new ClienteFisico("123", "Robert grosso", null, null,
 					new Endereco(null, null, "Praia do arrombado", null, 0));

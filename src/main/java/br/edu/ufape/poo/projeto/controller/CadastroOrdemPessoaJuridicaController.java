@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
@@ -29,19 +30,22 @@ public class CadastroOrdemPessoaJuridicaController {
 	private Concessionaria c;
 
 	@PostMapping("ordemJuridica")
-	public OrdemVendaPessoaFisica createOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
-		return c.save(entity);
+	public ResponseEntity<OrdemVendaPessoaJuridica> createOrdemVendaPessoaJuridica(
+			@RequestBody OrdemVendaPessoaJuridica entity)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+		OrdemVendaPessoaJuridica or = c.save(entity);
+		return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("ordemJuridica")
-	public OrdemVendaPessoaFisica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaFisica cliente)
+	public OrdemVendaPessoaJuridica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaJuridica cliente)
 			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
 		return c.save(cliente);
 	}
 
 	@DeleteMapping("deleteOrdemJuridica/{id}")
-	public void deleteOrdemPessoaJuridica(@PathVariable("id") long id) { // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteOrdemPessoaJuridica(@PathVariable("id") long id) {
 		c.deleteByIdOrdemJuridico(id);
 	}
 

@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -28,9 +31,12 @@ public class CadastroClienteJuridicoController {
 	private Concessionaria c;
 
 	@PostMapping("clienteJuridico")
-	public ClienteJuridico createClienteJuridico(@RequestBody ClienteJuridico cliente)
-			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
-		return c.save(cliente);
+	public ResponseEntity<ClienteJuridico> createClienteJuridico(@RequestBody ClienteJuridico cliente)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException,
+			ClienteJuridicoExistenteException {
+		ClienteJuridico cf = c.save(cliente);
+		return new ResponseEntity<ClienteJuridico>(cf, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("clienteJuridico/{cliente}")
@@ -40,14 +46,18 @@ public class CadastroClienteJuridicoController {
 	}
 
 	@DeleteMapping("deleteClienteJuridico/{cnpj}")
-	public void deleteClienteJuridico(@PathVariable("cnpj") String cnpj) { // @PathVariable poder ser usado para remover
-																	// diretamente na URL
+	public void deleteClienteJuridico(@PathVariable("cnpj") String cnpj) {
 		c.deleteByCnpj(cnpj);
 	}
 
 	@GetMapping("cnpjClienteJuridico/{cnpj}")
 	public ClienteJuridico findByCnpj(@PathVariable("cnpj") String cnpj) {
 		return c.findByCnpj(cnpj);
+	}
+
+	@GetMapping("idClienteJuridico/{id}")
+	public ClienteJuridico findByIdClienteJuridico(@PathVariable("id") long id) {
+		return c.findByIdClienteJuridico(id);
 	}
 
 	@GetMapping("nomeClienteJuridico/{nomeFantasia}")

@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -27,17 +30,21 @@ public class CadastroModeloController {
 	private Concessionaria c;
 
 	@PostMapping("modelo")
-	public Modelo createModelo(@RequestBody Modelo modelo) throws ValorVazioExpection, ValorForaRangeException {
-		return c.save(modelo);
+	public ResponseEntity<Modelo> createModelo(@RequestBody Modelo modelo)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+		Modelo m = c.save(modelo);
+		return new ResponseEntity<Modelo>(m, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("modelo/{modelo}")
-	public Modelo updateModelo(@PathVariable("modelo") Modelo modelo) throws ValorVazioExpection, ValorForaRangeException {
+	public Modelo updateModelo(@PathVariable("modelo") Modelo modelo)
+			throws ValorVazioExpection, ValorForaRangeException {
 		return c.save(modelo);
 	}
 
 	@DeleteMapping("deleteModelo/{modelo}")
-	public void deleteModelo(@PathVariable("modelo") Modelo modelo) { // @PathVariable poder ser usado para remover diretamente na // URL
+	public void deleteModelo(@PathVariable("modelo") Modelo modelo) {
 		c.delete(modelo);
 	}
 
@@ -46,12 +53,11 @@ public class CadastroModeloController {
 		return c.findByAnoFabricado(anoFabricado);
 	}
 
-
 	@GetMapping("idModelo/{id}")
 	public Modelo findById(@PathVariable("id") long id) {
 		return c.findById(id);
 	}
-	
+
 	@GetMapping("nomeModelo/{nomeModelo}")
 	public List<Modelo> findByNomeModelo(@PathVariable("nomeModelo") String nomeModelo) {
 		return c.findByNomeModelo(nomeModelo);

@@ -54,6 +54,10 @@ public class CadastroClienteJuridico {
 		repositorioClienteJuridico.deleteByCnpj(cnpj);
 	}
 
+	public ClienteJuridico findById(long id) {
+		return repositorioClienteJuridico.findById(id);
+	}
+
 	public ClienteJuridico findByCnpj(String cnpj) {
 		return repositorioClienteJuridico.findByCnpj(cnpj);
 	}

@@ -21,7 +21,8 @@ public class CadastroVeiculoNovo {
 	@Autowired
 	private RepositorioVeiculoNovo repositorioVeiculoNovo;
 
-	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoNovo save(VeiculoNovo vn)
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getKm() < 0 || vn.getChassi().length() < 17
 				|| vn.getChassi().length() > 17) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
@@ -46,7 +47,8 @@ public class CadastroVeiculoNovo {
 					return repositorioVeiculoNovo.save(vn);
 				} else {
 
-					throw new ChassiExistenteException("Erro ao cadastrar veículo novo, chassi já existe, por favor informe outro Chassi!");
+					throw new ChassiExistenteException(
+							"Erro ao cadastrar veículo novo, chassi já existe, por favor informe outro Chassi!");
 				}
 			}
 		}
@@ -55,11 +57,15 @@ public class CadastroVeiculoNovo {
 	public void delete(VeiculoNovo entity) {
 		repositorioVeiculoNovo.delete(entity);
 	}
-	
+
 	public VeiculoNovo findByChassi(String chassi) {
 		return repositorioVeiculoNovo.findByChassi(chassi);
 	}
-	
+
+	public VeiculoNovo findById(long id) {
+		return repositorioVeiculoNovo.findById(id);
+	}
+
 	public List<VeiculoNovo> findByValorVenda(float valorVenda) {
 		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
 	}

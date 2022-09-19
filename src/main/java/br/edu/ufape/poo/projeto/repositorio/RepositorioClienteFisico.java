@@ -12,6 +12,8 @@ public interface RepositorioClienteFisico extends JpaRepository<ClienteFisico, L
 
 	public ClienteFisico findByNome(String nome);
 
+	public ClienteFisico findById(long id);
+
 	public void deleteByCpf(String cpf);
 
 }

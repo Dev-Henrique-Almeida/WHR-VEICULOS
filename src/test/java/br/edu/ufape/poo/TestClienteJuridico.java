@@ -33,10 +33,9 @@ public class TestClienteJuridico {
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		try {
-			ClienteJuridico cj3 = new ClienteJuridico("Robert", "Corno", "telefone", "1111", null,
-					"juridico igual");
+			ClienteJuridico cj3 = new ClienteJuridico("Robert", "Corno", "telefone", "1111", null, "juridico igual");
 			ccj.save(cj3);
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
@@ -49,31 +48,21 @@ public class TestClienteJuridico {
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
+
 	}
 	/*
-	@Test
-	void findCnpjByPessoaJuridica() {
-		ClienteJuridico clientes = ccj.findByCnpj("1111");
-		System.out.println("CNPJ = " + clientes.toString());
-
-	}
-
-	@Test
-	void findNomeFantasiaByPessoaJuridica() {
-		ClienteJuridico clientes = ccj.findByNomeFantasia("WHR Veiculos");
-		System.out.println("NOME FANTASIA = " + clientes.toString());
-	}
-
-	
-	@Test
-	void deleteCnpjByPessoaJuridica() {
-		List<ClienteJuridico> clientes = ccj.findAll();
-		for (ClienteJuridico j : clientes) {
-			System.out.println("EXISTE = " + j.toString());
-		}
-		ccj.deleteByCnpj("120");
-	}
-	*/
+	 * @Test void findCnpjByPessoaJuridica() { ClienteJuridico clientes =
+	 * ccj.findByCnpj("1111"); System.out.println("CNPJ = " + clientes.toString());
+	 * 
+	 * }
+	 * 
+	 * @Test void findNomeFantasiaByPessoaJuridica() { ClienteJuridico clientes =
+	 * ccj.findByNomeFantasia("WHR Veiculos"); System.out.println("NOME FANTASIA = "
+	 * + clientes.toString()); }
+	 * 
+	 * 
+	 * @Test void deleteCnpjByPessoaJuridica() { List<ClienteJuridico> clientes =
+	 * ccj.findAll(); for (ClienteJuridico j : clientes) {
+	 * System.out.println("EXISTE = " + j.toString()); } ccj.deleteByCnpj("120"); }
+	 */
 }

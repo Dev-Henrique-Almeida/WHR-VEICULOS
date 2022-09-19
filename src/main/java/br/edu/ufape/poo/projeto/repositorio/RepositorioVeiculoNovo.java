@@ -18,6 +18,6 @@ public interface RepositorioVeiculoNovo extends JpaRepository<VeiculoNovo, Long>
 
 	public VeiculoNovo findByChassi(String chassi);
 
-	// public void deleteByVeiculoNovo(VeiculoNovo veiculoNovo);
+	public VeiculoNovo findById(long id);
 
 }

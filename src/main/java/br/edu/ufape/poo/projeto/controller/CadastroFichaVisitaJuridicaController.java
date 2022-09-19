@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.FichaVisitaJuridica;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -25,17 +30,21 @@ public class CadastroFichaVisitaJuridicaController {
 	private Concessionaria c;
 
 	@PostMapping("fichaVisitaJuridica")
-	public FichaVisitaJuridica createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica fichaVisitaJuridica) {
-		return c.save(fichaVisitaJuridica);
+	public ResponseEntity<FichaVisitaJuridica> createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica ficha)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+		FichaVisitaJuridica fvf = c.save(ficha);
+		return new ResponseEntity<FichaVisitaJuridica>(fvf, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("fichaVisitaJuridica/{fichaVisitaJuridica}")
-	public FichaVisitaJuridica updateFichaVisitaJuridica(@PathVariable("fichaVisitaJuridica") FichaVisitaJuridica fichaVisitaJuridica) {
+	public FichaVisitaJuridica updateFichaVisitaJuridica(
+			@PathVariable("fichaVisitaJuridica") FichaVisitaJuridica fichaVisitaJuridica) {
 		return c.save(fichaVisitaJuridica);
 	}
 
 	@DeleteMapping("deleteFichaVisitaJuridica/{cnpj}")
-	public void deleteFichaVisitaJuridica(@PathVariable("cnpj") String cnpj) { // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteFichaVisitaJuridica(@PathVariable("cnpj") String cnpj) {
 		c.deleteByCnpj(cnpj);
 	}
 

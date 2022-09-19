@@ -21,11 +21,12 @@ public class CadastroOrdemPessoaJuridica {
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
 			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
-		if (entity.getDataOperacao().before(new Date())) {
-			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+
+		if (entity.getValor() < 0 || entity.getDataOperacao().before(new Date())) {
+			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
-			if (entity.getValor() < 0) {
-				throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+			if (Objects.isNull(entity.getDataOperacao())) {
+				throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 			} else {
 				if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
 						|| Objects.isNull(entity.getVendaConcluida()) || Objects.isNull(entity.getDataOperacao())

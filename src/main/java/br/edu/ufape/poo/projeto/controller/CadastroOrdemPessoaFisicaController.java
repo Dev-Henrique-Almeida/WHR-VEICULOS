@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +30,11 @@ public class CadastroOrdemPessoaFisicaController {
 	private Concessionaria c;
 
 	@PostMapping("ordemPessoaFisica")
-	public OrdemVendaPessoaFisica createOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
-		return c.save(entity);
+	public ResponseEntity<OrdemVendaPessoaFisica> createOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+		OrdemVendaPessoaFisica or = c.save(entity);
+		return new ResponseEntity<OrdemVendaPessoaFisica>(or, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("ordemPessoaFisica/{entity}")
@@ -40,7 +44,7 @@ public class CadastroOrdemPessoaFisicaController {
 	}
 
 	@DeleteMapping("deleteOrdemPessoaFisica/{id}")
-	public void deleteOrdemVendaPessoaFisica(@PathVariable("id") long id) { // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteOrdemVendaPessoaFisica(@PathVariable("id") long id) {
 		c.deleteByIdOrdemFisica(id);
 	}
 

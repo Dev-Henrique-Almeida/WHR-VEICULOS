@@ -18,7 +18,8 @@ public class CadastroVeiculoUsado {
 	@Autowired
 	private RepositorioVeiculoUsado repositorioVeiculoUsado;
 
-	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoUsado save(VeiculoUsado vn)
+			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getPlaca().length() > 7
 				|| vn.getPlaca().length() < 7 || vn.getKm() < 0 || vn.getChassi().length() < 17
 				|| vn.getChassi().length() > 17) {
@@ -43,7 +44,8 @@ public class CadastroVeiculoUsado {
 					return repositorioVeiculoUsado.save(vn);
 				} else {
 
-					throw new ChassiExistenteException("Erro ao cadastrar veículo usado, chassi já existe, por favor informe outro Chassi!");
+					throw new ChassiExistenteException(
+							"Erro ao cadastrar veículo usado, chassi já existe, por favor informe outro Chassi!");
 				}
 			}
 		}
@@ -52,9 +54,13 @@ public class CadastroVeiculoUsado {
 	public void delete(VeiculoUsado entity) {
 		repositorioVeiculoUsado.delete(entity);
 	}
-	
+
 	public VeiculoUsado findByChassi(String chassi) {
 		return repositorioVeiculoUsado.findByChassi(chassi);
+	}
+
+	public VeiculoUsado findById(long id) {
+		return repositorioVeiculoUsado.findById(id);
 	}
 
 	public List<VeiculoUsado> findByValorVenda(float valorVenda) {

@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +31,11 @@ public class CadastroFuncionarioController {
 	private Concessionaria c;
 
 	@PostMapping("funcionario")
-	public Funcionario createFuncionario(@RequestBody Funcionario cliente)
-			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
-		return c.save(cliente);
+	public ResponseEntity<Funcionario> createFuncionario(@RequestBody Funcionario funcionario)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, FuncionarioExistenteException {
+		Funcionario f = c.save(funcionario);
+		return new ResponseEntity<Funcionario>(f, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("funcionario/{funcionario}")
@@ -41,13 +45,19 @@ public class CadastroFuncionarioController {
 	}
 
 	@DeleteMapping("deleteFuncionario/{cpf}")
-	public void deleteFuncionario(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteFuncionario(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover
+																		// diretamente na URL
 		c.deleteByCpf(cpf);
 	}
 
 	@GetMapping("cpfFuncionario/{cpf}")
 	public Funcionario findByCpf(@PathVariable("cpf") String cpf) {
 		return c.findByNomeFuncionario(cpf);
+	}
+
+	@GetMapping("idFuncionario/{id}")
+	public Funcionario findByIdFuncionario(@PathVariable("id") long id) {
+		return c.findByIdFuncionario(id);
 	}
 
 	@GetMapping("nomeFuncionario/{nome}")

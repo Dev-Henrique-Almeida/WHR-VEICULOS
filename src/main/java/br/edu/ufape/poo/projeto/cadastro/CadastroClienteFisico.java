@@ -25,13 +25,14 @@ public class CadastroClienteFisico {
 	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException,
 			ValorVazioExpection, ValorForaRangeException {
 
-		if (entity.getDataNascimento().after(new Date())) {
-			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+		if (entity.getEndereco().getNumero() < 0 || entity.getCpf().length() < 14 || entity.getCpf().length() > 14
+				|| entity.getTelefone().length() < 14 || entity.getTelefone().length() > 14
+				|| entity.getEndereco().getCep().length() < 9 || entity.getEndereco().getCep().length() > 9
+				|| entity.getDataNascimento().after(new Date())) {
+			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
-			if (entity.getEndereco().getNumero() < 0 || entity.getCpf().length() < 14 || entity.getCpf().length() > 14
-					|| entity.getTelefone().length() < 14 || entity.getTelefone().length() > 14
-					|| entity.getEndereco().getCep().length() < 9 || entity.getEndereco().getCep().length() > 9) {
-				throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+			if (Objects.isNull(entity.getDataNascimento())) {
+				throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 			} else {
 				if (Objects.isNull(entity.getNome()) || Objects.isNull(entity.getCpf())
 						|| Objects.isNull(entity.getDataNascimento())
@@ -65,6 +66,10 @@ public class CadastroClienteFisico {
 
 	public ClienteFisico findByNome(String nome) {
 		return repositorioClienteFisico.findByNome(nome);
+	}
+
+	public ClienteFisico findById(long id) {
+		return repositorioClienteFisico.findById(id);
 	}
 
 	public List<ClienteFisico> findAll() {

@@ -22,7 +22,7 @@ public class ClienteJuridico {
 	@Column(unique = true)
 	private String cnpj;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Endereco endereco;
 	private String descricao;
 

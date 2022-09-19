@@ -3,6 +3,8 @@ package br.edu.ufape.poo.projeto.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -28,9 +31,11 @@ public class CadastroVeiculoUsadoController {
 	private Concessionaria c;
 
 	@PostMapping("VeiculoUsado")
-	public VeiculoUsado createVeiculoUsado(@RequestBody VeiculoUsado veiculo)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
-		return c.save(veiculo);
+	public ResponseEntity<VeiculoUsado> createVeiculoUsado(@RequestBody VeiculoUsado modelo)
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+		VeiculoUsado vn = c.save(modelo);
+		return new ResponseEntity<VeiculoUsado>(vn, HttpStatus.CREATED);
+
 	}
 
 	@PutMapping("VeiculoUsado/{veiculo}")
@@ -40,13 +45,18 @@ public class CadastroVeiculoUsadoController {
 	}
 
 	@DeleteMapping("deleteVeiculoUsado/{veiculo}")
-	public void deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) { // @PathVariable poder ser usado para remover diretamente na URL
+	public void deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) { // para remover diretamente na URL
 		c.delete(veiculo);
 	}
 
 	@GetMapping("valorVeiculoUsado/{valorVenda}")
 	public List<VeiculoUsado> findByValorVendaVeiculoUsado(@PathVariable("valorVenda") float valorVenda) {
 		return c.findByValorVendaVeiculoUsado(valorVenda);
+	}
+
+	@GetMapping("idVeiculoUsado/{id}")
+	public VeiculoUsado findByIdVeiculoUsado(@PathVariable("id") long id) {
+		return c.findByIdVeiculoUsado(id);
 	}
 
 	@GetMapping("vendidoVeiculoUsado/{vendido}")

@@ -16,4 +16,6 @@ public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Lon
 
 	public VeiculoUsado findByChassi(String chassi);
 
+	public VeiculoUsado findById(long id);
+
 }
