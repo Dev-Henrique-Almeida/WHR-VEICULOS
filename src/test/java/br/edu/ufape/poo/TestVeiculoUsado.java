@@ -86,12 +86,12 @@ class TestVeiculoUsado {
 		 * "39j F3arae xA VR1406", "Não", "Sim", "HPJ-6477", new Modelo("Chevrolet",
 		 * "Celta", "1.0", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"));
 		 * cvu.save(vu2);
-		 */
+		 
 		List<VeiculoUsado> veiculos = cvu.findByVendido(false);
 		for (VeiculoUsado v : veiculos) {
 			System.out.println("VENDIDO = " + v.toString());
 		}
-
+*/
 	}
 
 }

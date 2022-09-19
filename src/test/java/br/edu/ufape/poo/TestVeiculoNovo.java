@@ -75,12 +75,12 @@ class TestVeiculoNovo {
 		 * "Diesel"));
 		 * 
 		 * cvn.save(vn2); cvn.save(vn3);
-		 */
+		 
 		List<VeiculoNovo> veiculos = cvn.findByVendido(false);
 		for (VeiculoNovo v : veiculos) {
 			System.out.println("VENDIDO = " + v.toString());
 		}
-
+*/
 	}
 
 	@Test

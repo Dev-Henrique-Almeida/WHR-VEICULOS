@@ -59,16 +59,17 @@ public class CadastroVeiculoUsado {
 		return repositorioVeiculoUsado.findByChassi(chassi);
 	}
 
+	public List<VeiculoUsado> findAllByVendido() {
+		boolean vendido = false;
+		return repositorioVeiculoUsado.findAllByVendido(vendido);
+	}
+	
 	public VeiculoUsado findById(long id) {
 		return repositorioVeiculoUsado.findById(id);
 	}
 
 	public List<VeiculoUsado> findByValorVenda(float valorVenda) {
 		return repositorioVeiculoUsado.findByValorVenda(valorVenda);
-	}
-
-	public List<VeiculoUsado> findByVendido(boolean vendido) {
-		return repositorioVeiculoUsado.findByVendido(vendido);
 	}
 
 	public List<VeiculoUsado> findAll() {

@@ -25,7 +25,6 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoNuloException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
@@ -60,10 +59,10 @@ class TestApresentacao {
 	private CadastroFuncionario cf;
 
 	/////////////////////// SAVE CLIENTE FISICO ///////////////////////////
-
+	
 	@Test
 	void saveClienteFisico()
-			throws ClienteFisicoNuloException, DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
 		try {
 			ClienteFisico cf = new ClienteFisico("261.942.399-64", "Danilo Nelson Nunes", new Date(), "(45)92906-6513",
 					new Endereco("85819-190", "Rua Engenharia", "Cascavel", "PR", 864));
@@ -141,7 +140,7 @@ class TestApresentacao {
 				"(62)92892-9164", new Endereco("74630-310", "Rua L 14", "Goiânia", "GO", 350));
 		ccf.save(cff);
 
-		VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, false, "8AHS3cyA33f5N6170", "Sim", mo);
+		VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, true, "8AHS3cyA33f5N6170", "Sim", mo);
 		cvn.save(vn2);
 
 		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, vn2, true, new Date(2023 - 1900, 1, 2), "Debito",
@@ -178,14 +177,18 @@ class TestApresentacao {
 	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		Modelo mo1 = new Modelo("Ford", "Mustang", "V6", "Vermelho", 2015, 400, 2, 300, "Automático", "Gasolina");
+		Modelo mo2 = new Modelo("Chevrolet", "Celta", "V6", "Vermelho", 2015, 400, 2, 300, "Manual", "Gasolina");
 		cm.save(mo);
 		cm.save(mo1);
+		cm.save(mo2);
 		try {
-			VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, false, "8AHS3cyA33f5N6170", "Sim", mo);
+			VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, true, "8AHS3cyA33f5N6170", "Sim", mo);
 			VeiculoNovo vn3 = new VeiculoNovo(30203000, 40200200, false, "7ba7r0VtlBLsE9853", "Sim", mo1);
-
+			VeiculoNovo vn4 = new VeiculoNovo(1202000, 1500200, false, "7ba7r0Vt2BLsE9853", "Sim", mo2);
+			
 			cvn.save(vn2);
 			cvn.save(vn3);
+			cvn.save(vn4);
 		} catch (ChassiExistenteException e) {
 			e.getMessage();
 		}

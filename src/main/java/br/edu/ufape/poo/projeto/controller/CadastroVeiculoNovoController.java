@@ -59,9 +59,9 @@ public class CadastroVeiculoNovoController {
 		return c.findByIdVeiculoNovo(id);
 	}
 
-	@GetMapping("vendidoVeiculoNovo/{vendido}")
-	public List<VeiculoNovo> findByVendidoVeiculoNovo(@PathVariable("vendido") boolean vendido) {
-		return c.findByVendidoVeiculoNovo(vendido);
+	@GetMapping("vendidoVeiculoNovo")
+	public List<VeiculoNovo> findAllByVendidoVeiculoNovo() {
+		return c.findAllByVendidoVeiculoNovo();
 	}
 
 	@GetMapping("garantiaVeiculoNovo/{garantiaFabrica}")

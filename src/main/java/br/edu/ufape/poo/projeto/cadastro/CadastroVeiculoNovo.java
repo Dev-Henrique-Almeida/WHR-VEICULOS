@@ -70,8 +70,13 @@ public class CadastroVeiculoNovo {
 		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
 	}
 
-	public List<VeiculoNovo> findByVendido(boolean vendido) {
-		return repositorioVeiculoNovo.findByVendido(vendido);
+	public List<VeiculoNovo> findAllByVendido() {
+		boolean vendido = false;
+		return repositorioVeiculoNovo.findAllByVendido(vendido);
+	}
+	
+	public List<VeiculoNovo> findAllById(Iterable<Long> ids) {
+		return repositorioVeiculoNovo.findAllById(ids);
 	}
 
 	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica) {
@@ -81,6 +86,8 @@ public class CadastroVeiculoNovo {
 	public List<VeiculoNovo> findAll() {
 		return repositorioVeiculoNovo.findAll();
 	}
+	
+	
 }
 
 /*

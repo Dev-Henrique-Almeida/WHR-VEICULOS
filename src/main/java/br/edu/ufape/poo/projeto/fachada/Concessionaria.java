@@ -247,8 +247,8 @@ public class Concessionaria {
 		return cadastroVeiculoNovo.findByValorVenda(valorVenda);
 	}
 
-	public List<VeiculoNovo> findByVendidoVeiculoNovo(boolean vendido) {
-		return cadastroVeiculoNovo.findByVendido(vendido);
+	public List<VeiculoNovo> findAllByVendidoVeiculoNovo() {
+		return cadastroVeiculoNovo.findAllByVendido();
 	}
 
 	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(boolean garantiaFabrica) {
@@ -278,8 +278,8 @@ public class Concessionaria {
 		return cadastroVeiculoUsado.findByValorVenda(valorVenda);
 	}
 
-	public List<VeiculoUsado> findByVendidoVeiculoUsado(boolean vendido) {
-		return cadastroVeiculoUsado.findByVendido(vendido);
+	public List<VeiculoUsado> findAllByVendidoUsado() {
+		return cadastroVeiculoUsado.findAllByVendido();
 	}
 
 	public List<VeiculoUsado> findAllVeiculoUsado() {

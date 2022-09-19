@@ -59,9 +59,9 @@ public class CadastroVeiculoUsadoController {
 		return c.findByIdVeiculoUsado(id);
 	}
 
-	@GetMapping("vendidoVeiculoUsado/{vendido}")
-	public List<VeiculoUsado> findByVendidoVeiculoUsado(@PathVariable("vendido") boolean vendido) {
-		return c.findByVendidoVeiculoUsado(vendido);
+	@GetMapping("vendidoVeiculoUsado")
+	public List<VeiculoUsado> findAllByVendidoUsado() {
+		return c.findAllByVendidoUsado();
 	}
 
 	@GetMapping("allVeiculoUsado")

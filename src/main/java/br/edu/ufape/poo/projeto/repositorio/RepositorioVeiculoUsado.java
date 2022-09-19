@@ -12,10 +12,10 @@ public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Lon
 
 	public List<VeiculoUsado> findByValorVenda(float valorVenda);
 
-	public List<VeiculoUsado> findByVendido(boolean vendido);
-
 	public VeiculoUsado findByChassi(String chassi);
 
 	public VeiculoUsado findById(long id);
+
+	public List<VeiculoUsado> findAllByVendido(boolean vendido);
 
 }
