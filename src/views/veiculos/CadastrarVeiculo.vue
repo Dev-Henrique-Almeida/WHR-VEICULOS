@@ -117,8 +117,7 @@ export default {
     },
 
     verificacao() {
-
-      return ((JSON.stringify([]) !== JSON.stringify(this.selected)) && (this.condicaoVeiculo !== ''))
+      return ((JSON.stringify({}) !== JSON.stringify(this.selected)) && (this.condicaoVeiculo !== ''))
     },
 
   },

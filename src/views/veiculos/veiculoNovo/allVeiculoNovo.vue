@@ -1,40 +1,29 @@
 <template >
-  <v-card >
-  <v-card-title>
-          Lista de Veículos Novos
-          <v-spacer></v-spacer>
-          <v-text-field  v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
-          </v-text-field>
-        </v-card-title >
-  <v-data-table 
-  
-    v-model="selected"
-    :headers="headers"
-    :items="desserts"
-    :search="search"
-    :single-select="singleSelect"
-    item-key="id"
-    show-select
-    class="elevation-1"
-  >
-   
-
-  </v-data-table>
-</v-card>
+  <v-card>
+    <v-card-title>
+      Lista de Veículos Novos
+      <v-spacer></v-spacer>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
+      </v-text-field>
+    </v-card-title>
+    <v-data-table v-model="selected" :headers="headers" :items="desserts" :search="search" :single-select="singleSelect"
+      item-key="id" show-select class="elevation-1">
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>
 
 import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService';
 
-  export default {
-    data () {
-      return {
-        singleSelect: true,
-        search: '',
-        selected: [],  
-        headers: [
-        
+export default {
+  data() {
+    return {
+      singleSelect: true,
+      search: '',
+      selected: [],
+      headers: [
+
         { text: 'ID', value: 'id' },
         { text: 'Marca', value: 'modelo.nomeMarca' },
         { text: 'Modelo', value: 'modelo.nomeModelo' },
@@ -45,12 +34,12 @@ import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService';
         { text: 'Garantia', value: 'garantiaFabrica' },
         { text: 'Chassi', value: 'chassi' },
         { text: 'Km`s', value: 'km' },
-      ], 
-        desserts: [
-         ],
-      }
-    },
-    methods: {
+      ],
+      desserts: [
+      ],
+    }
+  },
+  methods: {
     loadAll() {
       CadastroVeiculoNovoService.getAll().then(
         response => {
@@ -58,11 +47,11 @@ import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService';
         }
       );
     },
-     
+
   },
   mounted() {
     this.loadAll();
   }
-  }
+}
 </script>
 

@@ -8,8 +8,9 @@ import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
 import cadastroVeiculoNovo from '../views/veiculos/veiculoNovo/cadastroVeiculoNovo.vue'
 import cadastroVeiculoUsado from '../views/veiculos/veiculoUsado/cadastroVeiculoUsado.vue'
 import cadastroModelo from '../views/veiculos/modelo/cadastroModelo.vue'
-import findCpfCliente from '../views/clientes/findCliente.vue'
 import CadastrarVeiculo from '../views/veiculos/CadastrarVeiculo.vue'
+import vendaVeiculo from '../views/venda/vendaVeiculo.vue'
+import VendaVeiculoPessoaJuridica from '../views/venda/VendaVeiculoPessoaJuridica.vue'
 
 Vue.use(VueRouter)
 
@@ -21,12 +22,23 @@ const routes = [
   },
   {
     path: '/cadastroCliente',
-    name: 'cadastroCliente',
+    name: 'cadastroInicio',
     component: cadastroClienteFisico
   },
   {
+    path: '/vendaVeiculo',
+    name: 'vendaVeiculo',
+    component: vendaVeiculo
+  },
+  {
+    path: '/VendaVeiculoPessoaJuridica',
+    name: 'VendaVeiculoPessoaJuridica',
+    component: VendaVeiculoPessoaJuridica
+  },
+  
+  {
     path: '/cadastroInicio',
-    name: 'cadastroInicio',
+    name: 'cadastroClienteFisico',
     component: cadastroCliente
   },
   {
@@ -60,11 +72,6 @@ const routes = [
     component: cadastroModelo
   },
   {
-    path: '/findCpfCliente',
-    name: 'findCpfCliente',
-    component: findCpfCliente
-  },
-  {
     path: '/clientes',
     name: 'clientes',
     component: () => import(/* webpackChunkName: "about" */ '../views/clientes/allClientes.vue')
@@ -89,11 +96,7 @@ const routes = [
     name: 'modelos',
     component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/modelo/allModelo.vue')
   },
-  {
-    path: '/cpfCliente',
-    name: 'cpfCliente',
-    component: () => import(/* webpackChunkName: "about" */ '../views/clientes/findCliente.vue')
-  }
+  
 ]
 
 const router = new VueRouter({

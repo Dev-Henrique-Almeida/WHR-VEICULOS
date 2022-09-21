@@ -32,7 +32,10 @@
 
       <v-divider></v-divider>
 
-      <v-list dense nav>
+      <template>
+    <v-card class="mx-auto" width="300">
+        
+            <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -42,7 +45,10 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-      </v-list>
+      
+        </v-list>
+    </v-card>
+</template>
     </v-navigation-drawer>
   </v-img>
   </v-app>
@@ -62,18 +68,13 @@ export default {
       { title: 'Cadastro Veiculo', icon: 'mdi-car', to: '/CadastrarVeiculo' },
       { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
       { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
-      { title: 'Buscar CPF', icon: 'mdi-car-outline', to: '/findCliente' },
       { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
       { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
       { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
-      { title: 'Resultado da busca do CPF', icon: 'mdi-magnify', to: '/findCpfCliente' },
-      
-      
-      
-      
-
-
+      { title: 'Venda', icon: 'mdi-cart', to: '/vendaVeiculo' },
+      { title: 'Venda juridica', icon: 'mdi-cart', to: '/VendaVeiculoPessoaJuridica' },
       { title: 'Sobre', icon: 'mdi-information' },
+      
     ],
     right: null,
   }),
