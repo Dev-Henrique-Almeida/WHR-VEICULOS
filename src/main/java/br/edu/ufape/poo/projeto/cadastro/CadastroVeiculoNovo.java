@@ -24,8 +24,8 @@ public class CadastroVeiculoNovo {
 
 	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException,
 			ChassiExistenteException, ValorCompraNegativoException {
-		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getKm() < 0 || vn.getChassi().length() < 17
-				|| vn.getChassi().length() > 17) {
+		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getKm() < 0 || vn.getChassi().length() < 14
+				|| vn.getChassi().length() > 14) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.isNull(vn.getModelo().getCambio().isEmpty()) || Objects.isNull(vn.getModelo().getAnoFabricado())
