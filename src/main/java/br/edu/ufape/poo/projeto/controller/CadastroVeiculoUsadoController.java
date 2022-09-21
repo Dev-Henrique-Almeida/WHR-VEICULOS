@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -32,15 +33,16 @@ public class CadastroVeiculoUsadoController {
 
 	@PostMapping("VeiculoUsado")
 	public ResponseEntity<VeiculoUsado> createVeiculoUsado(@RequestBody VeiculoUsado modelo)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, ChassiExistenteException,
+			ValorCompraNegativoException {
 		VeiculoUsado vn = c.save(modelo);
 		return new ResponseEntity<VeiculoUsado>(vn, HttpStatus.CREATED);
 
 	}
 
 	@PutMapping("VeiculoUsado/{veiculo}")
-	public VeiculoUsado updateVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoUsado updateVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) throws ValorVazioExpection,
+			ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
 		return c.save(veiculo);
 	}
 

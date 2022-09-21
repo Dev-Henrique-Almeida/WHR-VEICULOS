@@ -1,5 +1,6 @@
 package br.edu.ufape.poo.projeto.basica;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -12,9 +13,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa {
+public abstract class Pessoa implements IPessoa {
 
 	@Column(unique = true)
 	private String cpf;
@@ -42,6 +45,23 @@ public abstract class Pessoa {
 
 	private Date dataNascimento;
 	private String telefone;
+
+	@Override
+	public boolean checarIdade(Date dataNascimento) throws DateForaRangeException {
+		Calendar cData = Calendar.getInstance();
+		Calendar cHoje = Calendar.getInstance();
+		cData.setTime(dataNascimento);
+		cData.set(Calendar.YEAR, cHoje.get(Calendar.YEAR));
+		int idade = cData.after(cHoje) ? -1 : 0;
+		cData.setTime(dataNascimento);
+		idade += cHoje.get(Calendar.YEAR) - cData.get(Calendar.YEAR);
+
+		if (idade >= 18) {
+			return true;
+		} else {
+			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+		}
+	}
 
 	public long getId() {
 		return this.id;

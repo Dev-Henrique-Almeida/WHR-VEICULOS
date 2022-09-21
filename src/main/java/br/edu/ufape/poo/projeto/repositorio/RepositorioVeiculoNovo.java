@@ -12,7 +12,7 @@ public interface RepositorioVeiculoNovo extends JpaRepository<VeiculoNovo, Long>
 
 	public List<VeiculoNovo> findByValorVenda(float valorVenda);
 
-	//public List<VeiculoNovo> findByVendido(boolean vendido);
+	// public List<VeiculoNovo> findByVendido(boolean vendido);
 
 	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica);
 

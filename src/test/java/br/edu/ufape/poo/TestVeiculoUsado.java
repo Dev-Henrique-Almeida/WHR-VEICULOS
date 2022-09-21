@@ -10,6 +10,7 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
@@ -34,7 +35,7 @@ class TestVeiculoUsado {
 	 * true, true); cvu.save(vu); cvu.save(vu2); // cvu.save(vu3); }
 	 */
 	@Test
-	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
 
 		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253",
 				new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não",
@@ -86,12 +87,10 @@ class TestVeiculoUsado {
 		 * "39j F3arae xA VR1406", "Não", "Sim", "HPJ-6477", new Modelo("Chevrolet",
 		 * "Celta", "1.0", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina"));
 		 * cvu.save(vu2);
-		 
-		List<VeiculoUsado> veiculos = cvu.findByVendido(false);
-		for (VeiculoUsado v : veiculos) {
-			System.out.println("VENDIDO = " + v.toString());
-		}
-*/
+		 * 
+		 * List<VeiculoUsado> veiculos = cvu.findByVendido(false); for (VeiculoUsado v :
+		 * veiculos) { System.out.println("VENDIDO = " + v.toString()); }
+		 */
 	}
 
 }

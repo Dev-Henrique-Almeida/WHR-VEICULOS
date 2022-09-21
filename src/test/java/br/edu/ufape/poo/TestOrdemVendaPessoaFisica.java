@@ -21,8 +21,10 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @SpringBootTest
 public class TestOrdemVendaPessoaFisica {
@@ -44,8 +46,9 @@ public class TestOrdemVendaPessoaFisica {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	void cadastroOrdemPessoaFisica() throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException,
-			ChassiExistenteException, FuncionarioExistenteException, ClienteFisicoExistenteException {
+	void cadastroOrdemPessoaFisica()
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, ChassiExistenteException,
+			FuncionarioExistenteException, ClienteFisicoExistenteException, VendaSemLucroException, ValorCompraNegativoException {
 
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		cm.save(mo);

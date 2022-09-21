@@ -28,8 +28,10 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteExcept
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @SpringBootTest
 class TestApresentacao {
@@ -59,31 +61,35 @@ class TestApresentacao {
 	private CadastroFuncionario cf;
 
 	/////////////////////// SAVE CLIENTE FISICO ///////////////////////////
-	
+
+	@SuppressWarnings("deprecation")
 	@Test
-	void saveClienteFisico()
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	void saveClienteFisico() throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException,
+			ClienteFisicoExistenteException {
 		try {
-			ClienteFisico cf = new ClienteFisico("261.942.399-64", "Danilo Nelson Nunes", new Date(), "(45)92906-6513",
-					new Endereco("85819-190", "Rua Engenharia", "Cascavel", "PR", 864));
+			ClienteFisico cf = new ClienteFisico("26194239964", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),
+					"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864));
+			// cf.checarIdade(new Date(2000 - 1900, 1, 2));
 			ccf.save(cf);
-		} catch (ClienteFisicoExistenteException e) {
+		} catch (DateForaRangeException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			ClienteFisico cf2 = new ClienteFisico("034.634.632-02", "Vitória Fabiana Yasmin", new Date(),
-					"(61)92548-9942", new Endereco("72603-106", "Quadra Quadra 113 Conjunto 6", "Brasília", "DF", 611));
+			ClienteFisico cf2 = new ClienteFisico("03463463202", "Vitória Fabiana Yasmin",
+					new Date(2003 - 1900, 0, 1), "(61) 92548-9942",
+					new Endereco("72603106", "Quadra Quadra 113 Conjunto 6", "Brasília", "DF", 611));
 			ccf.save(cf2);
-		} catch (ClienteFisicoExistenteException e) {
+		} catch (DateForaRangeException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			ClienteFisico cf3 = new ClienteFisico("203.321.302-15", "Gabrielly Carla Moraes", new Date(),
-					"(62)92892-9164", new Endereco("74630-310", "Rua L 14", "Goiânia", "GO", 350));
+			ClienteFisico cf3 = new ClienteFisico("20332130212", "Gabrielly Carla Moraes",
+					new Date(2005 - 1900, 0, 1), "(62) 92892-9164",
+					new Endereco("74630310", "Rua L 14", "Goiânia", "GO", 350));
 			ccf.save(cf3);
-		} catch (ClienteFisicoExistenteException e) {
+		} catch (DateForaRangeException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -94,17 +100,17 @@ class TestApresentacao {
 	void savePessoaJuridico() throws ValorVazioExpection, ValorForaRangeException {
 		try {
 			ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",
-					"(11)27965-9032", "15.373.024/0001-63",
-					new Endereco("85819-190", "Rua Engenharia", "Cascavel", "PR", 864), "Loja de Veiculos");
+					"(11) 27965-9032", "15373024000163",
+					new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864), "Loja de Veiculos");
 			ccj.save(cj);
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
 		}
 
 		try {
-			ClienteJuridico cj2 = new ClienteJuridico("AMBEV Bebidas Ltda", "AMBEV Bebidas", "(11)98677-1808",
-					"25.378.975/0001-89",
-					new Endereco("72603-106", "Quadra Quadra 113 Conjunto 6", "Brasília", "DF", 611),
+			ClienteJuridico cj2 = new ClienteJuridico("AMBEV Bebidas Ltda", "AMBEV Bebidas", "(11) 98677-1808",
+					"25378975000189",
+					new Endereco("72603106", "Quadra Quadra 113 Conjunto 6", "Brasília", "DF", 611),
 					"Distribuidora de Bebidas");
 			ccj.save(cj2);
 		} catch (ClienteJuridicoExistenteException e) {
@@ -112,8 +118,8 @@ class TestApresentacao {
 		}
 
 		try {
-			ClienteJuridico cj3 = new ClienteJuridico("Coca-Cola Bebidas Ltda", "Coca-Cola", "(11)99278-7308",
-					"90.605.347/0001-50", new Endereco("74630-310", "Rua L 14", "Goiânia", "GO", 350),
+			ClienteJuridico cj3 = new ClienteJuridico("Coca-Cola Bebidas Ltda", "Coca-Cola", "(11) 99278-7308",
+					"90605347000150", new Endereco("74630310", "Rua L 14", "Goiânia", "GO", 350),
 					"Distribuidora de Bebidas");
 			ccj.save(cj3);
 		} catch (ClienteJuridicoExistenteException e) {
@@ -125,48 +131,53 @@ class TestApresentacao {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	void cadastroOrdemPessoaFisica()
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, FuncionarioExistenteException,
-			ClienteJuridicoExistenteException, ChassiExistenteException, ClienteFisicoExistenteException {
+	void cadastroOrdemPessoaFisica() throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException,
+			FuncionarioExistenteException, ClienteJuridicoExistenteException, ChassiExistenteException,
+			ClienteFisicoExistenteException, VendaSemLucroException, ValorCompraNegativoException {
 
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		cm.save(mo);
-		Funcionario f = new Funcionario("133.446.787-01", "Robert Freire de Melo", new Date(2000 - 1900, 0, 3),
-				"(81)94002-4338", new Endereco("55380-000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
+		Funcionario f = new Funcionario("13344678701", "Robert Freire de Melo", new Date(2000 - 1900, 0, 1),
+				"(81) 94002-4338", new Endereco("55380000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
 				4000, "Gerente");
 		cf.save(f);
 
-		ClienteFisico cff = new ClienteFisico("203.321.302-30", "Roberta Carla Moraes", new Date(2000 - 1900, 0, 3),
-				"(62)92892-9164", new Endereco("74630-310", "Rua L 14", "Goiânia", "GO", 350));
+		ClienteFisico cff = new ClienteFisico("20332130230", "Roberta Carla Moraes", new Date(2000 - 1900, 0, 1),
+				"(62) 92892-9164", new Endereco("74630310", "Rua L 14", "Goiânia", "GO", 350));
 		ccf.save(cff);
 
 		VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, true, "8AHS3cyA33f5N6170", "Sim", mo);
 		cvn.save(vn2);
-
-		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, vn2, true, new Date(2023 - 1900, 1, 2), "Debito",
-				false, false, f, cff);
-		cof.save(of);
+		try {
+			OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, vn2, true, new Date(2022 - 1900, 0, 1),
+					"Debito", false, false, f, cff);
+			cof.save(of);
+		} catch (DateForaRangeException e) {
+			System.out.println(e.getMessage());
+		}
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		Modelo mo1 = new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel");
 		cm.save(mo1);
 
-		Funcionario f1 = new Funcionario("133.446.787-31", "Henrique de Almeida Silva", new Date(2000 - 1900, 0, 3),
-				"(81)94002-4338", new Endereco("55380-000", "Rua Zezo Principe dos Teclados", "Cachoeirinha", "PE", 61),
+		Funcionario f1 = new Funcionario("13344678731", "Henrique de Almeida Silva", new Date(2000 - 1900, 0, 1),
+				"(81) 94002-4338", new Endereco("55380000", "Rua Zezo Principe dos Teclados", "Cachoeirinha", "PE", 61),
 				4000, "Gerente");
 		cf.save(f1);
 
 		ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",
-				"(11)27965-9032", "15.373.024/0001-63",
-				new Endereco("85819-190", "Rua Engenharia", "Cascavel", "PR", 864), "Loja de Veiculos");
+				"(11) 27965-9032", "15373024000163",
+				new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864), "Loja de Veiculos");
 		ccj.save(cj);
 
-		VeiculoNovo vn3 = new VeiculoNovo(1202000, 1500200, false, "8AHS3cy31235N6170", "Sim", mo1);
+		VeiculoNovo vn3 = new VeiculoNovo(1202000, 1500200, false,
+
+				"8AHS3cy31235N6170", "Sim", mo1);
 		cvn.save(vn3);
 
-		OrdemVendaPessoaJuridica of2 = new OrdemVendaPessoaJuridica(15000, vn3, true, new Date(2023 - 1900, 1, 2),
-				"Debito", false, false, f1, cj);
+		OrdemVendaPessoaJuridica of2 = new OrdemVendaPessoaJuridica(15000, vn3, true, new Date(), "Crédito", false,
+				false, f1, cj);
 		coj.save(of2);
 
 	}
@@ -174,7 +185,7 @@ class TestApresentacao {
 	/////////////////// SAVE VEICULO NOVO E MODELO /////////////////////
 
 	@Test
-	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		Modelo mo1 = new Modelo("Ford", "Mustang", "V6", "Vermelho", 2015, 400, 2, 300, "Automático", "Gasolina");
 		Modelo mo2 = new Modelo("Chevrolet", "Celta", "V6", "Vermelho", 2015, 400, 2, 300, "Manual", "Gasolina");
@@ -185,7 +196,7 @@ class TestApresentacao {
 			VeiculoNovo vn2 = new VeiculoNovo(1202000, 1500200, true, "8AHS3cyA33f5N6170", "Sim", mo);
 			VeiculoNovo vn3 = new VeiculoNovo(30203000, 40200200, false, "7ba7r0VtlBLsE9853", "Sim", mo1);
 			VeiculoNovo vn4 = new VeiculoNovo(1202000, 1500200, false, "7ba7r0Vt2BLsE9853", "Sim", mo2);
-			
+
 			cvn.save(vn2);
 			cvn.save(vn3);
 			cvn.save(vn4);
@@ -197,7 +208,7 @@ class TestApresentacao {
 	///////////////////// SAVE VEICULO USADO /////////////////
 
 	@Test
-	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
 
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		Modelo mo1 = new Modelo("Ford", "Mustang", "V6", "Vermelho", 2015, 400, 2, 300, "Automático", "Gasolina");

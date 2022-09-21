@@ -13,6 +13,7 @@ import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioOrdemPessoaFisica;
 
 @Service
@@ -23,22 +24,26 @@ public class CadastroOrdemPessoaFisica {
 	private RepositorioOrdemPessoaFisica repositorioOrdemPessoaFisica;
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
-
-		if (entity.getValor() < 0 || entity.getDataOperacao().before(new Date())) {
-			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, VendaSemLucroException {
+		if (entity.getVeiculo().getValorCompraVeiculo() > entity.getVeiculo().getValorVenda()) {
+			throw new VendaSemLucroException("Valor de venda abaixo do valor de compra!");
 		} else {
-			if (Objects.isNull(entity.getDataOperacao())) {
-				throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+			if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
+					|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
+					|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
+					|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
+					|| entity.getDataOperacao().after(new Date())) {
+				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
 			} else {
-				if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
-						|| Objects.isNull(entity.getVendaConcluida()) || Objects.isNull(entity.getDataOperacao())
-						|| entity.getFormaPagamento().isEmpty() || Objects.isNull(entity.getValor())
-						|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())
-						|| Objects.isNull(entity.getVeiculo().getModelo())) {
-					throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
+				if (Objects.isNull(entity.getDataOperacao())) {
+					throw new DateForaRangeException("Erro ao cadastrar, data inválida");
 				} else {
-					return repositorioOrdemPessoaFisica.save(entity);
+					if (entity.getValor() < 0) {
+						throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+					} else {
+
+						return repositorioOrdemPessoaFisica.save(entity);
+					}
 				}
 			}
 		}
@@ -65,10 +70,3 @@ public class CadastroOrdemPessoaFisica {
 	}
 
 }
-
-/*
- * (float valor, Veiculo veiculo, boolean novo, Date dataOperacao, String
- * formaPagamento, boolean pago, boolean vendaConcluida, Funcionario vendedor,
- * ClienteFisico cliente) { super(valor, veiculo, novo, dataOperacao,
- * formaPagamento, pago, vendaConcluida, vendedor);
- */

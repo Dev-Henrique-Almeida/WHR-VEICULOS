@@ -9,9 +9,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Veiculo {
+public abstract class Veiculo implements IVeiculo {
 
 	private float valorCompraVeiculo;
 	private float valorVenda;
@@ -39,6 +41,15 @@ public abstract class Veiculo {
 		this.chassi = chassi;
 		this.modelo = modelo;
 
+	}
+
+	@Override
+	public boolean compraNegativo(float f) throws ValorCompraNegativoException {
+		if (f < 0) {
+			throw new ValorCompraNegativoException("Erro, valor de compra negativo!");
+		} else {
+			return true;
+		}
 	}
 
 	public long getId() {

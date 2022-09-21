@@ -30,8 +30,10 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteExcept
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @Service
 public class Concessionaria {
@@ -177,7 +179,8 @@ public class Concessionaria {
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, VendaSemLucroException {
+
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -204,8 +207,9 @@ public class Concessionaria {
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection, VendaSemLucroException {
 		return cadastroOrdemPessoaJuridica.save(entity);
+
 	}
 
 	public void delete(OrdemVendaPessoaJuridica entity) {
@@ -230,8 +234,8 @@ public class Concessionaria {
 
 	///////////////// VEICULO NOVO //////////////////
 
-	public VeiculoNovo save(VeiculoNovo vn)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException,
+			ChassiExistenteException, ValorCompraNegativoException {
 		return cadastroVeiculoNovo.save(vn);
 	}
 
@@ -261,8 +265,8 @@ public class Concessionaria {
 
 	/////////////////// VEICULO USADO /////////////////////
 
-	public VeiculoUsado save(VeiculoUsado vn)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException,
+			ChassiExistenteException, ValorCompraNegativoException {
 		return cadastroVeiculoUsado.save(vn);
 	}
 

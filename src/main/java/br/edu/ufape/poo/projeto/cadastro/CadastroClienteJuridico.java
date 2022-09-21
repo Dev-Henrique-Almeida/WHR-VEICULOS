@@ -23,9 +23,9 @@ public class CadastroClienteJuridico {
 	public ClienteJuridico save(ClienteJuridico entity)
 			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
 
-		if (entity.getEndereco().getNumero() < 0 || entity.getCnpj().length() < 18 || entity.getCnpj().length() > 18
-				|| entity.getContato().length() < 14 || entity.getContato().length() > 14
-				|| entity.getEndereco().getCep().length() < 9 || entity.getEndereco().getCep().length() > 9) {
+		if (entity.getEndereco().getNumero() < 0 || entity.getCnpj().length() < 14 || entity.getCnpj().length() > 14
+				|| entity.getContato().length() < 15 || entity.getContato().length() > 15
+				|| entity.getEndereco().getCep().length() < 8 || entity.getEndereco().getCep().length() > 8) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (entity.getNomeEmpresarial().isEmpty() || entity.getNomeFantasia().isEmpty()

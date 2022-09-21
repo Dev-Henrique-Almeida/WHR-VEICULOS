@@ -10,6 +10,7 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 
@@ -32,7 +33,7 @@ class TestVeiculoNovo {
 	 */
 
 	@Test
-	void saveVeiculoNovo() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	void saveVeiculoNovo() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
 
 		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AH S3cyA3 3F 5N6170", "Sim",
 				new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel"));
@@ -75,12 +76,10 @@ class TestVeiculoNovo {
 		 * "Diesel"));
 		 * 
 		 * cvn.save(vn2); cvn.save(vn3);
-		 
-		List<VeiculoNovo> veiculos = cvn.findByVendido(false);
-		for (VeiculoNovo v : veiculos) {
-			System.out.println("VENDIDO = " + v.toString());
-		}
-*/
+		 * 
+		 * List<VeiculoNovo> veiculos = cvn.findByVendido(false); for (VeiculoNovo v :
+		 * veiculos) { System.out.println("VENDIDO = " + v.toString()); }
+		 */
 	}
 
 	@Test

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculoNovo;
@@ -21,8 +22,8 @@ public class CadastroVeiculoNovo {
 	@Autowired
 	private RepositorioVeiculoNovo repositorioVeiculoNovo;
 
-	public VeiculoNovo save(VeiculoNovo vn)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException,
+			ChassiExistenteException, ValorCompraNegativoException {
 		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getKm() < 0 || vn.getChassi().length() < 17
 				|| vn.getChassi().length() > 17) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
@@ -74,7 +75,7 @@ public class CadastroVeiculoNovo {
 		boolean vendido = false;
 		return repositorioVeiculoNovo.findAllByVendido(vendido);
 	}
-	
+
 	public List<VeiculoNovo> findAllById(Iterable<Long> ids) {
 		return repositorioVeiculoNovo.findAllById(ids);
 	}
@@ -86,8 +87,7 @@ public class CadastroVeiculoNovo {
 	public List<VeiculoNovo> findAll() {
 		return repositorioVeiculoNovo.findAll();
 	}
-	
-	
+
 }
 
 /*

@@ -19,6 +19,7 @@ import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -32,7 +33,7 @@ public class CadastroOrdemPessoaJuridicaController {
 	@PostMapping("ordemJuridica")
 	public ResponseEntity<OrdemVendaPessoaJuridica> createOrdemVendaPessoaJuridica(
 			@RequestBody OrdemVendaPessoaJuridica entity)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, VendaSemLucroException {
 		OrdemVendaPessoaJuridica or = c.save(entity);
 		return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
 
@@ -40,7 +41,7 @@ public class CadastroOrdemPessoaJuridicaController {
 
 	@PutMapping("ordemJuridica")
 	public OrdemVendaPessoaJuridica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaJuridica cliente)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException {
+			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, VendaSemLucroException {
 		return c.save(cliente);
 	}
 

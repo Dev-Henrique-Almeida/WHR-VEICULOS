@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculoUsado;
@@ -18,8 +19,9 @@ public class CadastroVeiculoUsado {
 	@Autowired
 	private RepositorioVeiculoUsado repositorioVeiculoUsado;
 
-	public VeiculoUsado save(VeiculoUsado vn)
-			throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException,
+			ChassiExistenteException, ValorCompraNegativoException {
+
 		if (vn.getValorCompraVeiculo() < 0 || vn.getValorVenda() < 0 || vn.getPlaca().length() > 7
 				|| vn.getPlaca().length() < 7 || vn.getKm() < 0 || vn.getChassi().length() < 17
 				|| vn.getChassi().length() > 17) {
@@ -63,7 +65,7 @@ public class CadastroVeiculoUsado {
 		boolean vendido = false;
 		return repositorioVeiculoUsado.findAllByVendido(vendido);
 	}
-	
+
 	public VeiculoUsado findById(long id) {
 		return repositorioVeiculoUsado.findById(id);
 	}

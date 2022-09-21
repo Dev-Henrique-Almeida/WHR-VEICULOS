@@ -25,9 +25,9 @@ public class CadastroFuncionario {
 	public Funcionario save(Funcionario entity)
 			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
 
-		if (entity.getEndereco().getNumero() < 0 || entity.getCpf().length() < 14 || entity.getCpf().length() > 14
-				|| entity.getTelefone().length() < 14 || entity.getTelefone().length() > 14
-				|| entity.getEndereco().getCep().length() < 9 || entity.getEndereco().getCep().length() > 9
+		if (entity.getEndereco().getNumero() < 0 || entity.getCpf().length() < 11 || entity.getCpf().length() > 11
+				|| entity.getTelefone().length() < 15 || entity.getTelefone().length() > 15
+				|| entity.getEndereco().getCep().length() < 8 || entity.getEndereco().getCep().length() > 8
 				|| entity.getSalario() < 0 || entity.getDataNascimento().after(new Date())) {
 			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
 		} else {
