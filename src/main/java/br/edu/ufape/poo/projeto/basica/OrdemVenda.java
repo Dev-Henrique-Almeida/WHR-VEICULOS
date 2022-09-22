@@ -12,9 +12,12 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class OrdemVenda {
+public abstract class OrdemVenda implements IOrdem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -84,6 +87,24 @@ public abstract class OrdemVenda {
 
 	public long getId() {
 		return id;
+	}
+
+	@Override
+	public boolean checarValor(float valor) throws ValorNegativoException {
+		if (valor < 0) {
+			throw new ValorNegativoException("Erro ao cadastrar, valor inválido!");
+		} else {
+			return true;
+		}
+	}
+
+	@Override
+	public boolean checarData(Date data) throws DataForaRangeException {
+		if (data.before(new Date())) {
+			throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+		} else {
+			return true;
+		}
 	}
 
 	@Override

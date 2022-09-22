@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -32,8 +31,7 @@ public class CadastroClienteJuridicoController {
 
 	@PostMapping("clienteJuridico")
 	public ResponseEntity<ClienteJuridico> createClienteJuridico(@RequestBody ClienteJuridico cliente)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException,
-			ClienteJuridicoExistenteException {
+			throws ClienteJuridicoExistenteException, ValorNuloExpection, ValorForaRangeException {
 		ClienteJuridico cf = c.save(cliente);
 		return new ResponseEntity<ClienteJuridico>(cf, HttpStatus.CREATED);
 
@@ -41,7 +39,7 @@ public class CadastroClienteJuridicoController {
 
 	@PutMapping("clienteJuridico/{cliente}")
 	public ClienteJuridico updateClienteJuridico(@PathVariable("cliente") ClienteJuridico cliente)
-			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
+			throws ClienteJuridicoExistenteException, ValorNuloExpection, ValorForaRangeException {
 		return c.save(cliente);
 	}
 

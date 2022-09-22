@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.CnpjForaRangeException;
+
 @Entity
-public class ClienteJuridico {
+public class ClienteJuridico implements IClienteJuridico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,6 +68,16 @@ public class ClienteJuridico {
 
 	public String getDescricao() {
 		return descricao;
+	}
+
+	@Override
+	public boolean checarCnpj(String cnpj) throws CnpjForaRangeException {
+		if (cnpj.length() > 14 || cnpj.length() < 14) {
+			throw new CnpjForaRangeException("");
+		} else {
+			return true;
+		}
+
 	}
 
 	@Override

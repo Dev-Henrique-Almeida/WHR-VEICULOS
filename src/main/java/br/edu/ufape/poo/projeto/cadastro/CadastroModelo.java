@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioModelo;
 
 @Service
@@ -17,17 +18,16 @@ public class CadastroModelo {
 	@Autowired
 	private RepositorioModelo repositorioModelo;
 
-	public Modelo save(Modelo entity) throws ValorVazioExpection, ValorForaRangeException {
-		if (entity.getQuantidadePassageiros() < 0 || entity.getAnoFabricado() < 1900 || entity.getAnoFabricado() > 2023
-				|| entity.getCilindradas() < 0 || entity.getPotencia() < 0) {
-			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+	public Modelo save(Modelo entity) throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
+		if (entity.getNomeMarca().equals(entity.getNomeModelo())) {
+			throw new NomeUnicoException("Erro ao cadastrar, nomes devem ser diferentes!");
 		} else {
 			if (entity.getNomeMarca().isEmpty() || entity.getNomeModelo().isEmpty()
 					|| Objects.isNull(entity.getQuantidadePassageiros()) || entity.getCambio().isEmpty()
 					|| entity.getCombustivel().isEmpty() || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
 					|| Objects.isNull(entity.getAnoFabricado()) || Objects.isNull(entity.getCilindradas())
 					|| Objects.isNull(entity.getPotencia())) {
-				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
+				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 			} else {
 				return repositorioModelo.save(entity);
 			}

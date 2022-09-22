@@ -13,7 +13,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.TelefoneForaRangeException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -47,7 +48,7 @@ public abstract class Pessoa implements IPessoa {
 	private String telefone;
 
 	@Override
-	public boolean checarIdade(Date dataNascimento) throws DateForaRangeException {
+	public boolean checarIdade(Date dataNascimento) throws DataForaRangeException {
 		Calendar cData = Calendar.getInstance();
 		Calendar cHoje = Calendar.getInstance();
 		cData.setTime(dataNascimento);
@@ -59,7 +60,16 @@ public abstract class Pessoa implements IPessoa {
 		if (idade >= 18) {
 			return true;
 		} else {
-			throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+			throw new DataForaRangeException("Erro ao cadastrar, data inválida");
+		}
+	}
+
+	@Override
+	public boolean checarTelefone(String telefone) throws TelefoneForaRangeException {
+		if (telefone.length() > 15 || telefone.length() < 15) {
+			throw new TelefoneForaRangeException("Erro ao cadastrar cliente, telefone inválido!");
+		} else {
+			return true;
 		}
 	}
 

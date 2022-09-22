@@ -18,6 +18,7 @@ public class CadastroFichaVisitaFisica {
 
 	public FichaVisitaFisica save(FichaVisitaFisica entity) {
 		return repositorioFichaVisitaFisica.save(entity);
+
 	}
 
 	public void delete(FichaVisitaFisica entity) {

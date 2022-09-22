@@ -8,9 +8,10 @@ import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteFisico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 public class TestClienteFisico {
@@ -29,7 +30,8 @@ public class TestClienteFisico {
 	 */
 
 	@Test
-	void saveClienteFisico() throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	void saveClienteFisico()
+			throws DataForaRangeException, ValorNuloExpection, ValorForaRangeException, DataNulaException {
 		try {
 			ClienteFisico cf = new ClienteFisico("123", "Robert grosso", null, null,
 					new Endereco(null, null, "Praia do arrombado", null, 0));

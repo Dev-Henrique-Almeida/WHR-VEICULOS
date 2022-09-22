@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.FichaVisitaFisica;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -30,17 +27,15 @@ public class CadastroFichaVisitaFisicaController {
 	private Concessionaria c;
 
 	@PostMapping("fichaVisitaFisica")
-	public ResponseEntity<FichaVisitaFisica> createFichaVisitaFisica(@RequestBody FichaVisitaFisica ficha)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	public ResponseEntity<FichaVisitaFisica> createFichaVisitaFisica(@RequestBody FichaVisitaFisica ficha) {
 		FichaVisitaFisica fvf = c.save(ficha);
 		return new ResponseEntity<FichaVisitaFisica>(fvf, HttpStatus.CREATED);
 
 	}
 
 	@PutMapping("fichaVisitaFisica/{fichaVisitaFisica}")
-	public FichaVisitaFisica updateFichaVisitaFisica(
-			@PathVariable("fichaVisitaFisica") FichaVisitaFisica fichaVisitaFisica) {
-		return c.save(fichaVisitaFisica);
+	public FichaVisitaFisica updateFichaVisitaFisica(@PathVariable("fichaVisitaFisica") FichaVisitaFisica ficha) {
+		return c.save(ficha);
 	}
 
 	@DeleteMapping("deleteFichaVisitaFisica/{cpf}")

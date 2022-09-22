@@ -9,8 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 public class TestModelo {
@@ -33,7 +34,8 @@ public class TestModelo {
 	private CadastroModelo cm;
 
 	@Test
-	void saveVeiculos() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException {
+	void saveVeiculos()
+			throws ValorNuloExpection, ValorForaRangeException, ChassiExistenteException, NomeUnicoException {
 		Modelo vn2 = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
 		Modelo vn3 = new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel");
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");

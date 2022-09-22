@@ -10,9 +10,10 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaExistenteException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 class TestVeiculoUsado {
@@ -35,7 +36,8 @@ class TestVeiculoUsado {
 	 * true, true); cvu.save(vu); cvu.save(vu2); // cvu.save(vu3); }
 	 */
 	@Test
-	void saveVeiculoUsado() throws ValorVazioExpection, ValorForaRangeException, ChassiExistenteException, ValorCompraNegativoException {
+	void saveVeiculoUsado() throws ValorNuloExpection, ValorForaRangeException, ChassiExistenteException,
+			ValorNegativoException, PlacaExistenteException {
 
 		VeiculoUsado vu = new VeiculoUsado(13000, 20000, false, 10000, "7bm 780Vtl BL sE1253",
 				new Modelo("Fiat", "Uno", "1.0", "Preto", 2010, 77, 5, 100, "Manual", "Gasolina"), "Sim", "Não",

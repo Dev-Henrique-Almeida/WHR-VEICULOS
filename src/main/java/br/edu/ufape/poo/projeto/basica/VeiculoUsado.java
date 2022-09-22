@@ -2,8 +2,10 @@ package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaForaRangeException;
+
 @Entity
-public class VeiculoUsado extends Veiculo {
+public class VeiculoUsado extends Veiculo implements IVeiculoUsado {
 	private String revisado;
 	private String unicoDono;
 	private String placa;
@@ -36,6 +38,15 @@ public class VeiculoUsado extends Veiculo {
 	public String toString() {
 		return "VeiculoUsado [revisado=" + revisado + ", unicoDono=" + unicoDono + ", placa=" + placa + ", valorVenda="
 				+ getValorVenda() + ", vendido()=" + getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
+	}
+
+	@Override
+	public boolean checarPlaca(String placa) throws PlacaForaRangeException {
+		if (placa.length() > 8 || placa.length() < 8) {
+			throw new PlacaForaRangeException("Erro ao cadastrar, placa inválida!");
+		} else {
+			return true;
+		}
 	}
 
 }

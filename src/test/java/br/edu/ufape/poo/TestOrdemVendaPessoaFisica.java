@@ -19,11 +19,13 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @SpringBootTest
@@ -46,9 +48,9 @@ public class TestOrdemVendaPessoaFisica {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	void cadastroOrdemPessoaFisica()
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, ChassiExistenteException,
-			FuncionarioExistenteException, ClienteFisicoExistenteException, VendaSemLucroException, ValorCompraNegativoException {
+	void cadastroOrdemPessoaFisica() throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException,
+			ChassiExistenteException, FuncionarioExistenteException, ClienteFisicoExistenteException,
+			VendaSemLucroException, ValorNegativoException, DataNulaException, NomeUnicoException {
 
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		cm.save(mo);

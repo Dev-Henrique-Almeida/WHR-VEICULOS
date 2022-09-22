@@ -4,8 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+
 @Entity
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements IFuncionario {
 
 	private float salario;
 	private String cargo;
@@ -27,6 +29,15 @@ public class Funcionario extends Pessoa {
 
 	public String getCargo() {
 		return cargo;
+	}
+
+	@Override
+	public boolean checarSalario(float salario) throws ValorNegativoException {
+		if (salario < 0) {
+			throw new ValorNegativoException("Erro ao cadastrar funcionário, sálario inválido!");
+		} else {
+			return true;
+		}
 	}
 
 	@Override

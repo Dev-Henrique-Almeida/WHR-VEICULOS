@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
@@ -32,7 +34,8 @@ public class CadastroOrdemPessoaFisicaController {
 
 	@PostMapping("ordemPessoaFisica")
 	public ResponseEntity<OrdemVendaPessoaFisica> createOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, VendaSemLucroException {
+			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
+			ValorNegativoException, DataNulaException {
 		OrdemVendaPessoaFisica or = c.save(entity);
 		return new ResponseEntity<OrdemVendaPessoaFisica>(or, HttpStatus.CREATED);
 
@@ -40,7 +43,8 @@ public class CadastroOrdemPessoaFisicaController {
 
 	@PutMapping("ordemPessoaFisica/{entity}")
 	public OrdemVendaPessoaFisica updateOrdemPessoaFisica(@PathVariable("entity") OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, VendaSemLucroException {
+			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
+			ValorNegativoException, DataNulaException {
 		return c.save(entity);
 	}
 

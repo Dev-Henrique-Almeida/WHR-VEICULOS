@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.ClienteFisico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -32,8 +33,8 @@ public class CadastroClienteFisicoController {
 
 	@PostMapping("clienteFisico")
 	public ResponseEntity<ClienteFisico> createClienteFisico(@RequestBody ClienteFisico cliente)
-			throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection,
-			ValorForaRangeException {
+			throws ClienteFisicoExistenteException, ValorNuloExpection, ValorForaRangeException, DataNulaException,
+			DataForaRangeException {
 		ClienteFisico cf = c.save(cliente);
 		return new ResponseEntity<ClienteFisico>(cf, HttpStatus.CREATED);
 
@@ -41,8 +42,8 @@ public class CadastroClienteFisicoController {
 
 	@PutMapping("clienteFisico/{cliente}")
 	public ClienteFisico updateClienteFisico(@PathVariable("cliente") ClienteFisico cliente)
-			throws ClienteFisicoExistenteException, DateForaRangeException, ValorVazioExpection,
-			ValorForaRangeException {
+			throws ClienteFisicoExistenteException, ValorNuloExpection, ValorForaRangeException, DataNulaException,
+			DataForaRangeException {
 		return c.save(cliente);
 	}
 

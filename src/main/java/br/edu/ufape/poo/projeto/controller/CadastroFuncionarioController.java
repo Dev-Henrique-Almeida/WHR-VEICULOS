@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -32,7 +33,8 @@ public class CadastroFuncionarioController {
 
 	@PostMapping("funcionario")
 	public ResponseEntity<Funcionario> createFuncionario(@RequestBody Funcionario funcionario)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException, FuncionarioExistenteException {
+			throws FuncionarioExistenteException, DataForaRangeException, ValorForaRangeException, ValorNuloExpection,
+			DataNulaException {
 		Funcionario f = c.save(funcionario);
 		return new ResponseEntity<Funcionario>(f, HttpStatus.CREATED);
 
@@ -40,7 +42,8 @@ public class CadastroFuncionarioController {
 
 	@PutMapping("funcionario/{funcionario}")
 	public Funcionario updateFuncionario(@PathVariable("funcionario") Funcionario funcionario)
-			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+			throws FuncionarioExistenteException, DataForaRangeException, ValorForaRangeException, ValorNuloExpection,
+			DataNulaException {
 		return c.save(funcionario);
 	}
 

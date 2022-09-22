@@ -9,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteJuridico;
 
 @Service
@@ -20,29 +19,22 @@ public class CadastroClienteJuridico {
 	@Autowired
 	private RepositorioClienteJuridico repositorioClienteJuridico;
 
-	public ClienteJuridico save(ClienteJuridico entity)
-			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
+	public ClienteJuridico save(ClienteJuridico entity) throws ValorNuloExpection, ClienteJuridicoExistenteException {
 
-		if (entity.getEndereco().getNumero() < 0 || entity.getCnpj().length() < 14 || entity.getCnpj().length() > 14
-				|| entity.getContato().length() < 15 || entity.getContato().length() > 15
-				|| entity.getEndereco().getCep().length() < 8 || entity.getEndereco().getCep().length() > 8) {
-			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+		if (entity.getNomeEmpresarial().isEmpty() || entity.getNomeFantasia().isEmpty() || entity.getCnpj().isEmpty()
+				|| entity.getContato().isEmpty() || entity.getDescricao().isEmpty()
+				|| entity.getEndereco().getCidade().isEmpty() || entity.getEndereco().getEstado().isEmpty()
+				|| entity.getEndereco().getRua().isEmpty() || entity.getEndereco().getCep().isEmpty()) {
+			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
 		} else {
-			if (entity.getNomeEmpresarial().isEmpty() || entity.getNomeFantasia().isEmpty()
-					|| entity.getCnpj().isEmpty() || entity.getContato().isEmpty() || entity.getDescricao().isEmpty()
-					|| entity.getEndereco().getCidade().isEmpty() || entity.getEndereco().getEstado().isEmpty()
-					|| entity.getEndereco().getRua().isEmpty() || entity.getEndereco().getCep().isEmpty()) {
-				throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
+
+			if (Objects.isNull(findByCnpj(entity.getCnpj()))) {
+				return repositorioClienteJuridico.save(entity);
 			} else {
-
-				if (Objects.isNull(findByCnpj(entity.getCnpj()))) {
-					return repositorioClienteJuridico.save(entity);
-				} else {
-					throw new ClienteJuridicoExistenteException(
-							"Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
-				}
-
+				throw new ClienteJuridicoExistenteException(
+						"Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
 			}
+
 		}
 	}
 

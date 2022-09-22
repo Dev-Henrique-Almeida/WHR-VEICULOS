@@ -7,10 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 public class TestFuncionario {
@@ -24,7 +25,8 @@ public class TestFuncionario {
 	// }
 
 	@Test
-	void saveFuncionario() throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+	void saveFuncionario()
+			throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, DataNulaException {
 
 		try {
 			Funcionario f1 = new Funcionario("12345678901", "William Batista Couto dos Santos", null, "4002-8922",

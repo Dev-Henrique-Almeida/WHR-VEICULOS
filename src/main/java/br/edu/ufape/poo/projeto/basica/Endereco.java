@@ -5,8 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.CepForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+
 @Entity
-public class Endereco {
+public class Endereco implements IEndereco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,6 +55,31 @@ public class Endereco {
 
 	public int getNumero() {
 		return numero;
+	}
+
+	@Override
+	public boolean checarCep(String cep) throws CepForaRangeException {
+		if (cep.length() > 8 || cep.length() < 8) {
+			throw new CepForaRangeException("Erro ao cadastrar, CEP inválido!");
+		} else {
+			return true;
+		}
+
+	}
+
+	@Override
+	public boolean checarNumero(int numero) throws ValorNegativoException {
+		if (numero < 0) {
+			throw new ValorNegativoException("Erro ao cadastrar, número inválido!");
+		} else {
+			return true;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", cep=" + cep + ", rua=" + rua + ", cidade=" + cidade + ", estado=" + estado
+				+ ", numero=" + numero + "]";
 	}
 
 }

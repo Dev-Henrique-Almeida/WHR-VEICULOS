@@ -18,4 +18,6 @@ public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Lon
 
 	public List<VeiculoUsado> findAllByVendido(boolean vendido);
 
+	public VeiculoUsado findByPlaca(String placa);
+
 }

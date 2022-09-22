@@ -8,7 +8,7 @@ import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteJuridico;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 public class TestClienteJuridico {
@@ -17,7 +17,7 @@ public class TestClienteJuridico {
 	private CadastroClienteJuridico ccj;
 
 	@Test
-	void savePessoaJuridico() throws ValorVazioExpection, ValorForaRangeException {
+	void savePessoaJuridico() throws ValorNuloExpection, ValorForaRangeException {
 		try {
 			ClienteJuridico cj = new ClienteJuridico("WHR", "WHR Veiculos", "8002-8922", "15749680", null,
 					"Loja de Veiculos");

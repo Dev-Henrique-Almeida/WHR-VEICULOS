@@ -28,11 +28,14 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @Service
@@ -70,8 +73,8 @@ public class Concessionaria {
 
 	////////////////////// CLIENTE FISICO //////////////////////////////
 
-	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, DateForaRangeException,
-			ValorVazioExpection, ValorForaRangeException {
+	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, ValorNuloExpection,
+			ValorForaRangeException, DataNulaException, DataForaRangeException {
 		return cadastroClienteFisico.save(entity);
 	}
 
@@ -99,7 +102,7 @@ public class Concessionaria {
 	//////////////////////// CLIENTE JURIDICO ///////////////////////////////////
 
 	public ClienteJuridico save(ClienteJuridico entity)
-			throws ClienteJuridicoExistenteException, ValorVazioExpection, ValorForaRangeException {
+			throws ClienteJuridicoExistenteException, ValorNuloExpection, ValorForaRangeException {
 		return cadastroClienteJuridico.save(entity);
 	}
 
@@ -126,7 +129,7 @@ public class Concessionaria {
 	//////////////// FUNCIONARIO ///////////////////
 
 	public Funcionario save(Funcionario entity)
-			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException {
 		return cadastroFuncionario.save(entity);
 	}
 
@@ -152,7 +155,7 @@ public class Concessionaria {
 
 	/////////////////// MODELO /////////////////////
 
-	public Modelo save(Modelo entity) throws ValorVazioExpection, ValorForaRangeException {
+	public Modelo save(Modelo entity) throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
 		return cadastroModelo.save(entity);
 	}
 
@@ -179,8 +182,7 @@ public class Concessionaria {
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorVazioExpection, ValorForaRangeException, DateForaRangeException, VendaSemLucroException {
-
+			throws ValorNegativoException, ValorNuloExpection, DataNulaException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -207,7 +209,7 @@ public class Concessionaria {
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws DateForaRangeException, ValorForaRangeException, ValorVazioExpection, VendaSemLucroException {
+			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
 		return cadastroOrdemPessoaJuridica.save(entity);
 
 	}
@@ -234,8 +236,7 @@ public class Concessionaria {
 
 	///////////////// VEICULO NOVO //////////////////
 
-	public VeiculoNovo save(VeiculoNovo vn) throws ValorVazioExpection, ValorForaRangeException,
-			ChassiExistenteException, ValorCompraNegativoException {
+	public VeiculoNovo save(VeiculoNovo vn) throws ValorNuloExpection, ChassiExistenteException {
 		return cadastroVeiculoNovo.save(vn);
 	}
 
@@ -265,8 +266,8 @@ public class Concessionaria {
 
 	/////////////////// VEICULO USADO /////////////////////
 
-	public VeiculoUsado save(VeiculoUsado vn) throws ValorVazioExpection, ValorForaRangeException,
-			ChassiExistenteException, ValorCompraNegativoException {
+	public VeiculoUsado save(VeiculoUsado vn)
+			throws ChassiExistenteException, ValorNuloExpection, PlacaExistenteException {
 		return cadastroVeiculoUsado.save(vn);
 	}
 

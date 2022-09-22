@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+
 @Entity
-public class FichaVisitaFisica {
+public class FichaVisitaFisica implements IFichaVisita {
 
 	private Date data;
 
@@ -36,6 +38,15 @@ public class FichaVisitaFisica {
 
 	public long getId() {
 		return id;
+	}
+
+	@Override
+	public boolean checarData(Date data) throws DataForaRangeException {
+		if (data.before(new Date())) {
+			throw new DataForaRangeException("Erro ao agendar, data inválida!");
+		} else {
+			return true;
+		}
 	}
 
 	@Override

@@ -9,7 +9,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorCompraNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -44,11 +45,38 @@ public abstract class Veiculo implements IVeiculo {
 	}
 
 	@Override
-	public boolean compraNegativo(float f) throws ValorCompraNegativoException {
-		if (f < 0) {
-			throw new ValorCompraNegativoException("Erro, valor de compra negativo!");
-		} else {
+	public boolean compraNegativa(float valorCompra) throws ValorNegativoException {
+		if (valorCompra > 0) {
 			return true;
+		} else {
+			throw new ValorNegativoException("Erro ao cadastrar, valor de compra negativo!");
+		}
+	}
+
+	@Override
+	public boolean vendaNegativa(float valorVenda) throws ValorNegativoException {
+		if (valorVenda > 0) {
+			return true;
+		} else {
+			throw new ValorNegativoException("Erro ao cadastrar, valor de venda negativo!");
+		}
+	}
+
+	@Override
+	public boolean checarKm(float km) throws ValorNegativoException {
+		if (km > 0) {
+			return true;
+		} else {
+			throw new ValorNegativoException("Erro ao cadastrar, km's inválidos!");
+		}
+	}
+
+	@Override
+	public boolean checarChassi(String chassi) throws ChassiForaRangeException {
+		if (chassi.length() < 14 || chassi.length() > 14) {
+			return true;
+		} else {
+			throw new ChassiForaRangeException("Erro ao cadastrar, chassi inválido!");
 		}
 	}
 

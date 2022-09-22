@@ -1,6 +1,5 @@
 package br.edu.ufape.poo.projeto.cadastro;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,10 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioFuncionario;
 
 @Service
@@ -23,35 +21,27 @@ public class CadastroFuncionario {
 	private RepositorioFuncionario repositorioFuncionario;
 
 	public Funcionario save(Funcionario entity)
-			throws FuncionarioExistenteException, DateForaRangeException, ValorForaRangeException, ValorVazioExpection {
+			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException {
 
-		if (entity.getEndereco().getNumero() < 0 || entity.getCpf().length() < 11 || entity.getCpf().length() > 11
-				|| entity.getTelefone().length() < 15 || entity.getTelefone().length() > 15
-				|| entity.getEndereco().getCep().length() < 8 || entity.getEndereco().getCep().length() > 8
-				|| entity.getSalario() < 0 || entity.getDataNascimento().after(new Date())) {
-			throw new ValorForaRangeException("Erro ao cadastrar, informações inválidas");
+		if (Objects.isNull(entity.getDataNascimento())) {
+			throw new DataNulaException("Erro ao cadastrar, data inválida");
 		} else {
-			if (Objects.isNull(entity.getDataNascimento())) {
-				throw new DateForaRangeException("Erro ao cadastrar, data inválida");
+			if (Objects.isNull(entity.getNome()) || Objects.isNull(entity.getCpf())
+					|| Objects.isNull(entity.getTelefone()) || Objects.isNull(entity.getDataNascimento())
+					|| Objects.isNull(entity.getSalario()) || Objects.isNull(entity.getCargo())
+					|| Objects.isNull(entity.getEndereco().getCidade())
+					|| Objects.isNull(entity.getEndereco().getEstado()) || Objects.isNull(entity.getEndereco().getRua())
+					|| Objects.isNull(entity.getEndereco().getCep())
+					|| Objects.isNull(entity.getEndereco().getNumero())) {
+				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 			} else {
-				if (Objects.isNull(entity.getNome()) || Objects.isNull(entity.getCpf())
-						|| Objects.isNull(entity.getTelefone()) || Objects.isNull(entity.getDataNascimento())
-						|| Objects.isNull(entity.getSalario()) || Objects.isNull(entity.getCargo())
-						|| Objects.isNull(entity.getEndereco().getCidade())
-						|| Objects.isNull(entity.getEndereco().getEstado())
-						|| Objects.isNull(entity.getEndereco().getRua())
-						|| Objects.isNull(entity.getEndereco().getCep())
-						|| Objects.isNull(entity.getEndereco().getNumero())) {
-					throw new ValorVazioExpection("Erro ao cadastrar, informações inválidas");
+				if (Objects.isNull(findByCpf(entity.getCpf()))) {
+
+					return repositorioFuncionario.save(entity);
 				} else {
-					if (Objects.isNull(findByCpf(entity.getCpf()))) {
 
-						return repositorioFuncionario.save(entity);
-					} else {
-
-						throw new FuncionarioExistenteException(
-								"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
-					}
+					throw new FuncionarioExistenteException(
+							"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
 				}
 			}
 		}

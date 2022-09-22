@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -31,7 +31,7 @@ public class CadastroModeloController {
 
 	@PostMapping("modelo")
 	public ResponseEntity<Modelo> createModelo(@RequestBody Modelo modelo)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+			throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
 		Modelo m = c.save(modelo);
 		return new ResponseEntity<Modelo>(m, HttpStatus.CREATED);
 
@@ -39,7 +39,7 @@ public class CadastroModeloController {
 
 	@PutMapping("modelo/{modelo}")
 	public Modelo updateModelo(@PathVariable("modelo") Modelo modelo)
-			throws ValorVazioExpection, ValorForaRangeException {
+			throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
 		return c.save(modelo);
 	}
 

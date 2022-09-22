@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.FichaVisitaJuridica;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DateForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorVazioExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")
@@ -30,8 +27,7 @@ public class CadastroFichaVisitaJuridicaController {
 	private Concessionaria c;
 
 	@PostMapping("fichaVisitaJuridica")
-	public ResponseEntity<FichaVisitaJuridica> createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica ficha)
-			throws DateForaRangeException, ValorVazioExpection, ValorForaRangeException {
+	public ResponseEntity<FichaVisitaJuridica> createFichaVisitaJuridica(@RequestBody FichaVisitaJuridica ficha) {
 		FichaVisitaJuridica fvf = c.save(ficha);
 		return new ResponseEntity<FichaVisitaJuridica>(fvf, HttpStatus.CREATED);
 
