@@ -7,9 +7,14 @@ class CadastroClienteJuridicoService {
     create(data) {
         return http.post("/clienteJuridico", data);
     }
-    deleteBycnpj(data){
-        return http.delete("/deleteClienteJuridico", data);
+
+    update(id, data) {
+        return http.put(`/updateClienteJuridico/${id}`, data);
     }
+    deleteById(id) {
+        return http.delete(`/deleteClienteJuridico/${id}`);
+    }
+
     findByNomeFantasia(data){
         return http.get("/nomeClienteJuridico", data);
     }

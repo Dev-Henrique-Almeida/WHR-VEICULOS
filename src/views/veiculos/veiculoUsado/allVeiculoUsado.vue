@@ -35,6 +35,7 @@ export default {
         { text: 'Único Dono', value: 'unicoDono' },
         { text: 'Km`s', value: 'km' },
         { text: 'Chassi', value: 'chassi' },
+        { text: 'Placa', value: 'placa' },
       ],
       desserts: [
       ],

@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import cadastroClienteFisico from '../views/clientes/cadastroClienteFisico.vue'
+
 import cadastroCliente from '../views/clientes/cadastroCliente.vue'
+import updateClienteFisico from '../views/clientes/updateClienteFisico.vue'
+import updateModelo from '../views/veiculos/modelo/updateModelo.vue'
+import updateVeiculoNovo from '../views/veiculos/veiculoNovo/updateVeiculoNovo.vue'
+import updateVeiculoUsado from '../views/veiculos/veiculoUsado/updateVeiculoUsado.vue'
+import updateFuncionario from '../views/funcionarios/updateFuncionario.vue'
+import updateClienteJuridico from '../views/clientes/updateClienteJuridico.vue'
 import cadastroClienteJuridico from '../views/clientes/cadastroClienteJuridico.vue'
 import cadastroFuncionario from '../views/funcionarios/cadastroFuncionario.vue'
 import cadastroVeiculoNovo from '../views/veiculos/veiculoNovo/cadastroVeiculoNovo.vue'
@@ -20,11 +26,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/cadastroCliente',
-    name: 'cadastroInicio',
-    component: cadastroClienteFisico
-  },
+
   {
     path: '/vendaVeiculo',
     name: 'vendaVeiculo',
@@ -40,6 +42,36 @@ const routes = [
     path: '/cadastroInicio',
     name: 'cadastroClienteFisico',
     component: cadastroCliente
+  },
+  {
+    path: '/updateClienteFisico',
+    name: 'clienteFisico',
+    component: updateClienteFisico
+  },
+  {
+    path: '/updateFuncionario',
+    name: 'funcionario',
+    component: updateFuncionario
+  },
+  {
+    path: '/updateClienteJuridico',
+    name: 'clienteJuridico',
+    component: updateClienteJuridico
+  },
+  {
+    path: '/updateModelo',
+    name: 'modelo',
+    component: updateModelo
+  },
+  {
+    path: '/updateVeiculoNovo',
+    name: 'updateVeiculoNovo',
+    component: updateVeiculoNovo
+  },
+  {
+    path: '/updateVeiculoUsado',
+    name: 'updateVeiculoUsado',
+    component: updateVeiculoUsado
   },
   {
     path: '/cadastroClienteJuridico',

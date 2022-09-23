@@ -7,6 +7,12 @@ class CadastroVeiculoNovoService {
     create(data) {
         return http.post("/veiculoNovo", data);
     }
+    update(id, data) {
+        return http.put(`/updateVeiculoNovo/${id}`, data);
+    }
+    deleteById(id) {
+        return http.delete(`/deleteVeiculoNovo/${id}`);
+    }
     delete(data) {
         return http.delete("/deleteVeiculoNovo", data);
     }

@@ -3,7 +3,7 @@
   <div>
     <v-form v-model="valid">
       <v-container>
-        
+
         <h1>Cadastro de Veiculo Usado</h1>
         <br />
         <h3>Modelo Selecionado:</h3>
@@ -18,12 +18,13 @@
         <h3> Informações do Veiculo</h3>
         <v-row>
           <v-col cols="12" md="4">
-            <v-text-field v-model="veiculoUSado.valorCompraVeiculo" :rules="valorRules" type="number"
-              label="Valor de Compra" required></v-text-field>
-            <v-text-field v-model="veiculoUSado.valorVenda" :rules="valorRules" type="number" label="Valor de Venda"
-              required>
+            <v-text-field v-model="veiculoUSado.valorCompraVeiculo" v-mask="'########'" :rules="valorRules"
+              type="number" label="Valor de Compra" required></v-text-field>
+            <v-text-field v-model="veiculoUSado.valorVenda" v-mask="'########'" :rules="valorRules" type="number"
+              label="Valor de Venda" required>
             </v-text-field>
-            <v-text-field v-model="veiculoUSado.placa" :rules="placaRules" :maxLength="7" label="Placa" required>
+            <v-text-field v-model="veiculoUSado.placa" :rules="placaRules" :maxLength="7" type="text" label="Placa"
+              required>
             </v-text-field>
           </v-col>
 
@@ -38,7 +39,8 @@
           <v-col cols="12" md="4">
             <v-select :items="revisado" v-model="veiculoUSado.revisado" :rules="campoRules" label="Revisado" required>
             </v-select>
-            <v-text-field v-model="veiculoUSado.km" :rules="ruaRules" type="number" label="Quilometragem" required>
+            <v-text-field v-model="veiculoUSado.km" v-mask="'#######'" :rules="ruaRules" type="number"
+              label="Quilometragem" required>
             </v-text-field>
           </v-col>
         </v-row>

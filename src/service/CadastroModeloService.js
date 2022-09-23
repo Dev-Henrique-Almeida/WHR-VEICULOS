@@ -7,9 +7,13 @@ class CadastroModeloService {
     create(data) {
         return http.post("/modelo", data);
     }
-    delete(data) {
-        return http.delete("/deleteModelo", data);
+    update(id, data) {
+        return http.put(`/updateModelo/${id}`, data);
     }
+    deleteById(id) {
+        return http.delete(`/deleteModelo/${id}`);
+    }
+    
     findByNomeModelo(data) {
         return http.get("/nomeModelo", data);
     }

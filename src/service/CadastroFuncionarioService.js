@@ -8,6 +8,13 @@ class CadastroFuncionarioService {
        
         return http.post("/funcionario", data);
     }
+    update(id, data) {
+        return http.put(`/updateFuncionario/${id}`, data);
+    }
+    deleteById(id) {
+        return http.delete(`/deleteFuncionario/${id}`);
+    }
+
     deleteByCpf(data) {
         return http.delete("/deleteFuncionario", data);
     }

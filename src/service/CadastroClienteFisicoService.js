@@ -4,15 +4,16 @@ class CadastroClienteFisicoService {
     getAll() {
         return http.get('/allClienteFisico');
     }
-    update() {
-        return http.update('/clienteFisico');
+    update(id, data) {
+        return http.put(`/updateClienteFisico/${id}`, data);
     }
     create(data) {
         return http.post("/clienteFisico", data);
     }
-    deleteByCpf(data) {
-        return http.delete("/deleteClienteFisico", data);
+    deleteById(id) {
+        return http.delete(`/deleteClienteFisico/${id}`);
     }
+    
     findByCpf(data) {
         return http.get("/cpfClienteFisico", data);
     }

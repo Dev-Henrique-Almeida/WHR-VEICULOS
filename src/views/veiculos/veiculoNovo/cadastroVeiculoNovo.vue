@@ -18,10 +18,10 @@
         <h3> Informações do Veiculo</h3>
         <v-row>
           <v-col cols="12" md="4">
-            <v-text-field v-model="veiculoNovo.valorCompraVeiculo" :rules="valorRules" type="number"
+            <v-text-field v-model="veiculoNovo.valorCompraVeiculo" v-mask="'########'" :rules="valorRules" type="number"
               label="Valor de Compra" required></v-text-field>
-            <v-text-field v-model="veiculoNovo.valorVenda" :rules="valorRules" type="number" label="Valor de Venda"
-              required></v-text-field>
+            <v-text-field v-model="veiculoNovo.valorVenda" v-mask="'########'" :rules="valorRules" type="number"
+              label="Valor de Venda" required></v-text-field>
           </v-col>
           <v-col cols="12" md="4">
             <v-select :items="garantia" v-model="veiculoNovo.garantiaFabrica" :rules="ruaRules"
@@ -32,17 +32,19 @@
             </v-text-field>
           </v-col>
         </v-row>
-        
+
 
       </v-container>
     </v-form>
     <template>
-          <div class="text-center">
-            <v-btn class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="home">Cancelar</v-btn>
-            <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="irModelo">Selecionar outro Modelo</v-btn>
-            <v-btn class="ma-2" :loading="loading" :disabled="loading" color="success" @click="cadastrar"> Concluir Cadastro</v-btn>
-          </div>
-        </template>
+      <div class="text-center">
+        <v-btn class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="home">Cancelar</v-btn>
+        <v-btn :loading="loading3" :disabled="loading3" color="blue-grey" class="ma-2 white--text" @click="irModelo">
+          Selecionar outro Modelo</v-btn>
+        <v-btn class="ma-2" :loading="loading" :disabled="loading" color="success" @click="cadastrar"> Concluir Cadastro
+        </v-btn>
+      </div>
+    </template>
   </div>
 </template>
     
@@ -131,13 +133,13 @@ export default {
       console.log(this.veiculoNovo)
       CadastroVeiculoNovoService.create(this.veiculoNovo).then(
         response => { console.log(response.status); });
-        alert('Sucesso, veiculo cadastrado!');
+      alert('Sucesso, veiculo cadastrado!');
     },
   },
   mounted() {
     this.loadAll();
   },
-  
+
 }
 </script>
   
