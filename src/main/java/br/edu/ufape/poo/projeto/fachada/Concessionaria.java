@@ -1,5 +1,5 @@
 package br.edu.ufape.poo.projeto.fachada;
-
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,8 @@ import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
+import br.edu.ufape.poo.projeto.basica.PreVenda;
+import br.edu.ufape.poo.projeto.basica.Veiculo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteFisico;
@@ -140,6 +142,9 @@ public class Concessionaria {
 	public Funcionario findByIdFuncionario(long id) {
 		return cadastroFuncionario.findById(id);
 	}
+	public Funcionario findByCpfFuncionario(String cpf) {
+		return cadastroFuncionario.findByCpf(cpf);
+	}
 
 	public Funcionario findByNomeFuncionario(String nome) {
 		return cadastroFuncionario.findByNome(nome);
@@ -205,7 +210,55 @@ public class Concessionaria {
 	public List<OrdemVendaPessoaFisica> findByPagoOrdemFisica(boolean pago) {
 		return cadastroOrdemPessoaFisica.findByPago(pago);
 	}
-
+	
+	/////////////////////// PRE VENDA /////////////////////////
+	public void preVenda(PreVenda preVenda) throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
+		
+		float valor;
+		Date dataOperacao = new Date(); 
+		Veiculo veiculo;
+		Funcionario vendedor = findByCpfFuncionario(preVenda.getCpfFuncionario()); // pode n encontrar um funcionario
+		
+		if(preVenda.isVeiculoNovo() == true) {
+			
+			 veiculo = findByChassiVeiculoNovo(preVenda.getChassiVeiculo()); // pode n encontrar um veiculo
+			 valor = veiculo.getValorVenda();
+		}
+		else {
+			
+			veiculo = findByChassiVeiculoUsado(preVenda.getChassiVeiculo()); // pode n encontrar um veiculo 
+			valor = veiculo.getValorVenda();
+		}
+		
+	
+		 if(preVenda.isClienteJuridico() == true) {
+			 ClienteJuridico cliente = findByCnpj(preVenda.getCpfCnpjCliente());  // pode n encotrar um cliente
+			 OrdemVendaPessoaJuridica venda = new OrdemVendaPessoaJuridica(valor,veiculo,preVenda.isVeiculoNovo(), dataOperacao,preVenda.getFormaPagamento(),
+					 true,true,vendedor, cliente);
+			  cadastroOrdemPessoaJuridica.save(venda);
+		 }
+		 else {
+			 ClienteFisico cliente = findByCpf(preVenda.getCpfCnpjCliente()); // pode n encotrar um cliente
+			 OrdemVendaPessoaFisica venda = new OrdemVendaPessoaFisica(valor,veiculo,preVenda.isVeiculoNovo(), dataOperacao,preVenda.getFormaPagamento(),
+					 true,true,vendedor, cliente);
+			 System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println(venda.getCliente());
+				System.out.println("aaaaaaaa");
+				System.out.println("aaaaaaaa");
+				System.out.println(preVenda.getCpfCnpjCliente());
+				System.out.println(cliente);
+				System.out.println(venda);
+				
+			  cadastroOrdemPessoaFisica.save(venda);
+		 }
+	}
+	
+	
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
@@ -247,6 +300,9 @@ public class Concessionaria {
 	public VeiculoNovo findByIdVeiculoNovo(long id) {
 		return cadastroVeiculoNovo.findById(id);
 	}
+	public VeiculoNovo findByChassiVeiculoNovo(String chassi) {
+		return cadastroVeiculoNovo.findByChassi(chassi);
+	}
 
 	public List<VeiculoNovo> findByValorVendaVeiculoNovo(float valorVenda) {
 		return cadastroVeiculoNovo.findByValorVenda(valorVenda);
@@ -278,7 +334,11 @@ public class Concessionaria {
 	public VeiculoUsado findByIdVeiculoUsado(long id) {
 		return cadastroVeiculoUsado.findById(id);
 	}
-
+	
+	public VeiculoUsado findByChassiVeiculoUsado(String chassi) {
+		return cadastroVeiculoUsado.findByChassi(chassi);
+	}
+	
 	public List<VeiculoUsado> findByValorVendaVeiculoUsado(float valorVenda) {
 		return cadastroVeiculoUsado.findByValorVenda(valorVenda);
 	}

@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class OrdemVendaPessoaFisica extends OrdemVenda {
 
-	@OneToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private ClienteFisico cliente;
 
 	public OrdemVendaPessoaFisica() {
@@ -22,6 +22,8 @@ public class OrdemVendaPessoaFisica extends OrdemVenda {
 		this.cliente = cliente;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "OrdemVendaPessoaFisica [cliente=" + cliente + ", valor=" + getValor() + ", veiculo=" + getVeiculo()
@@ -29,5 +31,8 @@ public class OrdemVendaPessoaFisica extends OrdemVenda {
 				+ getFormaPagamento() + ", pago=" + getPago() + ", vendaConcluida=" + getVendaConcluida()
 				+ ", vendedor=" + getVendedor() + ", codVenda=" + getId() + "]";
 	}
-
+	
+	public ClienteFisico getCliente() {
+		return cliente;
+	}
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
+import br.edu.ufape.poo.projeto.basica.PreVenda;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
@@ -32,12 +33,18 @@ public class CadastroOrdemPessoaFisicaController {
 	@Autowired
 	private Concessionaria c;
 
-	@PostMapping("ordemPessoaFisica")
+	@PostMapping("ordemVendaPessoaFisica")
 	public ResponseEntity<OrdemVendaPessoaFisica> createOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
 			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
 			ValorNegativoException, DataNulaException {
 		OrdemVendaPessoaFisica or = c.save(entity);
 		return new ResponseEntity<OrdemVendaPessoaFisica>(or, HttpStatus.CREATED);
+
+	}
+	
+	@PostMapping("ordemPessoaFisica")
+	public void createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
+		 c.preVenda(entity);
 
 	}
 
