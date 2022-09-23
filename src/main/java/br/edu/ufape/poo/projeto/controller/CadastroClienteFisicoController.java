@@ -40,16 +40,19 @@ public class CadastroClienteFisicoController {
 
 	}
 
-	@PutMapping("clienteFisico/{cliente}")
-	public ClienteFisico updateClienteFisico(@PathVariable("cliente") ClienteFisico cliente)
-			throws ClienteFisicoExistenteException, ValorNuloExpection, ValorForaRangeException, DataNulaException,
-			DataForaRangeException {
-		return c.save(cliente);
+	@PutMapping("updateClienteFisico/{id}")
+	public ResponseEntity<ClienteFisico> updateClienteFisico(@PathVariable("id") long id,
+			@RequestBody ClienteFisico cliente) {
+		if (id == cliente.getId()) {
+			return new ResponseEntity<ClienteFisico>(c.update(cliente), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteFisico>(HttpStatus.NOT_FOUND);
+		}
 	}
 
-	@DeleteMapping("deleteClienteFisico/{cpf}")
-	public void deleteClienteFisico(@PathVariable("cpf") String cpf) {
-		c.deleteByCpf(cpf);
+	@DeleteMapping("deleteClienteFisico/{id}")
+	public void deleteClienteFisico(@PathVariable("id") long id) {
+		c.deleteById(id);
 	}
 
 	@GetMapping("idClienteFisico/{id}")

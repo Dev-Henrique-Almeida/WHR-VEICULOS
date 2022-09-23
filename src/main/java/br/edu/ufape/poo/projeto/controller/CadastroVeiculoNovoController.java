@@ -38,10 +38,19 @@ public class CadastroVeiculoNovoController {
 
 	}
 
-	@PutMapping("veiculoNovo/{veiculo}")
-	public VeiculoNovo updateVeiculoNovo(@PathVariable("veiculo") VeiculoNovo veiculo)
-			throws ValorNuloExpection, ValorForaRangeException, ChassiExistenteException, ValorNegativoException {
-		return c.save(veiculo);
+	@PutMapping("updateVeiculoNovo/{id}")
+	public ResponseEntity<VeiculoNovo> updateVeiculoNovo(@PathVariable("id") long id,
+			@RequestBody VeiculoNovo veiculoNovo) {
+		if (id == veiculoNovo.getId()) {
+			return new ResponseEntity<VeiculoNovo>(c.update(veiculoNovo), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<VeiculoNovo>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@DeleteMapping("deleteVeiculoNovo/{id}")
+	public void deleteByIdVeiculoNovo(@PathVariable("id") long id) {
+		c.deleteByIdVeiculoNovo(id);
 	}
 
 	@DeleteMapping("deleteVeiculoNovo")

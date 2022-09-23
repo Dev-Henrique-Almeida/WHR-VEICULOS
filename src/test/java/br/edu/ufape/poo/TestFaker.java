@@ -29,8 +29,8 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 
 @SpringBootTest
@@ -114,6 +114,7 @@ public class TestFaker {
 						faker.address().city(), faker.address().state(), faker.number().randomDigit()),
 				faker.company().industry());
 		ccj.save(cj3);
+
 	}
 
 	@Test

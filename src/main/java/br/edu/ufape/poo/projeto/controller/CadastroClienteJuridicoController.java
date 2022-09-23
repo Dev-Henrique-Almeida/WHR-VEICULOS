@@ -37,13 +37,22 @@ public class CadastroClienteJuridicoController {
 
 	}
 
-	@PutMapping("clienteJuridico/{cliente}")
-	public ClienteJuridico updateClienteJuridico(@PathVariable("cliente") ClienteJuridico cliente)
-			throws ClienteJuridicoExistenteException, ValorNuloExpection, ValorForaRangeException {
-		return c.save(cliente);
+	@PutMapping("updateClienteJuridico/{id}")
+	public ResponseEntity<ClienteJuridico> updateClienteJuridico(@PathVariable("id") long id,
+			@RequestBody ClienteJuridico cliente) {
+		if (id == cliente.getId()) {
+			return new ResponseEntity<ClienteJuridico>(c.update(cliente), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
+		}
 	}
 
-	@DeleteMapping("deleteClienteJuridico/{cnpj}")
+	@DeleteMapping("deleteClienteJuridico/{id}")
+	public void deleteClienteJuridico(@PathVariable("id") long id) {
+		c.deleteByIdClienteJuridico(id);
+	}
+
+	@DeleteMapping("deleteClienteJuridicoCnpj/{cnpj}")
 	public void deleteClienteJuridico(@PathVariable("cnpj") String cnpj) {
 		c.deleteByCnpj(cnpj);
 	}

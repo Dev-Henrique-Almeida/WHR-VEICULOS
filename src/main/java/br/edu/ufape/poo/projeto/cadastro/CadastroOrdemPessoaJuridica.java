@@ -49,6 +49,10 @@ public class CadastroOrdemPessoaJuridica {
 		repositorioOrdemPessoaJuridica.deleteById(id);
 	}
 
+	public OrdemVendaPessoaJuridica update(OrdemVendaPessoaJuridica entity) {
+		return repositorioOrdemPessoaJuridica.save(entity);
+	}
+
 	public OrdemVendaPessoaJuridica findById(long id) {
 		return repositorioOrdemPessoaJuridica.findById(id);
 	}

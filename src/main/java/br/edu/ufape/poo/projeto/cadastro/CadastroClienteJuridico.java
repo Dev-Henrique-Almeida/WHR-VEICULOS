@@ -46,6 +46,14 @@ public class CadastroClienteJuridico {
 		repositorioClienteJuridico.deleteByCnpj(cnpj);
 	}
 
+	public ClienteJuridico update(ClienteJuridico entity) {
+		return repositorioClienteJuridico.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioClienteJuridico.deleteById(id);
+	}
+
 	public ClienteJuridico findById(long id) {
 		return repositorioClienteJuridico.findById(id);
 	}

@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class OrdemVendaPessoaJuridica extends OrdemVenda {
 
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private ClienteJuridico cliente;
 
 	public OrdemVendaPessoaJuridica() {
@@ -34,6 +34,4 @@ public class OrdemVendaPessoaJuridica extends OrdemVenda {
 	public ClienteJuridico getCliente() {
 		return cliente;
 	}
-	
-
 }

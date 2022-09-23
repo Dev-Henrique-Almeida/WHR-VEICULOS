@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.basica.PreVenda;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiNaoEncontradoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteNaoEncontradoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioNaoEncontradoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
@@ -41,18 +44,23 @@ public class CadastroOrdemPessoaFisicaController {
 		return new ResponseEntity<OrdemVendaPessoaFisica>(or, HttpStatus.CREATED);
 
 	}
-	
+
 	@PostMapping("ordemPessoaFisica")
-	public void createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
-		 c.preVenda(entity);
+	public void createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection,
+			DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
+			ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
+		c.preVenda(entity);
 
 	}
 
-	@PutMapping("ordemPessoaFisica/{entity}")
-	public OrdemVendaPessoaFisica updateOrdemPessoaFisica(@PathVariable("entity") OrdemVendaPessoaFisica entity)
-			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
-			ValorNegativoException, DataNulaException {
-		return c.save(entity);
+	@PutMapping("updateOrdemVendaPessoaFisica/{id}")
+	public ResponseEntity<OrdemVendaPessoaFisica> updateOrdemVendaPessoaFisica(@PathVariable("id") long id,
+			@RequestBody OrdemVendaPessoaFisica ordemFisica) {
+		if (id == ordemFisica.getId()) {
+			return new ResponseEntity<OrdemVendaPessoaFisica>(c.update(ordemFisica), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<OrdemVendaPessoaFisica>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@DeleteMapping("deleteOrdemPessoaFisica/{id}")

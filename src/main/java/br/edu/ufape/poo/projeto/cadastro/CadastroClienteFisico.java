@@ -26,16 +26,17 @@ public class CadastroClienteFisico {
 		if (Objects.isNull(entity.getDataNascimento())) {
 			throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
 		} else {
-			if (Objects.isNull(entity.getNome()) || Objects.isNull(entity.getCpf())
-					|| Objects.isNull(entity.getEndereco().getCidade())
-					|| Objects.isNull(entity.getEndereco().getEstado()) || Objects.isNull(entity.getEndereco().getRua())
+			if (Objects.isNull(entity.getNome().isEmpty()) || Objects.isNull(entity.getCpf().isEmpty())
+					|| Objects.isNull(entity.getEndereco().getCidade().isEmpty())
+					|| Objects.isNull(entity.getEndereco().getEstado().isEmpty())
+					|| Objects.isNull(entity.getEndereco().getRua().isEmpty())
 					|| Objects.isNull(entity.getEndereco().getCep()) || Objects.isNull(entity.getEndereco().getNumero())
 					|| Objects.isNull(entity.getTelefone())) {
 				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
 			} else {
 				if (Objects.isNull(findByCpf(entity.getCpf()))) {
 					return repositorioClienteFisico.save(entity);
-				} else { 
+				} else {
 					throw new ClienteFisicoExistenteException(
 							"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
 				}
@@ -67,4 +68,11 @@ public class CadastroClienteFisico {
 		repositorioClienteFisico.deleteByCpf(cpf);
 	}
 
+	public void deleteById(long id) {
+		repositorioClienteFisico.deleteById(id);
+	}
+
+	public ClienteFisico update(ClienteFisico entity) {
+		return repositorioClienteFisico.save(entity);
+	}
 }

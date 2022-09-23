@@ -40,14 +40,22 @@ public class CadastroFuncionarioController {
 
 	}
 
-	@PutMapping("funcionario/{funcionario}")
-	public Funcionario updateFuncionario(@PathVariable("funcionario") Funcionario funcionario)
-			throws FuncionarioExistenteException, DataForaRangeException, ValorForaRangeException, ValorNuloExpection,
-			DataNulaException {
-		return c.save(funcionario);
+	@PutMapping("updateFuncionario/{id}")
+	public ResponseEntity<Funcionario> updateFuncionario(@PathVariable("id") long id,
+			@RequestBody Funcionario funcionario) {
+		if (id == funcionario.getId()) {
+			return new ResponseEntity<Funcionario>(c.update(funcionario), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
+		}
 	}
 
-	@DeleteMapping("deleteFuncionario/{cpf}")
+	@DeleteMapping("deleteFuncionario/{id}")
+	public void deleteByIdFuncionario(@PathVariable("id") long id) {
+		c.deleteByIdFuncionario(id);
+	}
+
+	@DeleteMapping("deleteFuncionarioCpf/{cpf}")
 	public void deleteFuncionario(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover
 																		// diretamente na URL
 		c.deleteByCpf(cpf);

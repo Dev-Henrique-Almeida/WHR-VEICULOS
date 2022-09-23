@@ -38,6 +38,14 @@ public class CadastroModelo {
 		repositorioModelo.delete(entity);
 	}
 
+	public Modelo update(Modelo entity) {
+		return repositorioModelo.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioModelo.deleteById(id);
+	}
+
 	public List<Modelo> findAll() {
 		return repositorioModelo.findAll();
 	}

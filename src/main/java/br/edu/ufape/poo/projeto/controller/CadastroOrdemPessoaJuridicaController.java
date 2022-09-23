@@ -39,10 +39,14 @@ public class CadastroOrdemPessoaJuridicaController {
 
 	}
 
-	@PutMapping("ordemJuridica")
-	public OrdemVendaPessoaJuridica updateOrdemPessoaJuridica(@RequestBody OrdemVendaPessoaJuridica cliente)
-			throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, VendaSemLucroException {
-		return c.save(cliente);
+	@PutMapping("updateOrdemVendaPessoaJuridica/{id}")
+	public ResponseEntity<OrdemVendaPessoaJuridica> updateOrdemVendaPessoaJuridica(@PathVariable("id") long id,
+			@RequestBody OrdemVendaPessoaJuridica ordemJuridica) {
+		if (id == ordemJuridica.getId()) {
+			return new ResponseEntity<OrdemVendaPessoaJuridica>(c.update(ordemJuridica), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<OrdemVendaPessoaJuridica>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@DeleteMapping("deleteOrdemJuridica/{id}")
@@ -51,17 +55,17 @@ public class CadastroOrdemPessoaJuridicaController {
 	}
 
 	@GetMapping("idOrdemJuridica/{id}")
-	public OrdemVendaPessoaJuridica findByIdOrdemFisica(@PathVariable("id") long id) {
+	public OrdemVendaPessoaJuridica findByIdOrdemJuridica(@PathVariable("id") long id) {
 		return c.findByIdOrdemJuridico(id);
 	}
 
 	@GetMapping("pagoOrdemJuridica/{pago}")
-	public List<OrdemVendaPessoaJuridica> findByPagoOrdemFisica(@PathVariable("pago") boolean pago) {
+	public List<OrdemVendaPessoaJuridica> findByPagoOrdemJuridica(@PathVariable("pago") boolean pago) {
 		return c.findByPagoOrdemJuridico(pago);
 	}
 
 	@GetMapping("allOrdemJuridica")
-	public List<OrdemVendaPessoaJuridica> findAllOrdemFisica() {
+	public List<OrdemVendaPessoaJuridica> findAllOrdemJuridica() {
 		return c.findAllOrdemJuridico();
 	}
 

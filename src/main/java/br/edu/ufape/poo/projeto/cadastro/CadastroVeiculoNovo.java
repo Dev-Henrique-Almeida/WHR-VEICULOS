@@ -81,6 +81,14 @@ public class CadastroVeiculoNovo {
 		return repositorioVeiculoNovo.findAll();
 	}
 
+	public VeiculoNovo update(VeiculoNovo entity) {
+		return repositorioVeiculoNovo.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioVeiculoNovo.deleteById(id);
+	}
+
 }
 
 /*

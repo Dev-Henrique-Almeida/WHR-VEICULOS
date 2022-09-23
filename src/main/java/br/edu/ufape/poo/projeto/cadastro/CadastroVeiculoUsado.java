@@ -80,4 +80,12 @@ public class CadastroVeiculoUsado {
 		return repositorioVeiculoUsado.findAll();
 	}
 
+	public VeiculoUsado update(VeiculoUsado entity) {
+		return repositorioVeiculoUsado.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioVeiculoUsado.deleteById(id);
+	}
+
 }

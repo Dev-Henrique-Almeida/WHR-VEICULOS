@@ -75,4 +75,11 @@ public class CadastroFuncionario {
 		repositorioFuncionario.deleteByCpf(cpf);
 	}
 
+	public void deleteById(long id) {
+		repositorioFuncionario.deleteById(id);
+	}
+
+	public Funcionario update(Funcionario entity) {
+		return repositorioFuncionario.save(entity);
+	}
 }

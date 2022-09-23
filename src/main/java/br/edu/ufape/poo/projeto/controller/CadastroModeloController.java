@@ -37,15 +37,18 @@ public class CadastroModeloController {
 
 	}
 
-	@PutMapping("modelo/{modelo}")
-	public Modelo updateModelo(@PathVariable("modelo") Modelo modelo)
-			throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
-		return c.save(modelo);
+	@PutMapping("updateModelo/{id}")
+	public ResponseEntity<Modelo> updateModelo(@PathVariable("id") long id, @RequestBody Modelo modelo) {
+		if (id == modelo.getId()) {
+			return new ResponseEntity<Modelo>(c.update(modelo), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Modelo>(HttpStatus.NOT_FOUND);
+		}
 	}
 
-	@DeleteMapping("deleteModelo/{modelo}")
-	public void deleteModelo(@PathVariable("modelo") Modelo modelo) {
-		c.delete(modelo);
+	@DeleteMapping("deleteModelo/{id}")
+	public void deleteByIdModelo(@PathVariable("id") long id) {
+		c.deleteByIdModelo(id);
 	}
 
 	@GetMapping("anoModelo/{anoFabricado}")
