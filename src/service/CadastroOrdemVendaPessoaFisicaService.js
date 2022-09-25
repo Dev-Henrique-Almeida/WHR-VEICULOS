@@ -10,7 +10,7 @@ class CadastroOrdemVendaPessoaFisicaService{
     deleteById(data) {
         return http.delete("/deleteOrdemPessoaFisica", data);
     }
-    findByPagoOrdemFisica(data) {
+    findByPagoOrdemFisicaId(data) {
         return http.get("/idOrdemPessoaFisica", data);
     }
     findByPagoOrdemFisica(data) {

@@ -32,23 +32,70 @@
 
         <v-divider></v-divider>
 
+
+
         <template>
           <v-card class="mx-auto" width="300">
-
-            <v-list dense nav>
-              <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+            <v-list>
+              <v-list-item>
                 <v-list-item-icon>
-                  <v-icon>{{ item.icon }}</v-icon>
+                  <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
 
-                <v-list-item-content>
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
+                <v-list-item-title @click="home">Home</v-list-item-title>
               </v-list-item>
+
+              <v-list-group :value="false" prepend-icon="mdi-account-circle">
+                <template v-slot:activator>
+                  <v-list-item-title>Clientes</v-list-item-title>
+                </template>
+                <v-list-item v-for="item in clientes" :key="item.title" :to="item.to" link>
+                  <v-list-item-icon>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-group>
+
+              <v-list-group :value="false" prepend-icon="mdi-car">
+                <template v-slot:activator>
+                  <v-list-item-title>Veiculos</v-list-item-title>
+                </template>
+                <v-list-item v-for="item in clientes" :key="item.title" :to="item.to" link>
+                  
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-group>
+
+              <v-list-group :value="false" prepend-icon="mdi-account-circle">
+                <template v-slot:activator>
+                  <v-list-item-title>Outros</v-list-item-title>
+                </template>
+                <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+                  <v-list-item-icon>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-group>
 
             </v-list>
           </v-card>
         </template>
+
+
+
+
+
+
+
+
       </v-navigation-drawer>
     </v-img>
   </v-app>
@@ -59,22 +106,18 @@ export default {
   data: () => ({
     drawer: false,
 
+
     items: [
       { title: 'Home', icon: 'mdi-home', to: '/' },
-      { title: 'Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
-      { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
       { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
       { title: 'Cadastrar Modelo', icon: 'mdi-car-outline', to: '/cadastroModelo' },
       { title: 'Cadastro Veiculo', icon: 'mdi-car', to: '/CadastrarVeiculo' },
-      { title: 'Update Cliente Fisico', icon: 'mdi-car', to: '/updateClienteFisico' },
-      { title: 'Update Cliente Juridico', icon: 'mdi-car', to: '/updateClienteJuridico' },
       { title: 'Update Modelo', icon: 'mdi-car', to: '/updateModelo' },
       { title: 'Update Funcionário', icon: 'mdi-car', to: '/updateFuncionario' },
       { title: 'Update Veiculo Novo', icon: 'mdi-car', to: '/updateVeiculoNovo' },
       { title: 'Update Veiculo Usado', icon: 'mdi-car', to: '/updateVeiculoUsado' },
       { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
       { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
-      { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
       { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
       { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
       { title: 'Venda', icon: 'mdi-cart', to: '/vendaVeiculo' },
@@ -82,9 +125,23 @@ export default {
       { title: 'Sobre', icon: 'mdi-information' },
 
     ],
+
+    clientes: [
+      { title: '- Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
+      { title: '- Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
+      { title: '- Update Cliente Fisico', icon: 'mdi-car', to: '/updateClienteFisico' },
+      { title: '- Update Cliente Juridico', icon: 'mdi-car', to: '/updateClienteJuridico' },
+      { title: '- Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
+    ],
     right: null,
   }),
+  methods: {
+    home() {
+      this.$router.push({ name: 'home' });
+    },
+  }
 
 }
 </script>
+
 

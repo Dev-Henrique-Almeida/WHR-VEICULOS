@@ -174,7 +174,7 @@
                     <v-btn class="ma-2" :loading="loading" :disabled="loading" color="secondary" @click="volta">
                         Editar
                     </v-btn>
-                    <v-btn class="ma-2" :loading="loading" :disabled="loading" color="success" @click="confirmarVenda">
+                    <v-btn class="ma-2" :loading="loading" :disabled="loading" color="success" @click="finalizarVenda">
                         Confirmar Venda</v-btn>
                 </div>
             </template>
@@ -187,6 +187,8 @@ import CadastroFuncionarioService from '@/service/CadastroFuncionarioService'
 import CadastroClienteFisicoService from '@/service/CadastroClienteFisicoService'
 import CadastroVeiculoNovoService from '@/service/CadastroVeiculoNovoService'
 import CadastroVeiculoUsadoService from '@/service/CadastroVeiculoUsadoService'
+import CadastroOrdemVendaPessoaFisicaService from '@/service/CadastroOrdemVendaPessoaFisicaService'
+import { reactive } from 'vue'
 
 export default {
     data() {
@@ -203,6 +205,14 @@ export default {
             cliente: [],
             veiculoUsado: [],
             veiculoNovo: [],
+            preVenda: reactive({
+                cpfCnpjCliente: '',
+                cpfFuncionario: '',
+                chassiVeiculo: '',
+                clienteJuridico: '',
+                veiculoNovo: '',
+                formaPagamento: '',
+            }),
             headersPagamento: [
                 { text: 'Forma de Pagamento', value: 'formaPagamento' },
                 { text: 'Valor Total', value: 'valorTotal' },
@@ -268,26 +278,36 @@ export default {
             this.$router.push({ name: 'cadastroClienteFisico' });
         },
         continuar() {
+            this.preVenda.cpfCnpjCliente = this.cliente[0].cpf;
+            this.preVenda.cpfFuncionario = this.funcionario[0].cpf
+            this.preVenda.clienteJuridico = false;
+            this.preVenda.formaPagamento = this.formaPagamento;
+
             if (JSON.stringify([]) === JSON.stringify(this.cliente) || this.formaPagamento === '' || JSON.stringify([]) === JSON.stringify(this.funcionario) ||
                 (JSON.stringify([]) === JSON.stringify(this.veiculoNovo) && JSON.stringify([]) === JSON.stringify(this.veiculoUsado))) {
                 alert('Preencha todos os dados solicitados!')
             } else {
                 this.tela = 2;
                 if (this.condicaoVeiculo == "Veiculo Usado") {
-                    this.valorTotal = this.veiculoUsado[0].valorVenda;
+                    this.preVenda.chassiVeiculo = this.veiculoUsado[0].chassi;
+                    this.preVenda.veiculoNovo == false;
                 } else {
-                    this.valorTotal = this.veiculoNovo[0].valorVenda;
+                    this.preVenda.chassiVeiculo = this.veiculoNovo[0].chassi;
+                    this.preVenda.veiculoNovo == true;
                 }
             }
+
+        },
+        finalizarVenda() {
+            console.log(this.preVenda)
+            CadastroOrdemVendaPessoaFisicaService.create(this.preVenda).then(
+                response => { console.log(response.status); });
         },
         volta() {
             this.tela = 1;
         },
         home(){
             this.$router.push({ name: 'home' });
-        },
-        confirmarVenda() {
-
         },
     },
     mounted() {

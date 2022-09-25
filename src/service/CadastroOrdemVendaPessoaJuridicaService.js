@@ -5,7 +5,7 @@ class CadastroOrdemVendaPessoaJuridicaService{
         return http.get('/allOrdemJuridico');
     }
     create(data) {
-        return http.post("/ordemJuridico", data);
+        return http.post("/ordemPessoaJuridica", data);
     }
     deleteById(data) {
         return http.delete("/deleteOrdemJuridico", data);
