@@ -27,8 +27,8 @@ public class CadastroOrdemPessoaJuridica {
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
 			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
 		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
-				|| Objects.isNull(findByVendaConcluida(entity.getVendaConcluida())) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(findByValor(entity.getValor())) || Objects.isNull(entity.getVendedor())
+				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
+				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
 				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
 				|| entity.getDataOperacao().before(new Date())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");

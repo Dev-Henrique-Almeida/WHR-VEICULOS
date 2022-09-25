@@ -1,5 +1,6 @@
 package br.edu.ufape.poo.projeto.cadastro;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,20 +25,23 @@ public class CadastroFuncionario {
 			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException {
 
 		if (Objects.isNull(entity.getDataNascimento())) {
-			throw new DataNulaException("Erro ao cadastrar, data inválida");
-		} else {
+					throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+				} else {
 			if (entity.getNome().isEmpty() || entity.getCpf().isEmpty()
 					|| entity.getTelefone().isEmpty()
-					|| Objects.isNull(findBySalario(entity.getSalario())) || entity.getCargo().isEmpty()
+					|| entity.getCargo().isEmpty()
 					|| entity.getEndereco().getCidade().isEmpty()
 					|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
 					|| entity.getEndereco().getCep().isEmpty()
 					|| Objects.isNull(entity.getEndereco().getNumero())) {
 				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 			} else {
-				if (Objects.isNull(entity.getDataNascimento())) {
-					throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+				if (Objects.isNull(entity.getDataNascimento().after(new Date()))) {
+					throw new DataNulaException("Erro ao cadastrar, data inválida");
 				} else {
+					if(Objects.isNull(entity.getSalario())) {
+						throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+					}
 				if (Objects.isNull(findByCpf(entity.getCpf()))) {
 
 					return repositorioFuncionario.save(entity);

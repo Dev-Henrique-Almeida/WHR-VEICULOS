@@ -23,17 +23,17 @@ public class CadastroVeiculoNovo {
 	public VeiculoNovo save(VeiculoNovo vn) throws ValorNuloExpection, ChassiExistenteException {
 
 		if (Objects.isNull(vn.getModelo().getCambio().isEmpty()) || Objects.isNull(vn.getModelo().getAnoFabricado())
-				|| vn.getModelo().getCombustivel().isEmpty()
-				|| vn.getModelo().getCor().isEmpty()
-				|| vn.getModelo().getMotor().isEmpty()
-				|| vn.getModelo().getNomeModelo().isEmpty()
-				|| vn.getModelo().getNomeMarca().isEmpty()
+				|| Objects.isNull(vn.getModelo().getCombustivel().isEmpty())
+				|| Objects.isNull(vn.getModelo().getCor().isEmpty())
+				|| Objects.isNull(vn.getModelo().getMotor().isEmpty())
+				|| Objects.isNull(vn.getModelo().getNomeModelo().isEmpty())
+				|| Objects.isNull(vn.getModelo().getNomeMarca().isEmpty())
 				|| Objects.isNull(vn.getModelo().getQuantidadePassageiros())
 				|| Objects.isNull(vn.getModelo().getAnoFabricado()) || Objects.isNull(vn.getModelo().getCilindradas())
 				|| Objects.isNull(vn.getModelo().getPotencia()) || Objects.isNull(vn.getValorCompraVeiculo())
 				|| Objects.isNull(vn.getVendido()) || Objects.isNull(vn.getValorVenda())
-				|| Objects.isNull(findByValorCompraVeiculo(vn.getValorCompraVeiculo())) || Objects.isNull(findByVendido(vn.getVendido()))  || vn.getGarantiaFabrica().isEmpty() || vn.getChassi().isEmpty()
-				|| Objects.isNull(findByKm(vn.getKm()))) {
+				|| Objects.isNull(vn.getValorCompraVeiculo()) || Objects.isNull(vn.getVendido())  || Objects.isNull(vn.getGarantiaFabrica().isEmpty()) || Objects.isNull(vn.getChassi().isEmpty())
+				|| Objects.isNull(vn.getKm())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.isNull(findByChassi(vn.getChassi()))) {

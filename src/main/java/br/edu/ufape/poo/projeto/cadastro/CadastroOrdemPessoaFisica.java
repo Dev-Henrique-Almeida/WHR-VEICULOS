@@ -27,12 +27,15 @@ public class CadastroOrdemPessoaFisica {
 			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 
 		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
-				|| Objects.isNull(findByVendaConcluida(entity.getVendaConcluida())) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(findByValor(entity.getValor())) || Objects.isNull(entity.getVendedor())
+				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
+				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
 				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo()))
 			{
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
+			if (Objects.isNull(entity.getDataOperacao())) {
+				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+			} else {
 			if(entity.getDataOperacao().before(new Date())) {
 				throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
 			}
@@ -42,7 +45,7 @@ public class CadastroOrdemPessoaFisica {
 			}
 		}
 	}
-
+	}
 	public void delete(OrdemVendaPessoaFisica entity) {
 		repositorioOrdemPessoaFisica.delete(entity);
 	}

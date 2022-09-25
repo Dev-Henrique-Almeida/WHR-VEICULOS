@@ -30,8 +30,8 @@ public class CadastroVeiculoUsado {
 				|| Objects.isNull(vu.getModelo().getQuantidadePassageiros())
 				|| Objects.isNull(vu.getModelo().getAnoFabricado()) || Objects.isNull(vu.getModelo().getCilindradas())
 				|| Objects.isNull(vu.getModelo().getPotencia()) || Objects.isNull(findByValorCompraVeiculo(vu.getValorCompraVeiculo()))
-				|| Objects.isNull(findByVendido(vu.getVendido())) || Objects.isNull(vu.getValorVenda()) || vu.getUnicoDono().isEmpty()
-				|| vu.getRevisado().isEmpty() || vu.getChassi().isEmpty() || Objects.isNull(findByKm(vu.getKm()))
+				|| Objects.isNull(vu.getVendido()) || Objects.isNull(vu.getValorVenda()) || vu.getUnicoDono().isEmpty()
+				|| vu.getRevisado().isEmpty() || vu.getChassi().isEmpty() || Objects.isNull(vu.getKm())
 				|| vu.getPlaca().isEmpty()) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
