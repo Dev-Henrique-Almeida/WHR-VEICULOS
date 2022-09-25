@@ -48,33 +48,48 @@ public class CadastroClienteJuridicoController {
 	}
 
 	@DeleteMapping("deleteClienteJuridico/{id}")
-	public void deleteClienteJuridico(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteClienteJuridico(@PathVariable("id") long id) {
 		c.deleteByIdClienteJuridico(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("deleteClienteJuridicoCnpj/{cnpj}")
-	public void deleteClienteJuridico(@PathVariable("cnpj") String cnpj) {
+	public ResponseEntity<HttpStatus> deleteClienteJuridico(@PathVariable("cnpj") String cnpj) {
 		c.deleteByCnpj(cnpj);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-
+	
 	@GetMapping("cnpjClienteJuridico/{cnpj}")
-	public ClienteJuridico findByCnpj(@PathVariable("cnpj") String cnpj) {
-		return c.findByCnpj(cnpj);
+	public ResponseEntity<ClienteJuridico> findByCnpj(@PathVariable("cnpj") String cnpj) {
+		if(c.findByCnpj(cnpj) != null) {
+			return new ResponseEntity<ClienteJuridico>(c.findByCnpj(cnpj), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("idClienteJuridico/{id}")
-	public ClienteJuridico findByIdClienteJuridico(@PathVariable("id") long id) {
-		return c.findByIdClienteJuridico(id);
+	public ResponseEntity<ClienteJuridico> findByIdClienteJuridico(@PathVariable("id") long id) {
+		if(c.findByIdClienteJuridico(id) != null) {
+			return new ResponseEntity<ClienteJuridico>(c.findByIdClienteJuridico(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("nomeClienteJuridico/{nomeFantasia}")
-	public ClienteJuridico findByNomeFantasia(@PathVariable("nomeFantasia") String nomeFantasia) {
-		return c.findByNomeFantasia(nomeFantasia);
+	public ResponseEntity<ClienteJuridico> findByNomeFantasia(@PathVariable("nomeFantasia") String nomeFantasia) {
+		if(c.findByNomeFantasia(nomeFantasia) != null) {
+			return new ResponseEntity<ClienteJuridico>(c.findByNomeFantasia(nomeFantasia), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("allClienteJuridico")
-	public List<ClienteJuridico> findAllClienteJuridico() {
-		return c.findAllClienteJuridico();
+	public ResponseEntity<List<ClienteJuridico>> findAllClienteJuridico() {
+		return new ResponseEntity<List<ClienteJuridico>>(c.findAllClienteJuridico(), HttpStatus.OK);
 	}
 
 }

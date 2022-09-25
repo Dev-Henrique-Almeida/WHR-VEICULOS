@@ -367,7 +367,7 @@ public class Concessionaria {
 		return cadastroVeiculoNovo.findAllByVendido();
 	}
 
-	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(boolean garantiaFabrica) {
+	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(String garantiaFabrica) {
 		return cadastroVeiculoNovo.findByGarantiaFabrica(garantiaFabrica);
 	}
 

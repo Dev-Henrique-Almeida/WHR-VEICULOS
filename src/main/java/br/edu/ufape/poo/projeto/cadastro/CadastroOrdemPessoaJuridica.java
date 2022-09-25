@@ -29,7 +29,7 @@ public class CadastroOrdemPessoaJuridica {
 				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
 				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
 				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
-				|| entity.getDataOperacao().after(new Date())) {
+				|| entity.getDataOperacao().before(new Date())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.isNull(entity.getDataOperacao())) {

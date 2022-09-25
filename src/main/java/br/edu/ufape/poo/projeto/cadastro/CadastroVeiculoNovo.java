@@ -73,7 +73,7 @@ public class CadastroVeiculoNovo {
 		return repositorioVeiculoNovo.findAllById(ids);
 	}
 
-	public List<VeiculoNovo> findByGarantiaFabrica(boolean garantiaFabrica) {
+	public List<VeiculoNovo> findByGarantiaFabrica(String garantiaFabrica) {
 		return repositorioVeiculoNovo.findByGarantiaFabrica(garantiaFabrica);
 	}
 
@@ -90,8 +90,3 @@ public class CadastroVeiculoNovo {
 	}
 
 }
-
-/*
- * (float valorCompraVeiculo, float valorVenda, boolean vendido, Modelo modelo,
- * String garantiaFabrica) {
- */

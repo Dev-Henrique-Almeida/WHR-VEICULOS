@@ -50,33 +50,52 @@ public class CadastroVeiculoUsadoController {
 	}
 
 	@DeleteMapping("deleteVeiculoUsado/{id}")
-	public void deleteByIdVeiculoUsado(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteByIdVeiculoUsado(@PathVariable("id") long id) {
 		c.deleteByIdVeiculoUsado(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("deleteVeiculoUsado/{veiculo}")
-	public void deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) { // para remover diretamente na URL
+	public ResponseEntity<HttpStatus> deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) { // para remover diretamente na URL
 		c.delete(veiculo);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("valorVeiculoUsado/{valorVenda}")
-	public List<VeiculoUsado> findByValorVendaVeiculoUsado(@PathVariable("valorVenda") float valorVenda) {
-		return c.findByValorVendaVeiculoUsado(valorVenda);
+	public ResponseEntity<List<VeiculoUsado>> findByValorVendaVeiculoUsado(@PathVariable("valorVenda") float valorVenda) {
+		if(c.findAllByVendidoUsado() != null) {
+			return new ResponseEntity<List<VeiculoUsado>>(c.findByValorVendaVeiculoUsado(valorVenda), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<VeiculoUsado>>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("idVeiculoUsado/{id}")
-	public VeiculoUsado findByIdVeiculoUsado(@PathVariable("id") long id) {
-		return c.findByIdVeiculoUsado(id);
+	public ResponseEntity<VeiculoUsado> findByIdVeiculoUsado(@PathVariable("id") long id) {
+		if(c.findAllByVendidoUsado() != null) {
+			return new ResponseEntity<VeiculoUsado>(c.findByIdVeiculoUsado(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<VeiculoUsado>(HttpStatus.NOT_FOUND);
+		}
+		
 	}
 
 	@GetMapping("vendidoVeiculoUsado")
-	public List<VeiculoUsado> findAllByVendidoUsado() {
-		return c.findAllByVendidoUsado();
+	public ResponseEntity<List<VeiculoUsado>> findAllByVendidoUsado() {
+		if(c.findAllByVendidoUsado() != null) {
+			return new ResponseEntity<List<VeiculoUsado>>(c.findAllByVendidoUsado(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<VeiculoUsado>>(HttpStatus.NOT_FOUND);
+		}
+		
 	}
 
 	@GetMapping("allVeiculoUsado")
-	public List<VeiculoUsado> findAllVeiculoUsado() {
-		return c.findAllVeiculoUsado();
+	public ResponseEntity<List<VeiculoUsado>> findAllVeiculoUsado() {
+		return new ResponseEntity<List<VeiculoUsado>>(c.findAllVeiculoUsado(), HttpStatus.OK);
 	}
+	
+
+
 
 }

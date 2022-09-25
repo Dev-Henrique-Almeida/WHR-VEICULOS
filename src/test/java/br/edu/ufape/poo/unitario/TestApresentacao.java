@@ -1,4 +1,4 @@
-package br.edu.ufape.poo;
+package br.edu.ufape.poo.unitario;
 
 import java.util.Date;
 
@@ -71,7 +71,6 @@ class TestApresentacao {
 			ClienteFisicoExistenteException, DataNulaException {
 		ClienteFisico cf = new ClienteFisico("26194239964", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),
 				"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864));
-		// cf.checarIdade(new Date(2000 - 1900, 1, 2));
 		ccf.save(cf);
 
 		ClienteFisico cf2 = new ClienteFisico("03463463202", "Vitória Fabiana Yasmin", new Date(2003 - 1900, 0, 1),

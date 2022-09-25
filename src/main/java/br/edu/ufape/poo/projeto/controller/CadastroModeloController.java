@@ -47,28 +47,43 @@ public class CadastroModeloController {
 	}
 
 	@DeleteMapping("deleteModelo/{id}")
-	public void deleteByIdModelo(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteByIdModelo(@PathVariable("id") long id) {
 		c.deleteByIdModelo(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("anoModelo/{anoFabricado}")
-	public List<Modelo> findByAnoFabricado(@PathVariable("anoFabricado") int anoFabricado) {
-		return c.findByAnoFabricado(anoFabricado);
+	public ResponseEntity<List<Modelo>> findByAnoFabricado(@PathVariable("anoFabricado") int anoFabricado) {
+		if(c.findByAnoFabricado(anoFabricado) != null) {
+			return new ResponseEntity<List<Modelo>>(c.findByAnoFabricado(anoFabricado), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Modelo>>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("idModelo/{id}")
-	public Modelo findById(@PathVariable("id") long id) {
-		return c.findById(id);
+	public ResponseEntity<Modelo> findById(@PathVariable("id") long id) {
+		if(c.findById(id) != null) {
+			return new ResponseEntity<Modelo>(c.findById(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Modelo>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("nomeModelo/{nomeModelo}")
-	public List<Modelo> findByNomeModelo(@PathVariable("nomeModelo") String nomeModelo) {
-		return c.findByNomeModelo(nomeModelo);
+	public ResponseEntity<List<Modelo>> findByNomeModelo(@PathVariable("nomeModelo") String nomeModelo) {
+		if(c.findByNomeModelo(nomeModelo) != null) {
+			return new ResponseEntity<List<Modelo>>(c.findByNomeModelo(nomeModelo), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Modelo>>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("/allModelo")
-	public List<Modelo> findAllModelo() {
-		return c.findAllModelo();
+	public ResponseEntity<List<Modelo>> findAllModelo() {
+		return new ResponseEntity<List<Modelo>>(c.findAllModelo(), HttpStatus.OK);
 	}
+	
 
 }

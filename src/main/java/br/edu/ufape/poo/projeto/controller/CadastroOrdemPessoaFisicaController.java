@@ -46,10 +46,11 @@ public class CadastroOrdemPessoaFisicaController {
 	}
 
 	@PostMapping("ordemPessoaFisica")
-	public void createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection,
+	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection,
 			DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
 			ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
 		c.preVenda(entity);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 
 	}
 
@@ -64,23 +65,34 @@ public class CadastroOrdemPessoaFisicaController {
 	}
 
 	@DeleteMapping("deleteOrdemPessoaFisica/{id}")
-	public void deleteOrdemVendaPessoaFisica(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteOrdemVendaPessoaFisica(@PathVariable("id") long id) {
 		c.deleteByIdOrdemFisica(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("idOrdemPessoaFisica/{id}")
-	public OrdemVendaPessoaFisica findById(@PathVariable("id") long id) {
-		return c.findByIdOrdemFisica(id);
+	public ResponseEntity<OrdemVendaPessoaFisica> findById(@PathVariable("id") long id) {
+		if(c.findByIdOrdemFisica(id) != null) {
+			return new ResponseEntity<OrdemVendaPessoaFisica>(c.findByIdOrdemFisica(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<OrdemVendaPessoaFisica>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("pagoOrdemPessoaFisica/{pago}")
-	public List<OrdemVendaPessoaFisica> findByPago(@PathVariable("pago") boolean pago) {
-		return c.findByPagoOrdemFisica(pago);
+	public ResponseEntity<List<OrdemVendaPessoaFisica>> findByPago(@PathVariable("pago") boolean pago) {
+		if(c.findByPagoOrdemFisica(pago) != null) {
+			return new ResponseEntity<List<OrdemVendaPessoaFisica>>(c.findByPagoOrdemFisica(pago), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<OrdemVendaPessoaFisica>>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("allOrdemPessoaFisica")
-	public List<OrdemVendaPessoaFisica> findAllOrdemFisica() {
-		return c.findAllOrdemFisica();
+	public ResponseEntity<List<OrdemVendaPessoaFisica>> findAllOrdemFisica() {
+		return new ResponseEntity<List<OrdemVendaPessoaFisica>>(c.findAllOrdemFisica(), HttpStatus.OK);
 	}
+
 
 }

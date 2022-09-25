@@ -49,39 +49,59 @@ public class CadastroVeiculoNovoController {
 	}
 
 	@DeleteMapping("deleteVeiculoNovo/{id}")
-	public void deleteByIdVeiculoNovo(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteByIdVeiculoNovo(@PathVariable("id") long id) {
 		c.deleteByIdVeiculoNovo(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("deleteVeiculoNovo")
-	public void deleteVeiculoNovo(@RequestBody VeiculoNovo veiculo) {
+	public ResponseEntity<HttpStatus> deleteVeiculoNovo(@RequestBody VeiculoNovo veiculo) {
 		c.delete(veiculo);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("valorVeiculoNovo/{valorVenda}")
-	public List<VeiculoNovo> findByValorVendaVeiculoNovo(@PathVariable("valorVenda") float valorVenda) {
-		return c.findByValorVendaVeiculoNovo(valorVenda);
+	public ResponseEntity<List<VeiculoNovo>> findByValorVendaVeiculoNovo(@PathVariable("valorVenda") float valorVenda) {
+		if(c.findByValorVendaVeiculoNovo(valorVenda) != null) {
+			return new ResponseEntity<List<VeiculoNovo>>(c.findByValorVendaVeiculoNovo(valorVenda), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("idVeiculoNovo/{id}")
-	public VeiculoNovo findByIdVeiculoNovo(@PathVariable("id") long id) {
-		return c.findByIdVeiculoNovo(id);
+	public ResponseEntity<VeiculoNovo> findByIdVeiculoNovo(@PathVariable("id") long id) {
+		if(c.findAllByVendidoVeiculoNovo() != null) {
+			return new ResponseEntity<VeiculoNovo>(c.findByIdVeiculoNovo(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<VeiculoNovo>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("vendidoVeiculoNovo")
-	public List<VeiculoNovo> findAllByVendidoVeiculoNovo() {
-		return c.findAllByVendidoVeiculoNovo();
+	public ResponseEntity<List<VeiculoNovo>> findAllByVendidoVeiculoNovo() {
+		if(c.findAllByVendidoVeiculoNovo() != null) {
+			return new ResponseEntity<List<VeiculoNovo>>(c.findAllByVendidoVeiculoNovo(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("garantiaVeiculoNovo/{garantiaFabrica}")
-	public List<VeiculoNovo> findByGarantiaFabricaVeiculoNovo(
-			@PathVariable("garantiaFabrica") boolean garantiaFabrica) {
-		return c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica);
+	public ResponseEntity<List<VeiculoNovo>> findByGarantiaFabricaVeiculoNovo(@PathVariable("garantiaFabrica") String garantiaFabrica) {
+		if(c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica) != null) {
+			return new ResponseEntity<List<VeiculoNovo>>(c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("allVeiculoNovo")
-	public List<VeiculoNovo> findAllVeiculoNovo() {
-		return c.findAllVeiculoNovo();
+	public ResponseEntity<List<VeiculoNovo>> findAllVeiculoNovo() {
+		return new ResponseEntity<List<VeiculoNovo>>(c.findAllVeiculoNovo(), HttpStatus.OK);
 	}
+	
+
 
 }

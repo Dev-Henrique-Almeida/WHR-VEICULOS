@@ -51,34 +51,48 @@ public class CadastroFuncionarioController {
 	}
 
 	@DeleteMapping("deleteFuncionario/{id}")
-	public void deleteByIdFuncionario(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteByIdFuncionario(@PathVariable("id") long id) {
 		c.deleteByIdFuncionario(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("deleteFuncionarioCpf/{cpf}")
-	public void deleteFuncionario(@PathVariable("cpf") String cpf) { // @PathVariable poder ser usado para remover
-																		// diretamente na URL
+	public ResponseEntity<HttpStatus> deleteFuncionario(@PathVariable("cpf") String cpf) { 
 		c.deleteByCpf(cpf);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("cpfFuncionario/{cpf}")
-	public Funcionario findByCpf(@PathVariable("cpf") String cpf) {
-		return c.findByNomeFuncionario(cpf);
+	public ResponseEntity<Funcionario> findByCpf(@PathVariable("cpf") String cpf) {
+		if(c.findByNomeFuncionario(cpf) != null) {
+			return new ResponseEntity<Funcionario>(c.findByNomeFuncionario(cpf), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("idFuncionario/{id}")
-	public Funcionario findByIdFuncionario(@PathVariable("id") long id) {
-		return c.findByIdFuncionario(id);
+	public ResponseEntity<Funcionario> findByIdFuncionario(@PathVariable("id") long id) {
+		if(c.findByIdFuncionario(id) != null) {
+			return new ResponseEntity<Funcionario>(c.findByIdFuncionario(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("nomeFuncionario/{nome}")
-	public Funcionario findByNome(@PathVariable("nome") String nome) {
-		return c.findByNomeFuncionario(nome);
+	public ResponseEntity<Funcionario> findByNomeFuncionario(@PathVariable("nome") String nome) {
+		if(c.findByNomeFuncionario(nome) != null) {
+			return new ResponseEntity<Funcionario>(c.findByNomeFuncionario(nome), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@GetMapping("allFuncionario")
-	public List<Funcionario> findAllFuncionario() {
-		return c.findAllFuncionario();
+	public ResponseEntity<List<Funcionario>> findAllFuncionario() {
+		return new ResponseEntity<List<Funcionario>>(c.findAllFuncionario(), HttpStatus.OK);
 	}
-
+	
 }

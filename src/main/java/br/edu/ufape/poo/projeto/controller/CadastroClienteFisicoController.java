@@ -49,30 +49,51 @@ public class CadastroClienteFisicoController {
 			return new ResponseEntity<ClienteFisico>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
 
 	@DeleteMapping("deleteClienteFisico/{id}")
-	public void deleteClienteFisico(@PathVariable("id") long id) {
-		c.deleteById(id);
+	public ResponseEntity<HttpStatus> deleteClienteFisico(@PathVariable("id") long id) {
+		if(c.findByIdClienteFisico(id) != null) {
+			c.deleteById(id);
+			return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<HttpStatus>(HttpStatus.NOT_FOUND);
+		}
+		
 	}
 
 	@GetMapping("idClienteFisico/{id}")
-	public ClienteFisico findByIdClienteFisico(@PathVariable("id") long id) {
-		return c.findByIdClienteFisico(id);
+	public ResponseEntity<ClienteFisico> findByIdClienteFisico(@PathVariable("id") long id) {
+		if(c.findByIdClienteFisico(id) != null) {
+			return new ResponseEntity<ClienteFisico>(c.findByIdClienteFisico(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteFisico>(HttpStatus.NOT_FOUND);
+		}
 	}
-
+	
 	@GetMapping("cpfClienteFisico/{cpf}")
-	public ClienteFisico findByCpf(@PathVariable("cpf") String cpf) {
-		return c.findByCpf(cpf);
+	public ResponseEntity<ClienteFisico> findByCpf(@PathVariable("cpf") String cpf) {
+		if(c.findByCpf(cpf) != null) {
+			return new ResponseEntity<ClienteFisico>(c.findByCpf(cpf), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteFisico>(HttpStatus.NOT_FOUND);
+		}
 	}
-
+	
 	@GetMapping("nomeClienteFisico/{nome}")
-	public ClienteFisico findByNome(@PathVariable("nome") String nome) {
-		return c.findByNome(nome);
+	public ResponseEntity<ClienteFisico> findByNome(@PathVariable("nome") String nome) {
+		if(c.findByNome(nome) != null) {
+			return new ResponseEntity<ClienteFisico>(c.findByNome(nome), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ClienteFisico>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("allClienteFisico")
+	public ResponseEntity<List<ClienteFisico>> findAllClienteFisico() {
+			return new ResponseEntity<List<ClienteFisico>>(c.findAllClienteFisico(), HttpStatus.OK);
+
 	}
 
-	@GetMapping("allClienteFisico")
-	public List<ClienteFisico> findAllClienteFisico() {
-		return c.findAllClienteFisico();
-	}
 
 }

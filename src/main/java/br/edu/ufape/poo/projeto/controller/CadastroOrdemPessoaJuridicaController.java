@@ -16,8 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
+import br.edu.ufape.poo.projeto.basica.PreVenda;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiNaoEncontradoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteNaoEncontradoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioNaoEncontradoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
@@ -30,14 +36,6 @@ public class CadastroOrdemPessoaJuridicaController {
 	@Autowired
 	private Concessionaria c;
 
-	@PostMapping("ordemJuridica")
-	public ResponseEntity<OrdemVendaPessoaJuridica> createOrdemVendaPessoaJuridica(
-			@RequestBody OrdemVendaPessoaJuridica entity)
-			throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, VendaSemLucroException {
-		OrdemVendaPessoaJuridica or = c.save(entity);
-		return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
-
-	}
 
 	@PutMapping("updateOrdemVendaPessoaJuridica/{id}")
 	public ResponseEntity<OrdemVendaPessoaJuridica> updateOrdemVendaPessoaJuridica(@PathVariable("id") long id,
@@ -48,25 +46,57 @@ public class CadastroOrdemPessoaJuridicaController {
 			return new ResponseEntity<OrdemVendaPessoaJuridica>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@PostMapping("ordemJuridica")
+    public ResponseEntity<OrdemVendaPessoaJuridica> createOrdemVendaPessoaJuridica(
+            @RequestBody OrdemVendaPessoaJuridica entity)
+            throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, VendaSemLucroException {
+        OrdemVendaPessoaJuridica or = c.save(entity);
+        return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
+
+    }
+
+    @PostMapping("ordemPessoaJuridica")
+    public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection,
+            DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
+            ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
+        c.preVenda(entity);
+        return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+
+    }
 
 	@DeleteMapping("deleteOrdemJuridica/{id}")
-	public void deleteOrdemPessoaJuridica(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteOrdemPessoaJuridica(@PathVariable("id") long id) {
 		c.deleteByIdOrdemJuridico(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("idOrdemJuridica/{id}")
-	public OrdemVendaPessoaJuridica findByIdOrdemJuridica(@PathVariable("id") long id) {
-		return c.findByIdOrdemJuridico(id);
+	public ResponseEntity<OrdemVendaPessoaJuridica> findByIdOrdemJuridica(@PathVariable("id") long id) {
+		if(c.findByIdOrdemJuridico(id) != null) {
+			return new ResponseEntity<OrdemVendaPessoaJuridica>(c.findByIdOrdemJuridico(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<OrdemVendaPessoaJuridica>(HttpStatus.NOT_FOUND);
+		}
 	}
+	
+	
 
 	@GetMapping("pagoOrdemJuridica/{pago}")
-	public List<OrdemVendaPessoaJuridica> findByPagoOrdemJuridica(@PathVariable("pago") boolean pago) {
-		return c.findByPagoOrdemJuridico(pago);
+	public ResponseEntity<List<OrdemVendaPessoaJuridica>> findByPagoOrdemJuridica(@PathVariable("pago") boolean pago) {
+		if(c.findByPagoOrdemJuridico(pago) != null) {
+			return new ResponseEntity<List<OrdemVendaPessoaJuridica>>(c.findByPagoOrdemJuridico(pago), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<OrdemVendaPessoaJuridica>>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 
 	@GetMapping("allOrdemJuridica")
-	public List<OrdemVendaPessoaJuridica> findAllOrdemJuridica() {
-		return c.findAllOrdemJuridico();
+	public ResponseEntity<List<OrdemVendaPessoaJuridica>> findAllOrdemJuridica() {
+		return new ResponseEntity<List<OrdemVendaPessoaJuridica>>(c.findAllOrdemJuridico(), HttpStatus.OK);
 	}
+	
+
 
 }

@@ -100,6 +100,10 @@ public abstract class Veiculo implements IVeiculo {
 		return modelo;
 	}
 
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
 	public float getKm() {
 		return km;
 	}
