@@ -18,4 +18,6 @@ public interface RepositorioFuncionario extends JpaRepository<Funcionario, Long>
 
 	public Funcionario findByCpf(long id);
 
+	public Funcionario findBySalario(float salario);
+
 }

@@ -18,30 +18,30 @@ public class CadastroVeiculoUsado {
 	@Autowired
 	private RepositorioVeiculoUsado repositorioVeiculoUsado;
 
-	public VeiculoUsado save(VeiculoUsado vn)
+	public VeiculoUsado save(VeiculoUsado vu)
 			throws ChassiExistenteException, ValorNuloExpection, PlacaExistenteException {
 
-		if (Objects.isNull(vn.getModelo().getCambio().isEmpty()) || Objects.isNull(vn.getModelo().getAnoFabricado())
-				|| Objects.isNull(vn.getModelo().getCombustivel().isEmpty())
-				|| Objects.isNull(vn.getModelo().getCor().isEmpty())
-				|| Objects.isNull(vn.getModelo().getMotor().isEmpty())
-				|| Objects.isNull(vn.getModelo().getNomeModelo().isEmpty())
-				|| Objects.isNull(vn.getModelo().getNomeMarca().isEmpty())
-				|| Objects.isNull(vn.getModelo().getQuantidadePassageiros())
-				|| Objects.isNull(vn.getModelo().getAnoFabricado()) || Objects.isNull(vn.getModelo().getCilindradas())
-				|| Objects.isNull(vn.getModelo().getPotencia()) || Objects.isNull(vn.getValorCompraVeiculo())
-				|| Objects.isNull(vn.getVendido()) || Objects.isNull(vn.getValorVenda()) || vn.getUnicoDono().isEmpty()
-				|| vn.getRevisado().isEmpty() || vn.getChassi().isEmpty() || Objects.isNull(vn.getKm())
-				|| vn.getPlaca().isEmpty()) {
+		if (Objects.isNull(vu.getModelo().getCambio().isEmpty()) || Objects.isNull(vu.getModelo().getAnoFabricado())
+				|| vu.getModelo().getCombustivel().isEmpty()
+				|| vu.getModelo().getCor().isEmpty()
+				|| vu.getModelo().getMotor().isEmpty()
+				|| vu.getModelo().getNomeModelo().isEmpty()
+				|| vu.getModelo().getNomeMarca().isEmpty()
+				|| Objects.isNull(vu.getModelo().getQuantidadePassageiros())
+				|| Objects.isNull(vu.getModelo().getAnoFabricado()) || Objects.isNull(vu.getModelo().getCilindradas())
+				|| Objects.isNull(vu.getModelo().getPotencia()) || Objects.isNull(findByValorCompraVeiculo(vu.getValorCompraVeiculo()))
+				|| Objects.isNull(findByVendido(vu.getVendido())) || Objects.isNull(vu.getValorVenda()) || vu.getUnicoDono().isEmpty()
+				|| vu.getRevisado().isEmpty() || vu.getChassi().isEmpty() || Objects.isNull(findByKm(vu.getKm()))
+				|| vu.getPlaca().isEmpty()) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
-			if (Objects.nonNull(findByPlaca(vn.getPlaca()))) {
+			if (Objects.nonNull(findByPlaca(vu.getPlaca()))) {
 				throw new PlacaExistenteException("Erro ao cadastrar, placa já existe, por favor informe outra Placa!");
 			} else {
 
-				if (Objects.isNull(findByChassi(vn.getChassi()))) {
+				if (Objects.isNull(findByChassi(vu.getChassi()))) {
 
-					return repositorioVeiculoUsado.save(vn);
+					return repositorioVeiculoUsado.save(vu);
 				} else {
 
 					throw new ChassiExistenteException(
@@ -63,9 +63,21 @@ public class CadastroVeiculoUsado {
 		return repositorioVeiculoUsado.findByPlaca(placa);
 	}
 
+	public VeiculoUsado findByValorCompraVeiculo(float valorCompraVeiculo) {
+		return repositorioVeiculoUsado.findByValorCompraVeiculo(valorCompraVeiculo);
+	}
+	
+	public VeiculoUsado findByVendido(boolean vendido) {
+		return repositorioVeiculoUsado.findByVendido(vendido);
+	}
+	
 	public List<VeiculoUsado> findAllByVendido() {
 		boolean vendido = false;
 		return repositorioVeiculoUsado.findAllByVendido(vendido);
+	}
+	
+	public VeiculoUsado findByKm(float km) {
+		return repositorioVeiculoUsado.findByKm(km);
 	}
 
 	public VeiculoUsado findById(long id) {

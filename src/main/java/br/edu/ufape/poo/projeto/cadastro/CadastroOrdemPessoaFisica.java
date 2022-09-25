@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
@@ -23,17 +24,22 @@ public class CadastroOrdemPessoaFisica {
 	private RepositorioOrdemPessoaFisica repositorioOrdemPessoaFisica;
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorNegativoException, ValorNuloExpection, DataNulaException {
+			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 
-		if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
-				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
-				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
-				|| entity.getDataOperacao().before(new Date())) {
+		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
+				|| Objects.isNull(findByVendaConcluida(entity.getVendaConcluida())) || entity.getFormaPagamento().isEmpty()
+				|| Objects.isNull(findByValor(entity.getValor())) || Objects.isNull(entity.getVendedor())
+				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo()))
+			{
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
+			if(entity.getDataOperacao().before(new Date())) {
+				throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+			}
+			else {
 
-			return repositorioOrdemPessoaFisica.save(entity);
+				return repositorioOrdemPessoaFisica.save(entity);
+			}
 		}
 	}
 
@@ -53,6 +59,18 @@ public class CadastroOrdemPessoaFisica {
 		return repositorioOrdemPessoaFisica.findById(id);
 	}
 
+	public OrdemVendaPessoaFisica findByNovo(boolean novo) {
+		return repositorioOrdemPessoaFisica.findByNovo(novo);
+	}
+	
+	public OrdemVendaPessoaFisica findByValor(float valor) {
+		return repositorioOrdemPessoaFisica.findByValor(valor);
+	}
+	
+	public OrdemVendaPessoaFisica findByVendaConcluida(boolean vendaConcluida) {
+		return repositorioOrdemPessoaFisica.findByVendaConcluida(vendaConcluida);
+	}
+	
 	public List<OrdemVendaPessoaFisica> findAll() {
 		return repositorioOrdemPessoaFisica.findAll();
 	}

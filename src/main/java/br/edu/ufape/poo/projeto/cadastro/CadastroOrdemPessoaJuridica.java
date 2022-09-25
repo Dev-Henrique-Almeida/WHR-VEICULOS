@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
@@ -24,23 +25,29 @@ public class CadastroOrdemPessoaJuridica {
 	private RepositorioOrdemPessoaJuridica repositorioOrdemPessoaJuridica;
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
-		if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
-				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
+			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
+		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
+				|| Objects.isNull(findByVendaConcluida(entity.getVendaConcluida())) || entity.getFormaPagamento().isEmpty()
+				|| Objects.isNull(findByValor(entity.getValor())) || Objects.isNull(entity.getVendedor())
 				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
 				|| entity.getDataOperacao().before(new Date())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
+			
 			if (Objects.isNull(entity.getDataOperacao())) {
-				throw new DataForaRangeException("Erro ao cadastrar, data inválida");
+				throw new DataNulaException("Erro ao cadastrar, data inválida");
 			} else {
+				if(entity.getDataOperacao().before(new Date())) {
+					throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+				}
+				else {
+
 
 				return repositorioOrdemPessoaJuridica.save(entity);
 			}
 		}
 	}
-
+	}
 	public void delete(OrdemVendaPessoaJuridica entity) {
 		repositorioOrdemPessoaJuridica.delete(entity);
 	}
@@ -51,6 +58,18 @@ public class CadastroOrdemPessoaJuridica {
 
 	public OrdemVendaPessoaJuridica update(OrdemVendaPessoaJuridica entity) {
 		return repositorioOrdemPessoaJuridica.save(entity);
+	}
+	
+	public OrdemVendaPessoaJuridica findByValor(float valor) {
+		return repositorioOrdemPessoaJuridica.findByValor(valor);
+	}
+	
+	public OrdemVendaPessoaJuridica findByNovo(boolean novo) {
+		return repositorioOrdemPessoaJuridica.findByNovo(novo);
+	}
+	
+	public OrdemVendaPessoaJuridica findByVendaConcluida(boolean vendaConcluida) {
+		return repositorioOrdemPessoaJuridica.findByVendaConcluida(vendaConcluida);
 	}
 
 	public OrdemVendaPessoaJuridica findById(long id) {

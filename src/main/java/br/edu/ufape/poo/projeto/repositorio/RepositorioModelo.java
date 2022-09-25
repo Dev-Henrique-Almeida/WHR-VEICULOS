@@ -16,4 +16,10 @@ public interface RepositorioModelo extends JpaRepository<Modelo, Long> {
 
 	public Modelo findById(long id);
 
+	public Modelo findByCilindradas(float cilindradas);
+
+	public Modelo findByPotencia(int potencia);
+
+	public Modelo findByQuantidadePassageiros(int quantidadePassageiros);
+
 }

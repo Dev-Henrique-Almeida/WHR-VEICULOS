@@ -20,4 +20,10 @@ public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Lon
 
 	public VeiculoUsado findByPlaca(String placa);
 
+	public VeiculoUsado findByKm(float km);
+
+	public VeiculoUsado findByVendido(boolean vendido);
+
+	public VeiculoUsado findByValorCompraVeiculo(float valorCompraVeiculo);
+
 }

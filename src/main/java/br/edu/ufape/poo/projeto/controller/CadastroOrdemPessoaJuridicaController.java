@@ -50,7 +50,7 @@ public class CadastroOrdemPessoaJuridicaController {
 	@PostMapping("ordemJuridica")
     public ResponseEntity<OrdemVendaPessoaJuridica> createOrdemVendaPessoaJuridica(
             @RequestBody OrdemVendaPessoaJuridica entity)
-            throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, VendaSemLucroException {
+            throws DataForaRangeException, ValorForaRangeException, ValorNuloExpection, VendaSemLucroException, DataNulaException {
         OrdemVendaPessoaJuridica or = c.save(entity);
         return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
 
@@ -79,8 +79,6 @@ public class CadastroOrdemPessoaJuridicaController {
 			return new ResponseEntity<OrdemVendaPessoaJuridica>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
-	
 
 	@GetMapping("pagoOrdemJuridica/{pago}")
 	public ResponseEntity<List<OrdemVendaPessoaJuridica>> findByPagoOrdemJuridica(@PathVariable("pago") boolean pago) {

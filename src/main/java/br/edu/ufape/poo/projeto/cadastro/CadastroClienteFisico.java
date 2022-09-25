@@ -22,18 +22,18 @@ public class CadastroClienteFisico {
 
 	public ClienteFisico save(ClienteFisico entity)
 			throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException {
-
-		if (Objects.isNull(entity.getDataNascimento())) {
-			throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+		if (entity.getNome().isEmpty() || entity.getCpf().isEmpty()
+				|| entity.getEndereco().getCidade().isEmpty()
+				|| entity.getEndereco().getEstado().isEmpty()
+				|| entity.getEndereco().getRua().isEmpty()
+				|| entity.getEndereco().getCep().isEmpty() || Objects.isNull(entity.getEndereco().getNumero())
+				|| entity.getTelefone().isEmpty()) {
+			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
 		} else {
-			if (Objects.isNull(entity.getNome().isEmpty()) || Objects.isNull(entity.getCpf().isEmpty())
-					|| Objects.isNull(entity.getEndereco().getCidade().isEmpty())
-					|| Objects.isNull(entity.getEndereco().getEstado().isEmpty())
-					|| Objects.isNull(entity.getEndereco().getRua().isEmpty())
-					|| Objects.isNull(entity.getEndereco().getCep()) || Objects.isNull(entity.getEndereco().getNumero())
-					|| Objects.isNull(entity.getTelefone())) {
-				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
+			if (Objects.isNull(entity.getDataNascimento())) {
+				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
 			} else {
+
 				if (Objects.isNull(findByCpf(entity.getCpf()))) {
 					return repositorioClienteFisico.save(entity);
 				} else {

@@ -69,8 +69,7 @@ public class Concessionaria {
 
 	////////////////////// CLIENTE FISICO //////////////////////////////
 
-	public ClienteFisico save(ClienteFisico entity) throws ClienteFisicoExistenteException, ValorNuloExpection,
-			ValorForaRangeException, DataNulaException, DataForaRangeException {
+	public ClienteFisico save(ClienteFisico entity) throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException  {
 		return cadastroClienteFisico.save(entity);
 	}
 
@@ -214,7 +213,7 @@ public class Concessionaria {
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorNegativoException, ValorNuloExpection, DataNulaException {
+			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -244,9 +243,7 @@ public class Concessionaria {
 
 	/////////////////////// PRE VENDA /////////////////////////
 
-	public void preVenda(PreVenda preVenda) throws ValorNegativoException, ValorNuloExpection, DataNulaException,
-			ValorForaRangeException, DataForaRangeException, VendaSemLucroException, ChassiNaoEncontradoException,
-			FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
+	public void preVenda(PreVenda preVenda) throws FuncionarioNaoEncontradoException, ChassiNaoEncontradoException, ClienteNaoEncontradoException, ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException, ValorNegativoException{
 
 		float valor;
 		Date dataOperacao = new Date();
@@ -304,7 +301,7 @@ public class Concessionaria {
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
 	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException {
+			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
 		return cadastroOrdemPessoaJuridica.save(entity);
 
 	}

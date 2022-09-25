@@ -26,15 +26,18 @@ public class CadastroFuncionario {
 		if (Objects.isNull(entity.getDataNascimento())) {
 			throw new DataNulaException("Erro ao cadastrar, data inválida");
 		} else {
-			if (Objects.isNull(entity.getNome()) || Objects.isNull(entity.getCpf())
-					|| Objects.isNull(entity.getTelefone()) || Objects.isNull(entity.getDataNascimento())
-					|| Objects.isNull(entity.getSalario()) || Objects.isNull(entity.getCargo())
-					|| Objects.isNull(entity.getEndereco().getCidade())
-					|| Objects.isNull(entity.getEndereco().getEstado()) || Objects.isNull(entity.getEndereco().getRua())
-					|| Objects.isNull(entity.getEndereco().getCep())
+			if (entity.getNome().isEmpty() || entity.getCpf().isEmpty()
+					|| entity.getTelefone().isEmpty()
+					|| Objects.isNull(findBySalario(entity.getSalario())) || entity.getCargo().isEmpty()
+					|| entity.getEndereco().getCidade().isEmpty()
+					|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
+					|| entity.getEndereco().getCep().isEmpty()
 					|| Objects.isNull(entity.getEndereco().getNumero())) {
 				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 			} else {
+				if (Objects.isNull(entity.getDataNascimento())) {
+					throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+				} else {
 				if (Objects.isNull(findByCpf(entity.getCpf()))) {
 
 					return repositorioFuncionario.save(entity);
@@ -46,7 +49,7 @@ public class CadastroFuncionario {
 			}
 		}
 	}
-
+	}
 	public void delete(Funcionario entity) {
 		repositorioFuncionario.delete(entity);
 	}
@@ -59,6 +62,10 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.findByCpf(cpf);
 	}
 
+	public Funcionario findBySalario(float salario) {
+		return repositorioFuncionario.findBySalario(salario);
+	}
+	
 	public Funcionario findByCargo(String cargo) {
 		return repositorioFuncionario.findByCargo(cargo);
 	}

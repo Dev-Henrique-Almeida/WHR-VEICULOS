@@ -46,9 +46,7 @@ public class CadastroOrdemPessoaFisicaController {
 	}
 
 	@PostMapping("ordemPessoaFisica")
-	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection,
-			DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
-			ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
+	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException{
 		c.preVenda(entity);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 

@@ -79,12 +79,14 @@ public class TestFactory {
 	void saveFuncionario() throws DataNulaException, FuncionarioExistenteException, ValorNuloExpection {
 
 		////////////////////////// GERENTES ////////////////////////
+		
 		for (int x = 0; x < 5; x++) {
 			Funcionario f = FuncionarioFactory.generate("Gerente");
 			cff.save(f);
 		}
 
 		/////////////////////// VENDEDORES ///////////////////////
+		
 		for (int x = 0; x < 5; x++) {
 			Funcionario f = FuncionarioFactory.generate("Vendedor");
 			cff.save(f);

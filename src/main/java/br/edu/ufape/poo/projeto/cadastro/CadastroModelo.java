@@ -23,10 +23,10 @@ public class CadastroModelo {
 			throw new NomeUnicoException("Erro ao cadastrar, nomes devem ser diferentes!");
 		} else {
 			if (entity.getNomeMarca().isEmpty() || entity.getNomeModelo().isEmpty()
-					|| Objects.isNull(entity.getQuantidadePassageiros()) || entity.getCambio().isEmpty()
+					|| Objects.isNull(findByQuantidadePassageiros(entity.getQuantidadePassageiros())) || entity.getCambio().isEmpty()
 					|| entity.getCombustivel().isEmpty() || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
-					|| Objects.isNull(entity.getAnoFabricado()) || Objects.isNull(entity.getCilindradas())
-					|| Objects.isNull(entity.getPotencia())) {
+					|| Objects.isNull(entity.getAnoFabricado()) || Objects.isNull(findByCilindradas(entity.getCilindradas()))
+					|| Objects.isNull(findByPotencia(entity.getPotencia()))) {
 				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 			} else {
 				return repositorioModelo.save(entity);
@@ -54,6 +54,18 @@ public class CadastroModelo {
 		return repositorioModelo.findById(id);
 	}
 
+	public Modelo findByCilindradas(float cilindradas) {
+		return repositorioModelo.findByCilindradas(cilindradas);
+	}
+	
+	public Modelo findByPotencia(int potencia) {
+		return repositorioModelo.findByPotencia(potencia);
+	}
+	
+	public Modelo findByQuantidadePassageiros(int quantidadePassageiros) {
+		return repositorioModelo.findByQuantidadePassageiros(quantidadePassageiros);
+	}
+	
 	public List<Modelo> findByNomeModelo(String nomeModelo) {
 		return repositorioModelo.findByNomeModelo(nomeModelo);
 	}
