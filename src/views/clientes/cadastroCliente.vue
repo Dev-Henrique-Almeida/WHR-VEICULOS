@@ -112,7 +112,11 @@ export default {
     cadastrar() {
       console.log(this.pessoa)
       CadastroClienteFisicoService.create(this.pessoa).then(
-        response => { console.log(response.status); });
+        response => { console.log(response.status), alert("Deu certo");}).catch(e => {
+          console.log(e.response.data.message);
+          alert(e.response.data.message);
+          
+        });
     }
   },
 

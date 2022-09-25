@@ -220,7 +220,11 @@ export default {
 
                 console.log(this.editedItem)
                 CadastroClienteFisicoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
-                    response => { console.log(response.status); });
+                    response => { console.log(response.status); }).catch(e => {
+                    console.log(e.response.data.message);
+                    alert(e.response.data.message);
+                    
+        });
             } else {
                 this.desserts.push(this.editedItem)
             }

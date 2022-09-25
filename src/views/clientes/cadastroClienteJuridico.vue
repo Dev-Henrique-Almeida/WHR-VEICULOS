@@ -126,7 +126,11 @@ export default {
     cadastrar() {
       console.log(this.clienteJuridico)
       CadastroClienteJuridicoService.create(this.clienteJuridico).then(
-        response => { console.log(response.status); });
+        response => { console.log(response.status); }).catch(e => {
+          console.log(e.response.data.message);
+          alert(e.response.data.message);
+          
+        });
     }
   },
 

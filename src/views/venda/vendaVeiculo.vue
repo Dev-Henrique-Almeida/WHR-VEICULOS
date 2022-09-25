@@ -301,12 +301,15 @@ export default {
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaFisicaService.create(this.preVenda).then(
-                response => { console.log(response.status); });
+                response => { console.log(response.status); }).catch(e => {
+                    console.log(e.response.data.message);
+                    alert(e.response.data.message);
+                });
         },
         volta() {
             this.tela = 1;
         },
-        home(){
+        home() {
             this.$router.push({ name: 'home' });
         },
     },

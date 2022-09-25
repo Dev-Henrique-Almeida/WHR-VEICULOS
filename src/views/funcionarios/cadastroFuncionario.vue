@@ -137,7 +137,11 @@ export default {
     cadastrar() {
       console.log(this.funcionario)
       CadastroFuncionarioService.create(this.funcionario).then(
-        response => { console.log(response.status); });
+        response => { console.log(response.status); }).catch(e => {
+          console.log(e.response.data.message);
+          alert(e.response.data.message);
+
+        });
     },
 
   },

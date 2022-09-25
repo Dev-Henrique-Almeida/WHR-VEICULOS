@@ -142,8 +142,10 @@ export default {
     cadastrar() {
       console.log(this.veiculoUSado)
       CadastroVeiculoUsadoService.create(this.veiculoUSado).then(
-        response => { console.log(response.status); });
-      alert('Sucesso, veiculo cadastrado!');
+        response => { console.log(response.status); }).catch(e => {
+          console.log(e.response.data.message);
+          alert(e.response.data.message);
+        });
     },
     irModelo() {
       this.$router.push({ name: 'CadastrarVeiculo' });
