@@ -184,10 +184,6 @@ public class Concessionaria {
 		return cadastroModelo.save(entity);
 	}
 
-	public void delete(Modelo entity) {
-		cadastroModelo.delete(entity);
-	}
-
 	public Modelo update(Modelo entity) {
 		return cadastroModelo.update(entity);
 	}
@@ -286,7 +282,7 @@ public class Concessionaria {
 					OrdemVendaPessoaJuridica venda = new OrdemVendaPessoaJuridica(valor, veiculo,
 							preVenda.isVeiculoNovo(), dataOperacao, preVenda.getFormaPagamento(), true, true, vendedor,
 							cliente);
-
+					veiculo.setVendido(true);
 					cadastroOrdemPessoaJuridica.save(venda);
 					
 				}
@@ -298,7 +294,7 @@ public class Concessionaria {
 				} else {
 					OrdemVendaPessoaFisica venda = new OrdemVendaPessoaFisica(valor, veiculo, preVenda.isVeiculoNovo(),
 							dataOperacao, preVenda.getFormaPagamento(), true, true, vendedor, cliente);
-					
+					veiculo.setVendido(true);
 					cadastroOrdemPessoaFisica.save(venda);
 					
 				}

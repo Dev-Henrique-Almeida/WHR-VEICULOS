@@ -54,12 +54,9 @@ public class CadastroVeiculoUsadoController {
 		c.deleteByIdVeiculoUsado(id);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-
-	@DeleteMapping("deleteVeiculoUsado/{veiculo}")
-	public ResponseEntity<HttpStatus> deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) { // para
-																											// remover
-																											// diretamente
-																											// na URL
+	
+	@DeleteMapping("deleteVeiculoUsadoVeiculo/{veiculo}")
+	public ResponseEntity<HttpStatus> deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) {
 		c.delete(veiculo);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
@@ -84,7 +81,7 @@ public class CadastroVeiculoUsadoController {
 
 	}
 
-	@GetMapping("vendidoVeiculoUsado")
+	@GetMapping("AllVeiculoUsadoVendido")
 	public ResponseEntity<List<VeiculoUsado>> findAllByVendidoUsado() {
 		if (c.findAllByVendidoUsado() != null) {
 			return new ResponseEntity<List<VeiculoUsado>>(c.findAllByVendidoUsado(), HttpStatus.OK);

@@ -31,11 +31,11 @@ class TestVeiculoNovo {
 
 		Modelo mo = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
 		cmo.save(mo);
-		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, false, "8AHS3cyA33F5N6170", "Sim", mo);
+		VeiculoNovo vn2 = new VeiculoNovo(120000, 150000, true, "8AHS3cyA33F5N6170", "Sim", mo);
 		cvn.save(vn2);
 
 		Modelo mo1 = new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Diesel");
-		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, false, "7bm780VtlBLsE9853", "Sim", mo1);
+		VeiculoNovo vn3 = new VeiculoNovo(300000, 400000, true, "7bm780VtlBLsE9853", "Sim", mo1);
 		cmo.save(mo1);
 		cvn.save(vn3);
 

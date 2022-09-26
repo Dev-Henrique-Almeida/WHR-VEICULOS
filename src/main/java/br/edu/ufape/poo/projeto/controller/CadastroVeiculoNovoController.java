@@ -78,7 +78,7 @@ public class CadastroVeiculoNovoController {
 		}
 	}
 
-	@GetMapping("vendidoVeiculoNovo")
+	@GetMapping("AllVeiculoNovoVendido")
 	public ResponseEntity<List<VeiculoNovo>> findAllByVendidoVeiculoNovo() {
 		if (c.findAllByVendidoVeiculoNovo() != null) {
 			return new ResponseEntity<List<VeiculoNovo>>(c.findAllByVendidoVeiculoNovo(), HttpStatus.OK);

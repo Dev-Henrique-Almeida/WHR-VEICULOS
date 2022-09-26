@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
@@ -12,6 +13,7 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioModelo;
 
 @Service
+@Transactional
 public class CadastroModelo {
 
 	@Autowired

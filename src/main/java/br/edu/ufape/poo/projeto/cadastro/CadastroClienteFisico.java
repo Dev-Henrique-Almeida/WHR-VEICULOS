@@ -66,6 +66,7 @@ public class CadastroClienteFisico {
 	}
 
 	public void deleteById(long id) {
+		
 		repositorioClienteFisico.deleteById(id);
 	}
 

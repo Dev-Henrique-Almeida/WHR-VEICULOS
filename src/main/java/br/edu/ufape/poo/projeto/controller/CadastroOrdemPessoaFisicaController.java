@@ -52,7 +52,7 @@ public class CadastroOrdemPessoaFisicaController {
 			DataForaRangeException, VendaSemLucroException, ChassiNaoEncontradoException,
 			FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
 		c.preVenda(entity);
-		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
 
 	}
 
