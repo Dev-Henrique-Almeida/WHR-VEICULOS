@@ -187,8 +187,8 @@ export default {
         deleteItemConfirm() {
 
             CadastroClienteFisicoService.deleteById(this.desserts[this.editedIndex].id);
-            alert("Cliente Removido com Sucesso!")
             this.desserts.splice(this.editedIndex, 1)
+
             this.closeDelete()
         },
         close() {

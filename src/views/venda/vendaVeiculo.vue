@@ -271,8 +271,8 @@ export default {
             this.tela = 1;
             CadastroFuncionarioService.getAll().then(response => { this.dessertsFuncionario = response.data; });
             CadastroClienteFisicoService.getAll().then(response => { this.dessertsClienteFisico = response.data; });
-            CadastroVeiculoNovoService.getAll().then(response => { this.dessertsVeiculoNovo = response.data; });
-            CadastroVeiculoUsadoService.getAll().then(response => { this.dessertsVeiculoUsado = response.data; });
+            CadastroVeiculoNovoService.findAllByVendidoVeiculoNovo().then(response => { this.dessertsVeiculoNovo = response.data; });
+            CadastroVeiculoUsadoService.findAllByVendidoVeiculoUsado().then(response => { this.dessertsVeiculoUsado = response.data; });
         },
         cadastrarNovoCliente() {
             this.$router.push({ name: 'cadastroClienteFisico' });
@@ -287,7 +287,7 @@ export default {
                 this.preVenda.cpfFuncionario = this.funcionario[0].cpf
                 this.preVenda.clienteJuridico = false;
                 this.preVenda.formaPagamento = this.formaPagamento;
-                
+
                 if (this.condicaoVeiculo == "Veiculo Usado") {
                     this.preVenda.chassiVeiculo = this.veiculoUsado[0].chassi;
                     this.preVenda.veiculoNovo = false;

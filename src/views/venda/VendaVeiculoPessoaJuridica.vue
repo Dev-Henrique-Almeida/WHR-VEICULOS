@@ -273,8 +273,8 @@ export default {
             this.tela = 1;
             CadastroFuncionarioService.getAll().then(response => { this.dessertsFuncionario = response.data; });
             CadastroClienteJuridicoService.getAll().then(response => { this.dessertsClienteJuridico = response.data; });
-            CadastroVeiculoNovoService.getAll().then(response => { this.dessertsVeiculoNovo = response.data; });
-            CadastroVeiculoUsadoService.getAll().then(response => { this.dessertsVeiculoUsado = response.data; });
+            CadastroVeiculoNovoService.findAllByVendidoVeiculoNovo().then(response => { this.dessertsVeiculoNovo = response.data; });
+            CadastroVeiculoUsadoService.findAllByVendidoVeiculoUsado().then(response => { this.dessertsVeiculoUsado = response.data; });
         },
         cadastrarNovoCliente() {
             this.$router.push({ name: 'cadastroClienteJuridico' });
@@ -292,16 +292,18 @@ export default {
                 if (this.condicaoVeiculo == "Veiculo Usado") {
                     this.preVenda.chassiVeiculo = this.veiculoUsado[0].chassi;
                     this.preVenda.veiculoNovo = false;
+                    this.valorTotal = this.veiculoUsado[0].valorVenda;
                 } else {
                     this.preVenda.chassiVeiculo = this.veiculoNovo[0].chassi;
                     this.preVenda.veiculoNovo = true;
+                    this.valorTotal = this.veiculoNovo[0].valorVenda;
                 }
             }
         },
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaJuridicaService.create(this.preVenda).then(
-                response => { console.log(response.status),alert("Valeu meu patrão, dinheiro ta na mão e o carro la fora!"); }).catch(e => {
+                response => { console.log(response.status), alert("Valeu meu patrão, dinheiro ta na mão e o carro la fora!"); }).catch(e => {
                     console.log(e.response.data.message);
                     alert(e.response.data.message);
                 });

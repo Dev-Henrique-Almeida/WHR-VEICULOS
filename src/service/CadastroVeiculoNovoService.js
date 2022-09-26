@@ -19,6 +19,9 @@ class CadastroVeiculoNovoService {
     findByGarantiaFabricaVeiculoNovo(data) {
         return http.get("/garantiaVeiculoNovo", data);
     } 
+    findAllByVendidoVeiculoNovo(){
+        return http.get('/AllVeiculoNovoVendido');
+    }
 }
 
 export default new CadastroVeiculoNovoService();

@@ -16,6 +16,9 @@ class CadastroVeiculoUsadoService {
     delete(data) {
         return http.delete("/deleteVeiculoUsado", data);
     }
+    findAllByVendidoVeiculoUsado(){
+        return http.get('/AllVeiculoUsadoVendido');
+    }
 }
 
 export default new CadastroVeiculoUsadoService();
