@@ -21,18 +21,14 @@ public class CadastroVeiculoUsado {
 	public VeiculoUsado save(VeiculoUsado vu)
 			throws ChassiExistenteException, ValorNuloExpection, PlacaExistenteException {
 
-		if (Objects.isNull(vu.getModelo().getCambio().isEmpty()) || Objects.isNull(vu.getModelo().getAnoFabricado())
-				|| vu.getModelo().getCombustivel().isEmpty()
-				|| vu.getModelo().getCor().isEmpty()
-				|| vu.getModelo().getMotor().isEmpty()
-				|| vu.getModelo().getNomeModelo().isEmpty()
-				|| vu.getModelo().getNomeMarca().isEmpty()
-				|| Objects.isNull(vu.getModelo().getQuantidadePassageiros())
-				|| Objects.isNull(vu.getModelo().getAnoFabricado()) || Objects.isNull(vu.getModelo().getCilindradas())
-				|| Objects.isNull(vu.getModelo().getPotencia()) || Objects.isNull(findByValorCompraVeiculo(vu.getValorCompraVeiculo()))
-				|| Objects.isNull(vu.getVendido()) || Objects.isNull(vu.getValorVenda()) || vu.getUnicoDono().isEmpty()
-				|| vu.getRevisado().isEmpty() || vu.getChassi().isEmpty() || Objects.isNull(vu.getKm())
-				|| vu.getPlaca().isEmpty()) {
+		if (vu.getModelo().getCambio().isEmpty() || vu.getModelo().getAnoFabricado() == 0
+				|| vu.getModelo().getCombustivel().isEmpty() || vu.getModelo().getCor().isEmpty()
+				|| vu.getModelo().getMotor().isEmpty() || vu.getModelo().getNomeModelo().isEmpty()
+				|| vu.getModelo().getNomeMarca().isEmpty() || vu.getModelo().getQuantidadePassageiros() == 0
+				|| vu.getModelo().getCilindradas() == 0 || vu.getModelo().getPotencia() == 0
+				|| vu.getValorCompraVeiculo() == 0 || (vu.getVendido() != true && vu.getVendido() != false)
+				|| vu.getValorVenda() == 0 || vu.getUnicoDono().isEmpty() || vu.getRevisado().isEmpty()
+				|| vu.getChassi().isEmpty() || vu.getKm() == 0 || vu.getPlaca().isEmpty()) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.nonNull(findByPlaca(vu.getPlaca()))) {
@@ -66,16 +62,16 @@ public class CadastroVeiculoUsado {
 	public VeiculoUsado findByValorCompraVeiculo(float valorCompraVeiculo) {
 		return repositorioVeiculoUsado.findByValorCompraVeiculo(valorCompraVeiculo);
 	}
-	
+
 	public VeiculoUsado findByVendido(boolean vendido) {
 		return repositorioVeiculoUsado.findByVendido(vendido);
 	}
-	
+
 	public List<VeiculoUsado> findAllByVendido() {
 		boolean vendido = false;
 		return repositorioVeiculoUsado.findAllByVendido(vendido);
 	}
-	
+
 	public VeiculoUsado findByKm(float km) {
 		return repositorioVeiculoUsado.findByKm(km);
 	}

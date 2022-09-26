@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
@@ -22,38 +23,33 @@ public class CadastroFuncionario {
 	private RepositorioFuncionario repositorioFuncionario;
 
 	public Funcionario save(Funcionario entity)
-			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException {
+			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 
-		if (Objects.isNull(entity.getDataNascimento())) {
-					throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
-				} else {
-			if (entity.getNome().isEmpty() || entity.getCpf().isEmpty()
-					|| entity.getTelefone().isEmpty()
-					|| entity.getCargo().isEmpty()
-					|| entity.getEndereco().getCidade().isEmpty()
-					|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
-					|| entity.getEndereco().getCep().isEmpty()
-					|| Objects.isNull(entity.getEndereco().getNumero())) {
-				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+		if (entity.getNome().isEmpty() || entity.getCpf().isEmpty() || entity.getTelefone().isEmpty()
+				|| entity.getCargo().isEmpty() || entity.getEndereco().getCidade().isEmpty()
+				|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
+				|| entity.getEndereco().getCep().isEmpty()) {
+			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+		} else {
+			if (Objects.isNull(entity.getDataNascimento())) {
+				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
 			} else {
 				if (Objects.isNull(entity.getDataNascimento().after(new Date()))) {
-					throw new DataNulaException("Erro ao cadastrar, data inválida");
+					throw new DataForaRangeException("Erro ao cadastrar, data inválida");
 				} else {
-					if(Objects.isNull(entity.getSalario())) {
-						throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+					if (Objects.isNull(findByCpf(entity.getCpf()))) {
+
+						return repositorioFuncionario.save(entity);
+					} else {
+
+						throw new FuncionarioExistenteException(
+								"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
 					}
-				if (Objects.isNull(findByCpf(entity.getCpf()))) {
-
-					return repositorioFuncionario.save(entity);
-				} else {
-
-					throw new FuncionarioExistenteException(
-							"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
 				}
 			}
 		}
 	}
-	}
+
 	public void delete(Funcionario entity) {
 		repositorioFuncionario.delete(entity);
 	}
@@ -69,7 +65,7 @@ public class CadastroFuncionario {
 	public Funcionario findBySalario(float salario) {
 		return repositorioFuncionario.findBySalario(salario);
 	}
-	
+
 	public Funcionario findByCargo(String cargo) {
 		return repositorioFuncionario.findByCargo(cargo);
 	}

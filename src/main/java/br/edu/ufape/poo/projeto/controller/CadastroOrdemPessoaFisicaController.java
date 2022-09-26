@@ -25,6 +25,7 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioNaoEncontradoExce
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VeiculoVendidoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
@@ -39,14 +40,17 @@ public class CadastroOrdemPessoaFisicaController {
 	@PostMapping("ordemVendaPessoaFisica")
 	public ResponseEntity<OrdemVendaPessoaFisica> createOrdemPessoaFisica(@RequestBody OrdemVendaPessoaFisica entity)
 			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException,
-			ValorNegativoException, DataNulaException {
+			ValorNegativoException, DataNulaException, VeiculoVendidoException {
 		OrdemVendaPessoaFisica or = c.save(entity);
 		return new ResponseEntity<OrdemVendaPessoaFisica>(or, HttpStatus.CREATED);
 
 	}
 
 	@PostMapping("ordemPessoaFisica")
-	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity) throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, ChassiNaoEncontradoException, FuncionarioNaoEncontradoException, ClienteNaoEncontradoException{
+	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity)
+			throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException,
+			DataForaRangeException, VendaSemLucroException, ChassiNaoEncontradoException,
+			FuncionarioNaoEncontradoException, ClienteNaoEncontradoException {
 		c.preVenda(entity);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 
@@ -70,7 +74,7 @@ public class CadastroOrdemPessoaFisicaController {
 
 	@GetMapping("idOrdemPessoaFisica/{id}")
 	public ResponseEntity<OrdemVendaPessoaFisica> findById(@PathVariable("id") long id) {
-		if(c.findByIdOrdemFisica(id) != null) {
+		if (c.findByIdOrdemFisica(id) != null) {
 			return new ResponseEntity<OrdemVendaPessoaFisica>(c.findByIdOrdemFisica(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<OrdemVendaPessoaFisica>(HttpStatus.NOT_FOUND);
@@ -79,7 +83,7 @@ public class CadastroOrdemPessoaFisicaController {
 
 	@GetMapping("pagoOrdemPessoaFisica/{pago}")
 	public ResponseEntity<List<OrdemVendaPessoaFisica>> findByPago(@PathVariable("pago") boolean pago) {
-		if(c.findByPagoOrdemFisica(pago) != null) {
+		if (c.findByPagoOrdemFisica(pago) != null) {
 			return new ResponseEntity<List<OrdemVendaPessoaFisica>>(c.findByPagoOrdemFisica(pago), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<OrdemVendaPessoaFisica>>(HttpStatus.NOT_FOUND);
@@ -91,6 +95,5 @@ public class CadastroOrdemPessoaFisicaController {
 	public ResponseEntity<List<OrdemVendaPessoaFisica>> findAllOrdemFisica() {
 		return new ResponseEntity<List<OrdemVendaPessoaFisica>>(c.findAllOrdemFisica(), HttpStatus.OK);
 	}
-
 
 }

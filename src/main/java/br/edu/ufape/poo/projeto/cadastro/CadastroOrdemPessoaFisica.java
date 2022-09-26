@@ -26,26 +26,26 @@ public class CadastroOrdemPessoaFisica {
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
 			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 
-		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
-				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
-				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo()))
-			{
+		if (Objects.isNull(entity.getPago()) || Objects.isNull(entity.getNovo())
+				|| (entity.getVendaConcluida() != true && entity.getVendaConcluida() != false)
+				|| entity.getFormaPagamento().isEmpty() || entity.getValor() == 0
+				|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())
+				|| Objects.isNull(entity.getVeiculo().getModelo())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
 			if (Objects.isNull(entity.getDataOperacao())) {
 				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
 			} else {
-			if(entity.getDataOperacao().before(new Date())) {
-				throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
-			}
-			else {
+				if (entity.getDataOperacao().after(new Date())) {
+					throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+				} else {
 
-				return repositorioOrdemPessoaFisica.save(entity);
+					return repositorioOrdemPessoaFisica.save(entity);
+				}
 			}
 		}
 	}
-	}
+
 	public void delete(OrdemVendaPessoaFisica entity) {
 		repositorioOrdemPessoaFisica.delete(entity);
 	}
@@ -65,15 +65,15 @@ public class CadastroOrdemPessoaFisica {
 	public OrdemVendaPessoaFisica findByNovo(boolean novo) {
 		return repositorioOrdemPessoaFisica.findByNovo(novo);
 	}
-	
+
 	public OrdemVendaPessoaFisica findByValor(float valor) {
 		return repositorioOrdemPessoaFisica.findByValor(valor);
 	}
-	
+
 	public OrdemVendaPessoaFisica findByVendaConcluida(boolean vendaConcluida) {
 		return repositorioOrdemPessoaFisica.findByVendaConcluida(vendaConcluida);
 	}
-	
+
 	public List<OrdemVendaPessoaFisica> findAll() {
 		return repositorioOrdemPessoaFisica.findAll();
 	}

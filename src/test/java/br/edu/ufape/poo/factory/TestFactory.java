@@ -8,10 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.github.javafaker.Faker;
 
-import br.edu.ufape.poo.projeto.basica.ClienteFisico;
-import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
-import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroClienteFisico;
@@ -60,9 +56,11 @@ public class TestFactory {
 			ValorForaRangeException, DataNulaException {
 
 		for (int x = 0; x < 10; x++) {
-			ClienteFisico cf = ClienteFisicoFactory.generate();
-			ccf.save(cf);
+			
+			ccf.save(ClienteFisicoFactory.generate());
+
 		}
+		
 
 	}
 
@@ -70,26 +68,25 @@ public class TestFactory {
 	void saveClienteJuridico() throws ClienteJuridicoExistenteException, ValorNuloExpection, ValorForaRangeException {
 
 		for (int x = 0; x < 10; x++) {
-			ClienteJuridico cj = ClienteJuridicoFactory.generate();
-			ccj.save(cj);
+			ccj.save(ClienteJuridicoFactory.generate());
 		}
 	}
 
 	@Test
-	void saveFuncionario() throws DataNulaException, FuncionarioExistenteException, ValorNuloExpection {
+	void saveFuncionario() throws DataNulaException, FuncionarioExistenteException, ValorNuloExpection, DataForaRangeException {
 
 		////////////////////////// GERENTES ////////////////////////
 		
 		for (int x = 0; x < 5; x++) {
-			Funcionario f = FuncionarioFactory.generate("Gerente");
-			cff.save(f);
+		
+			cff.save(FuncionarioFactory.generate("Gerente"));
 		}
 
 		/////////////////////// VENDEDORES ///////////////////////
 		
 		for (int x = 0; x < 5; x++) {
-			Funcionario f = FuncionarioFactory.generate("Vendedor");
-			cff.save(f);
+
+			cff.save(FuncionarioFactory.generate("Vendedor"));
 		}
 	}
 
@@ -99,22 +96,19 @@ public class TestFactory {
 		////////////////////////////// AUTOMATICOS ///////////////////////////////
 
 		for (int x = 0; x < 5; x++) {
-			Modelo m = ModeloFactory.generate("Automático");
-			cmo.save(m);
+			cmo.save(ModeloFactory.generate("Automático"));
 		}
 
 		/////////////////////////////// MANUAIS ////////////////////////////////
 
 		for (int x = 0; x < 5; x++) {
-			Modelo m = ModeloFactory.generate("Manual");
-			cmo.save(m);
+			cmo.save(ModeloFactory.generate("Manual"));
 		}
 
 		/////////////////////////////// SEMI-AUTOMATICO ///////////////////////////
 
 		for (int x = 0; x < 5; x++) {
-			Modelo m = ModeloFactory.generate("Semi-Automático");
-			cmo.save(m);
+			cmo.save( ModeloFactory.generate("Semi-Automático"));
 		}
 
 	}

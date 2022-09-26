@@ -57,14 +57,14 @@ public class CadastroFuncionarioController {
 	}
 
 	@DeleteMapping("deleteFuncionarioCpf/{cpf}")
-	public ResponseEntity<HttpStatus> deleteFuncionario(@PathVariable("cpf") String cpf) { 
+	public ResponseEntity<HttpStatus> deleteFuncionario(@PathVariable("cpf") String cpf) {
 		c.deleteByCpf(cpf);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	@GetMapping("cpfFuncionario/{cpf}")
 	public ResponseEntity<Funcionario> findByCpf(@PathVariable("cpf") String cpf) {
-		if(c.findByNomeFuncionario(cpf) != null) {
+		if (c.findByNomeFuncionario(cpf) != null) {
 			return new ResponseEntity<Funcionario>(c.findByNomeFuncionario(cpf), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
@@ -73,7 +73,7 @@ public class CadastroFuncionarioController {
 
 	@GetMapping("idFuncionario/{id}")
 	public ResponseEntity<Funcionario> findByIdFuncionario(@PathVariable("id") long id) {
-		if(c.findByIdFuncionario(id) != null) {
+		if (c.findByIdFuncionario(id) != null) {
 			return new ResponseEntity<Funcionario>(c.findByIdFuncionario(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
@@ -83,7 +83,7 @@ public class CadastroFuncionarioController {
 
 	@GetMapping("nomeFuncionario/{nome}")
 	public ResponseEntity<Funcionario> findByNomeFuncionario(@PathVariable("nome") String nome) {
-		if(c.findByNomeFuncionario(nome) != null) {
+		if (c.findByNomeFuncionario(nome) != null) {
 			return new ResponseEntity<Funcionario>(c.findByNomeFuncionario(nome), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Funcionario>(HttpStatus.NOT_FOUND);
@@ -94,5 +94,5 @@ public class CadastroFuncionarioController {
 	public ResponseEntity<List<Funcionario>> findAllFuncionario() {
 		return new ResponseEntity<List<Funcionario>>(c.findAllFuncionario(), HttpStatus.OK);
 	}
-	
+
 }

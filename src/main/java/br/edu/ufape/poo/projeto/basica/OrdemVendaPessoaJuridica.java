@@ -34,4 +34,6 @@ public class OrdemVendaPessoaJuridica extends OrdemVenda {
 	public ClienteJuridico getCliente() {
 		return cliente;
 	}
+	
+	
 }

@@ -54,7 +54,7 @@ public class CadastroModeloController {
 
 	@GetMapping("anoModelo/{anoFabricado}")
 	public ResponseEntity<List<Modelo>> findByAnoFabricado(@PathVariable("anoFabricado") int anoFabricado) {
-		if(c.findByAnoFabricado(anoFabricado) != null) {
+		if (c.findByAnoFabricado(anoFabricado) != null) {
 			return new ResponseEntity<List<Modelo>>(c.findByAnoFabricado(anoFabricado), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<Modelo>>(HttpStatus.NOT_FOUND);
@@ -63,7 +63,7 @@ public class CadastroModeloController {
 
 	@GetMapping("idModelo/{id}")
 	public ResponseEntity<Modelo> findById(@PathVariable("id") long id) {
-		if(c.findById(id) != null) {
+		if (c.findById(id) != null) {
 			return new ResponseEntity<Modelo>(c.findById(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Modelo>(HttpStatus.NOT_FOUND);
@@ -73,7 +73,7 @@ public class CadastroModeloController {
 
 	@GetMapping("nomeModelo/{nomeModelo}")
 	public ResponseEntity<List<Modelo>> findByNomeModelo(@PathVariable("nomeModelo") String nomeModelo) {
-		if(c.findByNomeModelo(nomeModelo) != null) {
+		if (c.findByNomeModelo(nomeModelo) != null) {
 			return new ResponseEntity<List<Modelo>>(c.findByNomeModelo(nomeModelo), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<Modelo>>(HttpStatus.NOT_FOUND);
@@ -84,6 +84,5 @@ public class CadastroModeloController {
 	public ResponseEntity<List<Modelo>> findAllModelo() {
 		return new ResponseEntity<List<Modelo>>(c.findAllModelo(), HttpStatus.OK);
 	}
-	
 
 }

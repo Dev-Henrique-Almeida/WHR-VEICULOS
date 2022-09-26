@@ -58,10 +58,10 @@ public class CadastroClienteJuridicoController {
 		c.deleteByCnpj(cnpj);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-	
+
 	@GetMapping("cnpjClienteJuridico/{cnpj}")
 	public ResponseEntity<ClienteJuridico> findByCnpj(@PathVariable("cnpj") String cnpj) {
-		if(c.findByCnpj(cnpj) != null) {
+		if (c.findByCnpj(cnpj) != null) {
 			return new ResponseEntity<ClienteJuridico>(c.findByCnpj(cnpj), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
@@ -71,7 +71,7 @@ public class CadastroClienteJuridicoController {
 
 	@GetMapping("idClienteJuridico/{id}")
 	public ResponseEntity<ClienteJuridico> findByIdClienteJuridico(@PathVariable("id") long id) {
-		if(c.findByIdClienteJuridico(id) != null) {
+		if (c.findByIdClienteJuridico(id) != null) {
 			return new ResponseEntity<ClienteJuridico>(c.findByIdClienteJuridico(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);
@@ -80,7 +80,7 @@ public class CadastroClienteJuridicoController {
 
 	@GetMapping("nomeClienteJuridico/{nomeFantasia}")
 	public ResponseEntity<ClienteJuridico> findByNomeFantasia(@PathVariable("nomeFantasia") String nomeFantasia) {
-		if(c.findByNomeFantasia(nomeFantasia) != null) {
+		if (c.findByNomeFantasia(nomeFantasia) != null) {
 			return new ResponseEntity<ClienteJuridico>(c.findByNomeFantasia(nomeFantasia), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<ClienteJuridico>(HttpStatus.NOT_FOUND);

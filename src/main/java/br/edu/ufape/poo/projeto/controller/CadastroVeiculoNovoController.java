@@ -62,7 +62,7 @@ public class CadastroVeiculoNovoController {
 
 	@GetMapping("valorVeiculoNovo/{valorVenda}")
 	public ResponseEntity<List<VeiculoNovo>> findByValorVendaVeiculoNovo(@PathVariable("valorVenda") float valorVenda) {
-		if(c.findByValorVendaVeiculoNovo(valorVenda) != null) {
+		if (c.findByValorVendaVeiculoNovo(valorVenda) != null) {
 			return new ResponseEntity<List<VeiculoNovo>>(c.findByValorVendaVeiculoNovo(valorVenda), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
@@ -71,7 +71,7 @@ public class CadastroVeiculoNovoController {
 
 	@GetMapping("idVeiculoNovo/{id}")
 	public ResponseEntity<VeiculoNovo> findByIdVeiculoNovo(@PathVariable("id") long id) {
-		if(c.findAllByVendidoVeiculoNovo() != null) {
+		if (c.findAllByVendidoVeiculoNovo() != null) {
 			return new ResponseEntity<VeiculoNovo>(c.findByIdVeiculoNovo(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<VeiculoNovo>(HttpStatus.NOT_FOUND);
@@ -80,7 +80,7 @@ public class CadastroVeiculoNovoController {
 
 	@GetMapping("vendidoVeiculoNovo")
 	public ResponseEntity<List<VeiculoNovo>> findAllByVendidoVeiculoNovo() {
-		if(c.findAllByVendidoVeiculoNovo() != null) {
+		if (c.findAllByVendidoVeiculoNovo() != null) {
 			return new ResponseEntity<List<VeiculoNovo>>(c.findAllByVendidoVeiculoNovo(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
@@ -88,9 +88,11 @@ public class CadastroVeiculoNovoController {
 	}
 
 	@GetMapping("garantiaVeiculoNovo/{garantiaFabrica}")
-	public ResponseEntity<List<VeiculoNovo>> findByGarantiaFabricaVeiculoNovo(@PathVariable("garantiaFabrica") String garantiaFabrica) {
-		if(c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica) != null) {
-			return new ResponseEntity<List<VeiculoNovo>>(c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica), HttpStatus.OK);
+	public ResponseEntity<List<VeiculoNovo>> findByGarantiaFabricaVeiculoNovo(
+			@PathVariable("garantiaFabrica") String garantiaFabrica) {
+		if (c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica) != null) {
+			return new ResponseEntity<List<VeiculoNovo>>(c.findByGarantiaFabricaVeiculoNovo(garantiaFabrica),
+					HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<VeiculoNovo>>(HttpStatus.NOT_FOUND);
 		}
@@ -101,7 +103,5 @@ public class CadastroVeiculoNovoController {
 	public ResponseEntity<List<VeiculoNovo>> findAllVeiculoNovo() {
 		return new ResponseEntity<List<VeiculoNovo>>(c.findAllVeiculoNovo(), HttpStatus.OK);
 	}
-	
-
 
 }

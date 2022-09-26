@@ -38,6 +38,7 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaExistenteException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VeiculoVendidoException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @Service
@@ -69,7 +70,8 @@ public class Concessionaria {
 
 	////////////////////// CLIENTE FISICO //////////////////////////////
 
-	public ClienteFisico save(ClienteFisico entity) throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException  {
+	public ClienteFisico save(ClienteFisico entity)
+			throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException {
 		return cadastroClienteFisico.save(entity);
 	}
 
@@ -140,7 +142,7 @@ public class Concessionaria {
 	//////////////// FUNCIONARIO ///////////////////
 
 	public Funcionario save(Funcionario entity)
-			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException {
+			throws FuncionarioExistenteException, ValorNuloExpection, DataNulaException, DataForaRangeException {
 		return cadastroFuncionario.save(entity);
 	}
 
@@ -213,7 +215,7 @@ public class Concessionaria {
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
 	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException {
+			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException, VeiculoVendidoException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -243,7 +245,9 @@ public class Concessionaria {
 
 	/////////////////////// PRE VENDA /////////////////////////
 
-	public void preVenda(PreVenda preVenda) throws FuncionarioNaoEncontradoException, ChassiNaoEncontradoException, ClienteNaoEncontradoException, ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException, ValorNegativoException{
+	public void preVenda(PreVenda preVenda) throws FuncionarioNaoEncontradoException, ChassiNaoEncontradoException,
+			ClienteNaoEncontradoException, ValorNuloExpection, ValorForaRangeException, DataForaRangeException,
+			VendaSemLucroException, DataNulaException, ValorNegativoException {
 
 		float valor;
 		Date dataOperacao = new Date();
@@ -282,7 +286,9 @@ public class Concessionaria {
 					OrdemVendaPessoaJuridica venda = new OrdemVendaPessoaJuridica(valor, veiculo,
 							preVenda.isVeiculoNovo(), dataOperacao, preVenda.getFormaPagamento(), true, true, vendedor,
 							cliente);
+
 					cadastroOrdemPessoaJuridica.save(venda);
+					
 				}
 			} else {
 				ClienteFisico cliente = findByCpf(preVenda.getCpfCnpjCliente());
@@ -292,7 +298,9 @@ public class Concessionaria {
 				} else {
 					OrdemVendaPessoaFisica venda = new OrdemVendaPessoaFisica(valor, veiculo, preVenda.isVeiculoNovo(),
 							dataOperacao, preVenda.getFormaPagamento(), true, true, vendedor, cliente);
+					
 					cadastroOrdemPessoaFisica.save(venda);
+					
 				}
 			}
 		}
@@ -300,8 +308,8 @@ public class Concessionaria {
 
 	////////////////// ORDEM PESSOA JURIDICA /////////////////
 
-	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
+	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) throws ValorNuloExpection,
+			ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
 		return cadastroOrdemPessoaJuridica.save(entity);
 
 	}

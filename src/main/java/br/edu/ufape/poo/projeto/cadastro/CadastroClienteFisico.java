@@ -22,12 +22,9 @@ public class CadastroClienteFisico {
 
 	public ClienteFisico save(ClienteFisico entity)
 			throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException {
-		if (entity.getNome().isEmpty() || entity.getCpf().isEmpty()
-				|| entity.getEndereco().getCidade().isEmpty()
-				|| entity.getEndereco().getEstado().isEmpty()
-				|| entity.getEndereco().getRua().isEmpty()
-				|| entity.getEndereco().getCep().isEmpty() || Objects.isNull(entity.getEndereco().getNumero())
-				|| entity.getTelefone().isEmpty()) {
+		if (entity.getNome().isEmpty() || entity.getCpf().isEmpty() || entity.getEndereco().getCidade().isEmpty()
+				|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
+				|| entity.getEndereco().getCep().isEmpty() || entity.getTelefone().isEmpty()) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
 		} else {
 			if (Objects.isNull(entity.getDataNascimento())) {

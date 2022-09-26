@@ -1,7 +1,6 @@
 package br.edu.ufape.poo.projeto.cadastro;
 
 import java.util.List;
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,15 +18,15 @@ public class CadastroModelo {
 	private RepositorioModelo repositorioModelo;
 
 	public Modelo save(Modelo entity) throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException {
-		if (entity.getNomeMarca().equals(entity.getNomeModelo())) {
-			throw new NomeUnicoException("Erro ao cadastrar, nomes devem ser diferentes!");
+
+		if (entity.getNomeMarca().isEmpty() || entity.getNomeModelo().isEmpty()
+				|| entity.getQuantidadePassageiros() == 0 || entity.getCambio().isEmpty()
+				|| entity.getCombustivel().isEmpty() || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
+				|| entity.getAnoFabricado() == 0 || entity.getCilindradas() == 0 || entity.getPotencia() == 0) {
+			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
-			if (entity.getNomeMarca().isEmpty() || entity.getNomeModelo().isEmpty()
-					|| Objects.isNull(entity.getQuantidadePassageiros()) || entity.getCambio().isEmpty()
-					|| Objects.isNull(entity.getCombustivel().isEmpty()) || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
-					|| Objects.isNull(entity.getAnoFabricado()) || Objects.isNull(entity.getCilindradas())
-					|| Objects.isNull(entity.getPotencia())) {
-				throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			if (entity.getNomeMarca().equals(entity.getNomeModelo())) {
+				throw new NomeUnicoException("Erro ao cadastrar, nomes devem ser diferentes!");
 			} else {
 				return repositorioModelo.save(entity);
 			}
@@ -57,15 +56,15 @@ public class CadastroModelo {
 	public Modelo findByCilindradas(float cilindradas) {
 		return repositorioModelo.findByCilindradas(cilindradas);
 	}
-	
+
 	public Modelo findByPotencia(int potencia) {
 		return repositorioModelo.findByPotencia(potencia);
 	}
-	
+
 	public Modelo findByQuantidadePassageiros(int quantidadePassageiros) {
 		return repositorioModelo.findByQuantidadePassageiros(quantidadePassageiros);
 	}
-	
+
 	public List<Modelo> findByNomeModelo(String nomeModelo) {
 		return repositorioModelo.findByNomeModelo(nomeModelo);
 	}

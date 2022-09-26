@@ -24,30 +24,29 @@ public class CadastroOrdemPessoaJuridica {
 	@Autowired
 	private RepositorioOrdemPessoaJuridica repositorioOrdemPessoaJuridica;
 
-	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity)
-			throws ValorNuloExpection, ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
-		if (Objects.isNull(entity.getPago()) || Objects.isNull(findByNovo(entity.getNovo()))
-				|| Objects.isNull(entity.getVendaConcluida()) || entity.getFormaPagamento().isEmpty()
-				|| Objects.isNull(entity.getValor()) || Objects.isNull(entity.getVendedor())
-				|| Objects.isNull(entity.getVeiculo()) || Objects.isNull(entity.getVeiculo().getModelo())
-				|| entity.getDataOperacao().before(new Date())) {
+	public OrdemVendaPessoaJuridica save(OrdemVendaPessoaJuridica entity) throws ValorNuloExpection,
+			ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
+		if ((entity.getPago() != true && entity.getPago() != false)
+				|| (entity.getNovo() != true && entity.getNovo() != false)
+				|| (entity.getVendaConcluida() != true && entity.getVendaConcluida() != false)
+				|| entity.getFormaPagamento().isEmpty() || entity.getValor() == 0
+				|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())
+				|| Objects.isNull(entity.getVeiculo().getModelo())) {
 			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
 		} else {
-			
+
 			if (Objects.isNull(entity.getDataOperacao())) {
 				throw new DataNulaException("Erro ao cadastrar, data inválida");
 			} else {
-				if(entity.getDataOperacao().before(new Date())) {
+				if (entity.getDataOperacao().after(new Date())) {
 					throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+				} else {
+					return repositorioOrdemPessoaJuridica.save(entity);
 				}
-				else {
-
-
-				return repositorioOrdemPessoaJuridica.save(entity);
 			}
 		}
 	}
-	}
+
 	public void delete(OrdemVendaPessoaJuridica entity) {
 		repositorioOrdemPessoaJuridica.delete(entity);
 	}
@@ -59,15 +58,15 @@ public class CadastroOrdemPessoaJuridica {
 	public OrdemVendaPessoaJuridica update(OrdemVendaPessoaJuridica entity) {
 		return repositorioOrdemPessoaJuridica.save(entity);
 	}
-	
+
 	public OrdemVendaPessoaJuridica findByValor(float valor) {
 		return repositorioOrdemPessoaJuridica.findByValor(valor);
 	}
-	
+
 	public OrdemVendaPessoaJuridica findByNovo(boolean novo) {
 		return repositorioOrdemPessoaJuridica.findByNovo(novo);
 	}
-	
+
 	public OrdemVendaPessoaJuridica findByVendaConcluida(boolean vendaConcluida) {
 		return repositorioOrdemPessoaJuridica.findByVendaConcluida(vendaConcluida);
 	}
