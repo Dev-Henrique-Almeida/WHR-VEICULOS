@@ -7,8 +7,8 @@
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                            New Item
+                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" @click="cadastrarCliente" v-on="on">
+                            Cadastrar Novo Cliente
                         </v-btn>
                     </template>
                     <v-card>
@@ -92,6 +92,7 @@ export default {
     data: () => ({
         dialog: false,
         dialogDelete: false,
+        search: '',
         headers: [
             { text: 'ID', value: 'id' },
             { text: 'Nome', value: 'nome' },
@@ -188,12 +189,7 @@ export default {
             CadastroClienteFisicoService.deleteById(this.desserts[this.editedIndex].id);
             alert("Cliente Removido com Sucesso!")
             this.desserts.splice(this.editedIndex, 1)
-
-
             this.closeDelete()
-
-
-
         },
         close() {
 
@@ -201,7 +197,6 @@ export default {
             this.$nextTick(() => {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
-
             })
         },
         closeDelete() {
@@ -209,8 +204,6 @@ export default {
             this.$nextTick(() => {
                 this.editedItem = Object.assign({}, this.defaultItem)
                 this.editedIndex = -1
-
-
             })
         },
         save() {
@@ -221,10 +214,10 @@ export default {
                 console.log(this.editedItem)
                 CadastroClienteFisicoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
                     response => { console.log(response.status); }).catch(e => {
-                    console.log(e.response.data.message);
-                    alert(e.response.data.message);
-                    
-        });
+                        console.log(e.response.data.message);
+                        alert(e.response.data.message);
+
+                    });
             } else {
                 this.desserts.push(this.editedItem)
             }
@@ -232,8 +225,9 @@ export default {
 
             this.close()
         },
-
-
+        cadastrarCliente() {
+            this.$router.push({ name: 'cadastroClienteFisico' });
+        },
     },
     mounted() {
         this.loadAll();

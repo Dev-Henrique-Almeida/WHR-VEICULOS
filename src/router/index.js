@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
 import cadastroCliente from '../views/clientes/cadastroCliente.vue'
 import updateClienteFisico from '../views/clientes/updateClienteFisico.vue'
 import updateModelo from '../views/veiculos/modelo/updateModelo.vue'
@@ -17,7 +16,10 @@ import cadastroModelo from '../views/veiculos/modelo/cadastroModelo.vue'
 import CadastrarVeiculo from '../views/veiculos/CadastrarVeiculo.vue'
 import vendaVeiculo from '../views/venda/vendaVeiculo.vue'
 import VendaVeiculoPessoaJuridica from '../views/venda/VendaVeiculoPessoaJuridica.vue'
-
+import VendaConcluida from '../views/venda/VendaConcluida.vue'
+import acessoRestrito from '../views/acessoRestrito.vue'
+import allVenda from '../views/venda/allVenda.vue'
+import allVendaJuridica from '../views/venda/allVendaJuridica.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -37,6 +39,16 @@ const routes = [
     name: 'VendaVeiculoPessoaJuridica',
     component: VendaVeiculoPessoaJuridica
   },
+  {
+    path: '/vendaConcluida',
+    name: 'VendaConcluida',
+    component: VendaConcluida
+  },
+  {
+    path: '/acessoRestrito',
+    name: 'acessoRestrito',
+    component: acessoRestrito
+  },
   
   {
     path: '/cadastroInicio',
@@ -50,8 +62,18 @@ const routes = [
   },
   {
     path: '/updateFuncionario',
-    name: 'funcionario',
+    name: 'updatefuncionario',
     component: updateFuncionario
+  },
+  {
+    path: '/todasVendasPessoaFisica',
+    name: 'todasVendasPessoaFisica',
+    component: allVenda
+  },
+  {
+    path: '/todasVendasPessoaJuridica',
+    name: 'todasVendasPessoaJuridica',
+    component: allVendaJuridica
   },
   {
     path: '/updateClienteJuridico',

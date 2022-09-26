@@ -3,14 +3,19 @@
     <v-img src="./assets/fundoPreto.jpg">
 
 
-
       <v-app-bar app color="black">
         <v-app-bar-nav-icon @click="drawer = !drawer" color="white"></v-app-bar-nav-icon>
         <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="175"
-          src="./assets/logoWHR.png" width="175" />
-
+          src="./assets/logoWHR.png" width="175" @click="home" />
+        <v-spacer></v-spacer>
+        <v-btn color="black" dark @click="acessoRestrito"> Acesso Restrito
+          <v-icon right dark>mdi-account-lock </v-icon>
+        </v-btn>
       </v-app-bar>
-      <v-main class="">
+
+
+
+      <v-main>
         <router-view>
 
         </router-view>
@@ -35,13 +40,12 @@
 
 
         <template>
-          <v-card class="mx-auto" width="300">
-            <v-list>
+          <v-card class="mx-auto" width="320">
+            <v-list dense nav>
               <v-list-item>
                 <v-list-item-icon>
                   <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
-
                 <v-list-item-title @click="home">Home</v-list-item-title>
               </v-list-item>
 
@@ -58,24 +62,11 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
-
               <v-list-group :value="false" prepend-icon="mdi-car">
                 <template v-slot:activator>
                   <v-list-item-title>Veiculos</v-list-item-title>
                 </template>
-                <v-list-item v-for="item in clientes" :key="item.title" :to="item.to" link>
-                  
-                  <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-group>
-
-              <v-list-group :value="false" prepend-icon="mdi-account-circle">
-                <template v-slot:activator>
-                  <v-list-item-title>Outros</v-list-item-title>
-                </template>
-                <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+                <v-list-item v-for="item in veiculos" :key="item.title" :to="item.to" link>
                   <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
                   </v-list-item-icon>
@@ -84,18 +75,28 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
-
+              <v-list-group :value="false" prepend-icon="mdi-car">
+                <template v-slot:activator>
+                  <v-list-item-title>Vendas</v-list-item-title>
+                </template>
+                <v-list-item v-for="item in vendas" :key="item.title" :to="item.to" link>
+                  <v-list-item-icon>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-group>
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>mdi-information</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title @click="sobre">Sobre</v-list-item-title>
+              </v-list-item>
             </v-list>
           </v-card>
         </template>
-
-
-
-
-
-
-
-
       </v-navigation-drawer>
     </v-img>
   </v-app>
@@ -107,31 +108,39 @@ export default {
     drawer: false,
 
 
-    items: [
-      { title: 'Home', icon: 'mdi-home', to: '/' },
+    funcionario: [
+
       { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
-      { title: 'Cadastrar Modelo', icon: 'mdi-car-outline', to: '/cadastroModelo' },
-      { title: 'Cadastro Veiculo', icon: 'mdi-car', to: '/CadastrarVeiculo' },
-      { title: 'Update Modelo', icon: 'mdi-car', to: '/updateModelo' },
       { title: 'Update Funcionário', icon: 'mdi-car', to: '/updateFuncionario' },
-      { title: 'Update Veiculo Novo', icon: 'mdi-car', to: '/updateVeiculoNovo' },
-      { title: 'Update Veiculo Usado', icon: 'mdi-car', to: '/updateVeiculoUsado' },
-      { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
-      { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
       { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
-      { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
-      { title: 'Venda', icon: 'mdi-cart', to: '/vendaVeiculo' },
-      { title: 'Venda juridica', icon: 'mdi-cart', to: '/VendaVeiculoPessoaJuridica' },
       { title: 'Sobre', icon: 'mdi-information' },
+    ],
+    vendas: [
+      { title: 'Venda Pessoa Fisica', icon: 'mdi-cart', to: '/vendaVeiculo' },
+      { title: 'Venda Pessoa juridica', icon: 'mdi-cart', to: '/VendaVeiculoPessoaJuridica' },
+      { title: 'Todas as vendas PJ', icon: 'mdi-cart', to: '/todasVendasPessoaJuridica' },
+      { title: 'Todas as vendas PF', icon: 'mdi-cart', to: '/todasVendasPessoaFisica' },
 
     ],
 
     clientes: [
-      { title: '- Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
-      { title: '- Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
-      { title: '- Update Cliente Fisico', icon: 'mdi-car', to: '/updateClienteFisico' },
-      { title: '- Update Cliente Juridico', icon: 'mdi-car', to: '/updateClienteJuridico' },
-      { title: '- Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
+      { title: 'Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
+      { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
+      { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
+      { title: 'Atualizar Cliente Fisico', icon: 'mdi-pencil', to: '/updateClienteFisico' },
+      { title: 'Atualizar Cliente Juridico', icon: 'mdi-pencil', to: '/updateClienteJuridico' },
+
+    ],
+
+    veiculos: [
+      { title: 'Cadastrar Modelo', icon: 'mdi-car-outline', to: '/cadastroModelo' },
+      { title: 'Cadastro Veiculo', icon: 'mdi-car', to: '/CadastrarVeiculo' },
+      { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
+      { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
+      { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
+      { title: 'Atualizar Modelo', icon: 'mdi-pencil', to: '/updateModelo' },
+      { title: 'Atualizar Veiculo Novo', icon: 'mdi-pencil', to: '/updateVeiculoNovo' },
+      { title: 'Atualizar Veiculo Usado', icon: 'mdi-pencil', to: '/updateVeiculoUsado' },
     ],
     right: null,
   }),
@@ -139,9 +148,23 @@ export default {
     home() {
       this.$router.push({ name: 'home' });
     },
+    acessoRestrito() {
+      this.$router.push({ name: 'acessoRestrito' });
+    },
+    sobre() {
+      this.$router.push({ name: 'sobre' });
+    },
   }
 
 }
 </script>
 
 
+<style>
+.botao {
+  /*margin-right: auto;
+    align-items: flex-end;
+    flex-direction: row-reverse;*/
+  justify-content: flex-end;
+}
+</style>

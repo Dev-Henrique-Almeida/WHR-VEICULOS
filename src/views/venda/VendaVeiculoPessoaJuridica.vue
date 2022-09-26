@@ -280,29 +280,28 @@ export default {
             this.$router.push({ name: 'cadastroClienteJuridico' });
         },
         continuar() {
-            this.preVenda.cpfCnpjCliente = this.cliente[0].cnpj;
-            this.preVenda.cpfFuncionario = this.funcionario[0].cpf
-            this.preVenda.clienteJuridico = true;
-            this.preVenda.formaPagamento = this.formaPagamento;
-
             if (JSON.stringify([]) === JSON.stringify(this.cliente) || this.formaPagamento === '' || JSON.stringify([]) === JSON.stringify(this.funcionario) ||
                 (JSON.stringify([]) === JSON.stringify(this.veiculoNovo) && JSON.stringify([]) === JSON.stringify(this.veiculoUsado))) {
                 alert('Preencha todos os dados solicitados!')
             } else {
                 this.tela = 2;
+                this.preVenda.cpfCnpjCliente = this.cliente[0].cnpj;
+                this.preVenda.cpfFuncionario = this.funcionario[0].cpf
+                this.preVenda.clienteJuridico = true;
+                this.preVenda.formaPagamento = this.formaPagamento;
                 if (this.condicaoVeiculo == "Veiculo Usado") {
                     this.preVenda.chassiVeiculo = this.veiculoUsado[0].chassi;
-                    this.preVenda.veiculoNovo == false;
+                    this.preVenda.veiculoNovo = false;
                 } else {
                     this.preVenda.chassiVeiculo = this.veiculoNovo[0].chassi;
-                    this.preVenda.veiculoNovo == true;
+                    this.preVenda.veiculoNovo = true;
                 }
             }
         },
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaJuridicaService.create(this.preVenda).then(
-                response => { console.log(response.status); }).catch(e => {
+                response => { console.log(response.status),alert("Valeu meu patrão, dinheiro ta na mão e o carro la fora!"); }).catch(e => {
                     console.log(e.response.data.message);
                     alert(e.response.data.message);
                 });

@@ -7,8 +7,8 @@
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                            New Item
+                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" @click="cadastrarCliente" v-on="on">
+                            Cadastrar Novo Cliente
                         </v-btn>
                     </template>
                     <v-card>
@@ -219,16 +219,17 @@ export default {
                 console.log(this.editedItem)
                 CadastroClienteJuridicoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
                     response => { console.log(response.status); }).catch(e => {
-                    console.log(e.response.data.message);
-                    alert(e.response.data.message);
-                    
-        });
+                        console.log(e.response.data.message);
+                        alert(e.response.data.message);
+
+                    });
             } else {
                 this.desserts.push(this.editedItem)
             }
-
-
             this.close()
+        },
+        cadastrarCliente() {
+            this.$router.push({ name: 'cadastroClienteJuridico' });
         },
 
 
