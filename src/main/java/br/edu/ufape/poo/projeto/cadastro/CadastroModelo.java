@@ -25,10 +25,10 @@ public class CadastroModelo {
 				|| entity.getQuantidadePassageiros() == 0 || entity.getCambio().isEmpty()
 				|| entity.getCombustivel().isEmpty() || entity.getCor().isEmpty() || entity.getMotor().isEmpty()
 				|| entity.getAnoFabricado() == 0 || entity.getCilindradas() == 0 || entity.getPotencia() == 0) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			throw new ValorNuloExpection();
 		} else {
 			if (entity.getNomeMarca().equals(entity.getNomeModelo())) {
-				throw new NomeUnicoException("Erro ao cadastrar, nomes devem ser diferentes!");
+				throw new NomeUnicoException();
 			} else {
 				return repositorioModelo.save(entity);
 			}

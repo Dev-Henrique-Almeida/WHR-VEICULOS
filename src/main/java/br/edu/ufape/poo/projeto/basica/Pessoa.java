@@ -60,7 +60,7 @@ public abstract class Pessoa implements IPessoa {
 		if (idade >= 18) {
 			return true;
 		} else {
-			throw new DataForaRangeException("Erro ao cadastrar, data inválida");
+			throw new DataForaRangeException();
 		}
 	}
 

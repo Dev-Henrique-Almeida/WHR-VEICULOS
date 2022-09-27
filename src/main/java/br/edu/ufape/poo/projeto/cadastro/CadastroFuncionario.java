@@ -29,21 +29,20 @@ public class CadastroFuncionario {
 				|| entity.getCargo().isEmpty() || entity.getEndereco().getCidade().isEmpty()
 				|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
 				|| entity.getEndereco().getCep().isEmpty()) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			throw new ValorNuloExpection();
 		} else {
 			if (Objects.isNull(entity.getDataNascimento())) {
-				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+				throw new DataNulaException();
 			} else {
 				if (Objects.isNull(entity.getDataNascimento().after(new Date()))) {
-					throw new DataForaRangeException("Erro ao cadastrar, data inválida");
+					throw new DataForaRangeException();
 				} else {
 					if (Objects.isNull(findByCpf(entity.getCpf()))) {
 
 						return repositorioFuncionario.save(entity);
 					} else {
 
-						throw new FuncionarioExistenteException(
-								"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
+						throw new FuncionarioExistenteException();
 					}
 				}
 			}

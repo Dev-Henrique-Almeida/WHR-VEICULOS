@@ -95,7 +95,7 @@ public class Modelo extends Marca implements IModelo {
 	@Override
 	public boolean checarAno(int ano) throws DataForaRangeException {
 		if (ano < 0) {
-			throw new DataForaRangeException("Erro ao cadastrar modelo, ano fabricado inválido!");
+			throw new DataForaRangeException();
 		} else {
 			return true;
 		}

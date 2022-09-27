@@ -31,10 +31,10 @@ public class CadastroVeiculoUsado {
 				|| vu.getValorCompraVeiculo() == 0 || (vu.getVendido() != true && vu.getVendido() != false)
 				|| vu.getValorVenda() == 0 || vu.getUnicoDono().isEmpty() || vu.getRevisado().isEmpty()
 				|| vu.getChassi().isEmpty() || vu.getKm() == 0 || vu.getPlaca().isEmpty()) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			throw new ValorNuloExpection();
 		} else {
 			if (Objects.nonNull(findByPlaca(vu.getPlaca()))) {
-				throw new PlacaExistenteException("Erro ao cadastrar, placa já existe, por favor informe outra Placa!");
+				throw new PlacaExistenteException();
 			} else {
 
 				if (Objects.isNull(findByChassi(vu.getChassi()))) {
@@ -42,8 +42,7 @@ public class CadastroVeiculoUsado {
 					return repositorioVeiculoUsado.save(vu);
 				} else {
 
-					throw new ChassiExistenteException(
-							"Erro ao cadastrar, chassi já existe, por favor informe outro Chassi!");
+					throw new ChassiExistenteException();
 				}
 			}
 		}

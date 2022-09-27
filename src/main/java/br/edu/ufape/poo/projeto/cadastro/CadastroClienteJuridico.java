@@ -25,14 +25,13 @@ public class CadastroClienteJuridico {
 				|| entity.getContato().isEmpty() || entity.getDescricao().isEmpty()
 				|| entity.getEndereco().getCidade().isEmpty() || entity.getEndereco().getEstado().isEmpty()
 				|| entity.getEndereco().getRua().isEmpty() || entity.getEndereco().getCep().isEmpty()) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
+			throw new ValorNuloExpection();
 		} else {
 
 			if (Objects.isNull(findByCnpj(entity.getCnpj()))) {
 				return repositorioClienteJuridico.save(entity);
 			} else {
-				throw new ClienteJuridicoExistenteException(
-						"Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
+				throw new ClienteJuridicoExistenteException();
 			}
 
 		}

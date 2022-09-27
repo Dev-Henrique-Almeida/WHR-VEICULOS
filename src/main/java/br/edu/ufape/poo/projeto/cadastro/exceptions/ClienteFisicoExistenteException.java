@@ -4,8 +4,8 @@ public class ClienteFisicoExistenteException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public ClienteFisicoExistenteException(String message) {
-		super(message);
+	public ClienteFisicoExistenteException() {
+		super("Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
 	}
 
 }

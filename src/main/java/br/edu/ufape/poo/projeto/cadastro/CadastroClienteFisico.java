@@ -25,17 +25,16 @@ public class CadastroClienteFisico {
 		if (entity.getNome().isEmpty() || entity.getCpf().isEmpty() || entity.getEndereco().getCidade().isEmpty()
 				|| entity.getEndereco().getEstado().isEmpty() || entity.getEndereco().getRua().isEmpty()
 				|| entity.getEndereco().getCep().isEmpty() || entity.getTelefone().isEmpty()) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas!");
+			throw new ValorNuloExpection();
 		} else {
 			if (Objects.isNull(entity.getDataNascimento())) {
-				throw new DataNulaException("Erro ao cadastrar, data de nascimento vazia!");
+				throw new DataNulaException();
 			} else {
 
 				if (Objects.isNull(findByCpf(entity.getCpf()))) {
 					return repositorioClienteFisico.save(entity);
 				} else {
-					throw new ClienteFisicoExistenteException(
-							"Erro ao cadastrar, cliente já existe, por favor informe outro CPF!");
+					throw new ClienteFisicoExistenteException();
 				}
 			}
 		}

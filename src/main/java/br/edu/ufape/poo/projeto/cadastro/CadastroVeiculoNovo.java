@@ -29,15 +29,14 @@ public class CadastroVeiculoNovo {
 				|| vn.getModelo().getCilindradas() == 0 || vn.getModelo().getPotencia() == 0
 				|| vn.getValorCompraVeiculo() == 0 || vn.getValorVenda() == 0 || vn.getGarantiaFabrica().isEmpty()
 				|| vn.getChassi().isEmpty()) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			throw new ValorNuloExpection();
 		} else {
 			if (Objects.isNull(findByChassi(vn.getChassi()))) {
 
 				return repositorioVeiculoNovo.save(vn);
 			} else {
 
-				throw new ChassiExistenteException(
-						"Erro ao cadastrar veículo novo, chassi já existe, por favor informe outro Chassi!");
+				throw new ChassiExistenteException();
 			}
 		}
 	}

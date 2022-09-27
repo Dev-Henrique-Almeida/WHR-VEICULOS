@@ -105,7 +105,7 @@ public abstract class OrdemVenda implements IOrdem {
 	@Override
 	public boolean checarData(Date data) throws DataForaRangeException {
 		if (data.before(new Date())) {
-			throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+			throw new DataForaRangeException();
 		} else {
 			return true;
 		}

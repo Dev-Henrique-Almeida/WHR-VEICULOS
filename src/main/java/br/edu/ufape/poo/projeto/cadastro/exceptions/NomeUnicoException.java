@@ -4,8 +4,8 @@ public class NomeUnicoException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public NomeUnicoException(String message) {
-		super(message);
+	public NomeUnicoException() {
+		super("Erro ao cadastrar, nome da marca e nome do modelo devem ser diferentes!");
 	}
 
 }

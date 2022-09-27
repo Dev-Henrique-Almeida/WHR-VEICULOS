@@ -4,8 +4,8 @@ public class ClienteJuridicoExistenteException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public ClienteJuridicoExistenteException(String string) {
-		super(string);
+	public ClienteJuridicoExistenteException() {
+		super("Erro ao cadastrar, cliente já existe, por favor informe outro CNPJ!");
 	}
 
 }

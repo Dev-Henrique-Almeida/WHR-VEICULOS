@@ -32,14 +32,14 @@ public class CadastroOrdemPessoaJuridica {
 				|| entity.getFormaPagamento().isEmpty() || entity.getValor() == 0
 				|| Objects.isNull(entity.getVendedor()) || Objects.isNull(entity.getVeiculo())
 				|| Objects.isNull(entity.getVeiculo().getModelo())) {
-			throw new ValorNuloExpection("Erro ao cadastrar, informações inválidas");
+			throw new ValorNuloExpection();
 		} else {
 
 			if (Objects.isNull(entity.getDataOperacao())) {
-				throw new DataNulaException("Erro ao cadastrar, data inválida");
+				throw new DataNulaException();
 			} else {
 				if (entity.getDataOperacao().after(new Date())) {
-					throw new DataForaRangeException("Erro ao cadastrar, data inválida!");
+					throw new DataForaRangeException();
 				} else {
 					return repositorioOrdemPessoaJuridica.save(entity);
 				}
