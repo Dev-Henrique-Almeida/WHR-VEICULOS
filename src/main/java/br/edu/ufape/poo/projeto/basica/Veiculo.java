@@ -111,7 +111,7 @@ public abstract class Veiculo implements IVeiculo {
 	public String getChassi() {
 		return chassi;
 	}
-	
+
 	public void setVendido(boolean vendido) {
 		this.vendido = vendido;
 	}

@@ -18,6 +18,10 @@ public class TestClienteJuridico {
 
 	@Test
 	void clienteExistente() throws ValorNuloExpection, ClienteJuridicoExistenteException  {
+		
+	//////////////////////////////////////////////  TESTE DA EXCEÇÃO CLIENTEJURIDICOEXISTENTE  //////////////////////////////////////////////
+						/////////////////// CONSISTE EM NÂO PODER CADASTRAR DOIS CNPJ IGUAIS ////////////////////////
+		
 		try {
 			ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",
 					"(11) 27965-9032", "15373024000163", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864),

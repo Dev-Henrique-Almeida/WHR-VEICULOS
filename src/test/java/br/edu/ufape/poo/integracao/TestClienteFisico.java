@@ -22,6 +22,10 @@ public class TestClienteFisico {
 	@SuppressWarnings("deprecation")
 	@Test
 	void clienteExistente() throws DataNulaException, ValorNuloExpection {
+		
+////////////////////////////////////////////// TESTE DA EXCEÇÃO CLIENTEFISICOEXISTENTE  //////////////////////////////////////////////
+						/////////////////// CONSISTE EM NÂO PODER CADASTRAR DOIS CPF IGUAIS ////////////////////////
+		
 		try {
 			ClienteFisico cf = new ClienteFisico("26194239964", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),
 					"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864));
@@ -42,6 +46,10 @@ public class TestClienteFisico {
 	@SuppressWarnings("deprecation")
 	@Test
 	void dataNula() throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException {
+		
+		////////////////////////////////////////////// TESTE DA EXCEÇÃO DE DATANULA E VALORNULO  //////////////////////////////////////////////
+			 ///////////////////// CONSISTE EM NÃO PODER CADASTRAR UM CLIENTE COM DATA NULA, OU QUALQUER VALOR NULO /////////////////////
+		
 		try {
 			
 			ClienteFisico cf = new ClienteFisico("26194239965", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),

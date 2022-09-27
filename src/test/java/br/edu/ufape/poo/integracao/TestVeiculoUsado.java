@@ -28,6 +28,9 @@ class TestVeiculoUsado {
 	void placaExistente() throws ValorNuloExpection, ValorForaRangeException, ChassiExistenteException,
 			ValorNegativoException, PlacaExistenteException, NomeUnicoException {
 
+		//////////////////////////////////////////////  TESTE DA EXCEÇÃO PLACAEXISTENTE  //////////////////////////////////////////////
+						/////////////////// CONSISTE EM NÂO PODER CADASTRAR DUAS PLACAS IGUAIS ////////////////////////
+		
 		try {
 			Modelo mo = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
 			cmo.save(mo);
@@ -53,6 +56,9 @@ class TestVeiculoUsado {
 	@Test
 	void chassiExistente() throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException, PlacaExistenteException{
 
+		//////////////////////////////////////////////  TESTE DA EXCEÇÃO CHASSIEXISTENTE  //////////////////////////////////////////////
+					/////////////////// CONSISTE EM NÂO PODER CADASTRAR DOIS CHASSIS IGUAIS ////////////////////////
+		
 		try {
 			Modelo mo = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
 			cmo.save(mo);

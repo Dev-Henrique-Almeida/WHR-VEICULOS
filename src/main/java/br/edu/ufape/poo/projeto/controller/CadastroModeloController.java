@@ -49,13 +49,13 @@ public class CadastroModeloController {
 	@DeleteMapping("deleteModelo/{id}")
 	public ResponseEntity<HttpStatus> deleteByIdModelo(@PathVariable("id") long id) {
 		if (c.findById(id) != null) {
-		c.deleteByIdModelo(id);
-		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
-		}else {
+			c.deleteByIdModelo(id);
+			return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		} else {
 			return new ResponseEntity<HttpStatus>(HttpStatus.NOT_FOUND);
-	}
+		}
 
-}
+	}
 
 	@GetMapping("anoModelo/{anoFabricado}")
 	public ResponseEntity<List<Modelo>> findByAnoFabricado(@PathVariable("anoFabricado") int anoFabricado) {

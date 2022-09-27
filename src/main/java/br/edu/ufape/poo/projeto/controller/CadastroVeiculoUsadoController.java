@@ -54,7 +54,7 @@ public class CadastroVeiculoUsadoController {
 		c.deleteByIdVeiculoUsado(id);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("deleteVeiculoUsadoVeiculo/{veiculo}")
 	public ResponseEntity<HttpStatus> deleteVeiculoUsado(@PathVariable("veiculo") VeiculoUsado veiculo) {
 		c.delete(veiculo);

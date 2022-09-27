@@ -24,6 +24,10 @@ public class TestFuncionario {
 	@SuppressWarnings("deprecation")
 	@Test
 	void funcionarioExistente() throws ValorNuloExpection, DataNulaException, DataForaRangeException {
+		
+	//////////////////////////////////////////////TESTE DA EXCEÇÃO FUNCIONARIO EXISTENTE  //////////////////////////////////////////////
+					/////////////////// CONSISTE EM NÂO PODER CADASTRAR DOIS CPF IGUAIS ////////////////////////
+		
 		try {
 			Funcionario f = new Funcionario("13344678721", "Robert Freire de Melo", new Date(2000 - 1900, 0, 1),
 					"(81) 94002-4338", new Endereco("55380000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
@@ -46,6 +50,10 @@ public class TestFuncionario {
 	@SuppressWarnings("deprecation")
 	@Test
 	void dataNula() throws DataNulaException, ValorNuloExpection, ClienteFisicoExistenteException, FuncionarioExistenteException, DataForaRangeException {
+		
+		//////////////////////////////////////////////TESTE DA EXCEÇÃO DE DATANULA E VALORNULO  //////////////////////////////////////////////
+			 ///////////////////// CONSISTE EM NÃO PODER CADASTRAR UM FUNCIONARIO COM DATA NULA, OU QUALQUER VALOR NULO /////////////////////
+		
 		try {
 			
 			Funcionario f = new Funcionario("13344678725", "Henrique Almeida", new Date(2000 - 1900, 0, 1),

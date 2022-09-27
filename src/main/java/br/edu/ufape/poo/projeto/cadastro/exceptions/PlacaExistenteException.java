@@ -8,6 +8,4 @@ public class PlacaExistenteException extends Exception {
 		super("Erro ao cadastrar, placa já existe, por favor informe outra Placa!");
 	}
 
-	
-	
 }

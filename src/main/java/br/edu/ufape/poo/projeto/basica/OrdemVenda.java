@@ -80,7 +80,7 @@ public abstract class OrdemVenda implements IOrdem {
 	public boolean getVendaConcluida() {
 		return vendaConcluida;
 	}
-	
+
 	public void setVendaConcluida(boolean vendaConcluida) {
 		this.vendaConcluida = vendaConcluida;
 	}

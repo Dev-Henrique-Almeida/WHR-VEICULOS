@@ -210,8 +210,8 @@ public class Concessionaria {
 
 	///////////////////// ORDEM PESSOA FISICA ///////////////////
 
-	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity)
-			throws ValorNegativoException, ValorNuloExpection, DataNulaException, DataForaRangeException, VeiculoVendidoException {
+	public OrdemVendaPessoaFisica save(OrdemVendaPessoaFisica entity) throws ValorNegativoException, ValorNuloExpection,
+			DataNulaException, DataForaRangeException, VeiculoVendidoException {
 		return cadastroOrdemPessoaFisica.save(entity);
 	}
 
@@ -284,7 +284,7 @@ public class Concessionaria {
 							cliente);
 					veiculo.setVendido(true);
 					cadastroOrdemPessoaJuridica.save(venda);
-					
+
 				}
 			} else {
 				ClienteFisico cliente = findByCpf(preVenda.getCpfCnpjCliente());
@@ -296,7 +296,7 @@ public class Concessionaria {
 							dataOperacao, preVenda.getFormaPagamento(), true, true, vendedor, cliente);
 					veiculo.setVendido(true);
 					cadastroOrdemPessoaFisica.save(venda);
-					
+
 				}
 			}
 		}

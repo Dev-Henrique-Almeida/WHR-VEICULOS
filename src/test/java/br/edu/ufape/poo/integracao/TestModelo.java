@@ -21,6 +21,9 @@ class TestModelo {
 	@Test
 	void nomeUnico() throws ValorNuloExpection, ValorForaRangeException, NomeUnicoException{
 
+			//////////////////////////////////////////////TESTE DA EXCEÇÃO DE NOMEUNICO //////////////////////////////////////////////
+				///////// CONSISTE EM NÃO PODER CADASTRAR UM MODELO COM O NOME DO MODELO IGUAL O NOME DA MARCA ///////// 
+		
 		try {
 			Modelo mo = new Modelo("Chevrolet", "Camaro", "V8", "Amarelo", 2012, 406, 2, 400, "Automático", "Diesel");
 			cmo.save(mo);
