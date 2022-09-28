@@ -209,8 +209,15 @@ export default {
         },
         deleteItemConfirm() {
 
-            CadastroFuncionarioService.deleteById(this.desserts[this.editedIndex].id);
-            alert("Funcionário Removido com Sucesso!")
+            CadastroFuncionarioService.deleteById(this.desserts[this.editedIndex].id).then(
+                response => {
+                    alert("Funcionário Removido com Sucesso!");
+                    console.log(response.status);
+                }).catch(e => {
+                    console.log(e.response.data.message);
+                    alert("Não foi possivel deletar esse Funcionário devido a um erro inesperado!");
+                });
+
             this.desserts.splice(this.editedIndex, 1)
 
 
@@ -238,16 +245,18 @@ export default {
             })
         },
         save() {
-            alert("Funcionário Atualizado com Sucesso!")
             if (this.editedIndex > -1) {
                 Object.assign(this.desserts[this.editedIndex], this.editedItem)
 
                 console.log(this.editedItem)
                 CadastroFuncionarioService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
-                    response => { console.log(response.status); }).catch(e => {
-                    console.log(e.response.data.message);
-                    alert(e.response.data.message);
-        });
+                    response => {
+                        alert("Funcionário Atualizado com Sucesso!"),
+                            console.log(response.status);
+                    }).catch(e => {
+                        console.log(e.response.data.message);
+                        alert(e.response.data.message);
+                    });
             } else {
                 this.desserts.push(this.editedItem)
             }

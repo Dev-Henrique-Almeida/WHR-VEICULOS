@@ -113,20 +113,20 @@ export default {
     cadastrar() {
 
       console.log(this.pessoa)
-      CadastroClienteFisicoService.create(this.pessoa).then(response => { console.log(response.status),
-        this.continuar(); 
+      CadastroClienteFisicoService.create(this.pessoa).then(response => {
+        alert("Cliente Cadastrado com Sucesso!"),
+        console.log(response.status),
+        this.continuar();
       }).catch(e => {
         console.log(e.response.data.message);
-        alert(e.response.data.message)})
-      
+        alert(e.response.data.message)
+      })
+
     },
     continuar() {
-      if(this.aux != 1){
+      if (this.aux != 1) {
         this.$router.push({ name: 'home' });
-      }else{
-        alert("Teste");
       }
-      
     }
   },
 

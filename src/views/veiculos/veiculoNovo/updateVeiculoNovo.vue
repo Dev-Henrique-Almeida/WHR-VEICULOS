@@ -169,11 +169,15 @@ export default {
         },
         deleteItemConfirm() {
 
-            CadastroVeiculoNovoService.deleteById(this.desserts[this.editedIndex].id);
-            alert("Veículo Novo Removido com Sucesso!")
+            CadastroVeiculoNovoService.deleteById(this.desserts[this.editedIndex].id).then(
+                    response => {
+                        alert("Veículo Novo Removido com Sucesso!"),
+                        console.log(response.status);
+                    }).catch(e => {
+                        console.log(e.response.data.message);
+                        alert(e.response.data.message);
+                    });
             this.desserts.splice(this.editedIndex, 1)
-
-
             this.closeDelete()
 
 
@@ -201,13 +205,15 @@ export default {
             this.$router.push({ name: 'CadastrarVeiculo' });
         },
         save() {
-            alert("Veículo Novo Atualizado com Sucesso!")
             if (this.editedIndex > -1) {
                 Object.assign(this.desserts[this.editedIndex], this.editedItem)
 
                 console.log(this.editedItem)
                 CadastroVeiculoNovoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
-                    response => { console.log(response.status); }).catch(e => {
+                    response => {
+                        alert("Veículo Novo Atualizado com Sucesso!"),
+                        console.log(response.status);
+                    }).catch(e => {
                         console.log(e.response.data.message);
                         alert(e.response.data.message);
                     });

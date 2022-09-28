@@ -183,8 +183,11 @@ export default {
         },
         deleteItemConfirm() {
 
-            CadastroClienteJuridicoService.deleteById(this.desserts[this.editedIndex].id);
-            alert("Cliente Removido com Sucesso!")
+            CadastroClienteJuridicoService.deleteById(this.desserts[this.editedIndex].id).then(
+                response => {
+                    alert("Cliente Removido com Sucesso!")
+                    console.log(response.status);
+                });
             this.desserts.splice(this.editedIndex, 1)
 
 
@@ -212,13 +215,16 @@ export default {
             })
         },
         save() {
-            alert("Cliente Atualizado com Sucesso!")
+
             if (this.editedIndex > -1) {
                 Object.assign(this.desserts[this.editedIndex], this.editedItem)
 
                 console.log(this.editedItem)
                 CadastroClienteJuridicoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
-                    response => { console.log(response.status); }).catch(e => {
+                    response => {
+                        alert("Cliente Atualizado com Sucesso!"),
+                            console.log(response.status);
+                    }).catch(e => {
                         console.log(e.response.data.message);
                         alert(e.response.data.message);
 

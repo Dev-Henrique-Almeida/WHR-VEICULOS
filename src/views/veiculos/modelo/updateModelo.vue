@@ -6,9 +6,9 @@
                 <v-divider class="mx-4" inset vertical></v-divider>
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
-                    <template v-slot:activator="{ on }">
-                        <v-btn color="primary" dark v-on="on" @click="cadastrarModelo">
-                            Cadastrar Novo Modelo
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+                            New Item
                         </v-btn>
                     </template>
                     <v-card>
@@ -215,9 +215,6 @@ export default {
             this.desserts = [
             ]
         },
-        cadastrarModelo() {
-            this.$router.push({ name: 'cadastroModelo' });
-        },
         loadAll() {
             CadastroModeloService.getAll().then(
                 response => {
@@ -238,8 +235,14 @@ export default {
         },
         deleteItemConfirm() {
 
-            CadastroModeloService.deleteById(this.desserts[this.editedIndex].id);
-            alert("Modelo Removido com Sucesso!")
+            CadastroModeloService.deleteById(this.desserts[this.editedIndex].id).then(
+                response => {
+                    alert("Modelo Removido com Sucesso!"),
+                        console.log(response.status);
+                }).catch(e => {
+                    console.log(e.response.data.message);
+                    alert(e.response.data.message);
+                });
             this.desserts.splice(this.editedIndex, 1)
 
 
@@ -267,17 +270,19 @@ export default {
             })
         },
         save() {
-            alert("Modelo Atualizado com Sucesso!")
             if (this.editedIndex > -1) {
                 Object.assign(this.desserts[this.editedIndex], this.editedItem)
 
                 console.log(this.editedItem)
                 CadastroModeloService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
-                    response => { console.log(response.status); }).catch(e => {
-                    console.log(e.response.data.message);
-                    alert(e.response.data.message);
-                    
-        });
+                    response => {
+                        alert("Modelo Atualizado com Sucesso!"),
+                            console.log(response.status);
+                    }).catch(e => {
+                        console.log(e.response.data.message);
+                        alert(e.response.data.message);
+
+                    });
             } else {
                 this.desserts.push(this.editedItem)
             }

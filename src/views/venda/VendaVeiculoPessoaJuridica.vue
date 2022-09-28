@@ -303,7 +303,10 @@ export default {
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaJuridicaService.create(this.preVenda).then(
-                response => { console.log(response.status), alert("Valeu meu patrão, dinheiro ta na mão e o carro la fora!"); }).catch(e => {
+                response => {
+                    alert("Veiculo Vendido com Sucesso!"),
+                    console.log(response.status);
+                }).catch(e => {
                     console.log(e.response.data.message);
                     alert(e.response.data.message);
                 });

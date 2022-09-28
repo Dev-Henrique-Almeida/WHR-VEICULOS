@@ -137,7 +137,10 @@ export default {
     cadastrar() {
       console.log(this.funcionario)
       CadastroFuncionarioService.create(this.funcionario).then(
-        response => { console.log(response.status); }).catch(e => {
+        response => {
+          alert("Cliente Cadastrado com Sucesso!"),
+          console.log(response.status);
+        }).catch(e => {
           console.log(e.response.data.message);
           alert(e.response.data.message);
 

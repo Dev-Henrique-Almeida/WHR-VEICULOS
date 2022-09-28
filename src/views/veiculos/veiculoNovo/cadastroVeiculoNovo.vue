@@ -132,7 +132,10 @@ export default {
     cadastrar() {
       console.log(this.veiculoNovo)
       CadastroVeiculoNovoService.create(this.veiculoNovo).then(
-        response => { console.log(response.status), alert('Sucesso, veiculo cadastrado!'); }).catch(e => {
+        response => {
+          alert('Veiculo Cadastrado com Sucesso!'),
+          console.log(response.status)
+        }).catch(e => {
           console.log(e.response.data.message);
           alert(e.response.data.message);
 
