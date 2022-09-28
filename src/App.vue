@@ -8,24 +8,20 @@
         <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="175"
           src="./assets/logoWHR.png" width="175" @click="home" />
         <v-spacer></v-spacer>
+
+        <v-btn color="black" dark @click="cliente"> Clientes</v-btn>
+        
         <v-btn color="black" dark @click="acessoRestrito"> Acesso Restrito
           <v-icon right dark>mdi-account-lock </v-icon>
         </v-btn>
       </v-app-bar>
-
-
-
       <v-main>
         <router-view>
-
         </router-view>
-
-
       </v-main>
       <v-navigation-drawer v-model="drawer" app>
         <v-list-item>
           <v-list-item-content>
-
             <v-list-item-title class="text-h6">
               WHR Veiculos
             </v-list-item-title>
@@ -34,11 +30,7 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-
         <v-divider></v-divider>
-
-
-
         <template>
           <v-card class="mx-auto" width="320">
             <v-list dense nav>
@@ -62,6 +54,7 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
+
               <v-list-group :value="false" prepend-icon="mdi-car">
                 <template v-slot:activator>
                   <v-list-item-title>Veiculos</v-list-item-title>
@@ -75,6 +68,7 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
+
               <v-list-group :value="false" prepend-icon="mdi-car">
                 <template v-slot:activator>
                   <v-list-item-title>Vendas</v-list-item-title>
@@ -88,21 +82,23 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
+
               <v-list-item>
                 <v-list-item-icon>
                   <v-icon>mdi-information</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title @click="sobre">Sobre</v-list-item-title>
               </v-list-item>
+
             </v-list>
           </v-card>
         </template>
       </v-navigation-drawer>
+
     </v-img>
   </v-app>
 </template>
 <script>
-//import { mdiHome } from '@mdi/js'
 export default {
   data: () => ({
     drawer: false,
@@ -111,7 +107,7 @@ export default {
     funcionario: [
 
       { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
-      { title: 'Update Funcionário', icon: 'mdi-car', to: '/updateFuncionario' },
+      { title: 'Gerenciar Funcionários', icon: 'mdi-car', to: '/updateFuncionario' },
       { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
       { title: 'Sobre', icon: 'mdi-information' },
     ],
@@ -127,9 +123,8 @@ export default {
       { title: 'Cadastrar Cliente Físico', icon: 'mdi-account', to: '/cadastroInicio' },
       { title: 'Cadastrar Cliente Jurídico', icon: 'mdi-account', to: '/cadastroClienteJuridico' },
       { title: 'Todos os Clientes', icon: 'mdi-account-multiple', to: '/clientes' },
-      { title: 'Atualizar Cliente Fisico', icon: 'mdi-pencil', to: '/updateClienteFisico' },
-      { title: 'Atualizar Cliente Juridico', icon: 'mdi-pencil', to: '/updateClienteJuridico' },
-
+      { title: 'Gerenciar Clientes Fisicos', icon: 'mdi-pencil', to: '/updateClienteFisico' },
+      { title: 'Gerenciar Clientes Juridicos', icon: 'mdi-pencil', to: '/updateClienteJuridico' },
     ],
 
     veiculos: [
@@ -138,15 +133,18 @@ export default {
       { title: 'Todos os Veiculos Novos', icon: 'mdi-magnify', to: '/veiculosNovos' },
       { title: 'Todos os Veiculos Usados', icon: 'mdi-magnify', to: '/veiculosUsados' },
       { title: 'Todos os Modelos', icon: 'mdi-magnify', to: '/modelos' },
-      { title: 'Atualizar Modelo', icon: 'mdi-pencil', to: '/updateModelo' },
-      { title: 'Atualizar Veiculo Novo', icon: 'mdi-pencil', to: '/updateVeiculoNovo' },
-      { title: 'Atualizar Veiculo Usado', icon: 'mdi-pencil', to: '/updateVeiculoUsado' },
+      { title: 'Gerenciar Modelos', icon: 'mdi-pencil', to: '/updateModelo' },
+      { title: 'Gerenciar Veiculos Novos', icon: 'mdi-pencil', to: '/updateVeiculoNovo' },
+      { title: 'Gerenciar Veiculos Usados', icon: 'mdi-pencil', to: '/updateVeiculoUsado' },
     ],
     right: null,
   }),
   methods: {
     home() {
       this.$router.push({ name: 'home' });
+    },
+    cliente() {
+      this.$router.push({ name: 'clientes' });
     },
     acessoRestrito() {
       this.$router.push({ name: 'acessoRestrito' });
@@ -162,9 +160,6 @@ export default {
 
 <style>
 .botao {
-  /*margin-right: auto;
-    align-items: flex-end;
-    flex-direction: row-reverse;*/
   justify-content: flex-end;
 }
 </style>

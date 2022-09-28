@@ -91,6 +91,7 @@ export default {
       v => !!v || 'Nome Obrigatorio',
       v => v.length > 0 && v != null || 'Informe o nome completo',
     ],
+    aux: 0,
     pessoa: reactive({
       nome: '',
       cpf: '',
@@ -110,13 +111,22 @@ export default {
   }),
   methods: {
     cadastrar() {
+
       console.log(this.pessoa)
-      CadastroClienteFisicoService.create(this.pessoa).then(
-        response => { console.log(response.status), alert("Deu certo");}).catch(e => {
-          console.log(e.response.data.message);
-          alert(e.response.data.message);
-          
-        });
+      CadastroClienteFisicoService.create(this.pessoa).then(response => { console.log(response.status),
+        this.continuar(); 
+      }).catch(e => {
+        console.log(e.response.data.message);
+        alert(e.response.data.message)})
+      
+    },
+    continuar() {
+      if(this.aux != 1){
+        this.$router.push({ name: 'home' });
+      }else{
+        alert("Teste");
+      }
+      
     }
   },
 

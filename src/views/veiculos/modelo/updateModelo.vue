@@ -6,9 +6,9 @@
                 <v-divider class="mx-4" inset vertical></v-divider>
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-                            New Item
+                    <template v-slot:activator="{ on }">
+                        <v-btn color="primary" dark v-on="on" @click="cadastrarModelo">
+                            Cadastrar Novo Modelo
                         </v-btn>
                     </template>
                     <v-card>
@@ -214,6 +214,9 @@ export default {
         initialize() {
             this.desserts = [
             ]
+        },
+        cadastrarModelo() {
+            this.$router.push({ name: 'cadastroModelo' });
         },
         loadAll() {
             CadastroModeloService.getAll().then(

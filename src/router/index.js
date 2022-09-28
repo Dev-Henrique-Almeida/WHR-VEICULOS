@@ -20,6 +20,8 @@ import VendaConcluida from '../views/venda/VendaConcluida.vue'
 import acessoRestrito from '../views/acessoRestrito.vue'
 import allVenda from '../views/venda/allVenda.vue'
 import allVendaJuridica from '../views/venda/allVendaJuridica.vue'
+import cadastroFinalizado from '../views/clientes/cadastroFinalizado.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -54,6 +56,11 @@ const routes = [
     path: '/cadastroInicio',
     name: 'cadastroClienteFisico',
     component: cadastroCliente
+  },
+  {
+    path: '/cadastroClienteFisicoFinalizado',
+    name: 'cadastroClienteFisicoFinalizado',
+    component: cadastroFinalizado
   },
   {
     path: '/updateClienteFisico',
