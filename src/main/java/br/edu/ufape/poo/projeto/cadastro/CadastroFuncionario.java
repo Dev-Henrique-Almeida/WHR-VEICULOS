@@ -49,10 +49,22 @@ public class CadastroFuncionario {
 		}
 	}
 
+	public Funcionario update(Funcionario entity) {
+		return repositorioFuncionario.save(entity);
+	}
+
 	public void delete(Funcionario entity) {
 		repositorioFuncionario.delete(entity);
 	}
+	
+	public void deleteByCpf(String cpf) {
+		repositorioFuncionario.deleteByCpf(cpf);
+	}
 
+	public void deleteById(long id) {
+		repositorioFuncionario.deleteById(id);
+	}
+	
 	public Funcionario findByNome(String nome) {
 		return repositorioFuncionario.findByNome(nome);
 	}
@@ -77,15 +89,4 @@ public class CadastroFuncionario {
 		return repositorioFuncionario.findAll();
 	}
 
-	public void deleteByCpf(String cpf) {
-		repositorioFuncionario.deleteByCpf(cpf);
-	}
-
-	public void deleteById(long id) {
-		repositorioFuncionario.deleteById(id);
-	}
-
-	public Funcionario update(Funcionario entity) {
-		return repositorioFuncionario.save(entity);
-	}
 }

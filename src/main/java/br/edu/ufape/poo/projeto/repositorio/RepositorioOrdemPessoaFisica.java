@@ -8,8 +8,6 @@ import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 
 public interface RepositorioOrdemPessoaFisica extends JpaRepository<OrdemVendaPessoaFisica, Long> {
 
-	public List<OrdemVendaPessoaFisica> findByPago(boolean pago);
-
 	OrdemVendaPessoaFisica findById(long id);
 
 	public OrdemVendaPessoaFisica findByNovo(boolean novo);
@@ -17,5 +15,7 @@ public interface RepositorioOrdemPessoaFisica extends JpaRepository<OrdemVendaPe
 	public OrdemVendaPessoaFisica findByVendaConcluida(boolean vendaConcluida);
 
 	public OrdemVendaPessoaFisica findByValor(float valor);
+	
+	public List<OrdemVendaPessoaFisica> findByPago(boolean pago);
 
 }

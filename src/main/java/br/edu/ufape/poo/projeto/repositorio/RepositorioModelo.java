@@ -10,10 +10,6 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 @Repository
 public interface RepositorioModelo extends JpaRepository<Modelo, Long> {
 
-	public List<Modelo> findByAnoFabricado(int anoFabricado);
-
-	public List<Modelo> findByNomeModelo(String nomeModelo);
-
 	public Modelo findById(long id);
 
 	public Modelo findByCilindradas(float cilindradas);
@@ -21,5 +17,9 @@ public interface RepositorioModelo extends JpaRepository<Modelo, Long> {
 	public Modelo findByPotencia(int potencia);
 
 	public Modelo findByQuantidadePassageiros(int quantidadePassageiros);
+	
+	public List<Modelo> findByAnoFabricado(int anoFabricado);
+
+	public List<Modelo> findByNomeModelo(String nomeModelo);
 
 }

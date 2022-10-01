@@ -6,6 +6,7 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.TelefoneForaRangeException;
 
 public interface IPessoa {
+	
 	public boolean checarIdade(Date dataNascimento) throws DataForaRangeException;
 
 	public boolean checarTelefone(String telefone) throws TelefoneForaRangeException;

@@ -47,16 +47,16 @@ public class CadastroOrdemPessoaJuridica {
 		}
 	}
 
+	public OrdemVendaPessoaJuridica update(OrdemVendaPessoaJuridica entity) {
+		return repositorioOrdemPessoaJuridica.save(entity);
+	}
+	
 	public void delete(OrdemVendaPessoaJuridica entity) {
 		repositorioOrdemPessoaJuridica.delete(entity);
 	}
 
 	public void deleteById(long id) {
 		repositorioOrdemPessoaJuridica.deleteById(id);
-	}
-
-	public OrdemVendaPessoaJuridica update(OrdemVendaPessoaJuridica entity) {
-		return repositorioOrdemPessoaJuridica.save(entity);
 	}
 
 	public OrdemVendaPessoaJuridica findByValor(float valor) {
@@ -75,12 +75,12 @@ public class CadastroOrdemPessoaJuridica {
 		return repositorioOrdemPessoaJuridica.findById(id);
 	}
 
-	public List<OrdemVendaPessoaJuridica> findAll() {
-		return repositorioOrdemPessoaJuridica.findAll();
-	}
-
 	public List<OrdemVendaPessoaJuridica> findByPago(boolean pago) {
 		return repositorioOrdemPessoaJuridica.findByPago(pago);
+	}
+	
+	public List<OrdemVendaPessoaJuridica> findAll() {
+		return repositorioOrdemPessoaJuridica.findAll();
 	}
 
 }

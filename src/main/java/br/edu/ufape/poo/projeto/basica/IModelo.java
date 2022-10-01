@@ -6,6 +6,7 @@ import br.edu.ufape.poo.projeto.cadastro.exceptions.PassageirosForaRangeExceptio
 import br.edu.ufape.poo.projeto.cadastro.exceptions.PotenciaForaRangeException;
 
 public interface IModelo {
+	
 	public boolean checarPassageiros(int quantidade) throws PassageirosForaRangeException;
 
 	public boolean checarAno(int ano) throws DataForaRangeException;

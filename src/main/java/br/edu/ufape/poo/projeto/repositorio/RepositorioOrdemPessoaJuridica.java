@@ -10,12 +10,12 @@ public interface RepositorioOrdemPessoaJuridica extends JpaRepository<OrdemVenda
 
 	OrdemVendaPessoaJuridica findById(long id);
 
-	List<OrdemVendaPessoaJuridica> findByPago(boolean pago);
-
 	OrdemVendaPessoaJuridica findByValor(float valor);
 
 	OrdemVendaPessoaJuridica findByVendaConcluida(boolean vendaConcluida);
 
 	OrdemVendaPessoaJuridica findByNovo(boolean novo);
+	
+	List<OrdemVendaPessoaJuridica> findByPago(boolean pago);
 
 }
