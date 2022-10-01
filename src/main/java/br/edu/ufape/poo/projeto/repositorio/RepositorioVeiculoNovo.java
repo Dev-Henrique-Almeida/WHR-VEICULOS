@@ -10,20 +10,20 @@ import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
 @Repository
 public interface RepositorioVeiculoNovo extends JpaRepository<VeiculoNovo, Long> {
 
-	public List<VeiculoNovo> findByValorVenda(float valorVenda);
-
-	public List<VeiculoNovo> findByGarantiaFabrica(String garantiaFabrica);
-
 	public VeiculoNovo findByChassi(String chassi);
 
 	public VeiculoNovo findById(long id);
-
-	public List<VeiculoNovo> findAllByVendido(boolean vendido);
 
 	public VeiculoNovo findByKm(float km);
 
 	public VeiculoNovo findByVendido(boolean vendido);
 
 	public VeiculoNovo findByValorCompraVeiculo(float valorCompraVeiculo);
+	
+	public List<VeiculoNovo> findByValorVenda(float valorVenda);
 
+	public List<VeiculoNovo> findByGarantiaFabrica(String garantiaFabrica);
+
+	public List<VeiculoNovo> findAllByVendido(boolean vendido);
+	
 }

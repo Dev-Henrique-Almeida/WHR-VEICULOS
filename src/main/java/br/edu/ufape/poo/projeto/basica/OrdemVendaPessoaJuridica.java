@@ -23,16 +23,16 @@ public class OrdemVendaPessoaJuridica extends OrdemVenda {
 		this.cliente = cliente;
 	}
 
+	public ClienteJuridico getCliente() {
+		return cliente;
+	}
+	
 	@Override
 	public String toString() {
 		return "OrdemVendaPessoaJuridica [cliente=" + cliente + ", valor=" + getValor() + ", veiculo=" + getVeiculo()
 				+ ", novo=" + getNovo() + ", dataOperacao=" + getDataOperacao() + ", formaPagamento="
 				+ getFormaPagamento() + ", pago=" + getPago() + ", vendaConcluida=" + getVendaConcluida()
 				+ ", vendedor=" + getVendedor() + ", codVenda=" + getId() + "]";
-	}
-
-	public ClienteJuridico getCliente() {
-		return cliente;
 	}
 
 }

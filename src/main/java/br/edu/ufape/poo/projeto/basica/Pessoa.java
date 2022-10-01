@@ -24,7 +24,17 @@ public abstract class Pessoa implements IPessoa {
 	private String cpf;
 
 	private String nome;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Endereco endereco;
+
+	private Date dataNascimento;
+	private String telefone;
+	
 	public Pessoa() {
 
 	}
@@ -37,15 +47,29 @@ public abstract class Pessoa implements IPessoa {
 		this.endereco = endereco;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	public long getId() {
+		return this.id;
+	}
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private Endereco endereco;
+	public String getCpf() {
+		return this.cpf;
+	}
 
-	private Date dataNascimento;
-	private String telefone;
+	public String getNome() {
+		return this.nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public String getTelefone() {
+		return this.telefone;
+	}
 
 	@Override
 	public boolean checarIdade(Date dataNascimento) throws DataForaRangeException {
@@ -71,30 +95,6 @@ public abstract class Pessoa implements IPessoa {
 		} else {
 			return true;
 		}
-	}
-
-	public long getId() {
-		return this.id;
-	}
-
-	public String getCpf() {
-		return this.cpf;
-	}
-
-	public String getNome() {
-		return this.nome;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public String getTelefone() {
-		return this.telefone;
 	}
 
 }

@@ -67,7 +67,7 @@ public class TestOrdemVendaPessoaFisica {
 		VeiculoNovo vn2 = new VeiculoNovo(1555, 22222, false, "8AHS3cyA33f5N6170", "Sim", mo);
 		cvn.save(vn2);
 
-		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, vn2, true, new Date(), "Debito", false, false, f,
+		OrdemVendaPessoaFisica of = new OrdemVendaPessoaFisica(15000, vn2, true, new Date(), "Débito", false, false, f,
 				cf);
 		cof.save(of);
 

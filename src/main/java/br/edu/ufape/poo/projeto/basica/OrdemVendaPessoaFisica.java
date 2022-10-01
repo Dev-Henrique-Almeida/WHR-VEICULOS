@@ -21,6 +21,10 @@ public class OrdemVendaPessoaFisica extends OrdemVenda {
 		super(valor, veiculo, novo, dataOperacao, formaPagamento, pago, vendaConcluida, vendedor);
 		this.cliente = cliente;
 	}
+	
+	public ClienteFisico getCliente() {
+		return cliente;
+	}
 
 	@Override
 	public String toString() {
@@ -28,10 +32,6 @@ public class OrdemVendaPessoaFisica extends OrdemVenda {
 				+ ", novo=" + getNovo() + ", dataOperacao=" + getDataOperacao() + ", formaPagamento="
 				+ getFormaPagamento() + ", pago=" + getPago() + ", vendaConcluida=" + getVendaConcluida()
 				+ ", vendedor=" + getVendedor() + ", codVenda=" + getId() + "]";
-	}
-
-	public ClienteFisico getCliente() {
-		return cliente;
 	}
 
 }

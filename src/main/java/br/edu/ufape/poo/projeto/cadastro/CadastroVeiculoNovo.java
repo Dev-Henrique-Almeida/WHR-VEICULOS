@@ -40,6 +40,14 @@ public class CadastroVeiculoNovo {
 			}
 		}
 	}
+	
+	public VeiculoNovo update(VeiculoNovo entity) {
+		return repositorioVeiculoNovo.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioVeiculoNovo.deleteById(id);
+	}
 
 	public void delete(VeiculoNovo entity) {
 		repositorioVeiculoNovo.delete(entity);
@@ -65,15 +73,6 @@ public class CadastroVeiculoNovo {
 		return repositorioVeiculoNovo.findByVendido(vendido);
 	}
 
-	public List<VeiculoNovo> findByValorVenda(float valorVenda) {
-		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
-	}
-
-	public List<VeiculoNovo> findAllByVendido() {
-		boolean vendido = false;
-		return repositorioVeiculoNovo.findAllByVendido(vendido);
-	}
-
 	public List<VeiculoNovo> findAllById(Iterable<Long> ids) {
 		return repositorioVeiculoNovo.findAllById(ids);
 	}
@@ -85,13 +84,14 @@ public class CadastroVeiculoNovo {
 	public List<VeiculoNovo> findAll() {
 		return repositorioVeiculoNovo.findAll();
 	}
-
-	public VeiculoNovo update(VeiculoNovo entity) {
-		return repositorioVeiculoNovo.save(entity);
+	
+	public List<VeiculoNovo> findByValorVenda(float valorVenda) {
+		return repositorioVeiculoNovo.findByValorVenda(valorVenda);
 	}
 
-	public void deleteById(long id) {
-		repositorioVeiculoNovo.deleteById(id);
-	}
+	public List<VeiculoNovo> findAllByVendido() {
+		boolean vendido = false;
+		return repositorioVeiculoNovo.findAllByVendido(vendido);
+	}	
 
 }

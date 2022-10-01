@@ -10,13 +10,9 @@ import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 @Repository
 public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Long> {
 
-	public List<VeiculoUsado> findByValorVenda(float valorVenda);
-
 	public VeiculoUsado findByChassi(String chassi);
 
 	public VeiculoUsado findById(long id);
-
-	public List<VeiculoUsado> findAllByVendido(boolean vendido);
 
 	public VeiculoUsado findByPlaca(String placa);
 
@@ -25,5 +21,9 @@ public interface RepositorioVeiculoUsado extends JpaRepository<VeiculoUsado, Lon
 	public VeiculoUsado findByVendido(boolean vendido);
 
 	public VeiculoUsado findByValorCompraVeiculo(float valorCompraVeiculo);
+	
+	public List<VeiculoUsado> findByValorVenda(float valorVenda);
+	
+	public List<VeiculoUsado> findAllByVendido(boolean vendido);
 
 }

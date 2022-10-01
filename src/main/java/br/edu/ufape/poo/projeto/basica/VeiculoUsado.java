@@ -35,18 +35,18 @@ public class VeiculoUsado extends Veiculo implements IVeiculoUsado {
 	}
 
 	@Override
-	public String toString() {
-		return "VeiculoUsado [revisado=" + revisado + ", unicoDono=" + unicoDono + ", placa=" + placa + ", valorVenda="
-				+ getValorVenda() + ", vendido()=" + getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
-	}
-
-	@Override
 	public boolean checarPlaca(String placa) throws PlacaForaRangeException {
 		if (placa.length() > 8 || placa.length() < 8) {
 			throw new PlacaForaRangeException("Erro ao cadastrar, placa inválida!");
 		} else {
 			return true;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "VeiculoUsado [revisado=" + revisado + ", unicoDono=" + unicoDono + ", placa=" + placa + ", valorVenda="
+				+ getValorVenda() + ", vendido()=" + getVendido() + ", km=" + getKm() + ", chassi=" + getChassi() + "]";
 	}
 
 }

@@ -39,12 +39,25 @@ public class CadastroClienteFisico {
 			}
 		}
 	}
+	
+	public ClienteFisico update(ClienteFisico entity) {
+		return repositorioClienteFisico.save(entity);
+	}
+	
+	public void deleteByCpf(String cpf) {
+		repositorioClienteFisico.deleteByCpf(cpf);
+	}
+
+	public void deleteById(long id) {
+
+		repositorioClienteFisico.deleteById(id);
+	}
 
 	public void delete(ClienteFisico entity) {
 		repositorioClienteFisico.delete(entity);
 	}
 
-	public ClienteFisico findByCpf(String cpf) { // mudar o find em outras classes
+	public ClienteFisico findByCpf(String cpf) { 
 		return repositorioClienteFisico.findByCpf(cpf);
 	}
 
@@ -59,17 +72,5 @@ public class CadastroClienteFisico {
 	public List<ClienteFisico> findAll() {
 		return repositorioClienteFisico.findAll();
 	}
-
-	public void deleteByCpf(String cpf) {
-		repositorioClienteFisico.deleteByCpf(cpf);
-	}
-
-	public void deleteById(long id) {
-
-		repositorioClienteFisico.deleteById(id);
-	}
-
-	public ClienteFisico update(ClienteFisico entity) {
-		return repositorioClienteFisico.save(entity);
-	}
+	
 }

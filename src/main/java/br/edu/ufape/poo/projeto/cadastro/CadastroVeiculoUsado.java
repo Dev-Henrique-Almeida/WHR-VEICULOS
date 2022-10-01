@@ -47,6 +47,14 @@ public class CadastroVeiculoUsado {
 			}
 		}
 	}
+	
+	public VeiculoUsado update(VeiculoUsado entity) {
+		return repositorioVeiculoUsado.save(entity);
+	}
+
+	public void deleteById(long id) {
+		repositorioVeiculoUsado.deleteById(id);
+	}
 
 	public void delete(VeiculoUsado entity) {
 		repositorioVeiculoUsado.delete(entity);
@@ -68,11 +76,6 @@ public class CadastroVeiculoUsado {
 		return repositorioVeiculoUsado.findByVendido(vendido);
 	}
 
-	public List<VeiculoUsado> findAllByVendido() {
-		boolean vendido = false;
-		return repositorioVeiculoUsado.findAllByVendido(vendido);
-	}
-
 	public VeiculoUsado findByKm(float km) {
 		return repositorioVeiculoUsado.findByKm(km);
 	}
@@ -89,12 +92,9 @@ public class CadastroVeiculoUsado {
 		return repositorioVeiculoUsado.findAll();
 	}
 
-	public VeiculoUsado update(VeiculoUsado entity) {
-		return repositorioVeiculoUsado.save(entity);
+	public List<VeiculoUsado> findAllByVendido() {
+		boolean vendido = false;
+		return repositorioVeiculoUsado.findAllByVendido(vendido);
 	}
-
-	public void deleteById(long id) {
-		repositorioVeiculoUsado.deleteById(id);
-	}
-
+	
 }

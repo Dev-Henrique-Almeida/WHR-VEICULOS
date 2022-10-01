@@ -35,20 +35,16 @@ public class CadastroModelo {
 		}
 	}
 
+	public Modelo update(Modelo entity) {
+		return repositorioModelo.save(entity);
+	}
+	
 	public void delete(Modelo entity) {
 		repositorioModelo.delete(entity);
 	}
 
-	public Modelo update(Modelo entity) {
-		return repositorioModelo.save(entity);
-	}
-
 	public void deleteById(long id) {
 		repositorioModelo.deleteById(id);
-	}
-
-	public List<Modelo> findAll() {
-		return repositorioModelo.findAll();
 	}
 
 	public Modelo findById(long id) {
@@ -75,4 +71,9 @@ public class CadastroModelo {
 		return repositorioModelo.findByAnoFabricado(anoFabricado);
 	}
 
+	public List<Modelo> findAll() {
+		return repositorioModelo.findAll();
+	}
+
+	
 }

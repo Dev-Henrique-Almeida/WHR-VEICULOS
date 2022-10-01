@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiForaRangeException;
 import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -74,10 +75,20 @@ public abstract class Veiculo implements IVeiculo {
 	@Override
 	public boolean checarChassi(String chassi) throws ChassiForaRangeException {
 		if (chassi.length() < 14 || chassi.length() > 14) {
-			return true;
-		} else {
 			throw new ChassiForaRangeException("Erro ao cadastrar, chassi inválido!");
+		} else {
+			return false;
 		}
+	}
+	
+	@Override
+	public boolean checarValorCompra(float valorCompra, float valorVenda) throws VendaSemLucroException {
+		valorCompra = this.valorCompraVeiculo;
+		valorVenda = this.valorVenda;
+		if(valorCompra < valorVenda) {
+			throw new VendaSemLucroException();			
+		}
+		return false;
 	}
 
 	public long getId() {
