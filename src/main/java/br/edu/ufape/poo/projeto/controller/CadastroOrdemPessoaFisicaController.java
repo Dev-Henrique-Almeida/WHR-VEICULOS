@@ -71,7 +71,13 @@ public class CadastroOrdemPessoaFisicaController {
 		c.deleteByIdOrdemFisica(id);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-
+	
+	@DeleteMapping("cancelarVendaFisica/{id}")
+	public ResponseEntity<HttpStatus> cancelarVendaFisica(@PathVariable("id") long id) {
+		c.cancelarByIdOrdemFisica(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+	}
+	
 	@GetMapping("idOrdemPessoaFisica/{id}")
 	public ResponseEntity<OrdemVendaPessoaFisica> findById(@PathVariable("id") long id) {
 		if (c.findByIdOrdemFisica(id) != null) {

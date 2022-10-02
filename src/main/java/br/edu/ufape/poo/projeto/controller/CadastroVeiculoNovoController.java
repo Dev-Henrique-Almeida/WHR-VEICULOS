@@ -59,6 +59,8 @@ public class CadastroVeiculoNovoController {
 		c.delete(veiculo);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
+	
+		
 
 	@GetMapping("valorVeiculoNovo/{valorVenda}")
 	public ResponseEntity<List<VeiculoNovo>> findByValorVendaVeiculoNovo(@PathVariable("valorVenda") float valorVenda) {

@@ -54,7 +54,13 @@ public class CadastroOrdemPessoaJuridicaController {
 		return new ResponseEntity<OrdemVendaPessoaJuridica>(or, HttpStatus.CREATED);
 
 	}
-
+	
+	@DeleteMapping("cancelarVendaJuridica/{id}")
+	public ResponseEntity<HttpStatus> cancelarVendaFisica(@PathVariable("id") long id) {
+		c.cancelarByIdOrdemJurica(id);
+		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+	}
+	
 	@PostMapping("ordemPessoaJuridica")
 	public ResponseEntity<HttpStatus> createPreVenda(@RequestBody PreVenda entity)
 			throws ValorNegativoException, ValorNuloExpection, DataNulaException, ValorForaRangeException,

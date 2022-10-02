@@ -222,6 +222,23 @@ public class Concessionaria {
 	public void deleteByIdOrdemFisica(long id) {
 		cadastroOrdemPessoaFisica.deleteById(id);
 	}
+	
+	public void cancelarByIdOrdemFisica(long id) {
+		OrdemVendaPessoaFisica ordem = findByIdOrdemFisica(id);
+		if(ordem != null) {
+			Veiculo v = ordem.getVeiculo();
+			v.setVendido(false);
+			if(ordem.getNovo() == true) {
+				VeiculoNovo v_aux = (VeiculoNovo) v;
+				update(v_aux);
+			}else {
+				VeiculoUsado v_aux = (VeiculoUsado) v;
+				update(v_aux);
+			}
+			
+		}
+		cadastroOrdemPessoaFisica.deleteById(id);
+	}
 
 	public OrdemVendaPessoaFisica update(OrdemVendaPessoaFisica entity) {
 		return cadastroOrdemPessoaFisica.update(entity);
@@ -308,6 +325,23 @@ public class Concessionaria {
 			ValorForaRangeException, DataForaRangeException, VendaSemLucroException, DataNulaException {
 		return cadastroOrdemPessoaJuridica.save(entity);
 
+	}
+	
+	public void cancelarByIdOrdemJurica(long id) {
+		OrdemVendaPessoaJuridica ordem = findByIdOrdemJuridico(id);
+		if(ordem != null) {
+			Veiculo v = ordem.getVeiculo();
+			v.setVendido(false);
+			if(ordem.getNovo() == true) {
+				VeiculoNovo v_aux = (VeiculoNovo) v;
+				update(v_aux);
+			}else {
+				VeiculoUsado v_aux = (VeiculoUsado) v;
+				update(v_aux);
+			}
+			
+		}
+		cadastroOrdemPessoaJuridica.deleteById(id);
 	}
 
 	public void delete(OrdemVendaPessoaJuridica entity) {

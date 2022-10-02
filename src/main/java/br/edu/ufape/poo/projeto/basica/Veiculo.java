@@ -85,7 +85,7 @@ public abstract class Veiculo implements IVeiculo {
 	public boolean checarValorCompra(float valorCompra, float valorVenda) throws VendaSemLucroException {
 		valorCompra = this.valorCompraVeiculo;
 		valorVenda = this.valorVenda;
-		if(valorCompra < valorVenda) {
+		if(valorCompra > valorVenda) {
 			throw new VendaSemLucroException();			
 		}
 		return false;
