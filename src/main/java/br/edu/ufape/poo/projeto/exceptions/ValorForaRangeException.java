@@ -1,4 +1,4 @@
-package br.edu.ufape.poo.projeto.cadastro.exceptions;
+package br.edu.ufape.poo.projeto.exceptions;
 
 public class ValorForaRangeException extends Exception {
 

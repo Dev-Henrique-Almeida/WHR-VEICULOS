@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaJuridica;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioOrdemPessoaJuridica;
 
 @Service

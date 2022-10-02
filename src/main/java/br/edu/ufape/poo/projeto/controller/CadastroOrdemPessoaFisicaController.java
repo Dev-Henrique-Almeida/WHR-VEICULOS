@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.OrdemVendaPessoaFisica;
 import br.edu.ufape.poo.projeto.basica.PreVenda;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiNaoEncontradoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteNaoEncontradoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioNaoEncontradoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VeiculoVendidoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
+import br.edu.ufape.poo.projeto.exceptions.ChassiNaoEncontradoException;
+import br.edu.ufape.poo.projeto.exceptions.ClienteNaoEncontradoException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.exceptions.FuncionarioNaoEncontradoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.VeiculoVendidoException;
+import br.edu.ufape.poo.projeto.exceptions.VendaSemLucroException;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")

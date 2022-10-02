@@ -6,9 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.NomeUnicoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 class TestModelo {

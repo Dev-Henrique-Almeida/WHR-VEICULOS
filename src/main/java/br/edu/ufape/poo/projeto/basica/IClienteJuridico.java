@@ -1,6 +1,6 @@
 package br.edu.ufape.poo.projeto.basica;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.CnpjForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.CnpjForaRangeException;
 
 public interface IClienteJuridico {
 	

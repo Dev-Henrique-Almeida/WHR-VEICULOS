@@ -12,8 +12,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

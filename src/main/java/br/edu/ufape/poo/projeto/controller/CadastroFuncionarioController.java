@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ufape.poo.projeto.basica.Funcionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.fachada.Concessionaria;
 
 @CrossOrigin(origins = "*")

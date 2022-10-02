@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufape.poo.projeto.basica.VeiculoNovo;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioVeiculoNovo;
 
 @Service

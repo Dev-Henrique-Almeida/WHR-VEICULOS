@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.CnpjForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.CnpjForaRangeException;
 
 @Entity
 public class ClienteJuridico implements IClienteJuridico {

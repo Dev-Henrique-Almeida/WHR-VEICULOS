@@ -13,8 +13,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.TelefoneForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.TelefoneForaRangeException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

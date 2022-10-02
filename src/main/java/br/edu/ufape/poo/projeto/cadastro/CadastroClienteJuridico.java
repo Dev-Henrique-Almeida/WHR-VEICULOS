@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.poo.projeto.basica.ClienteJuridico;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteJuridicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.ClienteJuridicoExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 import br.edu.ufape.poo.projeto.repositorio.RepositorioClienteJuridico;
 
 @Service

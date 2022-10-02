@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
 
 @Entity
 public class Funcionario extends Pessoa implements IFuncionario {

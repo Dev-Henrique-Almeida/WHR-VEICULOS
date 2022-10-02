@@ -18,17 +18,17 @@ import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroOrdemPessoaFisica;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoNovo;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VeiculoVendidoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
+import br.edu.ufape.poo.projeto.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ClienteFisicoExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.NomeUnicoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.VeiculoVendidoException;
+import br.edu.ufape.poo.projeto.exceptions.VendaSemLucroException;
 
 @SpringBootTest
 public class TestOrdemVendaPessoaFisica {

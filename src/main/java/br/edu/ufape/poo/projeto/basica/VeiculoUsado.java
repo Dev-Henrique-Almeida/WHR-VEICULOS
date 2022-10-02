@@ -2,7 +2,7 @@ package br.edu.ufape.poo.projeto.basica;
 
 import javax.persistence.Entity;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.PlacaForaRangeException;
 
 @Entity
 public class VeiculoUsado extends Veiculo implements IVeiculoUsado {

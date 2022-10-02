@@ -9,11 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import br.edu.ufape.poo.projeto.basica.Endereco;
 import br.edu.ufape.poo.projeto.basica.Funcionario;
 import br.edu.ufape.poo.projeto.cadastro.CadastroFuncionario;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ClienteFisicoExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataNulaException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.FuncionarioExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.ClienteFisicoExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataNulaException;
+import br.edu.ufape.poo.projeto.exceptions.FuncionarioExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 public class TestFuncionario {

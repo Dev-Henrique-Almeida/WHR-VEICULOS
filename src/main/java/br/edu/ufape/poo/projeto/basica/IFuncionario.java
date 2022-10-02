@@ -1,6 +1,6 @@
 package br.edu.ufape.poo.projeto.basica;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
 
 public interface IFuncionario {
 	

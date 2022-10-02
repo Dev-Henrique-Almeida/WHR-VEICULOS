@@ -1,6 +1,6 @@
 package br.edu.ufape.poo.projeto.basica;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.CpfForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.CpfForaRangeException;
 
 public interface IClienteFisico {
 	

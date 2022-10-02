@@ -9,9 +9,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.VendaSemLucroException;
+import br.edu.ufape.poo.projeto.exceptions.ChassiForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.VendaSemLucroException;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -2,8 +2,8 @@ package br.edu.ufape.poo.projeto.basica;
 
 import java.util.Date;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.DataForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.TelefoneForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.DataForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.TelefoneForaRangeException;
 
 public interface IPessoa {
 	

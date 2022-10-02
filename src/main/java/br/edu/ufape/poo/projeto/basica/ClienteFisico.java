@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.CpfForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.CpfForaRangeException;
 
 @Entity
 public class ClienteFisico extends Pessoa implements IClienteFisico {

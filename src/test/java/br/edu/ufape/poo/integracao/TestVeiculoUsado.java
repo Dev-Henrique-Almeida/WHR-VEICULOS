@@ -8,12 +8,12 @@ import br.edu.ufape.poo.projeto.basica.Modelo;
 import br.edu.ufape.poo.projeto.basica.VeiculoUsado;
 import br.edu.ufape.poo.projeto.cadastro.CadastroModelo;
 import br.edu.ufape.poo.projeto.cadastro.CadastroVeiculoUsado;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ChassiExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.NomeUnicoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.PlacaExistenteException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNuloExpection;
+import br.edu.ufape.poo.projeto.exceptions.ChassiExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.NomeUnicoException;
+import br.edu.ufape.poo.projeto.exceptions.PlacaExistenteException;
+import br.edu.ufape.poo.projeto.exceptions.ValorForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNuloExpection;
 
 @SpringBootTest
 class TestVeiculoUsado {

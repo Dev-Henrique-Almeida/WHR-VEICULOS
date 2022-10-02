@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.edu.ufape.poo.projeto.cadastro.exceptions.CepForaRangeException;
-import br.edu.ufape.poo.projeto.cadastro.exceptions.ValorNegativoException;
+import br.edu.ufape.poo.projeto.exceptions.CepForaRangeException;
+import br.edu.ufape.poo.projeto.exceptions.ValorNegativoException;
 
 @Entity
 public class Endereco implements IEndereco {
