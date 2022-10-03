@@ -52,8 +52,8 @@ public class TestClienteFisico {
 		
 		try {
 			
-			ClienteFisico cf = new ClienteFisico("26194239965", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),
-					"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864));
+			ClienteFisico cf = new ClienteFisico("26194239965", "Rodolfo Alberto Costa", new Date(2000 - 1900, 0, 1),
+					"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cachoeirinha", "PE", 864));
 			ccf.save(cf);
 		} catch (DataNulaException | ValorNuloExpection e) {
 			System.out.println(e.getMessage());

@@ -44,6 +44,15 @@ public abstract class Veiculo implements IVeiculo {
 		this.modelo = modelo;
 
 	}
+	
+	@Override
+	public boolean checarValorCompra(float valorCompra, float valorVenda) throws VendaSemLucroException {
+
+		if(this.valorCompraVeiculo > this.valorVenda) {
+			throw new VendaSemLucroException();			
+		}
+		return false;
+	}
 
 	@Override
 	public boolean compraNegativa(float valorCompra) throws ValorNegativoException {
@@ -81,16 +90,6 @@ public abstract class Veiculo implements IVeiculo {
 		}
 	}
 	
-	@Override
-	public boolean checarValorCompra(float valorCompra, float valorVenda) throws VendaSemLucroException {
-		valorCompra = this.valorCompraVeiculo;
-		valorVenda = this.valorVenda;
-		if(valorCompra > valorVenda) {
-			throw new VendaSemLucroException();			
-		}
-		return false;
-	}
-
 	public long getId() {
 		return id;
 	}

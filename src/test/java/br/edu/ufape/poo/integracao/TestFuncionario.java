@@ -57,7 +57,7 @@ public class TestFuncionario {
 		try {
 			
 			Funcionario f = new Funcionario("13344678725", "Henrique Almeida", new Date(2000 - 1900, 0, 1),
-					"(81) 94002-4338", new Endereco("55380000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
+					"(81) 94002-4338", new Endereco("55380000", "Rua de Souza", "Arcoverde", "PE", 61),
 					4000, "Gerente");
 			cf.save(f);
 		} catch (DataNulaException | ValorNuloExpection e) {
@@ -66,7 +66,7 @@ public class TestFuncionario {
 		
 		try {
 			Funcionario f = new Funcionario("13344678723", "William Batista", null,
-					"(81) 94002-4321", new Endereco("55380000", "Rua Pombos", "Caruaru", "PE", 61),
+					"(81) 94002-4321", new Endereco("55380000", "Vila Pombos", "Caruaru", "PE", 61),
 					4000, "Gerente");
 			cf.save(f);
 		} catch (DataNulaException | ValorNuloExpection e) {

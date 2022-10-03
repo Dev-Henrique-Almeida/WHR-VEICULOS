@@ -1,7 +1,6 @@
 package br.edu.ufape.poo.unitario;
 
 import java.util.Date;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,30 +28,6 @@ public class TestClienteFisico {
 		ClienteFisico cf = new ClienteFisico("26194239964", "Danilo Nelson Nunes", new Date(2000 - 1900, 0, 1),
 				"(45) 92906-6513", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864));
 		ccf.save(cf);
-
-	}
-
-	@Test
-	void findCpfByClienteFisico() {
-		ClienteFisico cliente = ccf.findByCpf("26194239964");
-		System.out.println("CPF = " + cliente.toString());
-	}
-
-	@Test
-	void findNomeByClienteFisico() {
-		ClienteFisico clientes = ccf.findByNome("Danilo Nelson Nunes");
-		System.out.println("NOME = " + clientes.toString());
-
-	}
-
-	@Test
-	void deleteCpfByClienteFisico() {
-
-		List<ClienteFisico> clientes = ccf.findAll();
-		for (ClienteFisico v : clientes) {
-			System.out.println("EXISTE = " + v.toString());
-		}
-		// ccf.deleteByCpf("123");
 
 	}
 

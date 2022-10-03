@@ -1,7 +1,6 @@
 package br.edu.ufape.poo.unitario;
 
 import java.util.Date;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,31 +30,6 @@ public class TestFuncionario {
 				"(81) 94002-4338", new Endereco("55380000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
 				4000, "Gerente");
 		cf.save(f);
-
-	}
-
-	@Test
-	void findNomeByFuncionario() {
-		Funcionario funcionarios = cf.findByNome("Robert Freire de Melo");
-		System.out.println("NOME = " + funcionarios.toString());
-
-	}
-
-	@Test
-	void findCargoByFuncionario() {
-		Funcionario funcionarios = cf.findByCargo("Gerente");
-		System.out.println("CARGO = " + funcionarios.toString());
-
-	}
-
-	@Test
-	void deleteCpfByFuncionario() {
-
-		List<Funcionario> funcionarios = cf.findAll();
-		for (Funcionario f : funcionarios) {
-			System.out.println("EXISTE = " + f.toString());
-		}
-		// cf.deleteByCpf("123");
 
 	}
 

@@ -90,7 +90,7 @@ class TestApresentacao {
 		try {
 			ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",
 					"(11) 27965-9032", "15373024000163",
-					new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864), "Loja de Veiculos");
+					new Endereco("85819190", "Vila Engenheiro", "Cascavel", "PR", 864), "Loja de Veiculos");
 			ccj.save(cj);
 		} catch (ClienteJuridicoExistenteException e) {
 			System.out.println(e.getMessage());
@@ -107,7 +107,7 @@ class TestApresentacao {
 
 		try {
 			ClienteJuridico cj3 = new ClienteJuridico("Coca-Cola Bebidas Ltda", "Coca-Cola", "(11) 99278-7308",
-					"90605347000150", new Endereco("74630310", "Rua L 14", "Goiânia", "GO", 350),
+					"90605347000150", new Endereco("74630310", "Rua Fenando Costa", "Goiânia", "GO", 350),
 					"Distribuidora de Bebidas");
 			ccj.save(cj3);
 		} catch (ClienteJuridicoExistenteException e) {
@@ -127,12 +127,12 @@ class TestApresentacao {
 		Modelo mo = new Modelo("Hyundai ", "HB20", "1.6", "Azul Escuro", 2010, 78, 5, 110, "Manual", "Gasolina");
 		cm.save(mo);
 		Funcionario f = new Funcionario("13344678701", "Robert Freire de Melo", new Date(2000 - 1900, 0, 1),
-				"(81) 94002-4338", new Endereco("55380000", "Rua Genuíno Cândido de Souza", "Arcoverde", "PE", 61),
+				"(81) 94002-4338", new Endereco("55380000", "Cândido de Souza", "Arcoverde", "PE", 61),
 				4000, "Gerente");
 		cf.save(f);
 
 		ClienteFisico cff = new ClienteFisico("20332130230", "Roberta Carla Moraes", new Date(2000 - 1900, 0, 1),
-				"(62) 92892-9164", new Endereco("74630310", "Rua L 14", "Goiânia", "GO", 350));
+				"(62) 92892-9164", new Endereco("74630310", "Rua Almeida", "Goiânia", "GO", 350));
 		ccf.save(cff);
 
 		VeiculoNovo vn2 = new VeiculoNovo(12020, 1500200, true, "8AHS3cyA33f5N6", "Sim", mo);
@@ -148,7 +148,7 @@ class TestApresentacao {
 		cm.save(mo1);
 
 		Funcionario f1 = new Funcionario("13344678731", "Henrique de Almeida Silva", new Date(), "(81) 94002-4338",
-				new Endereco("55380000", "Rua Zezo Principe dos Teclados", "Cachoeirinha", "PE", 61), 4000, "Gerente");
+				new Endereco("55380000", "Avenida Brasil", "Cachoeirinha", "PE", 61), 4000, "Gerente");
 		cf.save(f1);
 
 		ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",

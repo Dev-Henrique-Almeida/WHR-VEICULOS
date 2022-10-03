@@ -24,7 +24,7 @@ public class TestClienteJuridico {
 		
 		try {
 			ClienteJuridico cj = new ClienteJuridico("WHR Veiculos carros usados e novos Ltda", "WHR Veiculos",
-					"(11) 27965-9032", "15373024000163", new Endereco("85819190", "Rua Engenharia", "Cascavel", "PR", 864),
+					"(11) 27965-9032", "15373024000163", new Endereco("85819190", "Rua Boa Vista", "Caruaru", "PR", 864),
 					"Loja de Veiculos");
 			ccj.save(cj);
 		} catch (ClienteJuridicoExistenteException e) {

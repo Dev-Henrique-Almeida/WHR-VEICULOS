@@ -1,7 +1,6 @@
 package br.edu.ufape.poo.unitario;
 
 import java.util.Date;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,34 +68,6 @@ public class TestOrdemVendaPessoaJuridica {
 		OrdemVendaPessoaJuridica oj = new OrdemVendaPessoaJuridica(15000, vn2, true, new Date(), "Débito", false, false,
 				f, cf);
 		coj.save(oj);
-
-	}
-
-	@Test
-	void findCodigoVendaByOrdemJuridica() {
-
-		OrdemVendaPessoaJuridica pessoas = coj.findById(1);
-		System.out.println("CODIGO VENDA = " + pessoas.toString());
-
-	}
-
-	@Test
-	void findPagoByOrdemJuridica() {
-
-		List<OrdemVendaPessoaJuridica> pessoas = coj.findByPago(true);
-		for (OrdemVendaPessoaJuridica v : pessoas) {
-			System.out.println("PAGO = " + v.toString());
-		}
-	}
-
-	@Test
-	void deleteCodVendaByOrdemJuridica() {
-
-		List<OrdemVendaPessoaJuridica> ordens = coj.findAll();
-		for (OrdemVendaPessoaJuridica v : ordens) {
-			System.out.println("EXISTE = " + v.toString());
-		}
-		// coj.deleteById(1);
 
 	}
 

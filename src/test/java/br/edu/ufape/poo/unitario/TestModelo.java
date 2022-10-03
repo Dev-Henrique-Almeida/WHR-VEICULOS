@@ -1,7 +1,5 @@
 package br.edu.ufape.poo.unitario;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,26 +20,11 @@ public class TestModelo {
 	@Test
 	void saveVeiculos()
 			throws ValorNuloExpection, ValorForaRangeException, ChassiExistenteException, NomeUnicoException {
-		Modelo mo1 = new Modelo("BMW", "M3", "V8", "Branco", 2022, 600, 2, 500, "Automático", "Gasolina");
+		Modelo mo1 = new Modelo("BMW", "X2", "V8", "Laranja", 2020, 600, 2, 500, "Automático", "Gasolina");
 		cm.save(mo1);
+		Modelo mo2 = new Modelo("Porshe", "Taycan", "V6", "Cinza", 2021, 600, 2, 500, "Automático", "Gasolina");
+		cm.save(mo2);
 
-	}
-
-	@Test
-	void findNomeModeloByModelo() {
-
-		List<Modelo> modelos = cm.findByNomeModelo("M3");
-		for (Modelo v : modelos) {
-			System.out.println("MODELO = " + v.toString());
-		}
-	}
-
-	@Test
-	void findAnobyModelo() {
-		List<Modelo> modelos = cm.findByAnoFabricado(2022);
-		for (Modelo v : modelos) {
-			System.out.println("ANO = " + v.toString());
-		}
 	}
 
 }

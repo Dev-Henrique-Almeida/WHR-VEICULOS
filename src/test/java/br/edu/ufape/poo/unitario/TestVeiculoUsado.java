@@ -1,7 +1,5 @@
 package br.edu.ufape.poo.unitario;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,25 +41,4 @@ class TestVeiculoUsado {
 		cvu.save(vn3);
 
 	}
-
-	@Test
-	void findValorByVeiculoUsado() {
-
-		List<VeiculoUsado> veiculos = cvu.findByValorVenda(20000);
-		for (VeiculoUsado v : veiculos) {
-			System.out.println("VALOR VENDA = " + v.toString());
-		}
-
-	}
-
-	@Test
-	void findVendidoByVeiculoUsado() {
-
-		List<VeiculoUsado> veiculos = cvu.findAllByVendido();
-		for (VeiculoUsado v : veiculos) {
-			System.out.println("VENDIDO = " + v.toString());
-		}
-
-	}
-
 }

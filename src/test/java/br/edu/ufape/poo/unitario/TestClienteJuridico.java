@@ -1,7 +1,5 @@
 package br.edu.ufape.poo.unitario;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,28 +24,6 @@ public class TestClienteJuridico {
 				"Loja de Veiculos");
 		ccj.save(cj);
 
-	}
-
-	@Test
-	void findCnpjByPessoaJuridica() {
-		ClienteJuridico clientes = ccj.findByCnpj("15373024000163");
-		System.out.println("CNPJ = " + clientes.toString());
-
-	}
-
-	@Test
-	void findNomeFantasiaByPessoaJuridica() {
-		ClienteJuridico clientes = ccj.findByNomeFantasia("WHR Veiculos");
-		System.out.println("NOME FANTASIA = " + clientes.toString());
-	}
-
-	@Test
-	void deleteCnpjByPessoaJuridica() {
-		List<ClienteJuridico> clientes = ccj.findAll();
-		for (ClienteJuridico j : clientes) {
-			System.out.println("EXISTE = " + j.toString());
-		}
-		// ccj.deleteByCnpj("120");
 	}
 
 }
