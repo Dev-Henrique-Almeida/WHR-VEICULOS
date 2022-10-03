@@ -7,6 +7,9 @@ class CadastroOrdemVendaPessoaJuridicaService{
     create(data) {
         return http.post("/ordemPessoaJuridica", data);
     }
+    cancelarVenda(id) {
+        return http.delete(`/cancelarVendaJuridica/${id}`);
+    }
     deleteById(data) {
         return http.delete("/deleteOrdemJuridico", data);
     }

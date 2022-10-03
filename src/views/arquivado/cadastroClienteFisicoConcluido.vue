@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col dark>
-        <v-img :src="'https://www.gov.br/cgu/pt-br/100-dias/statusconcluido.png'" class="my-3" contain height="100" />
+        <v-img :src="require('@/assets/statusconcluido.png')" class="my-3" contain height="100" />
       </v-col>
       
     </v-row>

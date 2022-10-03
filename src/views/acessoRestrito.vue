@@ -27,8 +27,8 @@
                 </v-row>
                 <v-row>
                     <v-col cols="4">
-                        <v-card height="100" @click="home" class="d-flex align-center" color="blue-grey darken-4">
-                            <div class="text-h6 flex-grow-1 text-center"> Cancelar Vendas</div>
+                        <v-card height="100" @click="gerenciarVendas" class="d-flex align-center" color="blue-grey darken-4">
+                            <div class="text-h6 flex-grow-1 text-center"> Gerenciar Vendas</div>
                         </v-card>
                     </v-col>
                 </v-row>
@@ -52,7 +52,10 @@ export default {
         updatefuncionario() {
             this.$router.push({ name: 'updatefuncionario' });
         },
+        gerenciarVendas() {
+            this.$router.push({ name: 'gerenciarVendas' });
+        },
     }
-
+    
 }
 </script>

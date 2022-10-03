@@ -1,5 +1,5 @@
 <template>
-    <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
+    <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1" :search="search">
         <template v-slot:top>
             <v-toolbar flat>
                 <v-toolbar-title>Atualizar Veiculo Novo</v-toolbar-title>
@@ -7,9 +7,15 @@
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on }">
-                        <v-btn color="primary" dark v-on="on" @click="cadastrarVeiculo">
+                        <v-btn color="black" dark v-on="on" @click="cadastrarVeiculo">
                             Cadastrar Novo Veiculo
                         </v-btn>
+                        <v-card-title>
+                            <v-spacer></v-spacer>
+                            <v-text-field v-model="search" append-icon="mdi-magnify" label="Buscar" single-line
+                                hide-details>
+                            </v-text-field>
+                        </v-card-title>
                     </template>
                     <v-card>
                         <v-card-title>
@@ -93,6 +99,7 @@ export default {
     data: () => ({
         dialog: false,
         dialogDelete: false,
+        search: '',
         headers: [
             { text: 'ID', value: 'id' },
             { text: 'Marca', value: 'modelo.nomeMarca' },
@@ -170,13 +177,13 @@ export default {
         deleteItemConfirm() {
 
             CadastroVeiculoNovoService.deleteById(this.desserts[this.editedIndex].id).then(
-                    response => {
-                        alert("Veículo Novo Removido com Sucesso!"),
+                response => {
+                    alert("Veículo Novo Removido com Sucesso!"),
                         console.log(response.status);
-                    }).catch(e => {
-                        console.log(e.response.data.message);
-                        alert(e.response.data.message);
-                    });
+                }).catch(e => {
+                    console.log(e.response.data.message);
+                    alert(e.response.data.message);
+                });
             this.desserts.splice(this.editedIndex, 1)
             this.closeDelete()
 
@@ -212,7 +219,7 @@ export default {
                 CadastroVeiculoNovoService.update(this.desserts[this.editedIndex].id, this.editedItem).then(
                     response => {
                         alert("Veículo Novo Atualizado com Sucesso!"),
-                        console.log(response.status);
+                            console.log(response.status);
                     }).catch(e => {
                         console.log(e.response.data.message);
                         alert(e.response.data.message);

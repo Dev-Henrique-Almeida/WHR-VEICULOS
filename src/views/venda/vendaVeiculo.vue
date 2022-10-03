@@ -300,11 +300,14 @@ export default {
             }
 
         },
+        vendaConcluida(){
+            this.$router.push({ name: 'VendaConcluida' });
+        },
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaFisicaService.create(this.preVenda).then(
                 response => {
-                    alert("Veiculo Vendido com Sucesso!"),
+                    this.vendaConcluida();
                     console.log(response.status);
                 }).catch(e => {
                     console.log(e.response.data.message);

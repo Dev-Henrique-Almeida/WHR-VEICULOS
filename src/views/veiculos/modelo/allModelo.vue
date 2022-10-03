@@ -6,8 +6,8 @@
       <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
       </v-text-field>
     </v-card-title>
-    <v-data-table v-model="selected" :headers="headers" :items="desserts" :search="search" :single-select="singleSelect"
-      item-key="id" show-select class="elevation-1">
+    <v-data-table :headers="headers" :items="desserts" :search="search" 
+      item-key="id"  class="elevation-1">
 
 
     </v-data-table>
@@ -33,7 +33,6 @@ export default {
         { text: 'Combustível', value: 'combustivel' },
         { text: 'Cor', value: 'cor' },
         { text: 'Quantidade Passageiros', value: 'quantidadePassageiros' },
-        { text: 'Cilindradas', value: 'cilindradas' },
         { text: 'Potencia', value: 'potencia' },
         { text: 'Câmbio', value: 'cambio' },
       ],

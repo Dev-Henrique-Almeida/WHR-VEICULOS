@@ -300,16 +300,20 @@ export default {
                 }
             }
         },
+        
         finalizarVenda() {
             console.log(this.preVenda)
             CadastroOrdemVendaPessoaJuridicaService.create(this.preVenda).then(
                 response => {
-                    alert("Veiculo Vendido com Sucesso!"),
+                    this.vendaConcluida();
                     console.log(response.status);
                 }).catch(e => {
                     console.log(e.response.data.message);
                     alert(e.response.data.message);
                 });
+        },
+        vendaConcluida() {
+            this.$router.push({ name: 'VendaConcluidaJuridica' });
         },
         volta() {
             this.tela = 1;

@@ -43,7 +43,7 @@
         <v-row>
           <v-col cols="6" sm="4">
             <v-img
-              src="https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/index-subcontent/72-images/cw-01.jpg"
+              src="@/assets/carroHome1.webp"
               height="200">
             </v-img>
             <v-card-title>Onix Plus, o carro mais econômico do Brasil</v-card-title>
@@ -61,7 +61,7 @@
 
           <v-col cols="6" sm="4">
             <v-img
-              src="https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/index-subcontent/72-images/cw-02.jpg"
+              src="@/assets/carroHome2.webp"
               height="200">
             </v-img>
             <v-card-title>S10 Cabine Dupla, a picape feita pra quem faz</v-card-title>

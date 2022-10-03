@@ -15,9 +15,8 @@
 
         <v-col cols="12" md="4">
           <v-text-field v-model="modelo.motor" :rules="motorRules" label="Motor" required></v-text-field>
-          <v-text-field v-model="modelo.cilindradas" v-mask="'####'" :rules="potenciaRules" type="number"
-            label="Cilindradas" required>
-          </v-text-field>
+          <v-select :items="combustiveis" v-model="modelo.combustivel" :rules="campoRules" label="Combustível" required>
+          </v-select>
         </v-col>
 
         <v-col cols="12" md="4">
@@ -36,8 +35,7 @@
 
         <v-col cols="12" md="4">
           <v-select :items="cambios" v-model="modelo.cambio" :rules="campoRules" label="Câmbio" required></v-select>
-          <v-select :items="combustiveis" v-model="modelo.combustivel" :rules="campoRules" label="Combustível" required>
-          </v-select>
+          
         </v-col>
 
 
@@ -107,7 +105,7 @@ export default {
       anoFabricado: '',
       potencia: '',
       quantidadePassageiros: '',
-      cilindradas: '',
+      cilindradas: 1,
       cambio: '',
       combustivel: '',
 

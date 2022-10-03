@@ -110,13 +110,14 @@ export default {
       'Rondonia', 'Roraima', 'Santa Catarina', 'Sergipe', 'São Paulo', 'Tocantins']
   }),
   methods: {
+    irParaConcluido() {
+      this.$router.push({ name: 'cadastroClienteFisicoFinalizado' });
+    },
     cadastrar() {
-
       console.log(this.pessoa)
       CadastroClienteFisicoService.create(this.pessoa).then(response => {
-        alert("Cliente Cadastrado com Sucesso!"),
-        console.log(response.status),
-        this.continuar();
+        alert("Cadastro de cliente concluido com sucesso!"),
+        console.log(response.status);
       }).catch(e => {
         console.log(e.response.data.message);
         alert(e.response.data.message)

@@ -21,6 +21,10 @@ import acessoRestrito from '../views/acessoRestrito.vue'
 import allVenda from '../views/venda/allVenda.vue'
 import allVendaJuridica from '../views/venda/allVendaJuridica.vue'
 import cadastroFinalizado from '../views/clientes/cadastroFinalizado.vue'
+import gerenciarVendas from '../views/venda/gerenciarVendas.vue'
+import cancelarVendaFisica from '../views/venda/cancelarVendaFisica.vue'
+import cancelarVendaJuridica from '../views/venda/cancelarVendaJuridica.vue'
+import VendaConcluidaJuridica from '../views/venda/VendaConcluidaJuridica.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +39,26 @@ const routes = [
     path: '/vendaVeiculo',
     name: 'vendaVeiculo',
     component: vendaVeiculo
+  },
+  {
+    path: '/VendaConcluidaJuridica',
+    name: 'VendaConcluidaJuridica',
+    component: VendaConcluidaJuridica
+  },
+  {
+    path: '/gerenciarVendas',
+    name: 'gerenciarVendas',
+    component: gerenciarVendas
+  },
+  {
+    path: '/cancelarVendaJuridica',
+    name: 'cancelarVendaJuridica',
+    component: cancelarVendaJuridica
+  },
+  {
+    path: '/cancelarVendaFisica',
+    name: 'cancelarVendaFisica',
+    component: cancelarVendaFisica
   },
   {
     path: '/VendaVeiculoPessoaJuridica',

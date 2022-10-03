@@ -1,16 +1,12 @@
 <template>
   <v-app id="inspire">
     <v-img src="./assets/fundoPreto.jpg">
-
-
       <v-app-bar app color="black">
         <v-app-bar-nav-icon @click="drawer = !drawer" color="white"></v-app-bar-nav-icon>
         <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="175"
           src="./assets/logoWHR.png" width="175" @click="home" />
         <v-spacer></v-spacer>
-
         <v-btn color="black" dark @click="cliente"> Clientes</v-btn>
-        
         <v-btn color="black" dark @click="acessoRestrito"> Acesso Restrito
           <v-icon right dark>mdi-account-lock </v-icon>
         </v-btn>
@@ -82,19 +78,10 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list-group>
-
-              <v-list-item>
-                <v-list-item-icon>
-                  <v-icon>mdi-information</v-icon>
-                </v-list-item-icon>
-                <v-list-item-title @click="sobre">Sobre</v-list-item-title>
-              </v-list-item>
-
             </v-list>
           </v-card>
         </template>
       </v-navigation-drawer>
-
     </v-img>
   </v-app>
 </template>
@@ -109,7 +96,6 @@ export default {
       { title: 'Cadastrar Funcionarios', icon: 'mdi-account', to: '/cadastroFuncionario' },
       { title: 'Gerenciar Funcionários', icon: 'mdi-car', to: '/updateFuncionario' },
       { title: 'Todos os Funcionarios', icon: 'mdi-magnify', to: '/funcionarios' },
-      { title: 'Sobre', icon: 'mdi-information' },
     ],
     vendas: [
       { title: 'Venda Pessoa Fisica', icon: 'mdi-cart', to: '/vendaVeiculo' },

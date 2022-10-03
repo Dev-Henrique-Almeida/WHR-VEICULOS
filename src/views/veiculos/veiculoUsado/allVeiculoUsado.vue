@@ -7,7 +7,7 @@
       </v-text-field>
     </v-card-title>
     <v-data-table v-model="selected" :headers="headers" :items="desserts" :search="search" :single-select="singleSelect"
-      item-key="id" show-select class="elevation-1">
+      item-key="id"  class="elevation-1">
     </v-data-table>
   </v-card>
 </template>
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     loadAll() {
-      CadastroVeiculoUsadoService.getAll().then(
+      CadastroVeiculoUsadoService.findAllByVendidoVeiculoUsado().then(
         response => {
           this.desserts = response.data;
         }
