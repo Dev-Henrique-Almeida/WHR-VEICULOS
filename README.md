@@ -3,7 +3,7 @@
 ### Link do repositorio: https://github.com/WHR-PROJETO/WHR-VEICULOS.git
 
 ### Nosso repositório está dividido em 3 Branches:
-![Alt][https://drive.google.com/file/d/15y3QJXaUVspxosF7x9WdTXu-b6ykTJHi/view?usp=sharing)]
+![Alt](https://drive.google.com/file/d/15y3QJXaUVspxosF7x9WdTXu-b6ykTJHi/view?usp=sharing)
 ##
 
 A Branch “main” foi a branch inicial, que logo após muitas alterações deixamos de usar a mesma.
