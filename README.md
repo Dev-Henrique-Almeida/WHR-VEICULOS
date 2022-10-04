@@ -15,11 +15,11 @@ Já a branch master é onde está a nossa versão final do projeto (back-end).
 
 Como iniciar o projeto:
 
-1- Passo, faça o  download da branch master aguarde o carregamento de todas as dependências.
+**1- Passo**, faça o  download da branch master aguarde o carregamento de todas as dependências.
 
-2 - Passo - Baixe o front, e por meio do comando “npm install” será instalado todas as dependências necessárias.
+**2 - Passo**, Baixe o front, e por meio do comando “npm install” será instalado todas as dependências necessárias.
 
-3- Passo. Inicie o Back-end no arquivo intitulado “Whr1Application.java”.
+**3- Passo**, Inicie o Back-end no arquivo intitulado “Whr1Application.java”.
 ##
 ![Alt](https://lh3.googleusercontent.com/blTQ-qnvV8LnG5wDWZts3iQYHZwADSTlX4cOwzlQiLNgN49wBhMbzqran6l1VUPnNiEDoHprwQREuERNodoWrlQ9jIejECn6iqwlN7ixee8VE_tuQOFpTEcn0RAXdWS9fTG-JKzEKiOLBey_JByLkjV6XeHG04FB5wZj_KObHXeZBjhkZTWNUuXJgCCTlTItnngHeFC2rcnHxdMbqpNyEPoL_vG7s7Y66CtTsx42N6JVzMnwRVBeAFp996hswccpRFKGGmFvZC67SUHvKKUJfd0qELqEbkfTgQNVm5SNEEwXoEFC-kmaw3yLtNZENlxbUQfc93hPKw6GWR7t4p0JjgWNok5OB-u3TOJ9yeD7iaMSSBy5f0s6uwCciBQKag2s2ynKYNFi-SAAuMbpumvcZGPouVND9TqKjYP3kwxIHhHGaBa8ngKjxx5R-OXhoqZ4jzCzEiCp-YhJpyY9fjtC-DSpP1M2P1Fw-0w1hyMdRcJsftT9jAy7GonBgdvWBKUSop59coTDY0y5E-LiIe95XtqK0kYY2H3omEiSwa8stsyNn0HTfrf75kvnQX6zO5xgE5hHznN9xgkMkYwN1tPt3WRttIP8gWI8eNLOkONmMjxGg4yrIwR0qoM-uii354nCImBgCLtPGJ8slV_kiITuULdv2QbGG_TH3q0C3NtytXF0cg79Bw-n9flMKiu1qSKYcFjTzdv-KNQ2HjpuFr5I_ke7NI8FwBHLdRr5-7QIiKzNkgGi6UIkRrwKBvU0SCLXqstAEBTmWqJa5-4WulNgpdPG61Q-9vaj3qNKzcoPelP7VP2oQs6Sv8g0mfSXzoiY8M3lL-4JMbKuj6M4O8RP0r6H-qJP7KKuYSQ5ONbT443g14udepH9aKuT5kVp_U7N1CtleAQJvxH1onpOp_li7QOSrVWmFXtirY6LnY_1-6itmErrUpuvaY8wwUoa34Cv-4ak-7bdKOKMqBvBHZ7Boa-3gWf3dbmQVWU4D9DknA0Vn3vmdC65kbi1mBqDn726Jro9NZAXslxOBqvd44ZW=w416-h82-no?authuser=0)
 
