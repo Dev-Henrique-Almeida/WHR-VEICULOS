@@ -1,8 +1,8 @@
 # Instruções para acessar o projeto.
 
-## Link do repositorio: https://github.com/WHR-PROJETO/WHR-VEICULOS.git
+### Link do repositorio: https://github.com/WHR-PROJETO/WHR-VEICULOS.git
 
-## Nosso repositório está dividido em 3 Branches:
+### Nosso repositório está dividido em 3 Branches:
 
 
 ### A Branch “main” foi a branch inicial, que logo após muitas alterações deixamos de usar a mesma.
