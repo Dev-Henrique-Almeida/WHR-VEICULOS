@@ -4,8 +4,8 @@
 
 ### Nosso repositório está dividido em 3 Branches:
 
-
-
+#
+#
 
 A Branch “main” foi a branch inicial, que logo após muitas alterações deixamos de usar a mesma.
 
