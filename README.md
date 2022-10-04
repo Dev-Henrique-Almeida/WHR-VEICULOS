@@ -7,6 +7,7 @@
 ##
 
 A Branch “main” foi a branch inicial, que logo após muitas alterações deixamos de usar a mesma.
+>
 
 A Branch Front tem todo nosso front-end.
 Já a branch master é onde está a nossa versão final do projeto (back-end).
